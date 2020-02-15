@@ -28,6 +28,17 @@ label start:
 
     e "Once you add a story, pictures, and music, you can release it to the world!"
 
+    menu:
+        "ooption one":
+            "feiorei;wvji"
+            jump example
+        "option two":
+            "hey"
+    "we're done with the menu"
+
+label example:
+    "oh hey we're on something new"
+
     # This ends the game.
 
     return
