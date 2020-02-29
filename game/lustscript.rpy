@@ -4,8 +4,6 @@
 # name of the character.
 
 define e = Character("Eileen")
-define r = Character("Roommate")
-define m = Character("Me")
 
 
 # The game starts here.
@@ -24,15 +22,9 @@ label start:
 
     show eileen happy
 
-    # init all variables here. Add in character relationship stats as needed
-    $ sin = 0 #positive is good morality, negative is bad?
-    $ success = 0 #amount of quest points
-
     # These display lines of dialogue.
 
     e "You've created a new Ren'Py game."
-
-    e "Your current stats are %(sin)s"
 
     e "Once you add a story, pictures, and music, you can release it to the world!"
 
@@ -46,8 +38,6 @@ label start:
 
 label example:
     "oh hey we're on something new"
-
-    jump roommateintro
 
     # This ends the game.
 
