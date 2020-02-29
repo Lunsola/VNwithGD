@@ -4,6 +4,7 @@
 # name of the character.
 
 define e = Character("Eileen")
+define r = Character("Roommate")
 
 
 # The game starts here.
@@ -44,6 +45,8 @@ label start:
 
 label example:
     "oh hey we're on something new"
+
+    jump roommateintro
 
     # This ends the game.
 

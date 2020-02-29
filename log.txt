@@ -1,36 +1,36 @@
-Sat Feb 29 16:56:07 2020
+Sat Feb 29 18:29:01 2020
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
  
 
-Bootstrap to the start of init.init took 0.30s
-Early init took 0.01s
-Loader init took 0.11s
-Loading error handling took 0.09s
-Loading script took 0.62s
-Loading save slot metadata. took 0.03s
+Bootstrap to the start of init.init took 0.37s
+Early init took 0.03s
+Loader init took 0.27s
+Loading error handling took 0.20s
+Loading script took 1.38s
+Loading save slot metadata. took 0.10s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.35s
-Loading analysis data took 0.12s
+Running init code took 0.48s
+Loading analysis data took 0.15s
 Analyze and compile ATL took 0.01s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\Kimberly\\AppData\\Roaming/RenPy/backups\\CU_HEdoubleL':
-Dump and make backups. took 0.29s
+Dump and make backups. took 0.19s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.04s
+Initial gc. took 0.03s
 DPI scale factor: 1.000000
-Creating interface object took 0.22s
+Creating interface object took 0.21s
 Cleaning stores took 0.00s
-Init translation took 0.09s
-Build styles took 0.02s
+Init translation took 0.13s
+Build styles took 0.04s
 Load screen analysis took 0.00s
 Analyze screens took 0.06s
-Save screen analysis took 0.30s
-Prepare screens took 0.25s
+Save screen analysis took 0.29s
+Prepare screens took 0.29s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.27s
+Save bytecode. took 0.23s
 Running _start took 0.00s
 Performance test:
 Interface start took 0.07s
@@ -258,11 +258,18 @@ Texture testing:
 - 2048px textures work.
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
-Total time until interface ready: 4.57899999619s
+Total time until interface ready: 5.5039999485s
 - Target is 5 frames in 0.333333333333 seconds.
 - Frame drawn at 0.000000 seconds.
-- Frame drawn at 0.019667 seconds.
+- Frame drawn at 0.018667 seconds.
 - Frame drawn at 0.034667 seconds.
 - Frame drawn at 0.050667 seconds.
 - Frame drawn at 0.067667 seconds.
 - 0.067667 seconds to render 5 frames.
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.05s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
