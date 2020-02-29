@@ -2,13 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/gluttony.rpy", line 10: choice menuitem expects a non-empty block.
-    "Me too!": 
-               ^
+The label start is defined twice, at
+  File "game/lustscript.rpy", line 11 and
+  File "game/script.rpy", line 14.
 
-File "game/gluttony.rpy", line 18: choice menuitem expects a non-empty block.
-    "Yeah! Sounds fun, I love meeting new people.": 
-                                                    ^
+The label example is defined twice, at
+  File "game/lustscript.rpy", line 39 and
+  File "game/script.rpy", line 49.
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Sat Feb 29 18:27:22 2020
+Sat Feb 29 18:53:59 2020

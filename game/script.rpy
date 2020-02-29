@@ -5,6 +5,7 @@
 
 define e = Character("Eileen")
 define r = Character("Roommate")
+define j = Character("Josh")
 define m = Character("Me")
 
 
@@ -27,6 +28,7 @@ label start:
     # init all variables here. Add in character relationship stats as needed
     $ sin = 0 #positive is good morality, negative is bad?
     $ success = 0 #amount of quest points
+    $ josh_friendship = 0 #josh friendship points
 
     # These display lines of dialogue.
 
