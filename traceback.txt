@@ -1,0 +1,22 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 33, in script
+    e "Your current stats are %(sin) and %(success)"
+ValueError: unsupported format character 'a' (0x61) at index 30
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 33, in script
+    e "Your current stats are %(sin) and %(success)"
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 708, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\exports.py", line 1334, in say
+    what = what % tag_quoting_dict
+ValueError: unsupported format character 'a' (0x61) at index 30
+
+Windows-8-6.2.9200
+Ren'Py 7.3.5.606
+CU_HEdoubleL 1.0
+Sat Feb 29 16:55:23 2020
