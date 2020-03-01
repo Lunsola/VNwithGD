@@ -63,23 +63,10 @@ label social_media:
     "Quality"
     "Content"
 
-    e "You've created a new Ren'Py game."
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
 
 label prof_email:
     "Here lies potentially some interactive game play whose programming needs
     to be determined"
-    menu:
-        "ooption one":
-            "feiorei;wvji"
-            jump example
-        "option two":
-            "hey"
-    "we're done with the menu"
-
-label example:
-    "oh hey we're on something new"
 
     # This ends the game.
 
