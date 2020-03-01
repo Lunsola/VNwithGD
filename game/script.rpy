@@ -4,6 +4,9 @@
 # name of the character.
 
 define e = Character("Eileen")
+define r = Character("Roommate")
+define j = Character("Josh")
+define m = Character("Me")
 
 
 # The game starts here.
@@ -25,6 +28,7 @@ label start:
     # init all variables here. Add in character relationship stats as needed
     $ sin = 0 #positive is good morality, negative is bad?
     $ success = 0 #amount of quest points
+    $ josh_friendship = 0 #josh friendship points
 
     # These display lines of dialogue.
 
@@ -44,6 +48,8 @@ label start:
 
 label example:
     "oh hey we're on something new"
+
+    jump roommateintro
 
     # This ends the game.
 
