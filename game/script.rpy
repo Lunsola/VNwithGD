@@ -6,6 +6,7 @@
 define e = Character("Eileen")
 define r = Character("Marie")
 define j = Character("Josh")
+define b = Character("Maximillion")
 define m = Character("Me")
 
 
@@ -29,6 +30,8 @@ label start:
     $ sin = 0 #positive is good morality, negative is bad?
     $ success = 0 #amount of quest points
     $ josh_friendship = 0 #josh friendship points
+    $ maximillion_friendship = 0 #maximillion friendship points
+    $ marie_friendship = 0 #marie friendship points
 
     # These display lines of dialogue.
 

@@ -1,1 +1,1 @@
-{"location": {"callable": {}, "screen": {}, "define": {}, "transform": {}, "label": {"start": ["game/script.rpy", 14], "rlunchmeetjock": ["game/gluttony.rpy", 31], "example": ["game/script.rpy", 49], "roommateintro": ["game/gluttony.rpy", 7]}}, "size": [1280, 720], "name": "", "version": "", "error": true}
+{"location": {"callable": {}, "screen": {}, "define": {}, "transform": {}, "label": {"rlunchmeetjock": ["game/gluttony.rpy", 31], "roommateintro": ["game/gluttony.rpy", 7]}}, "size": [1280, 720], "name": "", "version": "", "error": true}
