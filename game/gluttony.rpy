@@ -38,6 +38,13 @@ label rlunchmeetjock:
         "Nice to meet you, too! I'm (name var).":
             $ josh_friendship += 1
             pass
+    "The three of you quickly get up to embark on your mission of self nourishment."
+    #some more filler?
+    "Your last stop is at the pizza station."
+    "And lucky you! There's just the one slice left!"
+    "As you reach for it, you notice Josh beelining over out of the corner of your eye."
+    "His plate is piled impossibly full with spaghetti."
+    "Josh stop next to you and peeks around the mountain of spaghetti. He notices all the pizza is gone"
 
 ##label gluttonyscene_1:
     ##"just start writing text"
