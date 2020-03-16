@@ -31,21 +31,21 @@ label lust_start_dorm:
             jump prof_email
 
 label roomie_bonding:
-r "Hey is everything okay?"
+    r "Hey is everything okay?"
     menu:
         "Yeah. I'm just feeling really upset. I just got a bad grade on my test":
             r "I'm sorry that you're going through that right now. Things are going to work out.
             Remember grades don't matter in the grand scheme of things.
             There are going to be more grades and I'm here for you if you ever want a study budy!"
-        "Breaks down crying"
+        "Breaks down crying":
             r "Oh no! Can I give you a hug?"
-                menu:
-                    "Accepts Hug":
-                        pass #Art? O .o
-                    "No thanks":
-                        pass
-                    "I'd rather not":
-                        pass
+            menu:
+                "Accepts Hug":
+                    pass #Art? O .o
+                "No thanks":
+                    pass
+                "I'd rather not":
+                    pass
         "I'm fine. Don't worry about it":
             r "I'm here for you if ever need anything!"
 
@@ -106,4 +106,3 @@ label friend_party:
             pass
         "Speak with friend":
             pass
-             
