@@ -5,11 +5,16 @@
 #"this is a narrative with no actual speaker"
 
 label roommateintro:
-    r "I’m so excited for us to get to know each other!"
+    "Okay, first weekend day with nothing on the agenda. Take a deep breath. I can do this."
+    show marie neutral
+    r "Hey, you excited to finally have a real day off? I can’t believe how tiring orientation was. Now we can finally really get to know each other with all this free time!"
     menu:
-        "Me too!": #friendship +1
-            pass
-            #roommate response
+        "Yeah, I’d love that! Let’s hang out today.":
+            $ marie_friendship +=1
+            r "I was just about to say the same thing! I knew we were meant to be friends. Do you want to have lunch together today? I invited my OL to join me to thank him for being such an amazing tour guide!"
+            m "Totally, let's do it!"
+            show marie anxious
+            r "Yay! I'm so excited!"
         "I guess. We‘ll sure be spending a lot of time together.":
             pass
             #roommate response

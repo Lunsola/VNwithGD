@@ -1,4 +1,4 @@
-label career_fair_intro
+label career_fair_intro:
     ##scene bg careerfair1
 
     "It's finally the day of the career fair! I will make something out of
@@ -32,11 +32,11 @@ label career_fair_intro
             "You return to your room."
             jump dorm1
 
-        "Stay in Burner a while longer."
+        "Stay in Burner a while longer.":
             "You loiter around the outside of Burner."
             jump Burner1
 
-label dorm1
+label dorm1:
 
     ##scene bg room
 

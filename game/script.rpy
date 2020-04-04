@@ -9,6 +9,11 @@ define j = Character("Josh")
 define b = Character("Maximillion")
 define m = Character("Me")
 
+#Declare images here
+image marie neutral = "roomate_rabbit_propsize.png"
+image marie anxious = "roomate_sweating_propsize.png"
+image max happy = "Business_happy_propsize.png"
+image josh happy = "josh_happy_propsize.png"
 
 # The game starts here.
 
@@ -24,7 +29,9 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    show marie neutral at left
+    show max happy at right
+    show josh happy
 
     # init all variables here. Add in character relationship stats as needed
     $ sin = 0 #positive is good morality, negative is bad?
