@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/greed.rpy", line 35: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
-    "Stay in Burner a while longer."
-                                    ^
+File "game/gluttony.rpy", line 48: indentation mismatch.
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Sat Apr 04 13:04:16 2020
+Sat Apr 11 13:30:30 2020
