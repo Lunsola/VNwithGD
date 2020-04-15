@@ -18,14 +18,14 @@ image max happy = "Business_happy_propsize.png"
 
 #josh images
 image josh bat = "josh_happy_propsize.png"
-image josh grateful = "Josh grateful.png"
-image josh v grateful = "Josh grateful v2.png"
-image josh sad = "Josh sad.png"
-image josh surprised = "Josh shock happy.png"
-image josh shock = "Josh shock.png"
-image josh stress = "Josh stress.png"
-image josh wink = "Josh wink.png"
-image josh neutral = "Josh-neutral.png"
+image josh grateful = "Neutral Grateful.png"
+image josh v grateful = "Neutral v Grateful.png"
+image josh sad = "Neutral Sad.png"
+image josh shock = "Neutral Shock.png"
+image josh stress = "Neutral Stress.png"
+image josh wink = "Neutral Wink.png"
+image josh happy = "Neutral Happy.png"
+image josh wave = "wave happy.png"
 
 #item images
 image sandwich = "itsandwich.png"
@@ -60,12 +60,13 @@ label start:
 
     #######################
 
-    # init all variables here. Add in character relationship stats as needed
+    # init all variables here. Add in character relationship stats and flags as needed
     $ sin = 0 #positive is good morality, negative is bad?
     $ success = 0 #amount of quest points
     $ josh_friendship = 0 #josh friendship points
     $ maximillion_friendship = 0 #maximillion friendship points
     $ marie_friendship = 0 #marie friendship points
+    $ josh_hasnumber = False #does player have josh's number?
 
     # These display lines of dialogue.
 

@@ -2,7 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/gluttony.rpy", line 48: indentation mismatch.
+File "game/gluttony.rpy", line 167: end of line expected.
+    m "I think we have a lot of differences as well as similarities.":
+                                                                     ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Sat Apr 11 13:30:30 2020
+Tue Apr 14 17:26:52 2020
