@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/gluttony.rpy", line 167: end of line expected.
-    m "I think we have a lot of differences as well as similarities.":
-                                                                     ^
+The label joshhowareyou is defined twice, at
+  File "game/gluttony.rpy", line 320 and
+  File "game/gluttony.rpy", line 376.
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Tue Apr 14 17:26:52 2020
+Wed Apr 15 17:34:16 2020

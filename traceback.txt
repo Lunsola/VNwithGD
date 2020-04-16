@@ -1,26 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/gluttony.rpy", line 155, in script
-    hide josh grateful
-  File "game/gluttony.rpy", line 155, in <module>
-    hide josh grateful
-TypeError: input() takes at least 1 argument (0 given)
+  File "game/gluttony.rpy", line 291, in script
+    jump runintojosh
+ScriptError: could not find label 'runintojosh'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/gluttony.rpy", line 155, in script
-    hide josh grateful
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 914, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2028, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "game/gluttony.rpy", line 155, in <module>
-    hide josh grateful
-TypeError: input() takes at least 1 argument (0 given)
+  File "game/gluttony.rpy", line 291, in script
+    jump runintojosh
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1697, in execute
+    rv = renpy.game.script.lookup(target)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\script.py", line 898, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'runintojosh'.
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 CU_HEdoubleL 1.0
-Tue Apr 14 17:14:44 2020
+Wed Apr 15 17:49:28 2020

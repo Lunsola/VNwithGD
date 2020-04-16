@@ -10,11 +10,30 @@ define b = Character("Maximillion")
 define m = Character("Me")
 
 #marie images
-image marie neutral = "roomate_rabbit_propsize.png"
-image marie anxious = "roomate_sweating_propsize.png"
+image marie neutral = "roomate_rabbit.png"
+image marie happy = "roomate_smile_default.png"
+image marie grateful = "roomate_natural_smile.png"
+image marie surprised = "roomate_astonished.png"
+image marie astonished = "roomate_very_astonished.png"
+image marie confused = "roomate_extremely_astonished.png"
+image marie ingenuine = "roomate_fake_smile.png"
+image marie averse = "roomate_aversion.png"
+image marie v happy = "roomate_big_smile.png"
+image marie mad = "roomate_smiling_angry.png"
+image marie nervous = "roomate_surprized.png"
+image marie nervous2 = "roomate_sweating.png"
+
 
 #max images
-image max happy = "Business_happy_propsize.png"
+image max happy = "max happy.png"
+image max neutral = "max neutral.png"
+image max mad = "max mad.png"
+image max breaking = "max breaking.png"
+image max grateful = "max grateful.png"
+image max skeptic = "max skeptic.png"
+image max wink = "max wink.png"
+image max vicious = "max vicious.png"
+image max charm = "max charm.png"
 
 #josh images
 image josh bat = "josh_happy_propsize.png"
@@ -33,6 +52,8 @@ image sandwich = "itsandwich.png"
 #backgrounds
 image bg classroom = "classroom.jpg"
 image bg john jay = "jonathanjay.jpg"
+image bg EC = "EC.jpg"
+image bg themil = "library.jpg"
 
 # The game starts here.
 
@@ -54,9 +75,9 @@ label start:
 
     #item test show sandwich
 
-    #character sprite tests show marie neutral at left
-    #show max happy at right
-    #show josh neutral
+    #character tests show marie neutral at left
+    #show max neutral at right
+    #show josh happy
 
     #######################
 
