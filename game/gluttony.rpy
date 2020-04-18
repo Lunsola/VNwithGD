@@ -151,7 +151,7 @@ label rmeetjosh:
     m "Hey guys, what’s up?"
     hide marie happy
     show marie grateful at left
-    r "Hi %(pname)s! This is my friend, Josh."
+    r "Hi, %(pname)s! This is my friend, Josh."
     j "Hey bro. Groovy to meet you."
     m "Nice to meet you too. I’ll get some food and join you guys."
     #fade transition
@@ -402,7 +402,102 @@ label joshhonesthours:
     jump finishgluttony
 
 label runintojosh:
+    "Shake Shack again! Man it’s so convenient this place is so close to campus."
+    "Let’s see...I’ll get a Chick’n Shack with fries, and maybe throw in a flat-top dog just for funsies."
+    show josh shock
+    j "Yo, %(pname)s! You’re here too?"
+    hide josh shock
+    show josh happy
+    "Oh no. I have company."
+    m "Hey Josh, how’re you?"
+    j "I’m all right you know, brah. How you doin?"
+    m "Just getting some lunch."
+    j "Brah, what a coincidence! Me too! Hey, I have a sick idea--let’s eat together."
+    "Well I guess I have no choice."
+    m "Sure, let’s do it."
+    "This food looks delicious. If only I could enjoy it in peace and quiet."
+    j "So, bro, how’s your week been going? First real week of college, dude!"
+    menu:
+        "It's been all right":
+            jump notclosetojosh
+        "It's been great!":
+            pass
+        "It’s been a lot, but I’m getting through.":
+            jump notclosetojosh
+    j "I’m stoked to hear that dude. The first week can be a lot."
+    m "Yeah, well, it’s been pretty good for me."
+    j "Cool! So do you like dining hall food? I see you’re eating out already."
+    m "I just like to switch things up. How’re you?"
+    j "I’m pretty good. School and sports can be hard to balance, you know, but I’m figuring it out."
+    m "That’s good to hear. I’ve been wondering how I’m going to manage everything, but if you can do both I can do it."
+    j "Yeah dude, I’m, like, a veteran of this place. And I can tell you, you can do it."
+    j "Anyway, I actually have to head to my job now. See you later!"
+    m "See you!"
+    "Well, that wasn’t so bad. At least I managed to be polite for five minutes. Thank god he had to go soon."
+
+label notclosetojosh:
+    j "Dude, I know how you feel. I felt that exact same way my first week. We all go through it and we all survive."
+    m "Good to hear I’m not alone in this. I have been feeling a bit lonely these days, since I don’t really have any friends here yet."
+    j "Brah, you have a friend. You have me."
+    m "Thanks, Josh. I appreciate that."
+    j "Listen, dude, I can’t stay long. I have to go to my job in a minute. But we should hang out later."
+    menu:
+        "Looking forward to it.":
+            $ josh_friendship +=1
+        "We'll see.":
+            pass
+    j "Rats, gotta run. Smell ya later!"
+    jump finishgluttony
     return
 
 label finishgluttony:
-    return
+    "Finally taking the big step of eating dinner by myself. I’m so hungry, even after that big lunch. I hope no one thinks I’m a loser because I’m sitting alone."
+    j "You again? No way brah, it’s me, Josh!"
+    "Of course, Josh is here again. Is he following me or something?"
+    m "Hey Josh, what’s up?"
+    j "I’m good dude! Just coming from Dodge actually. Gotta keep fit!"
+    "Yikes, that was not what I needed to hear right now. Have I had four meals today? I actually can’t remember. When was the last time I exercised? Definitely sometime this year, right?"
+    j "How you doin?"
+    m "Oh I’m pretty good. Pretty boring day today, all I’ve done is work."
+    "Ha, that’s a lie. Pretty sure all I’ve done is eat."
+    j "Me too, bro, me too. I only had time to break for lunch and then I went right back to the grind."
+    #card decline sound
+    j "Oh no. This is so embarrassing dude. I don’t have enough swipes."
+    m "Darn, that’s annoying!"
+    j "Shoot, what am I gonna do? Oh man, I was really counting on this swipe. I don’t know how I miscounted."
+    "He really does look panicked. I wonder if he can afford to get food somewhere else.  But...this is my last swipe of the week. I only have one left."
+    menu:
+        "Give Josh your last swipe":
+            $ josh_friendship +=3
+            m "Here you can have my swipe. Don’t even worry about it."
+            j "What? No I couldn’t take your swipe! You need to eat, too."
+            m "Seriously, don’t worry. I’ve been meaning to try cooking for myself anyway. Maybe I’ll get Marie to help me. I definitely won’t starve!"
+            j "Are you sure?"
+            m "Absolutely! Take the swipe."
+            j "Bro, thank you so much. You’re a good friend. I was about to have a total panic attack."
+            m "You’re welcome. Enjoy your food."
+            "Well, I’m walking away hungry but surprisingly otherwise ok. I did a good deed today, and that’s a pretty good feeling. Josh needs that swipe more than I do."
+        "Don't offer":
+            menu:
+                "Just go in without him.":
+                    $ josh_friendship -=2
+                    j "Bye %(pname)s! Sorry I don’t get to join you."
+                    "Yeesh, I feel kinda weird about that. Maybe I should’ve offered to give him my swipe? No, you know what, I deserve it. I’ve had a long day. I barely know him. I feel just fine about enjoying some food."
+                "Sucks to suck, loser!":
+                    m "Thank god I get to eat dinner alone after all."
+                    if josh_friendship > 1:
+                        j "Oh haha, um, bye %(pname)s. See you later I guess."
+                        "Yikes, he looked like a kicked puppy. Where did that even come from? I’m always saying mean things without thinking about it. Is something wrong with me?"
+                        "No, you know what, I’m fine. It’s not my fault he can’t take a joke! I’m gonna enjoy my food in peace."
+                    elif josh_friendship = 1:
+                        j "What? Bro, why would you say that to me?"
+                        "Yikes, he looked like a kicked puppy. Where did that even come from? I’m always saying mean things without thinking about it. Is something wrong with me?"
+                        "No, you know what, I’m fine. It’s not my fault he can’t take a joke! I’m gonna enjoy my food in peace."
+                    elif josh_friendship = 0:
+                        j "That wasn’t very nice, brah. I wouldn’t do you like that."
+                        "Well that was extremely awkward. Hope I never run into him again. I’ve just gotta put it out of my mind and enjoy some food."
+                    else:
+                        j "You know what? Ever since you first met me you’ve been nasty to me. Do you have a problem with me? Say it to my face. Because I don’t think you’re a very nice person."
+                        $ josh_friendship -=4
+                        "Well, burned that bridge for sure. Just have to avoid him for the next three years until he graduates. On the bright side, at least he’ll leave me alone. Now...about that food. I’m starving."
+    jump lust_start_dorm

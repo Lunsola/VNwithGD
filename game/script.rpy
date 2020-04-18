@@ -36,7 +36,6 @@ image max vicious = "max vicious.png"
 image max charm = "max charm.png"
 
 #josh images
-image josh bat = "josh_happy_propsize.png"
 image josh grateful = "Neutral Grateful.png"
 image josh v grateful = "Neutral v Grateful.png"
 image josh sad = "Neutral Sad.png"
@@ -45,6 +44,21 @@ image josh stress = "Neutral Stress.png"
 image josh wink = "Neutral Wink.png"
 image josh happy = "Neutral Happy.png"
 image josh wave = "wave happy.png"
+image josh approve = "Thumbs up Happy.png"
+image josh t grateful = "Thumbs up v grateful.png"
+image josh support = "Thumbs up Wink.png"
+image josh batterup = "Baseball Happy.png"
+image josh v gratefulbat = "Baseball v Grateful.png"
+image josh shockbat = "Baseball Shck.png"
+image josh stressbat = "Baseball Stress.png"
+image josh shockfg = "Finger Gun Shock.png"
+image josh winkfg = "Finger Gun WInk.png"
+
+#music boi images
+image music neutral = "music_neutral.png"
+image music dark = "music_oho.png"
+image music unimpressed = "music_hmph.png"
+image music wink = "music_wink.png"
 
 #item images
 image sandwich = "itsandwich.png"
@@ -78,6 +92,9 @@ label start:
     #character tests show marie neutral at left
     #show max neutral at right
     #show josh happy
+    scene bg john jay
+    show music neutral
+    show marie neutral at left
 
     #######################
 
