@@ -82,11 +82,21 @@ image professor happy = "Professor_happy.png"
 image sandwich = "itsandwich.png"
 
 #backgrounds
-image bg classroom = "classroom.jpg"
+image bg classroom:
+    zoom 1.3
+    "classroom.jpg"
 image bg john jay = "jonathanjay.jpg"
 image bg EC = "EC.jpg"
 image bg themil = "library.jpg"
-#image bg bedroom =
+image bg bednight = im.Grayscale("bedroom.jpg")
+image bg bedroom = "bedroom.jpg"
+image bg office:
+    zoom 0.5
+    "office.jpg"
+image bg coffeeshop:
+    zoom 1.40
+    "Coffee Shop.jpg"
+image bg hallway = "Hallway.jpg"
 
 
 # The game starts here.
