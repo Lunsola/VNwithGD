@@ -1,7 +1,9 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/gluttony.rpy", line 11, in script
+  File "game/gluttony.rpy", line 17, in script
+    "Okay, first weekend day with nothing on the agenda. Take a deep breath. I can do this."
+  File "game/gluttony.rpy", line 17, in script
     "Okay, first weekend day with nothing on the agenda. Take a deep breath. I can do this."
   File "renpy/common/000window.rpy", line 98, in _window_auto_callback
     _window_show()
@@ -12,7 +14,17 @@ IOError: Couldn't find file 'LimboDraftMarie.mp3'.
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/gluttony.rpy", line 11, in script
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\bootstrap.py", line 316, in bootstrap
+    renpy.main.main()
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\main.py", line 578, in main
+    run(restart)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\main.py", line 143, in run
+    renpy.execution.run_context(True)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\execution.py", line 908, in run_context
+    context.run()
+  File "game/gluttony.rpy", line 17, in script
+    "Okay, first weekend day with nothing on the agenda. Take a deep breath. I can do this."
+  File "game/gluttony.rpy", line 17, in script
     "Okay, first weekend day with nothing on the agenda. Take a deep breath. I can do this."
   File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 671, in execute
     statement_name("say")
@@ -47,4 +59,4 @@ IOError: Couldn't find file 'LimboDraftMarie.mp3'.
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 CU_HEdoubleL 1.0
-Sat Apr 25 13:49:39 2020
+Sat Apr 25 14:28:23 2020
