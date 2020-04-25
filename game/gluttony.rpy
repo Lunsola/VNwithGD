@@ -6,8 +6,11 @@
 
 label roommateintro:
     scene bg EC
+    #play music "LimboDraftMarie.mp3"
+    #play music "LimboDraftMain.mp3"
     "Okay, first weekend day with nothing on the agenda. Take a deep breath. I can do this."
     show marie happy
+    with dissolve
     r "Hey, you excited to finally have a real day off? I can’t believe how tiring orientation was. Now we can finally really get to know each other with all this free time!"
     menu:
         "Yeah, I’d love that! Let’s hang out today.":
@@ -15,7 +18,7 @@ label roommateintro:
             r "I was just about to say the same thing! I knew we were meant to be friends. Do you want to have lunch together today? I invited my OL to join me to thank him for being such an amazing tour guide!"
             m "Totally, let's do it!"
             hide marie happy
-            show marie v happy
+            show marie v happy at center,  hop
             r "Yay! I'm so excited!"
             jump rmeetjosh
         "I guess. We‘ll sure be spending a lot of time together.":

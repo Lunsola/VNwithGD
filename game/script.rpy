@@ -8,6 +8,18 @@ define r = Character("Marie")
 define j = Character("Josh")
 define b = Character("Maximillion")
 define m = Character("Me")
+define k = Character("Karen")
+define w = Character("???") #for characters where name is thus far unknown
+
+#character transforms
+transform sleft:
+    xalign .25
+transform sright:
+    xalign .75
+transform hop: #makes character do small jump
+    yalign 1.0
+    linear .1 yalign .5
+    linear .1 yalign 1.0
 
 #marie images
 image marie neutral = "roomate_rabbit.png"
@@ -22,6 +34,8 @@ image marie v happy = "roomate_big_smile.png"
 image marie mad = "roomate_smiling_angry.png"
 image marie nervous = "roomate_surprized.png"
 image marie nervous2 = "roomate_sweating.png"
+image marie distressed = "roomate_angry_sad.png"
+image marie concerned = "roomate_concerned.png"
 
 
 #max images
@@ -60,6 +74,9 @@ image music dark = "music_oho.png"
 image music unimpressed = "music_hmph.png"
 image music wink = "music_wink.png"
 
+#professor images
+image professor happy = "Professor_happy.png"
+
 #item images
 image sandwich = "itsandwich.png"
 
@@ -92,9 +109,6 @@ label start:
     #character tests show marie neutral at left
     #show max neutral at right
     #show josh happy
-    scene bg john jay
-    show music neutral
-    show marie neutral at left
 
     #######################
 
