@@ -2,7 +2,7 @@
 label lust_start_dorm:
 
     $prof_email = False
-    scene bg EC #temp holder until bedroom upload
+    scene bg bednight #temp holder until bedroom upload
 
     "Ayyy. Bless. First round of testing season is over ... and it's a Thursday night!! No immediate responsibilities that need to be taken care of and no need to stress about academics for a while...."
     "...Maybe I should finally check my scores for Science of Everything class. I've been avoiding checking grades to minimize stress this week but I'm free rom everything! Nothing can hurt me now."
@@ -78,10 +78,10 @@ label roomie_talk:
                     jump thurs_end
                 "Screw off":
                     hide marie concerned
-                    show marie angrysad
+                    show marie distressed
                     m "I don't need your pity"
                     r "I'm not pitying you. I can tell you're upset so I'm going to give you some space. Let me know if you want to talk about it"
-                    hide marie angrysad
+                    hide marie distressed
                     "In my rage, I feel a sliver of regret. I shouldn't have lashed out at Marie so harshly. It was definitely warranted though. Who does she thing she is anyways?"
                     jump thurs_end
                 "I'd rather not":
@@ -136,7 +136,7 @@ label thurs_end:
 
 label fri_morn:
 
-    scene bg EC #temp holder until bedroom upload
+    scene bg bedroom #temp holder until bedroom upload
     "Ah!!! It's already 11 am. Time to get up"
     "First things first, let's check phone updates"
 
@@ -165,8 +165,8 @@ label fri_morn:
         jump short_meet
 
 label short_meet:
-    #scene prof hallway
-    #show prof neutral
+    scene bg hallway
+    show professor happy
     "Nice! Caught Professor Bonden before they leave for the day"
     p "Hey %(pname)s, I'm actully on my way out. I'm going to buy planetarium viewing tickets before they run out. I'm really excited for their exhibit tomorrow."
     p "Is there something that I can do for you?"
@@ -203,8 +203,8 @@ label short_meet:
 
 
 label prof_meet:
-    scene bg classroom #office better, classroom works
-    #show prof neutral
+    scene bg office #office better, classroom works
+    show professor happy
     "Oh boy, time to defend my GPA's honor"
     p "Hey %(pname)s, thanks for sending an email to let me know that you were planning on coming in! I managed to snag tickets to the Planetarium this morning. I was worried that they might sell out before I got mine."
     "I highly doubt the tickets to a planetarium would have sold out so soon but as long as the professor's happy I guess!"
@@ -480,10 +480,10 @@ label max_convo:
     "Ah ...I'm kinda tired from everything that's been going on today. Time to go to Boz for a caffeine fix"
     jump caffeine
 label caffeine:
-    scene bg john jay
+    scene bg coffeeshop
     "Nothing beats a cup of boz"
     "Oh wow look at that! It's Professor Bonden"
-    #show prof neutral
+    show professor happy
     m "Hey Professor"
 
 python:
