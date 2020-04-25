@@ -8,6 +8,7 @@ define r = Character("Marie")
 define j = Character("Josh")
 define b = Character("Maximillion")
 define m = Character("Me")
+define p = Character("Professor Bonden")
 define k = Character("Karen")
 define w = Character("???") #for characters where name is thus far unknown
 
@@ -85,6 +86,8 @@ image bg classroom = "classroom.jpg"
 image bg john jay = "jonathanjay.jpg"
 image bg EC = "EC.jpg"
 image bg themil = "library.jpg"
+#image bg bedroom =
+
 
 # The game starts here.
 
@@ -119,6 +122,7 @@ label start:
     $ maximillion_friendship = 0 #maximillion friendship points
     $ marie_friendship = 0 #marie friendship points
     $ josh_hasnumber = False #does player have josh's number?
+
 
     # These display lines of dialogue.
 
