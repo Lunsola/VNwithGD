@@ -8,6 +8,7 @@ define r = Character("Marie")
 define j = Character("Josh")
 define b = Character("Maximillion")
 define m = Character("Me")
+define p = Character("Professor Bonden")
 
 #marie images
 image marie neutral = "roomate_rabbit.png"
@@ -22,6 +23,9 @@ image marie v happy = "roomate_big_smile.png"
 image marie mad = "roomate_smiling_angry.png"
 image marie nervous = "roomate_surprized.png"
 image marie nervous2 = "roomate_sweating.png"
+#need to import this ask Kimberley
+#image marie concerned = "roomate_concerned.png"
+#image marie angrysad = "roomate_angry_sad.png"
 
 
 #max images
@@ -60,6 +64,9 @@ image music dark = "music_oho.png"
 image music unimpressed = "music_hmph.png"
 image music wink = "music_wink.png"
 
+#professor images
+#image prof neutral = "" insert here
+
 #item images
 image sandwich = "itsandwich.png"
 
@@ -68,6 +75,8 @@ image bg classroom = "classroom.jpg"
 image bg john jay = "jonathanjay.jpg"
 image bg EC = "EC.jpg"
 image bg themil = "library.jpg"
+#image bg bedroom =
+
 
 # The game starts here.
 
@@ -105,6 +114,7 @@ label start:
     $ maximillion_friendship = 0 #maximillion friendship points
     $ marie_friendship = 0 #marie friendship points
     $ josh_hasnumber = False #does player have josh's number?
+
 
     # These display lines of dialogue.
 
