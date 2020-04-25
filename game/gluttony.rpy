@@ -4,10 +4,16 @@
 #e "dialogue goes here" (where e is the variable associated with the character)
 #"this is a narrative with no actual speaker"
 
+init -1 python:
+    renpy.music.register_channel("Chan1", mixer= "music", loop=True, stop_on_mute=False, tight=True)
+    renpy.music.register_channel("Chan2", mixer= "music", loop=True, stop_on_mute=False, tight=True)
+
 label roommateintro:
     scene bg EC
-    #play music "LimboDraftMarie.mp3"
-    #play music "LimboDraftMain.mp3"
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(volume=1.0, channel="Chan2")
+    $renpy.music.play("audio/LimboDraftMarie.mp3", channel="Chan1", synchro_start=True)
+    $renpy.music.play("audio/LimboDraftMain.mp3", channel="Chan2", synchro_start=True)
     "Okay, first weekend day with nothing on the agenda. Take a deep breath. I can do this."
     show marie happy
     with dissolve
