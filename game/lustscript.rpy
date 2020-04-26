@@ -2,10 +2,11 @@
 label lust_start_dorm:
 
     $prof_email = False
+    $grade_change = False
     scene bg bednight #temp holder until bedroom upload
 
-    "Ayyy. Bless. First round of testing season is over ... and it's a Thursday night!! No immediate responsibilities that need to be taken care of and no need to stress about academics for a while...."
-    "...Maybe I should finally check my scores for Science of Everything class. I've been avoiding checking grades to minimize stress this week but I'm free rom everything! Nothing can hurt me now."
+    "Ayyy. Bless. First round of testing season is over ... {p=1.0}and it's a Thursday night!! No immediate responsibilities that need to be taken care of and no need to stress about academics for a while...."
+    "...{p=1.0}Maybe I should finally check my scores for Science of Everything class. {p=1.0}I've been avoiding checking grades to minimize stress this week but I'm free from everything! Nothing can hurt me now."
 
 
     #Need to figure out how to program a dramatic scroll and frame with grades
@@ -24,6 +25,7 @@ label lust_start_dorm:
         "Contact professor":
             "There must have been some mistake. There's no way that's my grade. I skipped classes and crammed for 12 hours straight. I need to speak with the professor."
             $prof_email = True
+            $ prof_friendship +=1
             jump prof_email
 
 label roomie_talk:
@@ -172,6 +174,7 @@ label short_meet:
     p "Is there something that I can do for you?"
     menu:
         "Flattery":
+            $ prof_friendship +=1
             "Maybe if I ask more about him, he'll be more open to changing my exam grade"
             m "I read your most recent publication. It was really interesting. You're so knowledgeable. I was hoping that we could talk more about it?"
             p "Thank you %(pname)s! I'm so sorry to be doing this but I really do need to get going. Maybe we can chat more about this at a later time. I'm going to head out"
@@ -180,6 +183,7 @@ label short_meet:
             "Guess, I'll head over to the Triangle's info session early"
             jump club_info
         "Complain about grade":
+            $ prof_friendship -=1
             m "I was really surprised about my grade. There must have been a grading error"
             #hide prof neutral
             #show prof annoyed/some facial change
@@ -211,6 +215,7 @@ label prof_meet:
     p "What can I do to help you today?"
     menu:
         "Flatery/Ask about Research":
+            $ prof_friendship +=1
             "Flattery gets you everywhere right? Maybe asking him about his interests will make the Professor more willing to change my exam grade"
             m "I'm really curious about your most recent publication. Woud you mind speaking more about it?"
             p "Oh, yeah! Of course. So the ability to fold space within the reality envelope facilitates the ability to make use of hyperbolic sub-resonant variations, combined with total holistic resonant emanations manifesting astral holographic projection."
@@ -218,6 +223,7 @@ label prof_meet:
             p "And that pretty much sums up that paper. Was there anything else you wanted to talk about?"
             menu:
                 "Flattery":
+                    $ prof_friendship +=1
                     m "That's really cool! You're so knowledgeable Professor! How did you get into doing research? I think it's something I might want to pursue in the future"
                     #show prof happy
                     p "Thank you %(pname)s. That's great to hear! We can always use more scientists in the world. I got started in research in high school by reaching out to a local college and fell in love with it from there. I'm really apreciative of the good fortune I've had that's led me to be here today and doing what I love"
@@ -225,6 +231,7 @@ label prof_meet:
                     p "Ah, but enough about me. Is there something else I can help you with?"
                     menu:
                         "Flattery":
+                            $ prof_friendship -=3
                             #hide prof happy
                             #show prof neutral
                             m "I really liked your lecture last class!"
@@ -249,6 +256,7 @@ label prof_meet:
             jump exam_inquiry
 
 label complain_grade:
+    $ prof_friendship -=1
     m "I was really surprised about my grade. There must have been a grading error"
     #hide prof neutral
     #show prof annoyed/some facial change
@@ -292,6 +300,7 @@ label exam_inquiry:
                                     p "Hmm. I would have given that credit as well"
                                     #hide prof schocked
                                     #show prof neutral
+                                    $grade_change = True
                                     p "Actually for all of these questions that you pointed out, I think you could have earned some more points, why didn't you bring it up earlier?"
                                     m "I've been so stressed about my other classes that I didn't want to add the emotional backlash of a bad grade on top of this week. So I only checked my score last night"
                                     m "Haha... I guess that wasn't the best move"
@@ -340,13 +349,13 @@ label club_info:
     "Muttering “I’m sorrys” for disrupting the people on the floor, I signed myself in and shuffled to an empty spot along the wall."
     "The room feel to a hush as some stranger started their presentation"
     show max charm
-    b "Hi Guys! Thank you all for your interest in joining the {b}{i}T r i a n g l e{/i}{/b}! We’re a tight knit community from across the schools. We do X, Y and Z for the school, really great things. We have lots of funding for whatever projects that you come up with."
+    w "Hi Guys! Thank you all for your interest in joining the {b}{i}T r i a n g l e{/i}{/b}! We’re a tight knit community from across the schools. We do X, Y and Z for the school, really great things. We have lots of funding for whatever projects that you come up with."
     "I over hear someone whispering to their friend. I've heard that getting into the Triangle pretty much sets you up for guaranteed work at any of the big companies. Their alumni connections are crazy."
     "Woah, I definitely want to get in if that's the case. It'll help me for whatever I want to do in the future"
-    b "And that's the {b}{i}T r i a n g l e{/i}{/b}! Thank you all for coming. Please feel free to come up to any of the board members to fill out an application form and get to know us!"
+    w "And that's the {b}{i}T r i a n g l e{/i}{/b}! Thank you all for coming. Please feel free to come up to any of the board members to fill out an application form and get to know us!"
     hide max charm
     show max wink
-    b "Hope to learn more about all of you who manage to get into the best organization ever, the rest of you eh."
+    w "Hope to learn more about all of you who manage to get into the best organization ever, the rest of you eh."
     hide max wink
     show max neutral
     "Whoa arrogant much? Let's chat with him"
@@ -477,14 +486,89 @@ label max_convo:
                 m "Yeah, I guess we'll see!"
                 b "Based on what I've seen. Let's hope not"
                 "Ugh. Max seems like an ass. If he's there tonight, I'll just have to deal with it"
-    "Ah ...I'm kinda tired from everything that's been going on today. Time to go to Boz for a caffeine fix"
+    "Ah ...I'm kinda tired from everything that's been going on today. Time to go to Beau's Coffee for a caffeine fix"
     jump caffeine
 label caffeine:
     scene bg coffeeshop
-    "Nothing beats a cup of boz"
+    "Nothing beats a cup of coffee"
     "Oh wow look at that! It's Professor Bonden"
     show professor happy
     m "Hey Professor"
+    p "Hey %(pname)s?, nice to see you again. How are you doing?"
+    menu:
+        "Ask about Well Being":
+            $ prof_friendship +=1
+            m "I'm doing pretty well! Thanks for asking. How are you doing?"
+            p "I am doing amazingly! I have my Planetarium tickets that I'm super excited for. They're doing an exclusive show about a recent breakthrough on {b}Dark Energy{\b}. It should be really exciting! If you get a chance, you should check it out!"
+            m "Maybe! Sounds interesting"
+            p "Right and before I forget about our earlier discussion, I think we can work out some extra credit assignment to help boost your grade"
+            "Hmm that's kind of vague, what kind of assignment?"
+            p "We can work out the details later! But for now, I gotta run!"
+            hide professor happy
+            "I'm so glad to have Professor Bonden. His passion for astronomy is adorable. Nerdy. {p=0.5} But adorable. Hmm I wonder what the extra credit assignment is going to be exactly?"
+        "Snarkily Mention Grade":
+            $ prof_friendship -=1
+            $grade_change = False
+            m "I'm doing eh. Could be better. Especially if my exam score was better"
+            #hide professor happy
+            #show professor neutral
+            p "I'm sorry %(pname)s. Rules are rules. There can't be any exceptions regarding regrades"
+            m "Please professor. Isn't there anything I can do? My test wasn't even wrong, just graded incorrectly"
+            p "Maybe we can work out some extra credit assignment to help boost your grade. I'm not so sure"
+            m "Thank you. Thank you! I'll definitely do it"
+            p "No promises though. I need to run, see you"
+            "I don't think Professor Bonden appreciated the attitude. Or maybe he did. He's considering giving me more points for extra credit after all! Now what kind of extra credit assignment would be grand enough to convince him of giving me extra points?"
+        "Polite Grade Inquiry":
+            m "I'm doing well, thanks for asking! I was wondering if you would mind if we continued our discussion from earlier?"
+            #hide professor happy
+            #show professor neutral
+            p "Yeah, sure. I can spare a few minutes."
+            if grade_change = True:
+                p "I'm still discussing with the TAs about our decision regarding the regrade of your answers. But we'll let you know!"
+                m "Thank you so much Professor! I really appreciate it"
+                p "But aside from that, I think that if you want we can potentially work out some extra credit assignment to help boost your grade."
+                m "Really? Thank you so much! I would really appreciate that."
+                p "Yeah! Let's speak more about this later. I need to go. Remind me!"
+                "Thank goodness. I think based on our earlier conversation, I should be set regarding my test regrade. But, I guess you never really know. I wonder what the extra credit assignment would be exactly?"
+            else:
+                m "I understand that I missed the regrade request deadline and that's my fault. But I'm really worried about my performance in this class"
+                p "Thank you for reaching out to me about this. I think we can work out some extra credit assignment to help boost your grade."
+                m "...Really? {p=1.0} THANK YOU SO MUCH PROFESSOR YOU WON'T REGRET THIS"
+                p "Hahahaha I'm glad to be of service."
+                p "I actually need to run now, but let's hash out the specifics later!"
+                "Professor Bonden is so nice. I wonder what the extra credit assignment is going to be exactly?"
+    jump max_library
+
+label max_library:
+    scene bg themil
+    show max neutral
+    if maximillion_friendship == 2:
+        hide max neutral
+        show max charm
+        b "Well, well, well. Look who finally decided to join us. Peasant %(pname)s has arrived"
+        m "Milord, why of course. Here to provide my duties to the king himself"
+        b "All is right in the world then"
+        m "You're a weirdo, man."
+        b "Speak for yourself. Anyways let's get working!"
+        m "Actually, before we do that, can we just talk for a bit"
+        hide max charm
+        show max wink
+        show max charm
+        b "Sure, I'll depart my wisdom upon today's uncouth youth"
+
+
+    elif maximillion_ < 0 :
+        hide max neutral
+        show max mad
+        pass
+    else:
+        pass
+
+label sat_room:
+    scene bg bedroom
+
+
+label mel_night:
 
 python:
     """"label friend_party:

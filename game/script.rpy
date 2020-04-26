@@ -131,6 +131,7 @@ label start:
     $ josh_friendship = 0 #josh friendship points
     $ maximillion_friendship = 0 #maximillion friendship points
     $ marie_friendship = 0 #marie friendship points
+    $ prof_friendship = 0 #professor friendship points
     $ josh_hasnumber = False #does player have josh's number?
 
 
