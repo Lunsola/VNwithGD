@@ -133,6 +133,7 @@ label start:
     $ marie_friendship = 0 #marie friendship points
     $ prof_friendship = 0 #professor friendship points
     $ josh_hasnumber = False #does player have josh's number?
+    $grade_change = False
 
 
     # These display lines of dialogue.

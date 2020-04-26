@@ -2,7 +2,7 @@
 label lust_start_dorm:
 
     $prof_email = False
-    $grade_change = False
+
     scene bg bednight #temp holder until bedroom upload
 
     "Ayyy. Bless. First round of testing season is over ... {p=1.0}and it's a Thursday night!! No immediate responsibilities that need to be taken care of and no need to stress about academics for a while...."
@@ -383,7 +383,7 @@ label club_info:
             m "How can a pile of trash such as yourself help me?"
             show max mad
             b "You must have no friends so you don't understand the premise of helping others"
-            m "Not really, sounds like you've had experience though"
+            m "Not really. Sounds like you've had a lot of personal experience with having no friends though"
             b "...What can I do for you trash?"
             $ maximillion_friendship -=1
             jump club_app
@@ -479,7 +479,7 @@ label max_convo:
                 m "Yeah, see you there later tonight!"
                 $ maximillion_friendship +=1
                 b "Oh, yeah. I guess, maybe"
-                "That was a weak attempt at making things right. Man what was I doing? If that guy's a club member, he carries weight in whether I get into the club or not. I'll do better at trying to reconcile with him"
+                "That was a weak attempt at making things right. Man what was I doing? If that guy's a club member, he carries weight in whether I get into the club or not. I'll do better at trying to reconcile with him later tonight"
             "Maybe. Maybe not":
                 hide max mad
                 show max neutral
@@ -499,13 +499,14 @@ label caffeine:
         "Ask about Well Being":
             $ prof_friendship +=1
             m "I'm doing pretty well! Thanks for asking. How are you doing?"
-            p "I am doing amazingly! I have my Planetarium tickets that I'm super excited for. They're doing an exclusive show about a recent breakthrough on {b}Dark Energy{\b}. It should be really exciting! If you get a chance, you should check it out!"
+            p "I am doing amazingly! I have my Planetarium tickets that I'm super excited for. They're doing an exclusive show about a recent breakthrough on {b}Dark Energy{\b}."
+            p "It should be really exciting! If you get a chance, you should check it out!"
             m "Maybe! Sounds interesting"
             p "Right and before I forget about our earlier discussion, I think we can work out some extra credit assignment to help boost your grade"
             "Hmm that's kind of vague, what kind of assignment?"
             p "We can work out the details later! But for now, I gotta run!"
             hide professor happy
-            "I'm so glad to have Professor Bonden. His passion for astronomy is adorable. Nerdy. {p=0.5} But adorable. Hmm I wonder what the extra credit assignment is going to be exactly?"
+            "I'm so glad to have Professor Bonden. His passion for astronomy is adorable. Nerdy. {p=1.5} But adorable. Hmm I wonder what the extra credit assignment is going to be exactly?"
         "Snarkily Mention Grade":
             $ prof_friendship -=1
             $grade_change = False
@@ -523,7 +524,7 @@ label caffeine:
             #hide professor happy
             #show professor neutral
             p "Yeah, sure. I can spare a few minutes."
-            if grade_change = True:
+            if  grade_change == True:
                 p "I'm still discussing with the TAs about our decision regarding the regrade of your answers. But we'll let you know!"
                 m "Thank you so much Professor! I really appreciate it"
                 p "But aside from that, I think that if you want we can potentially work out some extra credit assignment to help boost your grade."
@@ -533,7 +534,7 @@ label caffeine:
             else:
                 m "I understand that I missed the regrade request deadline and that's my fault. But I'm really worried about my performance in this class"
                 p "Thank you for reaching out to me about this. I think we can work out some extra credit assignment to help boost your grade."
-                m "...Really? {p=1.0} THANK YOU SO MUCH PROFESSOR YOU WON'T REGRET THIS"
+                m "...Really? {p=2.0} THANK YOU SO MUCH PROFESSOR YOU WON'T REGRET THIS"
                 p "Hahahaha I'm glad to be of service."
                 p "I actually need to run now, but let's hash out the specifics later!"
                 "Professor Bonden is so nice. I wonder what the extra credit assignment is going to be exactly?"
@@ -555,9 +556,14 @@ label max_library:
         show max wink
         show max charm
         b "Sure, I'll depart my wisdom upon today's uncouth youth"
+        "What do I want to talk about?"
+        menu:
+            "Professor Bonden":
+                m "Do you know about Professor Bonden?"
+            "{b}{i}T r i a n g l e{/i}{/b}":
+                pass
 
-
-    elif maximillion_ < 0 :
+    elif maximillion_friendship < 0 :
         hide max neutral
         show max mad
         pass
@@ -566,9 +572,12 @@ label max_library:
 
 label sat_room:
     scene bg bedroom
+    "I get a restless sleep. Thinking about what Maximillion had said the other today. What kind of extra credit did Professor Bonden mean?"
 
 
 label mel_night:
+    #scene mel
+
 
 python:
     """"label friend_party:
