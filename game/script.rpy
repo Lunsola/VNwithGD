@@ -77,9 +77,24 @@ image music wink = "music_wink.png"
 
 #professor images
 image professor happy = "Professor_happy.png"
+image professor surprised = "Professor_Shocked.png"
+image professor mad:
+    zoom 0.8
+    "Professor_annoyed.png"
+image professor neutral:
+    zoom 0.8
+    "Professor_neutral.png"
+image professor pleased = "Professor_pleased.png"
+
 
 #item images
 image sandwich = "itsandwich.png"
+image up:
+    zoom 0.3
+    "arrow_up.png"
+image down:
+    zoom 0.8
+    "down_arrow.png"
 
 #backgrounds
 image bg classroom:
@@ -97,6 +112,7 @@ image bg coffeeshop:
     zoom 1.40
     "Coffee Shop.jpg"
 image bg hallway = "Hallway.jpg"
+
 
 
 # The game starts here.

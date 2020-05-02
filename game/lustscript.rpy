@@ -168,7 +168,7 @@ label fri_morn:
 
 label short_meet:
     scene bg hallway
-    show professor happy
+    show professor neutral
     "Nice! Caught Professor Bonden before they leave for the day"
     p "Hey %(pname)s, I'm actully on my way out. I'm going to buy planetarium viewing tickets before they run out. I'm really excited for their exhibit tomorrow."
     p "Is there something that I can do for you?"
@@ -179,19 +179,19 @@ label short_meet:
             m "I read your most recent publication. It was really interesting. You're so knowledgeable. I was hoping that we could talk more about it?"
             p "Thank you %(pname)s! I'm so sorry to be doing this but I really do need to get going. Maybe we can chat more about this at a later time. I'm going to head out"
             "Damn. Maybe I should have given him a heads up earlier. I'll just need to find him again later to ask him about it"
-            #hide prof
+            hide professor neutral
             "Guess, I'll head over to the Triangle's info session early"
             jump club_info
         "Complain about grade":
             $ prof_friendship -=1
             m "I was really surprised about my grade. There must have been a grading error"
-            #hide prof neutral
-            #show prof annoyed/some facial change
+            hide professor neutral
+            show professor mad
             p "Is that so? I put some higher level concepts on the exam that I guess the class didn't quite understand as well as I had hoped. Whatever your grade is, do know that I adjust based on the median at the end"
             m "But my grade is much much worse than even the median. Something must have gone wrong"
             p "I'm sorry %(pname)s but it's pass the deadline for regrades. I don't mean to be harsh but it's important to me and my TAs that we uphold the deadline."
             p "...So sorry to cut our conversation but I do need to get going now. Let's discuss this more later. Maybe we can work something else out? "
-            #hide prof
+            hide professor mad
             "Sigh. I guess I'll find the professor again later and maybe we can work something out."
             "Oh! Look at the time, I need to get the Triangle's info-session"
             jump club_info
@@ -200,7 +200,7 @@ label short_meet:
             p "Ah yes, I can give you your exam back! Let me go grab yours. Remember that any question regrades should have been requested already"
             m "Thanks Professor Bonden!"
             p "Sorry to cut our meeting short but I do need to run. If you need me for anything, feel free to find me later!"
-            #hide prof
+            hide professor neutral
             "Man, he's disappeared already. I'll need to find the Professor again later but it seems like he's pretty strict on grade request deadlines. Maybe we can work out something else though"
             "Oh! Look at the time, I need to get the Triangle's info-session"
             jump club_info
@@ -225,15 +225,15 @@ label prof_meet:
                 "Flattery":
                     $ prof_friendship +=1
                     m "That's really cool! You're so knowledgeable Professor! How did you get into doing research? I think it's something I might want to pursue in the future"
-                    #show prof happy
+                    show professor happy
                     p "Thank you %(pname)s. That's great to hear! We can always use more scientists in the world. I got started in research in high school by reaching out to a local college and fell in love with it from there. I'm really apreciative of the good fortune I've had that's led me to be here today and doing what I love"
                     "I'm not sure how to respond to that. It's really nice to hear someone so passionate about their job"
                     p "Ah, but enough about me. Is there something else I can help you with?"
                     menu:
                         "Flattery":
                             $ prof_friendship -=3
-                            #hide prof happy
-                            #show prof neutral
+                            hide professor happy
+                            show professor neutral
                             m "I really liked your lecture last class!"
                             p "Thank you! It's always nice to hear feedback from students. Let me know if there's any complaints and ways I can improve too!"
                             p "Ah! I'm so sorry that we need to cut our conversation short but I actually need to run for a class now. Was there anything else you needed from me?"
@@ -258,8 +258,8 @@ label prof_meet:
 label complain_grade:
     $ prof_friendship -=1
     m "I was really surprised about my grade. There must have been a grading error"
-    #hide prof neutral
-    #show prof annoyed/some facial change
+    hide professor neutral
+    show professor mad
     p "Is that so? I put some higher level concepts on the exam that I guess the class didn't quite understand as well as I had hoped. Whatever your grade is, do know that I adjust based on the median at the end"
     m "But my grade is much much worse than even the median. Something must have gone wrong"
     jump end_prof
@@ -798,7 +798,7 @@ label sat_room:
 
 
 label mel_night:
-    scene hel
+    scene bg EC #temp until find image for Mel's/bar
     show max charm
     b "Oh, hey %(pname)s! Nice of you to finally join us. Did you think about what I said?"
     "Wait, it can't be. Is that... Professor Bonden?"
@@ -809,15 +809,93 @@ label mel_night:
     p "Hey %(pname)s! It's not weird at all to be seeing your at such an establishment"
     "O .o can't say I relate to that"
     m "Hey ....Professor! It's nice seeing your here"
-
-
-
-python:
-    """"label friend_party:
-        menu:
-            "Challenge Friend to SMASH ULTIMATE DEATH MATCH":
-                pass
-            "Talk to mysterious stranger in the sweater vest":
-                pass
-            "Speak with friend":
-                pass"""
+    p "Yeah! I must tell you, the Planetarium was mind boggling. So many interesting things you can learn over there"
+    p "Sorry for cutting our conversation short yesterday. About the extra credit?"
+    "What will your extra credit be?"
+    menu:
+        "Science Report":
+            m "Right! So looking into your research, I was thinking about doing a report or giving a presentation on Dark Matter or something astronomy related?"
+            "I hold my breath. This is where Profesesor might shoot me down"
+            hide professor happy
+            show professor neutral
+            p "{p=5.0}....."
+            m "Professor?"
+            p "That's not what I was thinking at all"
+            m "Would you rather me do something else?"
+            p "{p=5.0}....."
+            hide professor neutral
+            show professor pleased
+            p "BECAUSE THAT'S FANTASTIC. At the planetarium yesterday, I learned about so mnay topics that I would love to learn about. I have so many recommendations. Have you considered..."
+            "I'm stunned. Professor Bonden looks so excited about the prospect of my proposed science report, but what had he been considering?"
+            m "Ah Professor, that sounds great! I would love this to discuss this more with you, maybe at your office hours on Monday or something? But I'm curious, what were you originally thinking for my extra credit assignment"
+            p "Brilliant, brilliant. I wouldn't want to talk shop about grades and extra work on a Saturday night after all! Let's talk more on Monday."
+            p "Oh, I like your idea much better. I was just thinking of asking you to help me set up some science demos for my classes to illustrate your understanrding of the course or to help out in the science library with their filing work"
+            p "That's still an option of course, if you'd rather do that instead?"
+            m "Oh no, that's fine. I'm excited about working with you on this report after all"
+            p "Splendid! Alright, I must run now Have a good one, %(pname)s"
+            hide professor pleased
+            "Oh wow, that went amazingly!"
+        "Seduction time":
+            m "Don't worry Professor I know exactly what kind of activities will get me in your good graces"
+            p "It doesn't quite work like that %(pname)s, I need to agree on what the assignment will actually be. I was actually thinking of"
+            m "Shh. Don't worry, I know."
+            m "Professor Bonden, what's your electronegativity levels? Because I feel us bonden tonight?"
+            show professor neutral
+            "The professor doesn't say anything. But I assume that this is working?"
+            m "What say you? Let's go back to your place and test our co-efficient of friction"
+            m "If I were a protein, I'd be a DNA helicase so I could unzip your genes"
+            m "You've got my rapt attention on me orbiting around that ass"
+            #OMG THIS IS SOINTENSE
+            m "Care to explain what thrust is?"
+            m "How about you let me take you to the Planetariu? We can learn about astronomy then afterward maybe I can expore Uranus"
+            hide professor neutral
+            show professor surprised
+            p "Excuse me, %(pname)s! As much as I appreciate you illustrating your.... understanding of the sciences? What. Are. You. Doing.?"
+            p "I'm sorry if I confused you regarding our relationship but I would like to keep things strictly professional"
+            #here: can offer a menu option where you maybe feign romantic interest in professor (better ending in terms of your relationship with the professor)
+            #menu:
+            m "Come on Professor. Everyone knows about your reputation"
+            m "I help you out below Orion's belt and you help me out in the grade department"
+            hide professor surprised
+            show professor mad
+            p "What reputation? Excuse me?"
+            p "Is that really what you think of me? When I was talking about extra credit, I was thinking about you helping me set up some science demos for my classes to illustrate your understanrding of the course or setting you up in the science library with their filing"
+            m "...."
+            "Oh no. This all unravelled so quickly"
+            "I have no words to say I want to vaporize away. I had the completely wrong understanding"
+            p "I see now that we are not on the same page. So, I'll get back to you about looking at your exam for a regrade. I must get going. Good night,%(pname)s. I guess I'll see you on Monday."
+            hide professor mad
+            "Oh my gosh. That went HORRIBLY"
+    show max charm
+    b "Hey, so how'd the big confrontation go?"
+    menu:
+        "Confront":
+            hide max charm
+            show max neutral
+            m "You were completely wrong about Professor Bonden. Like 1000000%, the biggest margin of error, I've seen. in. my. LIFE"
+            m "What's wrong with you???"
+            b "Hey, plebian. Chill. I told you what I thought to be true. You were the one that took action on the information"
+            m "You could have ruined my relationship with the Professor."
+            b "Actually, it kind of sounds like you're the one that potentially ruined your relationship"
+            $maximillion_friendship -= 1
+        "Say Nothing":
+            b "Err. I guess that means things went well huh?"
+            b "Or I guess things went really badly?"
+            "I have nothing to say to Maximillion, he was so grossly mistaken about Professor Bonden."
+            b "Looks like you're broken huh?"
+        "Great":
+            "Despite, how wrong Maximillion was. There's no reason to ruin the night over it"
+            "Especially, with the proposition that he described at the library"
+            m "Yeah, thanks for the advice. Our meeting went great"
+            m "It's all smooth sailing for %(pname)s in the Science of Everything class now"
+            b "Well, yeah. Of course. Who do you think I am? I give the best and greatest intel around"
+            m "Righttttt"
+    b "Now moving on from that, did you have time to think over my offer from last night? Will you be joining me for some fun night activities tonight?"
+    "What are you going to do?"
+    menu:
+        "Join Maximillion":
+            pass
+        "Go to Room":
+            m "As pleasant as your company always is, I need to get going"
+            m "I've got faith in my own abilities to get into the {b}{i}T r i a n g l e{/i}{/b} without your help."
+            pass
