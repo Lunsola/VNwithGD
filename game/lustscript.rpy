@@ -5,9 +5,9 @@ label lust_start_dorm:
 
     scene bg bednight #temp holder until bedroom upload
 
-    "Ayyy. Bless. First round of testing season is over ... {p=1.0}and it's a Thursday night!! No immediate responsibilities that need to be taken care of and no need to stress about academics for a while...."
-    "...{p=1.0}Maybe I should finally check my scores for Science of Everything class. {p=1.0}I've been avoiding checking grades to minimize stress this week but I'm free from everything! Nothing can hurt me now."
-
+    "Ayyy. Bless. First round of testing season is over ... {p=3.0}and it's a Thursday night!! No immediate responsibilities that need to be taken care of and no need to stress about academics for a while...."
+    "...{p=1.0}Maybe I should finally check my scores for Science of Everything class."
+    "I've been avoiding checking grades to minimize stress but I'm free from everything! {p=2.0}Nothing can hurt me now."
 
     #Need to figure out how to program a dramatic scroll and frame with grades
     #otherwise show image of grades would suffice
@@ -560,23 +560,256 @@ label max_library:
         menu:
             "Professor Bonden":
                 m "Do you know about Professor Bonden?"
-            "{b}{i}T r i a n g l e{/i}{/b}":
-                pass
+                b "Yep! He's one of the science professors, yeah? I think I've heard mixed things about him"
+                m "Yeah, he's my Science of Everything Professor. I'm worried about my grade for the class especially after my last test"
+                hide max charm
+                show max neutral
+                b "Huh, can't say I relate to that problem but have you tried discussing your concerns with him?"
+                m "Not everyone can be blessed with your talents."
+                m"Actually, I missed the deadline for regrades but when I spoke with him today he did vaguely mention the opportunity for extra credit"
+                b "Huh, sounds kind of irresponsible"
+                b "Wait, you said Professor Bonden right? I have heard about his extra credit assignments!"
+                m "Really? Please do tell"
+                hide max neutral
+                show max wink
+                b "I've heard that he has quite the reputation in letting people plead their case back in his bedroom"
+                menu:
+                    "Confused":
+                        m "Huh? Is that where his students go to present their side report? Why not just do it in his office or the classroom?"
+                        b "Hahahahahahahahahahahaha that's funny. {p=3.0}  Wait are you forreal? How oblivious can you be"
+                        hide max wink
+                        show max neutral
+                        b "Simpleton much?"
+                        #maximillion_friendship -=1 (Should I? D:)
+                        m "Dude, chill. Elaborate please?"
+                        "Man this dude has a hell of a superiority complex"
+                        b "You know, the devil's tango? Do the nasty? A bit of crumpet?"
+                        b "Baking the potato? Funny business?Snibbing? Testing the humidity? Violating the prime directive? Monkey business"
+                        b "Making the beast with two backs?"
+                        m "Alright!!! I get it. Stop it. People are looking at us weirdly"
+                        b "Well, now you know."
+                        m "I don't know, Bonden doesn't seem like the type."
+                        b "Why not? Sometimes that's just how it is. Actually, something similar happens with the {b}{i}T r i a n g l e{/i}{/b} actually"
+                        m "So, if I were to get closer with you, I'd be a future Traingle huh?"
+                        hide max neutral
+                        show max wink
+                        b "Now you're getting it"
+                        m "Huh, I see"
+                        hide max wink
+                    "Accept":
+                        m "Woah, really?? I never imagined Bonden to be so saucy. Good on him for using his position in his favor lol"
+                        b "Right, what a guy. Kind of sus but you know both parties are benefitting"
+                        m "Righttttt, no need to delve into the ethics of this situation"
+                        b "Wow, how refreshing to hear that's how you feel. Actually, speaking about all of this."
+                        show max wink
+                        $ maximillion_friendship +=1
+                        b "Just to give you an insider tip, there's a supplement you can attach for your {b}{i}T r i a n g l e{/i}{/b} application too."
+                        b "Involving us {p=2.0}....attaching ourselves together"
+                        hide max wink
+                        show max charm
+                        m "Well, I guess we'll have to see about that huh?"
+                        b "I think I know what's going to happen, not everyone gets such priviledges %(pname)s,  you know?"
+                        b "Oh, just so you know. You've got an interview Sunday morning. Let me know if you want me to put in a good word before it. I'll be at Hel's tomorrow night maybe I'll see you then"
+                        m "Guess we'll have to see how lucky you get then huh?"
+                        b "Ha, I guess so"
+                        hide max charm
+                    #"Rage":
+                        #Is it worth having this option or just leaving it
+                        #pass
+            #"{b}{i}T r i a n g l e{/i}{/b}":
+            #    pass
 
     elif maximillion_friendship < 0 :
         hide max neutral
         show max mad
-        pass
+        b "I'm surprised they let such trash as yourself in here"
+        m "Wow, you stole the words right from my mouth. Did you think that up all by yourself?"
+        b "Thought more than your parents ever did about their life decisions. Ugh, anyway I'm going to get out of here. Else, your stupidity will spread"
+        "What.{p=2.0} the. {p=2.0} "
+        "This guy is the Asshole Supreme Overlord or something"
+        m "Before I hurt you and make the world a slightly better place. Can I ask you something?"
+        "Might as well get some intel from this unpleasant conversation"
+        hide max mad
+        show max skeptic
+        b "I guess...I'll do some charity work and depart my wisdom upon today's uncouth youth"
+        "What do I want to talk about?"
+        menu:
+            "Professor Bonden":
+                hide max skeptic
+                show max neutral
+                m "Do you know anything about Professor Bonden and his extra credit policy?"
+                b "Ha! Of course you'd be asking about extra credit policies. What, flunkinng classes already?"
+                m "No. Just curious"
+                b "Right, sure. Yeah, I do know about Professor Bonden and his ways. He's got quite the interesting extra credit policies"
+                m "Right, spit it out already"
+                b "Hah, now what would I get out of just tellilng you"
+                b "What are you willing to do for this info"
+                menu:
+                    "Anything":
+                        m "I need to know. Out with it"
+                        b "Aw,%(pname)s what a sad desperate fellow you are."
+                        "I roll my eyes"
+                        b "Bonden has quite the reputation in letting people plead their case back in his bedroom"
+                        menu:
+                            "Disgust":
+                                m "You've got to be kidding me. There's no way Professor Bonden is the type"
+                                b "Take it or leave it. That's what I know"
+                                m "Ugh of course you'd be the type to be so nonchalant about this"
+                                b "What's wrong? A mutualistic relationship, the professor gets something and the student gets something"
+                                b "With a whole lot of debauchery"
+                                show max wink
+                                b "Since you're so desperate for information. Let me give you some extra intel. Consider it a gift for the unfortunate"
+                                b "We actually do something similar at the {b}{i}T r i a n g l e{/i}{/b} too"
+                                m "What."
+                                b "You didn't hear it from me. But maybe you want to consider doing something supplemental with your interview on Sunday morning and everything."
+                                b "Let me know what you decide at Mel's tomorrow night"
+                                m "WHAT"
+                                hide max wink
+                            "Accept":
+                                m "Huh, I'm surprised to hear that Professor Bonden would be the type. But I guess with every system there's some form of corruption"
+                                b "Even a desperate idiot like you gets it. How refreshing"
+                                show max vicious
+                                b "I'll let you in on some even more infomation. That's actulally something that could benefit your {b}{i}T r i a n g l e{/i}{/b} application too."
+                                m "Ugh. The thing that you're implying sickens me greatly"
+                                b "You sicken me. Well...you wouldn't want to hurt your chances especially since you've made it to the interview stage and everything"
+                                m "....What?"
+                                b "Being on the exec board and everything, it'd be so easy to sway the decision of your application"
+                                m "Now what would you have me do about this?"
+                                b "Let me know, I'll be at Hel's tomorrow night"
+                                b "See ya, wouldn't want to be ya"
+                                m "Lol, true that. Even you wouldn't want to do the nasties with yourself huh?"
+                                hide max vicious
+                    "Nothing":
+                        m "Haha, for you? Nothing really, your information is probably useless anyways"
+                        b "Just as I expected from you %(pname)s"
+                        b "There's nothing that you have worth anything of value to me anyways"
+                        m "Whatever, knowing you, this was expected. Nothing comes from nothing after all"
+                        b "Ignoring that zinger. I'm going to bless your desperate self with some information"
+                        b "Bonden has quite the reputation in letting people plead their case back in his bedroom"
+                        menu:
+                            "Disgust":
+                                m "You've got to be kidding me. There's no way Professor Bonden is the type"
+                                b "Take it or leave it. That's what I know"
+                                m "Ugh of course you'd be the type to be so nonchalant about this"
+                                b "What's wrong? A mutualistic relationship, the professor gets something and the student gets something"
+                                b "With a whole lot of debauchery"
+                                show max wink
+                                b "We actually do something similar at the {b}{i}T r i a n g l e{/i}{/b} too"
+                                m "What."
+                                b "You didn't hear it from me. But maybe you want to consider doing something supplemental with your interview on Sunday Morning and everything."
+                                b "Let me know what you decide at Mel's tomorrow night"
+                                m "WHAT"
+                                hide max wink
+                            "Accept":
+                                m "Huh, I'm surprised to hear that Professor Bonden would be the type. But I guess with every system there's some form of corruption"
+                                b "Even an idiot like you gets it. How refreshing"
+                                show max vicious
+                                b "I'll let you in on some even more infomation. That's actulally something that could benefit your {b}{i}T r i a n g l e{/i}{/b} application too."
+                                m "Ugh. The thing that you're implying sickens me greatly"
+                                b "You sicken me. Well...you wouldn't want to hurt your chances especially since you've made it to the interview stage and everything"
+                                m "....What?"
+                                b "Being on the exec board and everything, it'd be so easy to sway the decision of your application"
+                                m "Now what would you have me do about this?"
+                                b "Let me know, I'll be at Hel's tomorrow night"
+                                b "See ya, wouldn't want to be ya"
+                                m "Lol, true that. Even you wouldn't want to do the nasties with yourself huh?"
+                                hide max vicious
     else:
-        pass
+        show max neutral
+        b "Hey, %(pname)s right? Surprised to see you here on a Friday night"
+        "Right, the guy from the {b}{i}T r i a n g l e{/i}{/b} earlier"
+        m "Hey Maximillion. Yeah, the grind really doesn't stop"
+        m "Actually, would you mind if I asked you about something?"
+        b  "Sure, I'll depart my wisdom upon today's uncouth youth"
+        "My gosh. Uncouth? Youth? What type of eccentric boomer is this"
+        "What do I want to talk about?"
+        menu:
+            "Professor Bonden":
+                m "Do you know about Professor Bonden?"
+                b "Yep! He's one of the science professors, yeah? I think I've heard mixed things about him"
+                m "Yeah, he's my Science of Everything Professor. I'm worried about my grade for the class especially after my last test"
+                hide max charm
+                show max neutral
+                b "Huh, can't say I relate to that problem but have you tried discussing your concerns with him?"
+                m "I spoke about it with him today."
+                m"Actually, I missed the deadline for regrades but when I spoke with him today he did vaguely mention the opportunity for extra credit"
+                b "Huh, sounds kind of irresponsible"
+                b "Wait, you said Professor Bonden right? I have heard about his extra credit assignments!"
+                m "Really? Please do tell"
+                hide max neutral
+                show max wink
+                b "I've heard that he has quite the reputation in letting people plead their case back in his bedroom"
+                menu:
+                    "Confused":
+                        m "Huh? Is that where his students go to present their side report? Why not just do it in his office or the classroom?"
+                        b "Hahahahahahahahahahahaha that's funny. {p=3.0}  Wait are you forreal? How oblivious can you be"
+                        hide max wink
+                        show max neutral
+                        b "Simpleton much?"
+                        $ maximillion_friendship -=1
+                        m "Dude, chill. Elaborate please?"
+                        "Man this dude is judgemental to the max"
+                        b "You know, the devil's tango? Do the nasty? A bit of crumpet?"
+                        b "Baking the potato? Funny business?Snibbing? Testing the humidity? Violating the prime directive? Monkey business"
+                        b "Making the beast with two backs?"
+                        m "Alright!!! I get it. Stop it. People are looking at us weirdly"
+                        b "Well, now you know."
+                        m "I don't know, Bonden doesn't seem like the type."
+                        b "Why not? Sometimes that's just how it is. Actually, something similar happens with the {b}{i}T r i a n g l e{/i}{/b} actually"
+                        m "So, if I were to get closer with you, I'd be a future Traingle huh?"
+                        hide max neutral
+                        show max wink
+                        b "Now you're getting it"
+                        m "Huh, I see"
+                        hide max wink
+                    "Accept":
+                        m "Woah, really?? I never imagined Bonden to be so saucy. Good on him for using his position in his favor lol"
+                        b "Right, what a guy. Kind of sus but you know both parties are benefitting"
+                        m "Righttttt, no need to delve into the ethics of this situation"
+                        b "Wow, how refreshing to hear that's how you feel. Actually, speaking about all of this."
+                        show max wink
+                        $maximillion_friendship +=1
+                        b "Just to give you an insider tip, there's a supplement you can attach for your {b}{i}T r i a n g l e{/i}{/b} application too."
+                        b "Involving us {p=2.0}....attaching ourselves together"
+                        hide max wink
+                        show max charm
+                        m "Well, I guess we'll have to see about that huh?"
+                        b "I think I know what's going to happen, not everyone gets such priviledges %(pname)s,  you know?"
+                        b "Oh, just so you know. You've got an interview Sunday morning. Let me know if you want me to put in a good word before it. I'll be at Hel's tomorrow night maybe I'll see you then"
+                        m "Guess we'll have to see how lucky you get then huh?"
+                        b "Ha, I guess so"
+                        hide max charm
+
+    "As our conversation comes to a stop, I try to focus on my work with no avail...Was Maximillion right about Professor Bonden?"
+    "If he is, was I willing to go through with it just to get the grade boost?"
+    "And what the heck. The way to get into the Triangle is the same way?"
+    "After failing to get any work done in the hours I spend at the library. I call it a night and trudge back to my dorm"
 
 label sat_room:
     scene bg bedroom
     "I get a restless sleep. Thinking about what Maximillion had said the other today. What kind of extra credit did Professor Bonden mean?"
+    "I was originally thinking about doing a presentation or report about the planetarium or something academic related. Who would have thought that getting a good grade would be this complicated"
+    "Not to mention, what Maximillion said about the {b}{i}T r i a n g l e{/i}{/b} application. Things like this actually happen?"
+    "Trying to focus on my work, nothing really gets done for the entire day as I deliberate the best course of action"
+    "Come on, %(pname)s! What to do, what to do"
+    "After a lot of deliberation, and the day pretty much gone to waste. The one thing I'm set on is that I need to go to Hel's and talk to Maximillion some more."
+
+
 
 
 label mel_night:
-    #scene mel
+    scene hel
+    show max charm
+    b "Oh, hey %(pname)s! Nice of you to finally join us. Did you think about what I said?"
+    "Wait, it can't be. Is that... Professor Bonden?"
+    m "Wait, sorry. Let me get back to you. "
+    b "Aurevoir"
+    hide max charm
+    show professor happy
+    p "Hey %(pname)s! It's not weird at all to be seeing your at such an establishment"
+    "O .o can't say I relate to that"
+    m "Hey ....Professor! It's nice seeing your here"
+
 
 
 python:
