@@ -10,6 +10,7 @@ define b = Character("Maximillion")
 define m = Character("Me")
 define p = Character("Professor Bonden")
 define k = Character("Karen")
+define a =Character("Marvin")
 define w = Character("???") #for characters where name is thus far unknown
 
 #character transforms
@@ -72,8 +73,12 @@ image josh winkfg = "Finger Gun WInk.png"
 #music boi images
 image music neutral = "music_neutral.png"
 image music dark = "music_oho.png"
-image music unimpressed = "music_hmph.png"
-image music wink = "music_wink.png"
+#image music unimpressed = "music_hmph.png"
+#image music wink = "music_wink.png"
+image music moody = "music_moody.png"
+image music mad = "music_mad.png"
+image music talk = "music_openmouth.png"
+image music sad = "music_disappointment.png"
 
 #professor images
 image professor happy = "Professor_happy.png"
@@ -148,6 +153,8 @@ label start:
     $ maximillion_friendship = 0 #maximillion friendship points
     $ marie_friendship = 0 #marie friendship points
     $ prof_friendship = 0 #professor friendship points
+    $ marv_friendship = 0 #marvin friendship points
+    $ classgrade = 0 #pride chapter grade
     $ josh_hasnumber = False #does player have josh's number?
     $grade_change = False
 
