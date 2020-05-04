@@ -134,6 +134,11 @@ image bg hels:
 image bg maxs:
     zoom 1.5
     "max_room.jpg"
+image bg lecture hall:
+    zoom 0.35
+    "havemeyer.jpeg"
+image bg mil = "milstein.jpg"
+image bg lerner = "lerner.jpg"
 
 
 
