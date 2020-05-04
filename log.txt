@@ -1,38 +1,39 @@
-Sat Apr 25 14:41:18 2020
+Sat May 02 13:27:22 2020
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
  
 
-Bootstrap to the start of init.init took 0.45s
-Early init took 0.04s
-Loader init took 0.17s
-Loading error handling took 0.12s
-Loading script took 0.60s
-Loading save slot metadata. took 0.08s
+Bootstrap to the start of init.init took 0.47s
+Early init took 0.02s
+Loader init took 0.68s
+Loading error handling took 0.30s
+Loading script took 3.99s
+Loading save slot metadata. took 1.22s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.60s
-Loading analysis data took 0.07s
-Analyze and compile ATL took 0.01s
+Running init code took 0.69s
+Loading analysis data took 0.17s
+Analyze and compile ATL took 0.02s
 Index archives took 0.00s
-Dump and make backups. took 0.44s
+Backing up script files to 'C:\\Users\\Kimberly\\AppData\\Roaming/RenPy/backups\\CU_HEdoubleL':
+Dump and make backups. took 0.65s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc. took 0.07s
 DPI scale factor: 1.000000
-Creating interface object took 0.26s
-Cleaning stores took 0.00s
-Init translation took 0.17s
+Creating interface object took 0.30s
+Cleaning stores took 0.01s
+Init translation took 0.18s
 Build styles took 0.04s
-Load screen analysis took 0.11s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.33s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.35s
-Running _start took 0.00s
+Load screen analysis took 0.03s
+Analyze screens took 0.08s
+Save screen analysis took 0.42s
+Prepare screens took 0.72s
+Save pyanalysis. took 0.52s
+Save bytecode. took 0.50s
+Running _start took 0.01s
 Performance test:
-Interface start took 0.09s
+Interface start took 0.12s
 
 primary display bounds: (0, 0, 1366, 768)
 swap interval: 1 frames
@@ -257,11 +258,48 @@ Texture testing:
 - 2048px textures work.
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
-Total time until interface ready: 5.66899991035s
+Total time until interface ready: 13.3180000782s
 - Target is 5 frames in 0.333333333333 seconds.
 - Frame drawn at 0.000000 seconds.
-- Frame drawn at 0.022667 seconds.
-- Frame drawn at 0.042667 seconds.
-- Frame drawn at 0.060667 seconds.
-- Frame drawn at 0.084667 seconds.
-- 0.084667 seconds to render 5 frames.
+- Frame drawn at 0.019667 seconds.
+- Frame drawn at 0.037667 seconds.
+- Frame drawn at 0.052667 seconds.
+- Frame drawn at 0.069667 seconds.
+- 0.069667 seconds to render 5 frames.
+
+Full traceback:
+  File "game/gluttony.rpy", line 497, in script
+    if josh_friendship > 1:
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2057, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 692, in py_compile
+    raise e
+SyntaxError: invalid syntax (game/gluttony.rpy, line 501)
+
+While running game code:
+  File "game/gluttony.rpy", line 497, in script
+    if josh_friendship > 1:
+SyntaxError: invalid syntax (game/gluttony.rpy, line 501)
+
+Full traceback:
+  File "game/lustscript.rpy", line 875, in script
+    m "You were completely wrong about Professor Bonden. Like 1000000%, the biggest margin of error, I've seen. in. my. LIFE"
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 708, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\exports.py", line 1334, in say
+    what = what % tag_quoting_dict
+ValueError: unsupported format character ',' (0x2c) at index 63
+
+While running game code:
+  File "game/lustscript.rpy", line 875, in script
+    m "You were completely wrong about Professor Bonden. Like 1000000%, the biggest margin of error, I've seen. in. my. LIFE"
+ValueError: unsupported format character ',' (0x2c) at index 63
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.03s
+Load screen analysis took 0.12s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.01s
