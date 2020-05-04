@@ -94,7 +94,9 @@ image professor mad:
 image professor neutral:
     zoom 0.8
     "Professor_neutral.png"
-image professor pleased = "Professor_pleased.png"
+image professor pleased:
+    zoom 0.8
+    "Professor_pleased.png"
 
 
 #item images
@@ -113,8 +115,12 @@ image bg classroom:
 image bg john jay = "jonathanjay.jpg"
 image bg EC = "EC.jpg"
 image bg themil = "library.jpg"
-image bg bednight = im.Grayscale("bedroom.jpg")
-image bg bedroom = "bedroom.jpg"
+image bg bednight:
+    zoom 1.2
+    im.Grayscale("bedroom.jpg") #GrayscaleSepia
+image bg bedroom:
+    zoom 1.2
+    "bedroom.jpg"
 image bg office:
     zoom 0.5
     "office.jpg"
@@ -122,11 +128,12 @@ image bg coffeeshop:
     zoom 1.40
     "Coffee Shop.jpg"
 image bg hallway = "Hallway.jpg"
-image bg lecture hall:
-    zoom 0.35
-    "havemeyer.jpeg"
-image bg mil = "milstein.jpg"
-image bg lerner = "lerner.jpg"
+image bg hels:
+    zoom 3.0
+    "mels.jpg"
+image bg maxs:
+    zoom 1.5
+    "max_room.jpg"
 
 
 

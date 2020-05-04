@@ -3,7 +3,7 @@ label lust_start_dorm:
 
     $prof_email = False
 
-    scene bg bednight #temp holder until bedroom upload
+    scene bg bednight
 
     "Ayyy. Bless. First round of testing season is over ... {p=3.0}and it's a Thursday night!! No immediate responsibilities that need to be taken care of and no need to stress about academics for a while...."
     "...{p=1.0}Maybe I should finally check my scores for Science of Everything class."
@@ -132,13 +132,13 @@ python:
     """
 label thurs_end:
     show marie neutral
-    r "It's geeting late. I'm going to sleep now. Nighty night!"
+    r "It's getting late. I'm going to sleep now. Nighty night!"
     "Ahh how is it already 1 am?! What an emotional rollercoaster of a day. Time to conk out for today"
 
 
 label fri_morn:
 
-    scene bg bedroom #temp holder until bedroom upload
+    scene bg bedroom
     "Ah!!! It's already 11 am. Time to get up"
     "First things first, let's check phone updates"
 
@@ -154,7 +154,7 @@ label fri_morn:
          #email notification subject line: dress business casual for club meeting today!
     "Ah!! So much to get done. But let's see... time to figure out what to wear"
     menu: #TODO Figure out problem with loading images as menu options
-        "I Sigma Pie T-shirt": #"{image = ../images/itsandwich.png}":
+        "I 8 π T-shirt": #"{image = ../images/itsandwich.png}":
             pass
         "Dress-Shirt and Khakis": #"{image = ../images/itsandwich.png}":
             pass
@@ -350,7 +350,7 @@ label club_info:
     "The room feel to a hush as some stranger started their presentation"
     show max charm
     w "Hi Guys! Thank you all for your interest in joining the {b}{i}T r i a n g l e{/i}{/b}! We’re a tight knit community from across the schools. We do X, Y and Z for the school, really great things. We have lots of funding for whatever projects that you come up with."
-    "I over hear someone whispering to their friend. I've heard that getting into the Triangle pretty much sets you up for guaranteed work at any of the big companies. Their alumni connections are crazy."
+    "I over hear someone whispering: {i}I've heard that getting into the Triangle sets you up for guaranteed work at any of the big companies. Their alumni low key rule the world.{/i}"
     "Woah, I definitely want to get in if that's the case. It'll help me for whatever I want to do in the future"
     w "And that's the {b}{i}T r i a n g l e{/i}{/b}! Thank you all for coming. Please feel free to come up to any of the board members to fill out an application form and get to know us!"
     hide max charm
@@ -403,8 +403,8 @@ label club_app:
     m "I was hoping to fill out an application for the club"
     b "Alright. Here you go"
     $ app1 = renpy.input("Why do you want to join the Triangle?")
-    $ app2 = renpy.input("What past experiences do you have that makes you qualified to be a Triangle")
-    $ app3 = renpy.input("We plan many events at school for the community. What event would you throw if you were in the Triangle")
+    $ app2 = renpy.input("What makes you worthy of being a Triangle?")
+    $ app3 = renpy.input("We plan many events at school for the community. What event would you throw if you were in the Triangle?")
     "Hopefully my answers are good enough"
     b "And now you're all set!"
     b "If you make it to the next stage, we'll reach out to you about setting up an interview this weekend"
@@ -638,7 +638,7 @@ label max_library:
                 hide max skeptic
                 show max neutral
                 m "Do you know anything about Professor Bonden and his extra credit policy?"
-                b "Ha! Of course you'd be asking about extra credit policies. What, flunkinng classes already?"
+                b "Ha! Of course you'd be asking about extra credit policies. What, flunking classes already?"
                 m "No. Just curious"
                 b "Right, sure. Yeah, I do know about Professor Bonden and his ways. He's got quite the interesting extra credit policies"
                 m "Right, spit it out already"
@@ -666,10 +666,10 @@ label max_library:
                                 m "WHAT"
                                 hide max wink
                             "Accept":
-                                m "Huh, I'm surprised to hear that Professor Bonden would be the type. But I guess with every system there's some form of corruption"
+                                m "Huh, I'm surprised to hear that Professor Bonden would be the type. But I guess with every system, there's bound to be some form of corruption"
                                 b "Even a desperate idiot like you gets it. How refreshing"
                                 show max vicious
-                                b "I'll let you in on some even more infomation. That's actulally something that could benefit your {b}{i}T r i a n g l e{/i}{/b} application too."
+                                b "I'll let you in on some even more infomation. That's actually something that could benefit your {b}{i}T r i a n g l e{/i}{/b} application too."
                                 m "Ugh. The thing that you're implying sickens me greatly"
                                 b "You sicken me. Well...you wouldn't want to hurt your chances especially since you've made it to the interview stage and everything"
                                 m "....What?"
@@ -794,11 +794,8 @@ label sat_room:
     "Come on, %(pname)s! What to do, what to do"
     "After a lot of deliberation, and the day pretty much gone to waste. The one thing I'm set on is that I need to go to Hel's and talk to Maximillion some more."
 
-
-
-
 label mel_night:
-    scene bg EC #temp until find image for Mel's/bar
+    scene bg hels #temp until find image for Mel's/bar
     show max charm
     b "Oh, hey %(pname)s! Nice of you to finally join us. Did you think about what I said?"
     "Wait, it can't be. Is that... Professor Bonden?"
@@ -806,7 +803,7 @@ label mel_night:
     b "Aurevoir"
     hide max charm
     show professor happy
-    p "Hey %(pname)s! It's not weird at all to be seeing your at such an establishment"
+    p "Hey %(pname)s! It's not weird at all to be seeing you at such an establishment"
     "O .o can't say I relate to that"
     m "Hey ....Professor! It's nice seeing your here"
     p "Yeah! I must tell you, the Planetarium was mind boggling. So many interesting things you can learn over there"
@@ -818,7 +815,7 @@ label mel_night:
             "I hold my breath. This is where Profesesor might shoot me down"
             hide professor happy
             show professor neutral
-            p "{p=5.0}....."
+            p "{p=3.0}....."
             m "Professor?"
             p "That's not what I was thinking at all"
             m "Would you rather me do something else?"
@@ -839,18 +836,18 @@ label mel_night:
             m "Don't worry Professor I know exactly what kind of activities will get me in your good graces"
             p "It doesn't quite work like that %(pname)s, I need to agree on what the assignment will actually be. I was actually thinking of"
             m "Shh. Don't worry, I know."
-            m "Professor Bonden, what's your electronegativity levels? Because I feel us bonden tonight?"
+            m "Professor Bonden, what's your electronegativity levels? Because I feel us bonden tonight"
             show professor neutral
             "The professor doesn't say anything. But I assume that this is working?"
             m "What say you? Let's go back to your place and test our co-efficient of friction"
             m "If I were a protein, I'd be a DNA helicase so I could unzip your genes"
             m "You've got my rapt attention on me orbiting around that ass"
             #OMG THIS IS SOINTENSE
-            m "Care to explain what thrust is?"
+            m "Care to explain what thrust is back at your place?"
             m "How about you let me take you to the Planetariu? We can learn about astronomy then afterward maybe I can expore Uranus"
             hide professor neutral
             show professor surprised
-            p "Excuse me, %(pname)s! As much as I appreciate you illustrating your.... understanding of the sciences? What. Are. You. Doing.?"
+            p "Excuse me, %(pname)s! As much as I appreciate you illustrating your....{p=2.0} understanding of the sciences? {p=1.0}What. {p=1.0}Are. {p=1.0}You. {p=1.0}Doing.?"
             p "I'm sorry if I confused you regarding our relationship but I would like to keep things strictly professional"
             #here: can offer a menu option where you maybe feign romantic interest in professor (better ending in terms of your relationship with the professor)
             #menu:
@@ -859,10 +856,11 @@ label mel_night:
             hide professor surprised
             show professor mad
             p "What reputation? Excuse me?"
-            p "Is that really what you think of me? When I was talking about extra credit, I was thinking about you helping me set up some science demos for my classes to illustrate your understanrding of the course or setting you up in the science library with their filing"
+            p "Is that really what you think of me? Who do you think I am to do such debauched things with a student"
+            p "When I was talking about extra credit, I was thinking about you helping me set up some science demos for my classes or something else"
             m "...."
             "Oh no. This all unravelled so quickly"
-            "I have no words to say I want to vaporize away. I had the completely wrong understanding"
+            "I have no words to say. I want to vaporize away. I had the completely wrong understanding"
             p "I see now that we are not on the same page. So, I'll get back to you about looking at your exam for a regrade. I must get going. Good night,%(pname)s. I guess I'll see you on Monday."
             hide professor mad
             "Oh my gosh. That went HORRIBLY"
@@ -872,30 +870,98 @@ label mel_night:
         "Confront":
             hide max charm
             show max neutral
-            m "You were completely wrong about Professor Bonden. Like 1000000%, the biggest margin of error, I've seen. in. my. LIFE"
+            m "You were completely wrong about Professor Bonden. Like COMPLETELY, the biggest margin of error, I've seen in{p=1.0} my{p=1.0} LIFE"
             m "What's wrong with you???"
             b "Hey, plebian. Chill. I told you what I thought to be true. You were the one that took action on the information"
             m "You could have ruined my relationship with the Professor."
-            b "Actually, it kind of sounds like you're the one that potentially ruined your relationship"
+            b "Actually, it kind of sounds like you're the one that ruined your relationship"
             $maximillion_friendship -= 1
         "Say Nothing":
+            m "...."
             b "Err. I guess that means things went well huh?"
             b "Or I guess things went really badly?"
             "I have nothing to say to Maximillion, he was so grossly mistaken about Professor Bonden."
-            b "Looks like you're broken huh?"
+            "I can't even"
+            b "Looks like you're broken huh? Hello? Space Center to %(pname)s. Come in"
         "Great":
             "Despite, how wrong Maximillion was. There's no reason to ruin the night over it"
             "Especially, with the proposition that he described at the library"
-            m "Yeah, thanks for the advice. Our meeting went great"
+            m "Yeah, thanks for the advice. Our meeting went swimmingly well"
             m "It's all smooth sailing for %(pname)s in the Science of Everything class now"
             b "Well, yeah. Of course. Who do you think I am? I give the best and greatest intel around"
             m "Righttttt"
+    show max charm
     b "Now moving on from that, did you have time to think over my offer from last night? Will you be joining me for some fun night activities tonight?"
     "What are you going to do?"
     menu:
         "Join Maximillion":
-            pass
+            if maximillion_friendship >= 2:
+                m "Looks like you're getting lucky tonight"
+                b "Pshh let's be real, this must be beyond your wildest imagination"
+                m "Eh, I've had better"
+                b "Of course %(pname)s, you're not delusional or anything"
+            elif maximillion_friendship >= 0:
+                m "I guess, I can grant you some of my time tonight"
+                b "Can't say that I'm surprised about your decision"
+                b "%(pname)s, you're getting so lucky tonight"
+            else:
+                m "UGh, as much as it pains me, let's get this over with"
+                hide max charm
+                show max skeptic
+                b "I'm nauseated by you, hopefully you can exceed my low low expectations"
+                m "Says the most desperate man of all the land"
+                b "Eh, I like to think about it as community service"
+            jump morning_aftermax
         "Go to Room":
-            m "As pleasant as your company always is, I need to get going"
-            m "I've got faith in my own abilities to get into the {b}{i}T r i a n g l e{/i}{/b} without your help."
-            pass
+            if maximillion_friendship >= 2:
+                m "As pleasant as your company always is, I need to get going"
+                m "I think I've got things covered with my {b}{i}T r i a n g l e{/i}{/b} application."
+                b "Suit yourself %(pname)s, you're missing out on a magical mystery ride though"
+                hide max charm
+                show max wink
+                m "Bahahahahahahahahaha"
+                m "oh yeah, of course. Maybe I'll be honored with another opportunity like this some other time"
+                hide max wink
+                show max charm
+                b "Aww, you poor confused peasant. This was a once in a life time opportunity. Maybe your dreams will be blessed with my presence"
+                m "Maybe. Hopefully I miss out on seeing you in my nightmares"
+                b "Ugh, get out of here. You need to make your interview tomorrow morning"
+                m "See ya your highness!"
+                hide max charm
+            elif maximillion_friendship >= 0:
+                m "I'm afraid I've got some work I need to get done so I must decline."
+                b  "Oooh, scared of having the best night of your life eh?"
+                "Man, this guy's completely bonkers"
+                m "Uh...{p=3.0}sure. Maybe some other time I guess?"
+                b "Eh...guess we'll see if you're lucky"
+                m "...Okay, see you around I guess"
+                b "Yes, you're dismissed. I bid thee adieu"
+                hide max charm
+            else:
+                m "I'd rather bite my tongue, you nasty"
+                hide max charm
+                show max mad
+                b "Oh please do, save me from hearing the blatherings of an idiot"
+                m "I think only you can save yourself from the nonsense spewing from your mouth"
+                b "How you've made it this far in the application process astounds me"
+                m "Of course. You wouldn't understand what talent and intelligent looks like"
+                b "I know that it's not you"
+                m "Guess we'll see, once I kick your ass out of the {b}{i}T r i a n g l e{/i}{/b}"
+                b "Eh, we'll be all talking about what a nitwit you are tomorrow "
+                m "Ugh, I'm getting out of here. Save my brain cells from talking to you"
+                hide max mad
+                show max vicious
+                b "I'd say good luck for tomorrow. But let's be real, you're going to crash and burn"
+                hide max vicious
+            jump morning_afterhome
+label morning_aftermax:
+    scene bg maxs
+    "Crap. Crap. Triple Crap"
+    "What time is it?"
+    "{p=3.0}I'M LATE FOR MY INTERVIEW"
+    "There's only like 5 minutes left, damn it"
+
+    pass
+label morning_afterhome:
+    scene bg bednight
+    pass
