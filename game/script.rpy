@@ -12,6 +12,7 @@ define b = Character("Maximillion")
 define m = Character("Me")
 define p = Character("Professor Bonden")
 define k = Character("Karen")
+define a =Character("Marvin")
 define w = Character("???") #for characters where name is thus far unknown
 
 #character transforms
@@ -74,8 +75,12 @@ image josh winkfg = "Finger Gun WInk.png"
 #music boi images
 image music neutral = "music_neutral.png"
 image music dark = "music_oho.png"
-image music unimpressed = "music_hmph.png"
-image music wink = "music_wink.png"
+#image music unimpressed = "music_hmph.png"
+#image music wink = "music_wink.png"
+image music moody = "music_moody.png"
+image music mad = "music_mad.png"
+image music talk = "music_openmouth.png"
+image music sad = "music_disappointment.png"
 
 #professor images
 image professor happy = "Professor_happy.png"
@@ -86,7 +91,9 @@ image professor mad:
 image professor neutral:
     zoom 0.8
     "Professor_neutral.png"
-image professor pleased = "Professor_pleased.png"
+image professor pleased:
+    zoom 0.8
+    "Professor_pleased.png"
 
 
 #item images
@@ -105,8 +112,12 @@ image bg classroom:
 image bg john jay = "jonathanjay.jpg"
 image bg EC = "EC.jpg"
 image bg themil = "library.jpg"
-image bg bednight = im.Grayscale("bedroom.jpg")
-image bg bedroom = "bedroom.jpg"
+image bg bednight:
+    zoom 1.2
+    im.Grayscale("bedroom.jpg") #GrayscaleSepia
+image bg bedroom:
+    zoom 1.2
+    "bedroom.jpg"
 image bg office:
     zoom 0.5
     "office.jpg"
@@ -114,6 +125,12 @@ image bg coffeeshop:
     zoom 1.40
     "Coffee Shop.jpg"
 image bg hallway = "Hallway.jpg"
+image bg hels:
+    zoom 3.0
+    "mels.jpg"
+image bg maxs:
+    zoom 1.5
+    "max_room.jpg"
 
 
 
@@ -150,6 +167,8 @@ label start:
     $ maximillion_friendship = 0 #maximillion friendship points
     $ marie_friendship = 0 #marie friendship points
     $ prof_friendship = 0 #professor friendship points
+    $ marv_friendship = 0 #marvin friendship points
+    $ classgrade = 0 #pride chapter grade
     $ josh_hasnumber = False #does player have josh's number?
     $grade_change = False
 
