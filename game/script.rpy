@@ -10,7 +10,8 @@ define b = Character("Maximillion")
 define m = Character("Me")
 define p = Character("Professor Bonden")
 define k = Character("Karen")
-define a =Character("Marvin")
+define a = Character("Marven")
+define s = Character("Professor")
 define w = Character("???") #for characters where name is thus far unknown
 
 #character transforms
@@ -139,6 +140,7 @@ image bg lecture hall:
     "havemeyer.jpeg"
 image bg mil = "milstein.jpg"
 image bg lerner = "lerner.jpg"
+image bg buthall = "buthall.jpg"
 
 
 
@@ -187,7 +189,7 @@ label start:
     $ pname = renpy.input("My name is:")
     # Code to use the name: "Oh hi, I'm %(pname)s"
 
-    jump roommateintro
+    jump m2fail
 
     # This ends the game.
 

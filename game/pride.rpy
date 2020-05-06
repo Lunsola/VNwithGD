@@ -188,7 +188,7 @@ label hw2pass:
     r "hehe come on let's find some seats"
     m "You go on ahead, I need to use the bathroom first"
     hide marie nervous2
-    scene bg hallway #bg bathroom
+    scene bg buthall #bg bathroom
     "Phew"
     "Marie rushed me to the library so fast I didn't go through my morning routine"
     show music_neutral
@@ -235,7 +235,7 @@ label music_encounter:
     "GASPPP SPICYYY MEMEEEES"
     menu:
         "That sounds GUCCI GANG":
-            $ music_friendship +=1
+            $ music_friendship +=2
             hide music_dark
             show music_smile
             a "Coolio. Gimme your number, I'll send you the deets"
@@ -246,14 +246,86 @@ label music_encounter:
             show music_sad
             a "Uwu that's your loss"
             "No way I'm accepting a sus party invitation from this d00d"
-            jump m2pass
-
-
-label m2pass:
-    scene bg bedroom
-    show marie happy
+            jump studying
 
 label m2fail:
     scene bg bedroom
-    hide bg bedroom
-    "That was fun"
+    "That was funnnnn. BUrP~"
+    "Never drank so much gatorade in one night"
+    "Feels kinda gross"
+    show marie nervous
+    r "%(pname)s? You were out all night and you didn't tell me!"
+    m "Oh g'morning Marie."
+    m "Errr yeah I went to a party"
+    hide marie nervous
+    show marie concerned
+    "Whoops I was having so much fun I didn't even see her texts"
+    menu:
+        "Lie":
+            m "Sorry, my phone ran out of battery"
+            r "Anyways, why was there even such a big party the day before class?"
+            "She's sharper than she looks"
+        "Truth":
+            m "I actually went out with Marven from ASSES to a Spicy Meme themed party"
+            r "Oh ok."
+            r "It's fine that you didn't invite me even thought we are roommates and in the same ASSES"
+show marie concerned
+with vpunch
+hide marie concerned
+show marie averse
+r "%(pname)s! Are you ok?"
+m "mmmmm still woozy"
+with hpunch
+hide marie averse
+show marie averse:
+    zoom 2
+    yalign .75
+    xalign .3
+r "%(pname)s!?"
+with pixellate
+"uuugHHHHHHH"
+with hpunch
+with vpunch
+hide marie averse
+show marie averse:
+    zoom 3
+    yalign 1.01
+    xalign .3
+r "AGH %(pname)s you can't fall here!"
+r "We have an ASSES Examination today!"
+with pixellate
+with hpunch
+with vpunch
+with hpunch
+"sorry Marie"
+scene bg bedroom
+with pixellate
+"RIP to ASSES Examination 2"
+
+label studying:
+scene bg butler
+"Zamn ASSES HW4 makes no sense"
+#"How many drops of water are circulated in the fountains on low?"
+"*dumb question*"
+pause 1
+"There's also an awful crashing sound coming from low"
+"AGH CaN'T conCentraTe"
+show marie happy
+r "hehe %(pname)s is studying hard!"
+m "Well, considering that ASSES gives me a heartattack whenever I open courseworks, I gotta work my ass of to save my ASSES grade"
+m "btw, do you know what's causing that awful din outside"
+hide marie happy
+show v happy
+r "That's the Lion Dance Cult!"
+m "MArie you can't yell in the library!"
+r "They known for eating all the food at the events they're invited to {p=1}and making a bigger racket than the marching band ON A WEEKLY BASIS."
+m "uh, {p=1}cool"
+r "I'm gonna go study in Milstein?"
+menu:
+    "I gotta push thru this hard hw. I'll go to Milstein":
+        $ classgrade +=2
+    "I should be fine if I take a short break":
+        $ classgrade +=1
+    "Nah I'm getting outta here. Can't concentrate anyways":
+
+#maybe switch hw4 and midterm 2

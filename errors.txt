@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/gluttony.rpy", line 10: end of line expected.
-    show marie happy, hop
-                    ^
+File "game/pride.rpy", line 329: choice menuitem expects a non-empty block.
+    "Yeah I'm getting outta here. Can't concentrate anyways":
+                                                             ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Thu Apr 23 13:08:53 2020
+Wed May 06 01:36:53 2020
