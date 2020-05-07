@@ -42,7 +42,7 @@ label pridebegin:
     m "We're majoring in %(pmajor)s! How about you?"
     a "I'm a music + philosophy double major. {p=2} You don't want to know what kind of job I can get with that."
     r "Woww that's so cool!"
-    #professor tells them to break it up"
+    s "{b}Please sit down, class is about to start"
     hide music_neutral
     show music_wink at right:
         yalign 0.0 xalign .75
@@ -132,6 +132,7 @@ label pridebegin:
             with dissolve
             r "Hey %(pname)s, have you checked your ASSES Examination. It just got uploaded"
         "Spicy meme time":
+            "I can check later; time to check my feed"
             "Hehe"
             "Haha"
             "Hoho"
@@ -160,6 +161,7 @@ label pridebegin:
             hide marie grateful
             show marie astonished
             r "How could that be?"
+            r "You think I'm that gulible?"
             hide marie astonished
     show marie happy
     r "Would you like to work with me for the next homework? I think we can def help each other out in this class!"
@@ -235,23 +237,26 @@ label music_encounter:
     "GASPPP SPICYYY MEMEEEES"
     menu:
         "That sounds GUCCI GANG":
-            $ music_friendship +=2
+            $ music_friendship +=3
             hide music_dark
             show music_smile
             a "Coolio. Gimme your number, I'll send you the deets"
             "Woahhhhh I'm going to a SPICY MEME PARTY"
+            jump hw3fail
         "Naw man I'm good":
             $ classgrade +=1
             hide music_dark
             show music_sad
             a "Uwu that's your loss"
             "No way I'm accepting a sus party invitation from this d00d"
-            jump studying
+            jump m2begin
 
-label m2fail:
+label hw3fail:
     scene bg bedroom
     "That was funnnnn. BUrP~"
     "Never drank so much gatorade in one night"
+    "I think I might've eaten a tide pod"
+    with hpunch
     "Feels kinda gross"
     show marie nervous
     r "%(pname)s? You were out all night and you didn't tell me!"
@@ -263,6 +268,7 @@ label m2fail:
     menu:
         "Lie":
             m "Sorry, my phone ran out of battery"
+            r "mmmm ok"
             r "Anyways, why was there even such a big party the day before class?"
             "She's sharper than she looks"
         "Truth":
@@ -275,7 +281,7 @@ hide marie concerned
 show marie averse
 r "%(pname)s! Are you ok?"
 m "mmmmm still woozy"
-with hpunch
+with pixellate
 hide marie averse
 show marie averse:
     zoom 2
@@ -292,7 +298,7 @@ show marie averse:
     yalign 1.01
     xalign .3
 r "AGH %(pname)s you can't fall here!"
-r "We have an ASSES Examination today!"
+r "We ASSES homework due today!"
 with pixellate
 with hpunch
 with vpunch
@@ -300,32 +306,70 @@ with hpunch
 "sorry Marie"
 scene bg bedroom
 with pixellate
-"RIP to ASSES Examination 2"
+"RIP ASSES hw3"
 
-label studying:
-scene bg butler
-"Zamn ASSES HW4 makes no sense"
-#"How many drops of water are circulated in the fountains on low?"
+label m2begin:
+scene bg bedroom
+"Zamn ASSES makes no sense"
+"{i}How many drops of water are circulated in the fountains on low?"
 "*dumb question*"
 pause 1
-"There's also an awful crashing sound coming from low"
+#sound?
+"What's that awful crashing sound coming from low?"
 "AGH CaN'T conCentraTe"
 show marie happy
-r "hehe %(pname)s is studying hard!"
+r "hehe %(pname)s is studying hard for ASSES examination 2!"
+m "for WHAT... oh"
 m "Well, considering that ASSES gives me a heartattack whenever I open courseworks, I gotta work my ass of to save my ASSES grade"
 m "btw, do you know what's causing that awful din outside"
 hide marie happy
-show v happy
+show marie v happy
 r "That's the Lion Dance Cult!"
-m "MArie you can't yell in the library!"
-r "They known for eating all the food at the events they're invited to {p=1}and making a bigger racket than the marching band ON A WEEKLY BASIS."
-m "uh, {p=1}cool"
-r "I'm gonna go study in Milstein?"
+m "Someone file a public noise complaint!"
+r "They're known for eating all the food at the events they're invited to"
+r "AND making a bigger racket than the marching band ON A WEEKLY BASIS."
+m "uh, {p=1}great"
+r "Wanna go study in the library?"
 menu:
-    "I gotta push thru this hard hw. I'll go to Milstein":
-        $ classgrade +=2
-    "I should be fine if I take a short break":
+    "Screw this I'm going to Milstein":
+        r "Okie see ya later then!"
+        hide marie v happy
         $ classgrade +=1
-    "Nah I'm getting outta here. Can't concentrate anyways":
+        jump m2okgrade
+    "I'll go study with you":
+        r "Yayyyy!"
+        hide marie v happy
+        $ classgrade +=2;
+        jump m2goodgrade
+    "I'm gonna take a nap":
+        r "Okie see ya later then!"
+        hide marie v happy
+        "Finally, that nosy loli is gone"
+        if classgrade <= 1:
+                "I've been really slacking off tho"
+                "Should I really take a nap?"
+                menu:
+                    "I need to rest in order to be productive":
+                        jump nap
+                    "Maybe I should follow Marie's steps and work a bit harder":
+                        jump m2goodgrade
+        else:
+            "I've been studying pretty hard lately. {p=2}Can def afford a break"
+            menu:
+                "Take a walk around campus. Who knows who I'll run into?":
+                    #need stuff here
+                    jump m2okgrade
+                "Sleep. The greatest luxury on campus":
+                    jump nap
+                "Hm I actually want to study. Marie is just a huge distraction so I had to get rid of her":
+                    jump m2goodgrade
+label m2okgrade:
+    scene mil
+    "Finally, no more nosy lolis"
 
-#maybe switch hw4 and midterm 2
+label m2goodgrade:
+    "Marie might poke her nose into my business a lot, but I know it's because she cares"
+
+label nap:
+"Bright day, plenty of assignments due, finals right around the corner"
+"Great day for a niceeee long nap"
