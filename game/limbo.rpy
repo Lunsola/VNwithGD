@@ -4,20 +4,31 @@
 #e "dialogue goes here" (where e is the variable associated with the character)
 #"this is a narrative with no actual speaker"
 
-##transforms to add to script beginning:
+image Karen = "Karen.png"
+image PosterP = "partyposter.png"
 
 label limbobegin:
     m "That was a lot of names to hear at once."
+    show Karen
+    with dissolve
     k "Don’t sweat it! You’re still a new student, so it’s understandable to have some names mixed up."
     m "Yeah, I guess so."
     k "So you doing anything special this weekend? I can’t have any of my orientation kids be loners their first weekend here!"
     m "I still don't know."
     k "Lots of people are hosting cool events and they usually get posted on there."
+    hide Karen
+    show Karen at hop
     k "Oh, shit, I have a meeting! I’ll catch you later, %(pname)s."
+    hide Karen
+    #slide Karen to right
     k "Don’t be a loner!"
+    #slide Karen offscreen
     "Well, that last part was unnecessary"
     "Hmm, what's this?"
+    window hide
+    show PosterP
     "I guess I don’t have anything else going on Saturday night."
+    window show
     "Wait a second…"
     "There’s a registration list? And it’s past the deadline. Of course it is."
     "Still, maybe a bunch of people signed up and aren’t gonna end up going. I’ll go anyway and see if I can find my way inside."
@@ -38,11 +49,111 @@ label limbobegin:
     "It’s a long shot, but I think if I say I’m with Karen and call her over, she might cover for me and help me get inside."
     "On the other hand, it’s a little unfair for everyone else who’s been waiting for a long time."
     "I have to act now. What should I do?"
+    $ getinparty = False
     menu:
         "Leave the party":
             "I don’t want to put her on the spot like that."
             "Plus, it’s not really fair to the people already on the list. I might as well go do something else with my night."
             m "Oh, ok."
             w "Yeah, so I can't let you in. Sorry."
+            m "It's ok."
+            "I wave goodbye as I walk away."
+            m "Have a good night!"
+            jump limboend
         "Call Karen over":
-            pass
+            m "Actually, I'm here with her!"
+            "I point through the doorway at Karen."
+            m "Hey Karen!"
+            "Somehow, Karen heard me in the middle of all the noise in there. She smiles brightly as she rushes to the door."
+            k "Hey, %(pname)s! How are you doing?"
+            m "Hey! I’m trying to tell this guy that I’m here with you."
+            k "Oh yeah, totally! I just got here a little early."
+            k "You remember signing me in early, right?"
+            w "I think so?"
+            k "Awesome. Yeah, they're with me."
+            "She grabs my hand and pulls me inside before he has a chance to respond."
+            "As we quickly retreat from the doorway, I see him shrug as he turns back to the crowd outside."
+            "he party ends up being a lot of fun, thanks to Karen for getting me in. I never expected my orientation leader to look out for me like that! I gotta say, I’m pretty optimistic about this school now."
+            $ getinparty = True
+            jump limboend
+
+label limboend:
+    "It’s the next morning, and I’m glad I made the right choice."
+    if getinparty = True:
+        "That party was so fun!"
+    else:
+        "It’s only fair that I couldn’t get in. I’ll have to sign up earlier next time."
+    "As I head toward the dining hall, I see a lot of people on the main lawn. Some are playing frisbee, and a lot are sitting in the grass, enjoying the sunshine and the breeze."
+    "Suddenly, I hear a “Hey!” and someone taps my shoulder."
+    "It’s Karen."
+    if getinparty = True:
+        k "Hey, %(pname)s! How was the rest of your night?"
+        m "Hey, Karen! It was alright. I was pretty exhausted after the party. How about you?"
+        k "Oh man, it was so fun. I’m glad you were able to make it."
+    else:
+        k "Hey %(pname)s! How was your night?"
+        m "Hey, Karen! It was alright. I spent the night in, just relaxing. How about you?"
+        k "Oh man, the party was so fun. It’s too bad you couldn’t make it."
+    k "Up to anything special today?"
+    m "No, not really. Why?"
+    k "How about we grab lunch? I wanna give you a few extra pointers about the school."
+    m "Sure, that sounds good. What time are you thinking?"
+    k "Oh, I think any time before the dining hall closes should be good. My dorm is really close to it, so just let me know when you’re ready to go."
+    m "Ok! Sounds good."
+    k "Until then, there’s a lot of people out on the lawn right now. Why don’t you mingle and get to know a few of them?"
+    "Mingle on the lawn?"
+    if getinparty = False:
+        "I did miss out on that party yesterday. This would be a good chance to meet some new people."
+    else:
+        "I did meet some cool people yesterday. Maybe one of them is out here."
+    "Yeah, that’s a good idea! I think I’ll do that."
+    k "Great! I’m so excited for you. I’ll see you at lunchtime. Just shoot me a text, kay?"
+    m "Sure thing! See you later."
+    "I turn back towards the dining hall, looking forward to the day."
+    "I look at the people playing frisbee as I step onto the lawn."
+    if getinparty = True:
+        "After a second, I realize I recognize one of the players from the party. I greet him and he invites me to join the game."
+    "It looks pretty fun, so I decide to join them."
+    "I get to know everyone as we’re tossing the disc, and they’re pretty friendly. So friendly that I relax into enjoying the day like everyone else, without a care."
+    "After some time, I decide to take a break and check my phone. Three texts from Karen."
+    ## change to texts
+    k "Dining hall closes in 30 minutes, wanna meet there now?"
+    k "?"
+    k "15 minutes left for fooood"
+    m "Oh man, sorry guys, I have to go! I’m supposed to meet a friend for lunch."
+    ? "What? Oh come on, %(pname)s"
+    ? "Just stay out here. The teams will be uneven if you leave!"
+    "I am really enjoying my time out here, and I don’t really want to leave. At the same time, I also made a promise to Karen. What should I do?"
+    menu:
+        "Stay on the lawn":
+            "It’s only 10 minutes left until lunch closes anyway. I’m sure Karen will be alright if I miss out this time. I can just apologize later. Plus, I really would rather keep hanging out here."
+            m "Alright, fine. But we get possession!"
+            ? "Awesome! Yeah, you guys get possession."
+            "We keep playing on the lawn, having a great time."
+            "I start to lose track of time again."
+            "But this time, {p=1.0}I don’t really care."
+            "Back and forth, we throw the frisbee, joking around with each other. {p=1.0}Eventually we start moving a little slower. But we all want to keep playing. {p=1.0}The running slowly morphs into walking."
+            "We all have our hands up waiting to catch a disc."
+            "Every so often, I catch one, and I slowly throw it to someone else. Without even looking."
+            "We want to keep playing."
+            "Now we’re all standing, with one arm up waiting for a disc. {p=1.0}Everyone’s smiles have been replaced with blank stares."
+            "The others on the lawn are doing the same thing."
+            "We want to keep playing."
+            ".{p=1.0}.{p=1.0}."
+            "We’re still standing."
+            "I don’t remember the last time the frisbee was thrown."
+            "I’m waiting for a frisbee."
+            "I’m waiting."
+            #ENDING: INFINITE FRISBEE GAME
+        "Meet Karen":
+            m "Sorry guys, I’ll have to catch you later!"
+            ? "Alright, fine. See you later, %(pname)s."
+            "I hurry to the dining hall and find Karen sitting at a table."
+            m "Hey, Karen! Sorry I’m late, I lost track of time."
+            k "Hey, %(pname)s. No worries, I know how it goes."
+            "Once you’re on that lawn, it’s really hard to leave."
+            m "Yeah, exactly!"
+            k "Ok, go get your food before they take it all away."
+            m "Right! Be right back."
+            "I quickly get my food and sit down."
+            jump roommateintro

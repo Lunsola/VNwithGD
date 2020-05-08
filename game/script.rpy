@@ -3,8 +3,6 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-#this is a test for fixing merge conflicts
-
 define e = Character("Eileen")
 define r = Character("Marie")
 define j = Character("Josh")
