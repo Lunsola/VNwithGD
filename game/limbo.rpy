@@ -6,8 +6,14 @@
 
 image Karen = "Karen.png"
 image PosterP = "partyposter.png"
+image bg lernerramps:
+    zoom 1.5
+    "lernerramps.jpg"
+image bg black = "#000000"
+image bg partyline = "partyline.png"
 
 label limbobegin:
+    scene bg lernerramps
     m "That was a lot of names to hear at once."
     show Karen
     with dissolve
@@ -17,22 +23,27 @@ label limbobegin:
     m "I still don't know."
     k "Lots of people are hosting cool events and they usually get posted on there."
     hide Karen
-    show Karen at hop
+    show Karen at center, hop
     k "Oh, shit, I have a meeting! I’ll catch you later, %(pname)s."
     hide Karen
-    #slide Karen to right
+    show Karen at right
+    with move
     k "Don’t be a loner!"
-    #slide Karen offscreen
+    hide Karen
+    with moveoutright
     "Well, that last part was unnecessary"
     "Hmm, what's this?"
-    window hide
+    scene bg black
+    with dissolve
     show PosterP
     "I guess I don’t have anything else going on Saturday night."
-    window show
     "Wait a second…"
-    "There’s a registration list? And it’s past the deadline. Of course it is."
+    "You have to RSVP?"
+    #decline sound
+    "Aaaand the QR code has expired. Of course."
     "Still, maybe a bunch of people signed up and aren’t gonna end up going. I’ll go anyway and see if I can find my way inside."
-    #transition
+    scene bg partyline
+    with dissolve
     "What’s this crowd, is it for the party?! There must be at least 50 people trying to get in! I wasn’t expecting it to be this popular…"
     "I might not be able to just get in like I’d hoped."
     #transition
@@ -79,14 +90,14 @@ label limbobegin:
 
 label limboend:
     "It’s the next morning, and I’m glad I made the right choice."
-    if getinparty = True:
+    if getinparty:
         "That party was so fun!"
     else:
         "It’s only fair that I couldn’t get in. I’ll have to sign up earlier next time."
     "As I head toward the dining hall, I see a lot of people on the main lawn. Some are playing frisbee, and a lot are sitting in the grass, enjoying the sunshine and the breeze."
     "Suddenly, I hear a “Hey!” and someone taps my shoulder."
     "It’s Karen."
-    if getinparty = True:
+    if getinparty:
         k "Hey, %(pname)s! How was the rest of your night?"
         m "Hey, Karen! It was alright. I was pretty exhausted after the party. How about you?"
         k "Oh man, it was so fun. I’m glad you were able to make it."
@@ -102,16 +113,16 @@ label limboend:
     m "Ok! Sounds good."
     k "Until then, there’s a lot of people out on the lawn right now. Why don’t you mingle and get to know a few of them?"
     "Mingle on the lawn?"
-    if getinparty = False:
-        "I did miss out on that party yesterday. This would be a good chance to meet some new people."
-    else:
+    if getinparty:
         "I did meet some cool people yesterday. Maybe one of them is out here."
+    else:
+        "I did miss out on that party yesterday. This would be a good chance to meet some new people."
     "Yeah, that’s a good idea! I think I’ll do that."
     k "Great! I’m so excited for you. I’ll see you at lunchtime. Just shoot me a text, kay?"
     m "Sure thing! See you later."
     "I turn back towards the dining hall, looking forward to the day."
     "I look at the people playing frisbee as I step onto the lawn."
-    if getinparty = True:
+    if getinparty:
         "After a second, I realize I recognize one of the players from the party. I greet him and he invites me to join the game."
     "It looks pretty fun, so I decide to join them."
     "I get to know everyone as we’re tossing the disc, and they’re pretty friendly. So friendly that I relax into enjoying the day like everyone else, without a care."
