@@ -2,17 +2,21 @@
 errors listed below, and try again.
 
 
-File "game/pride.rpy", line 350: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
-    "Maybe I should follow Marie's steps and work a bit harder"
-                                                               ^
+File "game/limbo.rpy", line 124: expected statement.
+    ? "What? Oh come on, %(pname)s"
+    ^
 
-File "game/pride.rpy", line 352: expected ':' not found.
-    else classgrade == 2:
-         ^
+File "game/limbo.rpy", line 125: expected statement.
+    ? "Just stay out here. The teams will be uneven if you leave!"
+    ^
 
-File "game/pride.rpy", line 365: expected ':' not found.
-    label nap
-             ^
+File "game/limbo.rpy", line 131: expected statement.
+    ? "Awesome! Yeah, you guys get possession."
+    ^
+
+File "game/limbo.rpy", line 150: expected statement.
+    ? "Alright, fine. See you later, %(pname)s."
+    ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Thu May 07 00:05:36 2020
+Thu May 07 20:20:02 2020

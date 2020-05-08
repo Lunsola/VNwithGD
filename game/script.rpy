@@ -191,7 +191,7 @@ label start:
     $ pname = renpy.input("My name is:")
     # Code to use the name: "Oh hi, I'm %(pname)s"
 
-    jump roommateintro
+    jump limbobegin
 
     # This ends the game.
 

@@ -121,14 +121,14 @@ label limboend:
     k "?"
     k "15 minutes left for fooood"
     m "Oh man, sorry guys, I have to go! I’m supposed to meet a friend for lunch."
-    ? "What? Oh come on, %(pname)s"
-    ? "Just stay out here. The teams will be uneven if you leave!"
+    w "What? Oh come on, %(pname)s"
+    w "Just stay out here. The teams will be uneven if you leave!"
     "I am really enjoying my time out here, and I don’t really want to leave. At the same time, I also made a promise to Karen. What should I do?"
     menu:
         "Stay on the lawn":
             "It’s only 10 minutes left until lunch closes anyway. I’m sure Karen will be alright if I miss out this time. I can just apologize later. Plus, I really would rather keep hanging out here."
             m "Alright, fine. But we get possession!"
-            ? "Awesome! Yeah, you guys get possession."
+            w "Awesome! Yeah, you guys get possession."
             "We keep playing on the lawn, having a great time."
             "I start to lose track of time again."
             "But this time, {p=1.0}I don’t really care."
@@ -147,7 +147,7 @@ label limboend:
             #ENDING: INFINITE FRISBEE GAME
         "Meet Karen":
             m "Sorry guys, I’ll have to catch you later!"
-            ? "Alright, fine. See you later, %(pname)s."
+            w "Alright, fine. See you later, %(pname)s."
             "I hurry to the dining hall and find Karen sitting at a table."
             m "Hey, Karen! Sorry I’m late, I lost track of time."
             k "Hey, %(pname)s. No worries, I know how it goes."
