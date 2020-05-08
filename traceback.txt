@@ -1,13 +1,20 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
+<<<<<<< HEAD
   File "game/lustscript.rpy", line 875, in script
     m "You were completely wrong about Professor Bonden. Like 1000000%, the biggest margin of error, I've seen. in. my. LIFE"
 ValueError: unsupported format character ',' (0x2c) at index 63
+=======
+  File "game/pride.rpy", line 252, in script
+    jump studying
+ScriptError: could not find label 'studying'.
+>>>>>>> 97903a22878de8595f4bd23a2cd662153a4ede81
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
+<<<<<<< HEAD
   File "game/lustscript.rpy", line 875, in script
     m "You were completely wrong about Professor Bonden. Like 1000000%, the biggest margin of error, I've seen. in. my. LIFE"
   File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 708, in execute
@@ -15,8 +22,21 @@ Full traceback:
   File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\exports.py", line 1334, in say
     what = what % tag_quoting_dict
 ValueError: unsupported format character ',' (0x2c) at index 63
+=======
+  File "game/pride.rpy", line 252, in script
+    jump studying
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\ast.py", line 1697, in execute
+    rv = renpy.game.script.lookup(target)
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\script.py", line 898, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'studying'.
+>>>>>>> 97903a22878de8595f4bd23a2cd662153a4ede81
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 CU_HEdoubleL 1.0
+<<<<<<< HEAD
 Sat May 02 13:49:37 2020
+=======
+Thu May 07 00:05:54 2020
+>>>>>>> 97903a22878de8595f4bd23a2cd662153a4ede81

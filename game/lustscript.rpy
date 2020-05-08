@@ -959,7 +959,7 @@ label morning_aftermax:
     "Crap. Crap. Triple Crap"
     "What time is it?"
     "{p=3.0}I'M LATE FOR MY INTERVIEW"
-    "There's only like 5 minutes left, damn it" 
+    "There's only like 5 minutes left, damn it"
 
     pass
 label morning_afterhome:
