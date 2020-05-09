@@ -1,22 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/pride.rpy", line 252, in script
-    jump studying
-ScriptError: could not find label 'studying'.
+  File "game/limbo.rpy", line 116, in script
+    if !getinparty:
+SyntaxError: invalid syntax (game/limbo.rpy, line 116)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/pride.rpy", line 252, in script
-    jump studying
-  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\ast.py", line 1697, in execute
-    rv = renpy.game.script.lookup(target)
-  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\script.py", line 898, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'studying'.
+  File "game/limbo.rpy", line 116, in script
+    if !getinparty:
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2057, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 692, in py_compile
+    raise e
+SyntaxError: invalid syntax (game/limbo.rpy, line 116)
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 CU_HEdoubleL 1.0
-Thu May 07 00:05:54 2020
+Thu May 07 21:41:55 2020

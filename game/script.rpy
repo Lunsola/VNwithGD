@@ -143,6 +143,9 @@ image bg lerner = "lerner.jpg"
 image bg buthall:
     zoom 0.6
     "buthall.jpg"
+image bg collegewalk:
+    zoom 0.5
+    "CollegeWalk.jpg"
 
 
 
@@ -191,7 +194,7 @@ label start:
     $ pname = renpy.input("My name is:")
     # Code to use the name: "Oh hi, I'm %(pname)s"
 
-    jump roommateintro
+    jump limbobegin
 
     # This ends the game.
 
