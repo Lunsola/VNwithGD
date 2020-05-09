@@ -1,6 +1,8 @@
-
 label lust_start_dorm:
-
+    # Message System Variables
+    $ mail = []
+    $ mail_queue = []
+    $ contacts = []
     $prof_email = False
 
     scene bg bednight with ease
@@ -9,7 +11,7 @@ label lust_start_dorm:
     "...{p=1.0}Maybe I should finally check my scores for Science of Everything class."
     "I've been avoiding checking grades to minimize stress but I'm free from everything! {p=2.0}Nothing can hurt me now."
 
-    #Need to figure out how to program a dramatic scroll and frame with grades
+    #TODO Need to figure out how to program a dramatic scroll and frame with grades
     #otherwise show image of grades would suffice
     "Oh"
     "My"
@@ -103,33 +105,41 @@ label social_media:
     "This is premium"
     "Quality"
     "Content"
+    #TODO: add some memes
     jump thurs_end
 
 
 label prof_email:
     #TODO: figure out how to do screen
-    $ email = renpy.input("Email to Professor Bonden")
+    #$ email = renpy.input("Email to Professor Bonden")
+    $ prof = Contact("Professor Bonden", "bonden_draft")
+    # to change the draft message, do something like $ fredo.draft = "fred_draft2"
+    # $ fredo.delete() if you don't want him on the list anymore (sorry fred)
+
+    "Let's draft this message!"
+    show screen mailbox_overlay
+    "Is it done?"
+    menu:
+        "Yes":
+            hide screen mailbox_overlay
+        "No":
+            "Let's hurry up and send that email"
+            hide screen mailbox_overlay
     jump thurs_end
-    #$ x = renpy.call_screen("input", prompt="Whatcha gonna do?", someText = "Something")
-python:
-    """
-    TODO
-    test and figure out how this works for code
-    screen email_input():
-        window:
-            has vbox
 
-            text "Email to Professor Bonden"
-            input default ""
+label bonden_draft(contact, message_title="Meeting Inquiry"):
+    menu:
+        "Hi Professor, Would really appreciate if we could schedule a meeting for tomorrow":
+            $ contact.draft_label = None # must include this line for each option
+            $ add_message("Meeting Inquiry:Re", "Professor Bonden", "Yes! Of course. Come by my office tomorrow")
+        "Hi Professor, You suck and I hate you":
+            $ contact.draft_label = None
+            $ add_message("Meeting Inquiry:Re", "Professor Bonden", "Excuse me?")
+        "Discard draft.":
+            pass
+    return
 
-    screen email(prompt, someText = ""):
 
-        window style "input_window":
-            has vbox
-
-            text prompt style "input_prompt"
-            input id "input" style "input_text" default someText
-    """
 label thurs_end:
     show marie neutral
     r "It's getting late. I'm going to sleep now. Nighty night!"
@@ -141,19 +151,22 @@ label fri_morn:
 
     scene bg bedroom with fade
     "Ah!!! It's already 11 am. Time to get up"
-    "First things first, let's check phone updates"
-
+    "First things first, let's check message updates"
+    show screen mailbox_overlay
     if prof_email == True:
-        "1. Reminder meeting with professor 2. Triangle Info Session 3. Friend: Let's Hang out 4. Email from Triangle: Make sure to be in business casual for club meeting today"
+
+        $ add_message("Reminder!", "", "Meeting with Professor Today")
+        $ add_message("Triangle Info Session", "{b}{i}T r i a n g l e{/i}{/b}", "Thank you for expressing interest into joining the Triangles! We will be hosting a meeting in Hamilton 702. Hope to see you there. Please wear business casual!")
+        $ add_message("Message", "Friend", "Hey, wanna hang out?")
+
+        "3. Friend: Let's Hang out 4. Email from Triangle: Make sure to be in business casual for club meeting today"
     else:
+        $ add_message("Triangle Info Session", "{b}{i}T r i a n g l e{/i}{/b}", "Thank you for expressing interest into joining the Triangles! We will be hosting a meeting in Hamilton 702. Hope to see you there. Please wear business casual!")
+        $ add_message("Message", "Friend", "Hey, wanna hang out?")
         "1. Triangle Info Session 2. Friend: Let's Hang out 3. Email from Triangle: Make sure to be in business casual for club meeting today"
 
-    #TODO: either request art or look into code if there's a way to create screen for this
-        #first notification- meeting with professor
-        #else-club fair today
-         #friend text:"Hey let's go out"
-         #email notification subject line: dress business casual for club meeting today!
     "Ah!! So much to get done. But let's see... time to figure out what to wear"
+    hide screen mailbox_overlay
     menu: #TODO Figure out problem with loading images as menu options
         "I 8 π T-shirt": #"{image = ../images/itsandwich.png}":
             pass
