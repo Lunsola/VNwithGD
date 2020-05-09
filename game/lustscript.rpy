@@ -1053,7 +1053,7 @@ label morning_afterhome:
     w "Wait pardon, freshman? Did you not see on the application form we're only recruiting sophomores and up"
     "W.h.a.t."
     w"...Well{p=3.0}...This is awkward. We appreciate the interest but maybe come back next year?"
-    w "Huh, i head from Max that you guys have met. I thought he would have mentioned something"
+    w "Huh, I heard from Max that you guys have met. I thought he would have mentioned something"
     m "Oh dear, looks like I'm mistaken then, my bad!"
     "Ahhhh, why didn't I pay attention during the info session properly"
     jump lust_ending
