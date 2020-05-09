@@ -2,21 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/limbo.rpy", line 124: expected statement.
-    ? "What? Oh come on, %(pname)s"
-    ^
-
-File "game/limbo.rpy", line 125: expected statement.
-    ? "Just stay out here. The teams will be uneven if you leave!"
-    ^
-
-File "game/limbo.rpy", line 131: expected statement.
-    ? "Awesome! Yeah, you guys get possession."
-    ^
-
-File "game/limbo.rpy", line 150: expected statement.
-    ? "Alright, fine. See you later, %(pname)s."
-    ^
+File "game/gluttony.rpy", line 10: end of line expected.
+    show marie happy, hop
+                    ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Thu May 07 20:20:02 2020
+Thu Apr 23 13:08:53 2020

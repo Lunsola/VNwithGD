@@ -10,8 +10,7 @@ define b = Character("Maximillion")
 define m = Character("Me")
 define p = Character("Professor Bonden")
 define k = Character("Karen")
-define a = Character("Marven")
-define s = Character("Professor")
+define a =Character("Marvin")
 define w = Character("???") #for characters where name is thus far unknown
 
 #character transforms
@@ -71,20 +70,15 @@ image josh stressbat = "Baseball Stress.png"
 image josh shockfg = "Finger Gun Shock.png"
 image josh winkfg = "Finger Gun WInk.png"
 
-#music boi images (added underscores bc music gets read as a fxn)
-image music_neutral = "music_neutral.png"
-image music_dark = "music_oho.png"
-image music_unimpressed = "music_hmph.png"
-image music_wink = "music_wink.png"
-image music_moody = "music_moody.png"
-image music_mad = "music_mad.png"
-image music_talk = "music_openmouth.png"
-image music_sad = "music_disappointment.png"
-image music_smile = "music_heh.png"
-image music_nervous = "music_nervous.png"
-image music_bent = "music_maskbent.png"
-image music_default = "music_maskdefault"
-image music_cross = "music_maskcross.png"
+#music boi images
+image music neutral = "music_neutral.png"
+image music dark = "music_oho.png"
+#image music unimpressed = "music_hmph.png"
+#image music wink = "music_wink.png"
+image music moody = "music_moody.png"
+image music mad = "music_mad.png"
+image music talk = "music_openmouth.png"
+image music sad = "music_disappointment.png"
 
 #professor images
 image professor happy = "Professor_happy.png"
@@ -135,14 +129,6 @@ image bg hels:
 image bg maxs:
     zoom 1.5
     "max_room.jpg"
-image bg lecture hall:
-    zoom 0.35
-    "havemeyer.jpeg"
-image bg mil = "milstein.jpg"
-image bg lerner = "lerner.jpg"
-image bg buthall:
-    zoom 0.6
-    "buthall.jpg"
 
 
 
@@ -179,7 +165,7 @@ label start:
     $ maximillion_friendship = 0 #maximillion friendship points
     $ marie_friendship = 0 #marie friendship points
     $ prof_friendship = 0 #professor friendship points
-    $ music_friendship = 0 #marvin friendship points
+    $ marv_friendship = 0 #marvin friendship points
     $ classgrade = 0 #pride chapter grade
     $ josh_hasnumber = False #does player have josh's number?
     $grade_change = False
@@ -191,7 +177,7 @@ label start:
     $ pname = renpy.input("My name is:")
     # Code to use the name: "Oh hi, I'm %(pname)s"
 
-    jump limbobegin
+    jump roommateintro
 
     # This ends the game.
 
