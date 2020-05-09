@@ -350,6 +350,7 @@ label club_info:
     "The room feel to a hush as some stranger started their presentation"
     show max charm
     w "Hi Guys! Thank you all for your interest in joining the {b}{i}T r i a n g l e{/i}{/b}! We’re a tight knit community from across the schools. We do X, Y and Z for the school, really great things. We have lots of funding for whatever projects that you come up with."
+    "I promptly zone out at the standard club pitch"
     "I over hear someone whispering: {i}I've heard that getting into the Triangle sets you up for guaranteed work at any of the big companies. Their alumni low key rule the world.{/i}"
     "Woah, I definitely want to get in if that's the case. It'll help me for whatever I want to do in the future"
     w "And that's the {b}{i}T r i a n g l e{/i}{/b}! Thank you all for coming. Please feel free to come up to any of the board members to fill out an application form and get to know us!"
@@ -956,12 +957,125 @@ label mel_night:
             jump morning_afterhome
 label morning_aftermax:
     scene bg maxs
-    "Crap. Crap. Triple Crap"
+    "Crap."
+    "Crap."
+    "Triple Crap"
     "What time is it?"
-    "{p=3.0}I'M LATE FOR MY INTERVIEW"
-    "There's only like 5 minutes left, damn it" 
+    "{p=3.0} I'M LATE FOR MY INTERVIEW"
+    "There's only like 5 minutes left, damn it"
+    "Ahhhhh, what was the point of last night then, ugh"
+    show max charm
+    b "Oh hey %(pname)s!, you're up."
+    menu:
+        "Why didn't you wake me up?":
+            if maximillion_friendship >= 2:
+                hide max charm
+                show max skeptic
+                b "Huh? That's not my responsibility"
+                m "But couldn't you have helped me out by waking me up? You knew that I had an interview today."
+                hide max skeptic
+                show max wink
+                b "What am I, your butler? Shouldn't you be used to keeping track of your own schedule being an underling and all"
+                "I glare at him angrily for making light of the situation"
+                m "You're soo right. If you don't mind as an underling, I'm going to excuse myself now"
+                hide max wink
+                show max charm
+                b "Uh... okay, you're dismissed. See you later!"
+                m "Yeah, maybe"
+                $ maximillion_friendship -=1;
+                "AHH How frustrating. I thought Maximillion was a nice guy but sometimes he can be pretty inconsiderate"
+                jump lust_ending
+            elif maximillion_friendship >= 0:
+                b "I thought you took care of your own matters by setting an alarm?"
+                "The annoyance bubbles. He has a point but the lack of remorse is quite irritating"
+                m "Yeah, it seems like I forgot to sent once since yesterday took an unexpected turn"
+                b "What can I say, I bring spice to the normies' lives"
+                "Who does this guy think he is?!"
+                m "Right, yeah. I'm just going to head out now"
+                b "Alright! Maybe I'll see you later."
+                m "Yeah, maybe or maybe not"
+                "AHH I'm so annoyed. Last night was pointless in the end and Maximillion is a pretty aggravating guy"
+                $ maximillion_friendship -=1;
+            else:
+                show max skeptic
+                b "Do tell %(pname)s, how in the world was that my responsibility?"
+                m "You're right. My apologies for expecting you to have a shred of human decency and empathy"
+                hide max skeptic
+                show max mad
+                b "Excuse me, I gave a commoner like you, an opportunity of a lifetime"
+                m "HA more like I've been punished with no rewards"
+                b "You're so simple. Sometimes that's just how it is. Remember, you're at fault here"
+                m "Ugh, I'm getting out of this toxicity"
+                b "Hopefully see you never"
+                m "Yeah, hopefully that's the case"
+                "AHHH That pompous arse. At least without being in the Triangles this should mean that I get to see his ugly mug less."
+                $ maximillion_friendship -=2;
+        "Hey! Good Morning":
+            "I missed my interview but might as well still be amiable. It's not Maximillion's fault after all "
+            if maximillion_friendship >= 2:
+                b "Aren't you quite the sleepyhead? It's practically noon already. You missed your interview I believe?"
+                m "Oh well, at least I've been able to bask longer in your presence"
+                b "Wow, you know how to properly flatter a lord"
+                m "Oh yikes, looks like your non-existent power is getting to your head then"
+                b "Ugh, what are you still doing here? Begone commoner %(pname)s"
+                m "Alright, alright. With your banishment, I shall get out of here"
+            elif maximillion_friendship >= 0:
+                b "Weren't you supposed to be somewhere this morning?"
+                m "Yeah, I missed my interview unfortunately. But that's on me afterall"
+                b "Oh dear, maybe I can speak with the board and we can work something out"
+                m "Really? That'd be super awesome!"
+                b "No promises though!"
+                m "Thank you! I really appreciate it. I'll get out of your hair now. See you!"
+            else:
+                "Maximillion pauses for a second, surprised about the lack of outright hostility like usual"
+                b "Is it really a good morning? You've missed your chance of joining the Triangle and all"
+                m "Lucky for you, your spot is still safe for now"
+                b "What a cute feeble fantasy. I guess we'll have to see"
+                m "Yeah, you better watch your back after all plebian"
+                "Before Maximillion can respond, I turn and walk out"
+                "Wow Maximillion and I can actually hold a semi-civil conversation after all."
+    jump lust_ending
 
-    pass
 label morning_afterhome:
     scene bg bednight
-    pass
+    "Ah!! I'm so nervous. This is it. Let's get to the interview!"
+    #scene change
+    w "Hey %(pname)s! Thanks for coming in. The {b}{i}T r i a n g l e{/i}{/b} is always excited to welcome new applicants"
+    m "Thanks for having me"
+    w "Now, let's get started. Why do you want to join the {b}{i}T r i a n g l e{/i}{/b}?"
+    m "Well as a Freshman, I've always"
+    w "Wait pardon, freshman? Did you not see on the application form we're only recruiting sophomores and up"
+    "W.h.a.t."
+    w"...Well{p=3.0}...This is awkward. We appreciate the interest but maybe come back next year?"
+    w "Huh, i head from Max that you guys have met. I thought he would have mentioned something"
+    m "Oh dear, looks like I'm mistaken then, my bad!"
+    "Ahhhh, why didn't I pay attention during the info session properly"
+    jump lust_ending
+
+label lust_ending:
+    #scene some transition
+    #oh maybe this scene can be at alma mater, some scene for reflective boi hour
+    "Aww man. I can't believe after all those steps I couldn't get into the {b}{i}T r i a n g l e{/i}{/b} in the end"
+    "No need to be too upset over it though. There's other clubs! Also next year!"
+    "Man what a wacky weekend though. Meeting Maximillion has certainly been...interesting to say the least"
+    if maximillion_friendship >= 2:
+        "The guy is pretty eccentric and lowkey has quite the superiority complex but I think he's a decent guy!"
+    elif maximillion_friendship >= 0:
+        "The guy is relatively friendly and useful. His mannerisms can be a bit much but they're not malicious I think? I'll have to see"
+    else:
+        "Ugh, I can't stand him. He's so arrogant and condescending. The less of him I see the better"
+    "Not to mention my Science of Everything exam. Please will the spirit of Prezbo depart some good fortune"
+    "Oh dear speaking about the Science of Evereything class, new email notification!"
+    if grade_change ==True:
+        "Hey %(pname)s, I've spoken with the TAs and they agreed that even though it's past the regrade period. There were definitely some oversights in our grading rubric so we'll be extending the option to all students to submit a new request. Regarding the extra credit we've spoken about, it's still an option open to you if you're interested. Just let me know!"
+        m "YESSSSSSSSSSSSSSSSSSS. I've boosted my grade and I can do extra credit"
+    else:
+        if prof_friendship >=0:
+            "Hey %(pname)s, I've spoken with the TAs and I'm sorry to inform you that the grade on your exam has not changed. But as we've spoken earlier, extra credit is certainly an option. Please just let me know about the details of what you would like to work on"
+            m "Bless Professor Bonden has spared me and graced me with some extra credit"
+        else:
+            "Hey %(pname)s, I've spoken with the TAs and I'm sorry to inform you that the grade on your exam has not changed and we can't offer extra credit at this time"
+            m "NOOOOOOOOOOOOOOOOOOOOOO. I'm so screwed for this class"
+            m "I thought Professor Bonden was going to at least offer extra credit. What did I do wrong?"
+    "Well, time to get this bread!"
+#end lust
