@@ -38,9 +38,9 @@ label pridebegin:
     r "{size=+10}A S S E S"
     m "That's campus culture right there"
     "Honestly the title of this class is so long I don't bother to remember it"
-    a "Anyhoo, name's Marvin. I'm taking this class as a requirement for my major"
+    a "Anyhoo, name's Marven. I'm taking this class as a requirement for my major"
     m "We're majoring in %(pmajor)s! How about you?"
-    a "I'm a music + philosophy double major. {p=2} You don't want to know what kind of job I can get with that."
+    a "I'm a music + philosophy double major. *blahfsfds*."
     r "Woww that's so cool!"
     s "{b}Please sit down, class is about to start"
     hide music_neutral
@@ -66,7 +66,8 @@ label pridebegin:
     m "I dunno. He seemed kinda like a show off"
     r "Now, you can't make those kinds of assumptions right off the bat!"
     r "He seemed really smart! Like he is double majoring but still takes time to enjoy college life!"
-    r "I've memorized the syllabus already so I can do well in this class"
+    m "overachievers often have dark pasts"
+    r "Well, I've memorized the syllabus already so I can do my best in this class"
     r "We have four homeworks! {p=.5}Two midterms!{p=.5} And a final!"
     m "I think maybe you should save your brain cells for actual class material"
     m "Well, the professor seems to be a bad lecturer, so going to class probably won't help either way."
@@ -309,7 +310,7 @@ with pixellate
 "RIP ASSES hw3"
 
 label m2begin:
-scene bg bedroom
+scene bg themil
 "Zamn ASSES makes no sense"
 "{i}How many drops of water are circulated in the fountains on low?"
 "*dumb question*"
@@ -320,7 +321,7 @@ pause 1
 show marie happy
 r "hehe %(pname)s is studying hard for ASSES examination 2!"
 m "for WHAT... oh"
-m "Well, considering that ASSES gives me a heartattack whenever I open courseworks, I gotta work my ass of to save my ASSES grade"
+m "I gotta work my ass of to save my ASSES grade"
 m "btw, do you know what's causing that awful din outside"
 hide marie happy
 show marie v happy
@@ -347,6 +348,7 @@ menu:
         "Finally, that nosy loli is gone"
         if classgrade <= 1:
                 "I've been really slacking off tho"
+                "It's really a pain in the ass to have such an anal class in the red"
                 "Should I really take a nap?"
                 menu:
                     "I need to rest in order to be productive":
@@ -362,10 +364,12 @@ menu:
                 "Sleep. The greatest luxury on campus":
                     jump nap
                 "Hm I actually want to study. Marie is just a huge distraction so I had to get rid of her":
+                    $ classgrade +=2;
                     jump m2goodgrade
 label m2okgrade:
     scene mil
     "Finally, no more nosy lolis"
+
 
 label m2goodgrade:
     "Marie might poke her nose into my business a lot, but I know it's because she cares"
