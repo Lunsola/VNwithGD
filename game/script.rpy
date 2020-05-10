@@ -143,6 +143,9 @@ image bg lerner = "lerner.jpg"
 image bg buthall:
     zoom 0.6
     "buthall.jpg"
+image bg collegewalk:
+    zoom 0.5
+    "CollegeWalk.jpg"
 
 
 
