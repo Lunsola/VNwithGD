@@ -11,6 +11,7 @@ image bg lernerramps:
     "lernerramps.jpg"
 image bg black = "#000000"
 image bg partyline = "partyline.png"
+image bg partylinefront = "partylinefront.png"
 
 label limbobegin:
     scene bg lernerramps
@@ -46,7 +47,8 @@ label limbobegin:
     with dissolve
     "What’s this crowd, is it for the party?! There must be at least 50 people trying to get in! I wasn’t expecting it to be this popular…"
     "I might not be able to just get in like I’d hoped."
-    #transition
+    scene bg partylinefront
+    with dissolve
     "After waiting for around 15 minutes, I get to the front. There’s a student with a piece of paper letting people in. The door is open."
     "He turns to me."
     w "Hey, what's your name?"
@@ -76,8 +78,11 @@ label limbobegin:
             "I point through the doorway at Karen."
             m "Hey Karen!"
             "Somehow, Karen heard me in the middle of all the noise in there. She smiles brightly as she rushes to the door."
+            show Karen at right
             k "Hey, %(pname)s! How are you doing?"
             m "Hey! I’m trying to tell this guy that I’m here with you."
+            hide Karen
+            show Karen at right, hop
             k "Oh yeah, totally! I just got here a little early."
             k "You remember signing me in early, right?"
             w "I think so?"
@@ -89,13 +94,15 @@ label limbobegin:
             jump limboend
 
 label limboend:
-    "It’s the next morning, and I’m glad I made the right choice."
+    #scene bg columbialawns
+    "I'm really glad I made the right choice last night."
     if getinparty:
         "That party was so fun!"
     else:
         "It’s only fair that I couldn’t get in. I’ll have to sign up earlier next time."
     "As I head toward the dining hall, I see a lot of people on the main lawn. Some are playing frisbee, and a lot are sitting in the grass, enjoying the sunshine and the breeze."
     "Suddenly, I hear a “Hey!” and someone taps my shoulder."
+    show Karen
     "It’s Karen."
     if getinparty:
         k "Hey, %(pname)s! How was the rest of your night?"
@@ -137,6 +144,7 @@ label limboend:
     "I am really enjoying my time out here, and I don’t really want to leave. At the same time, I also made a promise to Karen. What should I do?"
     menu:
         "Stay on the lawn":
+            #make the scene fuzzier and fuzzier
             "It’s only 10 minutes left until lunch closes anyway. I’m sure Karen will be alright if I miss out this time. I can just apologize later. Plus, I really would rather keep hanging out here."
             m "Alright, fine. But we get possession!"
             w "Awesome! Yeah, you guys get possession."
@@ -159,6 +167,8 @@ label limboend:
         "Meet Karen":
             m "Sorry guys, I’ll have to catch you later!"
             w "Alright, fine. See you later, %(pname)s."
+            scene bg john jay
+            with dissolve
             "I hurry to the dining hall and find Karen sitting at a table."
             m "Hey, Karen! Sorry I’m late, I lost track of time."
             k "Hey, %(pname)s. No worries, I know how it goes."
