@@ -193,61 +193,64 @@ init -2 python:
     style.mailbox_frame.xalign = 0.5
     style.mailbox_frame.yalign = 0.5
 
-# updated choice screen
-screen choice:
 
-    if reply_screen or draft_screen:
-        # this is the menu for message replies and drafts
-        frame:
-            style_group "mailbox"
-
-            vbox:
-                label "Draft"
-                if reply_screen:
-                    text ("To: " + current_message.sender)
-                    text ("Subject: Re: " + current_message.subject)
-                else:
-                    text ("To: " + contact.name)
-                    text ("Subject: " + message_title)
-                null  height 30
-
-                for caption, action, chosen in items:
-
-                    if action:
-                        button:
-                            action action
-                            style "menu_choice_button" xalign 0.5
-
-                            text caption text_align 0.5
-
-                    else:
-                        text caption style "menu_caption"
-
-    else:
-        # this is the default choice menu
-        window:
-            style "menu_window"
-            xalign 0.5
-            yalign 0.5
-
-            vbox:
-                style "menu"
-                spacing 2
-
-                for caption, action, chosen in items:
-
-                    if action:
-
-                        button:
-                            action action
-                            style "menu_choice_button"
-
-                            text caption style "menu_choice"
-
-                    else:
-                        text caption style "menu_caption"
 python:
     """
+    # updated choice screen
+    screen choice:
+
+        if reply_screen or draft_screen:
+            # this is the menu for message replies and drafts
+            frame:
+                style_group "mailbox"
+
+                vbox:
+                    label "Draft"
+                    if reply_screen:
+                        text ("To: " + current_message.sender)
+                        text ("Subject: Re: " + current_message.subject)
+                    else:
+                        text ("To: " + contact.name)
+                        text ("Subject: " + message_title)
+                    null  height 30
+
+                    for caption, action, chosen in items:
+
+                        if action:
+                            button:
+                                action action
+                                style "menu_choice_button" xalign 0.5
+
+                                text caption text_align 0.5
+
+                        else:
+                            text caption style "menu_caption"
+
+        else:
+            # this is the default choice menu
+            window:
+                style "menu_window"
+                xalign 0.5
+                yalign 0.5
+
+                vbox:
+                    style "menu"
+                    spacing 2
+
+                    for caption, action, chosen in items:
+
+                        if action:
+
+                            button:
+                                action action
+                                style "menu_choice_button"
+
+                                text caption style "menu_choice"
+
+                        else:
+                            text caption style "menu_caption"
+
+                            
     BELOW IS INCLUDED CODE DEMO
     # Declare characters used by this game.
 define e = Character('Eileen', color="#c8ffc8")
