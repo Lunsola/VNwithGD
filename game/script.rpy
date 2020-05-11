@@ -108,6 +108,8 @@ image up:
 image down:
     zoom 0.8
     "down_arrow.png"
+image Karen = "Karen.png"
+image PosterP = "partyposter.png"
 
 #backgrounds
 image bg classroom:
@@ -146,6 +148,16 @@ image bg buthall:
 image bg collegewalk:
     zoom 0.5
     "CollegeWalk.jpg"
+image bg lernerramps:
+    zoom 1.5
+    "lernerramps.jpg"
+image bg black = "#000000"
+image bg partyline:
+    zoom 1.2
+    "partyline.png"
+image bg partylinefront:
+    zoom 1.2
+    "partylinefront.png"
 
 
 
@@ -187,12 +199,15 @@ label start:
     $ josh_hasnumber = False #does player have josh's number?
     $grade_change = False
 
+    #important flags
+    $ fightwithjosh = False #were you so mean to Josh he called you out?
+    $ marieevil = False #did you steal Marie's resume?
+    $ committedArson = False #did you set fire to Marie's room???
+
 
     # These display lines of dialogue.
 
-    # Name your character:
-    $ pname = renpy.input("My name is:")
-    # Code to use the name: "Oh hi, I'm %(pname)s"
+    # Name your character: (moved to limbo. "Oh hi, I'm %(pname)s")
 
     jump limbobegin
 

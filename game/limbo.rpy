@@ -4,16 +4,8 @@
 #e "dialogue goes here" (where e is the variable associated with the character)
 #"this is a narrative with no actual speaker"
 
-image Karen = "Karen.png"
-image PosterP = "partyposter.png"
-image bg lernerramps:
-    zoom 1.5
-    "lernerramps.jpg"
-image bg black = "#000000"
-image bg partyline = "partyline.png"
-image bg partylinefront = "partylinefront.png"
-
 label limbobegin:
+    $ pname = renpy.input("My name is:")
     scene bg lernerramps
     m "That was a lot of names to hear at once."
     show Karen

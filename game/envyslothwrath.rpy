@@ -6,6 +6,7 @@
 
 $ fightwithjosh = False
 $ marieevil = False
+$ committedArson = False
 
 label beginenvy:
     "How is it that I’m already a junior, but I don’t feel any more mature than when I was a freshman? I thought by this point in my life I would have things more figured out, but I feel pretty much the same as I did before."
@@ -232,3 +233,62 @@ label dawnofthelastday:
     m "That’s the second time you’ve said that. Do you realize you’re repeating yourself?"
     j "Uh...bro...what a rad day huh!"
     "Is Josh broken? Whatever’s going on I need to get out of here. Pretty sure this is some kind of bad acid trip or something."
+    #insert image of marie's bedroom
+    "Not gonna lie, that was highkey creepy. That almost didn’t feel...real. Am I hallucinating right now?"
+    "Maybe I’ll just take a nap? Sleeping it off might work."
+    #fade out
+    #wait
+    #fade in
+    "I think that worked! I do feel refreshed now. I had the weirdest dream about Josh and Marie…"
+    "Speaking of Josh and Marie...their accomplishments are starting to really bum me out! I honestly thought they were still working their lives out just like me, but all of a sudden they have jobs and relationships. Where does that leave me? What does it say about me that I don’t have those things?"
+    "I probably should actually take time today to focus on all the shit I have to get done before classes start. But I kind of...don’t feel like it? All I can think about is Josh and Marie, Marie and Josh. It’s like, my brain is stuck on them or something. Why do they have all the things I want? Why do other people get to be happy and I don’t?"
+    "Wait a second. Something feels off about this room. How did I not notice before? This isn’t my room it’s...Marie’s."
+    "But wait, that doesn’t make sense. Why would I walk into Marie’s room instead of my own? That’s so random? And why does Marie have a box of matches lying open on her desk? Are we even allowed to have those?"
+    #show matches
+    "..."
+    "Why does Marie get all the things I want? She’s like me, but if I didn’t do all the stupid shit I do. I want her life. Why can’t I have it? What’s to stop me from…"
+    "..."
+    menu:
+        "Set fire to Marie's room.":
+            $ sin = sin-5
+            $ committedArson = True
+            "The fire catches weirdly quickly. I kind of thought this would be hard to do actually but...nope. As it spreads, I run outside...no...wait. Somehow I’m in front of Lowe Steps. Lowe is on fire too. In fact, the whole college...could that be because of me? I don’t understand…"
+            r "Hi, %(pname)s."
+            m "Marie! Oh thank god. I thought I was the only person alive in this school for a second. Have you called 911?"
+            r "You set fire to my room."
+            m "Oh...you know about that? Marie, I swear, I don’t even know what happened, I think I blacked out for like fifteen minutes or something. There’s no way this could have been me. There’s just no way…"
+            r "Haven’t you figured it out yet?"
+            m "Figured what out? Marie, have you called 911?"
+            r "There’s no need to call anyone. Everyone here already knows. We know everything you do. Every choice you’ve made in your time at Columbia, we’ve been watching you. We know who you are, %(pname)s. We know what you’re capable of."
+            m "I don’t know what’s going on. Marie, our school is literally burning to the ground right in front of us. Where is everyone?"
+            r "You don’t get it. Well. You always have been slow on the uptake."
+            m "Marie--what--"
+            jump closecurtains
+        "Don't do that":
+            "I’ve got to get out of here. This place is putting weird things into my head. I can’t take this anymore."
+            r "Hi, %(pname)s."
+            m "Oh...Marie. Hi. I’ve got to go actually, I’ve got a friend waiting for me and--"
+            r "No, you don’t."
+            m "What?"
+            r "You don’t have a friend waiting for you. You just left my room, where you were tempted to commit arson. Before that, you saw Josh be cheered for winning the big game and saw me win the lottery. I know where you’ve been and what you’ve done, %(pname)s. We’re always watching."
+            m "Are you spying on me? That’s illegal! I could get you arrested for that."
+            r "Go ahead and try. In fact, go ahead and try dialing any number that does not belong to someone you’ve met at this school. I promise you, it won’t go through. Your phone isn’t connected to any cell service that exists in the United States. In the world, actually."
+            m "Marie, you’re freaking me out. Can you just leave me alone?"
+            r "Unfortunately, that’s something I can’t do. You see, I don’t actually exist without you. Well, I do, but this body does not. We’re linked, for better or worse."
+            m "Stop being so weird and vague. If you have something to say, say it now."
+
+label closecurtains:
+    r "Do you remember moving into Columbia freshman year, %(pname)s? I know it feels like a long time ago. But do try to remember."
+    m "Uh, I mean, I guess? I think I went to a party, hung out with my OL...why does that matter now? That was years ago."
+    r "No, before that. Before the party. Before you met Karen. What was it like moving into your dorm? Who did you meet on the way in? Did you bring your parents?"
+    m "I...I don’t know, it was a long time ago! I just don’t remember!"
+    r "You don’t remember because it didn’t happen. You came into existence on Columbia’s campus at the beginning of your first week here. You remember nothing before that because you never actually moved into Columbia University. You choked on a carrot the day before the first day of NSOP and died. And then...you came here. I hope you’ll forgive us for having a little fun. The fire and brimstone gets so boring after a while. Since you died right as your college life was beginning, we decided to set up a sort of test. Of how your time at Columbia would have gone, if you’d lived."
+    m "Marie--what--why are you saying these things? I don’t understand."
+    r "I think you do. I think you’ve always known. Somewhere, deep in the back of your head. You must have felt us watching you. We’re hard to miss."
+    m "You said this was a--test? Of what? Did I pass?"
+    if sin > 0 and committedArson:
+        r "I actually don’t know how you did it. But you just scraped by. Don’t worry, though, %(pname)s. Up there, they can be awfully picky about what behaviors they accept. I’ll give you a hint: arson isn’t one of them. But...for now. You did it. Congratulations. You’re graduating from hell."
+    elif sin <=0:
+        r "I think you know the answer to that question, %(pname)s. The irony is, I’m sort of you, in a way. I’m the way your life could have gone, if you’d done all the right things and played your cards right. But you chose the path you chose. You chose selfishness, cruelty, and destructiveness. Welcome to hell, %(pname)s."
+    else:
+        r "I think I can safely say you did. You know, it was a toss up, #name. Some of the things you did on Earth made us wonder if you’d be up to the challenge of the test. But you did it. You chose friendship over bitterness and generosity over vindictiveness. Congratulations. You’re graduating from hell."
