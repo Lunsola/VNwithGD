@@ -16,8 +16,10 @@ define w = Character("???") #for characters where name is thus far unknown
 
 #character transforms
 transform sleft:
+    yalign 1
     xalign .25
 transform sright:
+    yalign 1
     xalign .75
 transform hop: #makes character do small jump
     yalign 1.0
@@ -158,6 +160,9 @@ image bg partyline:
 image bg partylinefront:
     zoom 1.2
     "partylinefront.png"
+image bg columbialawn:
+    zoom .5
+    "columbialawn.jpg"
 
 
 
