@@ -1,24 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/limbo.rpy", line 116, in script
-    if !getinparty:
-SyntaxError: invalid syntax (game/limbo.rpy, line 116)
+  File "game/pride.rpy", line 430, in script
+    a "Anyways what are your fave meme sounds?"
+ValueError: unsupported format character '{' (0x7b) at index 26
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/limbo.rpy", line 116, in script
-    if !getinparty:
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2057, in py_eval
-    code = py_compile(code, 'eval')
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 692, in py_compile
-    raise e
-SyntaxError: invalid syntax (game/limbo.rpy, line 116)
+  File "game/pride.rpy", line 430, in script
+    a "Anyways what are your fave meme sounds?"
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\ast.py", line 708, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\exports.py", line 1334, in say
+    what = what % tag_quoting_dict
+ValueError: unsupported format character '{' (0x7b) at index 26
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 CU_HEdoubleL 1.0
-Thu May 07 21:41:55 2020
+Wed May 13 01:24:29 2020

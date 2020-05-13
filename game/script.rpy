@@ -158,6 +158,9 @@ image bg partyline:
 image bg partylinefront:
     zoom 1.2
     "partylinefront.png"
+image bg milfloor = "milfloor.jpg"
+image bg entrance = "entrance.jpg"
+image bg convention = "convention.jpg"
 
 
 
@@ -194,9 +197,11 @@ label start:
     $ maximillion_friendship = 0 #maximillion friendship points
     $ marie_friendship = 0 #marie friendship points
     $ prof_friendship = 0 #professor friendship points
-    $ music_friendship = 0 #marvin friendship points
+    $ music_friendship = 0 #marvien friendship points
     $ classgrade = 0 #pride chapter grade
     $ josh_hasnumber = False #does player have josh's number?
+    $ cheated = False #Did player cheat in pride
+    $ stolesg = False #Did player steal study guide
     $grade_change = False
 
     #important flags
@@ -205,11 +210,12 @@ label start:
     $ committedArson = False #did you set fire to Marie's room???
 
 
+
     # These display lines of dialogue.
 
     # Name your character: (moved to limbo. "Oh hi, I'm %(pname)s")
 
-    jump limbobegin
+    jump pridebegin
 
     # This ends the game.
 
