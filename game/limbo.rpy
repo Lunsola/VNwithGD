@@ -24,11 +24,11 @@ label limbobegin:
     "Her face {i}is{/i} familiar. You think you must have flicked through her social media when roommates were assigned."
     m "That would be me! And you're..."
     "Shoot, how could I not remember my roommate's name?"
-    show marie v happy at right, hop
+    show marie v happy at sright, hop
     r "Marie!"
     m "Marie! Of course."
     hide marie v happy
-    show marie happy at right
+    show marie happy at sright
     r "I have to go to join my own orientation group now, but we should definitely talk later!"
     hide marie happy
     with moveoutright

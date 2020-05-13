@@ -16,10 +16,10 @@ define w = Character("???") #for characters where name is thus far unknown
 
 #character transforms
 transform sleft:
-    yalign 1
+    yalign 1.0
     xalign .25
 transform sright:
-    yalign 1
+    yalign 1.0
     xalign .75
 transform hop: #makes character do small jump
     yalign 1.0
@@ -220,7 +220,7 @@ label start:
 
     # Name your character: (moved to limbo. "Oh hi, I'm %(pname)s")
 
-    jump pridebegin
+    jump limbobegin
 
     # This ends the game.
 

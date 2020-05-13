@@ -1,39 +1,39 @@
-Wed May 13 11:07:38 2020
+Wed May 13 11:16:51 2020
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
  
 
-Bootstrap to the start of init.init took 0.49s
-Early init took 0.03s
-Loader init took 0.22s
-Loading error handling took 0.15s
-Loading script took 1.36s
+Bootstrap to the start of init.init took 0.24s
+Early init took 0.01s
+Loader init took 0.09s
+Loading error handling took 0.09s
+Loading script took 0.91s
 Loading save slot metadata. took 0.12s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.48s
-Loading analysis data took 0.10s
-Analyze and compile ATL took 0.03s
+Running init code took 0.26s
+Loading analysis data took 0.06s
+Analyze and compile ATL took 0.02s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\Kimberly\\AppData\\Roaming/RenPy/backups\\CU_HEdoubleL':
-Dump and make backups. took 0.45s
+Dump and make backups. took 0.24s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.08s
+Initial gc. took 0.05s
 DPI scale factor: 1.000000
-Creating interface object took 0.25s
+Creating interface object took 0.14s
 Cleaning stores took 0.00s
-Init translation took 0.12s
-Build styles took 0.03s
+Init translation took 0.08s
+Build styles took 0.01s
 Load screen analysis took 0.00s
-Analyze screens took 0.07s
-Save screen analysis took 0.39s
-Prepare screens took 0.38s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.37s
-Running _start took 0.01s
+Analyze screens took 0.05s
+Save screen analysis took 0.20s
+Prepare screens took 0.21s
+Save pyanalysis. took 0.26s
+Save bytecode. took 0.21s
+Running _start took 0.00s
 Performance test:
-Interface start took 0.09s
+Interface start took 0.07s
 
 primary display bounds: (0, 0, 1366, 768)
 swap interval: 1 frames
@@ -254,4 +254,15 @@ Texture testing:
 - 128px textures work.
 - 256px textures work.
 - 512px textures work.
-- 1024px textures w
+- 1024px textures work.
+- 2048px textures work.
+Root FBO is: 0
+FBO Maximum Texture Size: 2048
+Total time until interface ready: 4.31599998474s
+- Target is 5 frames in 0.333333333333 seconds.
+- Frame drawn at 0.000000 seconds.
+- Frame drawn at 0.017667 seconds.
+- Frame drawn at 0.033667 seconds.
+- Frame drawn at 0.049667 seconds.
+- Frame drawn at 0.068667 seconds.
+- 0.068667 seconds to render 5 frames.
