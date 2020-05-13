@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 Wed May 13 00:59:27 2020
+=======
+Tue May 12 22:08:24 2020
+>>>>>>> 0385ba777e8575853235c8080442ee0c32bd986b
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
  
 
+<<<<<<< HEAD
 Bootstrap to the start of init.init took 0.13s
 Early init took 0.01s
 Loader init took 0.06s
@@ -4316,6 +4321,39 @@ Texture testing:
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
 Total time until interface ready: 1501.94500017s
+=======
+Bootstrap to the start of init.init took 0.34s
+Early init took 0.01s
+Loader init took 0.14s
+Loading error handling took 0.12s
+Loading script took 1.12s
+Loading save slot metadata. took 0.10s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.39s
+Loading analysis data took 0.08s
+Analyze and compile ATL took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Kimberly\\AppData\\Roaming/RenPy/backups\\CU_HEdoubleL':
+Dump and make backups. took 0.32s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.07s
+DPI scale factor: 1.000000
+Creating interface object took 0.23s
+Cleaning stores took 0.00s
+Init translation took 0.09s
+Build styles took 0.02s
+Load screen analysis took 0.00s
+Analyze screens took 0.07s
+Save screen analysis took 0.39s
+Prepare screens took 0.30s
+Save pyanalysis. took 0.43s
+Save bytecode. took 0.37s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.07s
+>>>>>>> 0385ba777e8575853235c8080442ee0c32bd986b
 
 Full traceback:
   File "game/pride.rpy", line 430, in script
@@ -4371,7 +4409,11 @@ Unknown renderer: angle
 primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
+<<<<<<< HEAD
 Screen sizes: virtual=(1280, 720) physical=(1733, 975) drawable=(1733, 975)
+=======
+Screen sizes: virtual=(1280, 720) physical=(1184, 666) drawable=(1184, 666)
+>>>>>>> 0385ba777e8575853235c8080442ee0c32bd986b
 Vendor: 'Intel'
 Renderer: 'Intel(R) UHD Graphics 620'
 Version: '4.6.0 - Build 26.20.100.7925'
@@ -4624,6 +4666,7 @@ Texture testing:
 - 2048px textures work.
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
+<<<<<<< HEAD
 Total time until interface ready: 1534.81500006s
 The window was minimized.
 The window was restored.
@@ -4641,3 +4684,13 @@ Load screen analysis took 0.18s
 Analyze screens took 0.00s
 Prepare screens took 0.00s
 Running _start took 0.01s
+=======
+Total time until interface ready: 6.257999897s
+- Target is 5 frames in 0.333333333333 seconds.
+- Frame drawn at 0.000000 seconds.
+- Frame drawn at 0.020667 seconds.
+- Frame drawn at 0.036667 seconds.
+- Frame drawn at 0.050667 seconds.
+- Frame drawn at 0.066667 seconds.
+- 0.066667 seconds to render 5 frames.
+>>>>>>> 0385ba777e8575853235c8080442ee0c32bd986b

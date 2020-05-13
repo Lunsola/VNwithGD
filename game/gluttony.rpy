@@ -226,6 +226,8 @@ label rmeetjosh:
             hide josh shock
             show josh happy at right
         "I’ve never cooked much before, but I’m down to try anything!":
+            $ marie_friendship +=1
+            $ success +=1
             m "I'll definitely join in!"
             r "Yay! It’s going to be so much fun!"
     j "You know what, bros? This has been really frickin baller."
@@ -283,12 +285,14 @@ label gluttonybeginday2:
                     "Sure, I’ll cut you  a slice.":
                         $ josh_friendship +=1
                         j "Thanks, bro! I am stoked about this pizza."
+                        jump joshday2goodconvo
                     "Gross, no!":
                         hide josh happy
                         show josh shock
                         j "Okay dude, chillax! I’ve got a lot of my own food anyway."
+                        jump joshday2goodconvo
                     "Throw the pizza at him.":
-                        # $ sin -=1
+                        $ sin -=1
                         hide josh happy
                         show josh shock
                         j "Dude! That was the gnarliest thing I’ve ever seen anyone do! What just happened?"
@@ -301,10 +305,12 @@ label gluttonybeginday2:
                                 j "I can see that brah! That was pretty funny dude. Now no one can eat the pizza though."
                                 m "Whatever. Worth it!"
                             "Get mad.":
+                                $ sin -=1
                                 m "You want to eat off my plate now? Really? God, isn’t it enough I’m having lunch with you? This is my first real meal today so back off."
                                 j "Woah, hey, I didn’t mean--"
                                 hide josh shock
                                 show josh sad
+                                $ josh_friendship -=1
                                 m "I don’t care! I want my own pizza!"
                                 j "I have some bad news on that front, bro. Your pizza’s pretty smashed."
                                 hide josh sad
@@ -478,6 +484,7 @@ label finishgluttony:
     menu:
         "Give Josh your last swipe":
             $ josh_friendship +=3
+            $ sin = sin + 2
             m "Here you can have my swipe. Don’t even worry about it."
             j "What? No I couldn’t take your swipe! You need to eat, too."
             m "Seriously, don’t worry. I’ve been meaning to try cooking for myself anyway. Maybe I’ll get Marie to help me. I definitely won’t starve!"
@@ -493,6 +500,7 @@ label finishgluttony:
                     j "Bye %(pname)s! Sorry I don’t get to join you."
                     "Yeesh, I feel kinda weird about that. Maybe I should’ve offered to give him my swipe? No, you know what, I deserve it. I’ve had a long day. I barely know him. I feel just fine about enjoying some food."
                 "Sucks to suck, loser!":
+                    $ sin = sin -2
                     m "Thank god I get to eat dinner alone after all."
                     if josh_friendship > 1:
                         j "Oh haha, um, bye %(pname)s. See you later I guess."
@@ -509,4 +517,5 @@ label finishgluttony:
                         j "You know what? Ever since you first met me you’ve been nasty to me. Do you have a problem with me? Say it to my face. Because I don’t think you’re a very nice person."
                         $ josh_friendship -=4
                         "Well, burned that bridge for sure. Just have to avoid him for the next three years until he graduates. On the bright side, at least he’ll leave me alone. Now...about that food. I’m starving."
+                        $ fightwithjosh = True
     jump lust_start_dorm

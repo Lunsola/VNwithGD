@@ -5,9 +5,32 @@
 #"this is a narrative with no actual speaker"
 
 label limbobegin:
+    scene bg themil
+    show Karen
+    with dissolve
+    k "Welcome to Columbia! I’m Karen, your orientation leader. What’s your name?"
     $ pname = renpy.input("My name is:")
+    show Karen at left
+    with move
+    show marie happy at right
+    with moveinright
+    r "Oh, hey! You must be my roommate! %(pname)s, right?"
+    "Her face {i}is{/i} familiar. You think you must have flicked through her social media when roommates were assigned."
+    m "That would be me! And you're..."
+    "Shoot, how could I not remember my roommate's name?"
+    show marie v happy at right, hop
+    r "Marie!"
+    m "Marie! Of course."
+    hide marie v happy
+    show marie happy at right
+    r "I have to go to join my own orientation group now, but we should definitely talk later!"
+    hide marie happy
+    with moveoutright
+    show Karen at center
+    with move
     scene bg lernerramps
-    m "That was a lot of names to hear at once."
+    "At the end of the tour, everybody disperses extraordinarily quickly and I'm left alone with Karen."
+    m "That was a lot of people to meet at once."
     show Karen
     with dissolve
     k "Don’t sweat it! You’re still a new student, so it’s understandable to have some names mixed up."
@@ -21,7 +44,7 @@ label limbobegin:
     hide Karen
     show Karen at right
     with move
-    k "Don’t be a loner!"
+    k "Don’t be a loner! And stay out of trouble!"
     hide Karen
     with moveoutright
     "Well, that last part was unnecessary"
@@ -126,10 +149,11 @@ label limboend:
     "It looks pretty fun, so I decide to join them."
     "I get to know everyone as we’re tossing the disc, and they’re pretty friendly. So friendly that I relax into enjoying the day like everyone else, without a care."
     "After some time, I decide to take a break and check my phone. Three texts from Karen."
-    ## change to texts
-    k "Dining hall closes in 30 minutes, wanna meet there now?"
-    k "?"
-    k "15 minutes left for fooood"
+    call phone_start
+    call message_start("Karen", "Dining hall closes in 30 minutes, wanna meet there now?")
+    call message("Karen", "?")
+    call message("Karen", "15 minutes left for fooood")
+    call phone_end
     m "Oh man, sorry guys, I have to go! I’m supposed to meet a friend for lunch."
     w "What? Oh come on, %(pname)s"
     w "Just stay out here. The teams will be uneven if you leave!"
