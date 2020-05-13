@@ -7,7 +7,7 @@
 label limbobegin:
     scene black
     with Pause(1)
-    show text "Semester 1: Orientation"
+    show text "{size=50}Semester 1: Orientation{/size}"
     with Pause(2)
     hide text
     with dissolve
@@ -37,11 +37,11 @@ label limbobegin:
     "Thank goodness for not having to come up with small talk."
     "Now I just need to get through the tour with my own group."
     scene bg lernerramps
-    with fade(.5,.2,.5)
-    "At the end of the tour, everybody disperses extraordinarily quickly and I'm left alone with Karen."
-    m "That was a lot of people to meet at once."
+    with fade
     show Karen
     with dissolve
+    "At the end of the tour, everybody disperses extraordinarily quickly and I'm left alone with Karen."
+    m "That was a lot of people to meet at once."
     k "Don’t sweat it! You’re still a new student, so it’s understandable to have some names mixed up."
     m "Yeah, I guess so."
     k "So you doing anything special this weekend? I can’t have any of my orientation kids be loners their first weekend here!"

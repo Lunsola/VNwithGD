@@ -1,22 +1,36 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/pride.rpy", line 430, in script
-    a "Anyways what are your fave meme sounds?"
-ValueError: unsupported format character '{' (0x7b) at index 26
+  File "game/limbo.rpy", line 40, in script
+    with fade(.5,.2,.5)
+  File "game/limbo.rpy", line 40, in <module>
+    with fade(.5,.2,.5)
+Exception: Not a color: 0.5
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/pride.rpy", line 430, in script
-    a "Anyways what are your fave meme sounds?"
-  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\ast.py", line 708, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\exports.py", line 1334, in say
-    what = what % tag_quoting_dict
-ValueError: unsupported format character '{' (0x7b) at index 26
+  File "game/limbo.rpy", line 40, in script
+    with fade(.5,.2,.5)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1382, in execute
+    trans = renpy.python.py_eval(self.expr)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2059, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2052, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/limbo.rpy", line 40, in <module>
+    with fade(.5,.2,.5)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\curry.py", line 43, in __call__
+    **dict(self.kwargs.items() + kwargs.items()))
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\transition.py", line 229, in Fade
+    widget = renpy.display.image.Solid(color)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\imagelike.py", line 48, in __init__
+    self.color = renpy.easy.color(color)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\color.py", line 186, in __new__
+    raise Exception("Not a color: %r" % (color,))
+Exception: Not a color: 0.5
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 CU_HEdoubleL 1.0
-Wed May 13 01:24:29 2020
+Wed May 13 11:22:01 2020
