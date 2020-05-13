@@ -4,10 +4,6 @@
 #e "dialogue goes here" (where e is the variable associated with the character)
 #"this is a narrative with no actual speaker"
 
-image bg columbialawn:
-    zoom .5
-    "columbialawn.jpg"
-
 label limbobegin:
     scene black
     with Pause(1)
