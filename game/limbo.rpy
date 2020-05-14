@@ -4,6 +4,8 @@
 #e "dialogue goes here" (where e is the variable associated with the character)
 #"this is a narrative with no actual speaker"
 
+image Karen flip = im.Flip("Karen.png", vertical=True)
+
 label limbobegin:
     scene black
     with Pause(1)
@@ -40,16 +42,17 @@ label limbobegin:
     with fade
     show Karen
     with dissolve
-    "At the end of the tour, everybody disperses extraordinarily quickly and I'm left alone with Karen."
+    "At the end of the tour, everybody disperses extraordinarily quickly with the friends they've already made. I didn't really feel like I knew anybody in the group, so I'm quickly left alone with Karen."
+    m "..."
     m "That was a lot of people to meet at once."
     k "Don’t sweat it! You’re still a new student, so it’s understandable to have some names mixed up."
     m "Yeah, I guess so."
     k "So you doing anything special this weekend? I can’t have any of my orientation kids be loners their first weekend here!"
     m "I still don't know."
     k "Lots of people are hosting cool events and they usually get posted on there."
-    hide Karen
+    "Karen points at the line of pillars covered in posters."
     show Karen at center, hop
-    k "Oh, shit, I have a meeting! I’ll catch you later, %(pname)s."
+    k "Oh, shoot, I have a meeting! I’ll catch you later, %(pname)s."
     hide Karen
     show Karen at right
     with move
@@ -64,11 +67,12 @@ label limbobegin:
     "I guess I don’t have anything else going on Saturday night."
     "Wait a second…"
     "You have to RSVP?"
-    #decline sound
+    #TODO: add sound: decline sound
     "Aaaand the QR code has expired. Of course."
     "Still, maybe a bunch of people signed up and aren’t gonna end up going. I’ll go anyway and see if I can find my way inside."
     scene bg partyline
     with dissolve
+    #TODO: add sound: general crowd noise
     "What’s this crowd, is it for the party?! There must be at least 50 people trying to get in! I wasn’t expecting it to be this popular…"
     "I might not be able to just get in like I’d hoped."
     scene bg partylinefront
@@ -103,7 +107,7 @@ label limbobegin:
         "Call Karen over":
             m "Actually, I'm here with her!"
             "I point through the doorway at Karen."
-            show Karen at right, hop
+            show Karen flip at right, hop:
             m "Hey Karen!"
             "Somehow, Karen heard me in the middle of all the noise in there. She smiles brightly as she rushes to the door."
             k "Hey, %(pname)s! How are you doing?"
@@ -113,6 +117,9 @@ label limbobegin:
             w "I think so?"
             k "Awesome. Yeah, they're with me."
             "She grabs my hand and pulls me inside before he has a chance to respond."
+            hide Karen flip
+            show Karen at right
+            Pause(.2)
             hide Karen
             with moveoutright
             "As we quickly retreat from the doorway, I see him shrug as he turns back to the crowd outside."
