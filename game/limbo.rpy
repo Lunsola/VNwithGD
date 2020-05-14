@@ -4,43 +4,55 @@
 #e "dialogue goes here" (where e is the variable associated with the character)
 #"this is a narrative with no actual speaker"
 
+image Karen flip = im.Flip("Karen.png", horizontal=True)
+
 label limbobegin:
-    scene bg themil
+    scene black
+    with Pause(1)
+    show text "{size=50}Semester 1: Orientation{/size}"
+    with Pause(2)
+    hide text
+    with dissolve
+    scene bg columbialawn
     show Karen
     with dissolve
     k "Welcome to Columbia! I’m Karen, your orientation leader. What’s your name?"
     $ pname = renpy.input("My name is:")
-    show Karen at left
+    show Karen at sleft
     with move
-    show marie happy at right
+    show marie happy at sright
     with moveinright
     r "Oh, hey! You must be my roommate! %(pname)s, right?"
     "Her face {i}is{/i} familiar. You think you must have flicked through her social media when roommates were assigned."
     m "That would be me! And you're..."
     "Shoot, how could I not remember my roommate's name?"
-    show marie v happy at right, hop
+    show marie v happy at sright, hop
     r "Marie!"
     m "Marie! Of course."
     hide marie v happy
-    show marie happy at right
+    show marie happy at sright
     r "I have to go to join my own orientation group now, but we should definitely talk later!"
     hide marie happy
     with moveoutright
     show Karen at center
     with move
+    "Thank goodness for not having to come up with small talk."
+    "Now I just need to get through the tour with my own group."
     scene bg lernerramps
-    "At the end of the tour, everybody disperses extraordinarily quickly and I'm left alone with Karen."
-    m "That was a lot of people to meet at once."
+    with fade
     show Karen
     with dissolve
+    "At the end of the tour, everybody disperses extraordinarily quickly with the friends they've already made. I didn't really feel like I knew anybody in the group, so I'm quickly left alone with Karen."
+    m "..."
+    m "That was a lot of people to meet at once."
     k "Don’t sweat it! You’re still a new student, so it’s understandable to have some names mixed up."
     m "Yeah, I guess so."
     k "So you doing anything special this weekend? I can’t have any of my orientation kids be loners their first weekend here!"
     m "I still don't know."
     k "Lots of people are hosting cool events and they usually get posted on there."
-    hide Karen
+    "Karen points at the line of pillars covered in posters."
     show Karen at center, hop
-    k "Oh, shit, I have a meeting! I’ll catch you later, %(pname)s."
+    k "Oh, shoot, I have a meeting! I’ll catch you later, %(pname)s."
     hide Karen
     show Karen at right
     with move
@@ -55,11 +67,12 @@ label limbobegin:
     "I guess I don’t have anything else going on Saturday night."
     "Wait a second…"
     "You have to RSVP?"
-    #decline sound
+    #TODO: add sound: decline sound
     "Aaaand the QR code has expired. Of course."
     "Still, maybe a bunch of people signed up and aren’t gonna end up going. I’ll go anyway and see if I can find my way inside."
     scene bg partyline
     with dissolve
+    #TODO: add sound: general crowd noise
     "What’s this crowd, is it for the party?! There must be at least 50 people trying to get in! I wasn’t expecting it to be this popular…"
     "I might not be able to just get in like I’d hoped."
     scene bg partylinefront
@@ -72,6 +85,8 @@ label limbobegin:
     m "Really? That's weird. Can you check again?"
     "I'm not on the list. I know that."
     "But wait, I think I spot a familiar face through the door."
+    show Karen at right
+    with moveinright
     "Is that Karen? Maybe she can help me get in!"
     w "Nope, not on the list this time either."
     "It’s a long shot, but I think if I say I’m with Karen and call her over, she might cover for me and help me get inside."
@@ -80,6 +95,7 @@ label limbobegin:
     $ getinparty = False
     menu:
         "Leave the party":
+            hide Karen
             "I don’t want to put her on the spot like that."
             "Plus, it’s not really fair to the people already on the list. I might as well go do something else with my night."
             m "Oh, ok."
@@ -91,33 +107,37 @@ label limbobegin:
         "Call Karen over":
             m "Actually, I'm here with her!"
             "I point through the doorway at Karen."
+            show Karen flip at right, hop:
             m "Hey Karen!"
             "Somehow, Karen heard me in the middle of all the noise in there. She smiles brightly as she rushes to the door."
-            show Karen at right
             k "Hey, %(pname)s! How are you doing?"
             m "Hey! I’m trying to tell this guy that I’m here with you."
-            hide Karen
-            show Karen at right, hop
             k "Oh yeah, totally! I just got here a little early."
             k "You remember signing me in early, right?"
             w "I think so?"
             k "Awesome. Yeah, they're with me."
             "She grabs my hand and pulls me inside before he has a chance to respond."
+            hide Karen flip
+            show Karen at right
+            hide Karen
+            with moveoutright
             "As we quickly retreat from the doorway, I see him shrug as he turns back to the crowd outside."
-            "he party ends up being a lot of fun, thanks to Karen for getting me in. I never expected my orientation leader to look out for me like that! I gotta say, I’m pretty optimistic about this school now."
+            "The party ends up being a lot of fun, thanks to Karen for getting me in. I never expected my orientation leader to look out for me like that! I gotta say, I’m pretty optimistic about this school now."
             $ getinparty = True
             jump limboend
 
 label limboend:
-    #scene bg columbialawns
+    scene bg columbialawn
+    with dissolve
     "I'm really glad I made the right choice last night."
     if getinparty:
         "That party was so fun!"
     else:
         "It’s only fair that I couldn’t get in. I’ll have to sign up earlier next time."
-    "As I head toward the dining hall, I see a lot of people on the main lawn. Some are playing frisbee, and a lot are sitting in the grass, enjoying the sunshine and the breeze."
+    "As I head toward the dining hall, I see a lot of people on the lawn. Some are playing frisbee, and a lot are sitting in the grass, enjoying the sunshine and the breeze."
     "Suddenly, I hear a “Hey!” and someone taps my shoulder."
-    show Karen
+    show Karen at center
+    with moveinleft
     "It’s Karen."
     if getinparty:
         k "Hey, %(pname)s! How was the rest of your night?"
@@ -141,6 +161,8 @@ label limboend:
         "I did miss out on that party yesterday. This would be a good chance to meet some new people."
     "Yeah, that’s a good idea! I think I’ll do that."
     k "Great! I’m so excited for you. I’ll see you at lunchtime. Just shoot me a text, kay?"
+    hide Karen
+    with moveoutright
     m "Sure thing! See you later."
     "I turn back towards the dining hall, looking forward to the day."
     "I look at the people playing frisbee as I step onto the lawn."

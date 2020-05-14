@@ -9,7 +9,13 @@ $ marieevil = False
 $ committedArson = False
 
 label beginenvy:
+    scene black
+    with Pause(1)
+    show text "{size=50}Semester 5: Junior year???{/size}"
+    with Pause(2)
+    hide text
     "How is it that I’m already a junior, but I don’t feel any more mature than when I was a freshman? I thought by this point in my life I would have things more figured out, but I feel pretty much the same as I did before."
+    #TODO: background near gates???
     "I don’t have that many swipes this year. Time to check out the food carts."
     ##figure out the values we should expect Marie to be at
     if marieevil:
@@ -19,7 +25,7 @@ label beginenvy:
 
 label goodtermswmarie:
     "Ugh, this line is long. Guess I don’t really have anywhere to be."
-    show marie v happy at center, hop
+    show marie v happy at center with moveinbottom
     r "Oh my gosh, %(pname)s! So good to see you. How was your summer?"
     hide marie v happy
     show marie happy
@@ -27,9 +33,11 @@ label goodtermswmarie:
     hide marie happy
     show marie grateful
     r "Wow, that’s so flattering! I bet you were a great employee."
+    hide marie grateful
     show marie happy
     m "Yeah, well, definitely worked more hours there than I ever thought I would in my life. What about you, how was your summer?"
     hide marie happy
+    #TODO: look into sprites that better fit this moment. Also is there a Marie wink??
     show marie happy at center, hop
     r "Amazing actually! I got this super cool internship!"
     r "Basically I got to go and do hands on research in my field for this exciting company. It’s kind of under wraps right now so I can’t say too much, I’ll send you the link when the company releases the report to the papers!"
@@ -41,11 +49,9 @@ label goodtermswmarie:
     show marie grateful
     r "Thanks. It means a lot coming from you, you’re so smart and talented!"
     "What is she talking about? She’s obviously more successful than me in our field. Is she making fun of me?"
-    show josh happy
-    with moveinleft
+    show josh happy at left with moveinleft
     hide marie grateful
-    show marie happy at right
-    with move
+    show marie happy at right with move
     j "Woah, Marie, so funny running into you! This is so crazy brah I was just thinking of you."
     hide marie happy
     show marie nervous at right, hop
@@ -53,6 +59,10 @@ label goodtermswmarie:
     r "have lunch together?"
     "Is she...flirting?"
     "What is happening right now?"
+    hide josh happy
+    show josh grateful at left
+    hide marie nervous
+    show marie grateful at right
     j "Bro, that’s a bitchin’ idea. I’m so down."
     if fightwithjosh:
         jump joshstillbitter
@@ -60,13 +70,31 @@ label goodtermswmarie:
         jump ongoodtermswjosh
 
 label ongoodtermswjosh:
-    j "%(pname)s, you coming too? We could all go over to sit on Lowe Steps to eat."
+    hide josh grateful
+    show josh approve at left
+    hide marie grateful
+    show marie neutral
+    #TODO: pun on Low?
+    j "%(pname)s, you coming too? We could all go over to sit on Low Steps to eat."
     "I feel like Marie kind of wants a moment alone with Josh. Maybe I should let them do their thing and not intrude."
     menu:
         "Have lunch with them":
+            hide marie neutral
+            show marie ingenuine at right
+            hide josh approve
+            show josh happy at left
             m "Yeah, I’ll come along. Sounds fun!"
             j "Cool beans, let’s head out! Once we get our food of course."
+            hide marie ingenuine with moveoutright
+            hide josh happy with moveoutleft
+            #TODO: transition to Low steps
+            show josh happy at left with moveinright
+            show marie v happy at right with moveinright
             r "So, Josh, how was your summer? You’re so talented, I bet you’re doing incredible things!"
+            hide josh happy
+            show josh grateful at left
+            hide marie v happy
+            show marie happy at right
             j "Ha, well, I don’t know about incredible, dude. But I can’t lie, this summer was totally going off! I got this amazing job opportunity at Dolphin Classics, where I was totes, like, working as an assistant editor. It was this crazy thing, but so dope!"
             r "Wow, Josh, that’s so cool! Isn’t your dream job working in publishing?"
             j "Yeah bro, pretty much. I feel like I’m moving forward in my career right in time to graduate. And they’re letting me stay on part time this year so maybe it could even be my first job out of college."
