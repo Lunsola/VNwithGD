@@ -1,39 +1,39 @@
-Wed May 13 14:01:50 2020
+Thu May 14 13:27:22 2020
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
  
 
-Bootstrap to the start of init.init took 0.46s
-Early init took 0.03s
-Loader init took 0.75s
-Loading error handling took 0.36s
-Loading script took 6.77s
-Loading save slot metadata. took 0.94s
+Bootstrap to the start of init.init took 0.36s
+Early init took 0.02s
+Loader init took 0.27s
+Loading error handling took 0.17s
+Loading script took 2.09s
+Loading save slot metadata. took 0.13s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 1.77s
-Loading analysis data took 0.09s
-Analyze and compile ATL took 0.02s
+Running init code took 0.41s
+Loading analysis data took 0.16s
+Analyze and compile ATL took 0.03s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\Kimberly\\AppData\\Roaming/RenPy/backups\\CU_HEdoubleL':
-Dump and make backups. took 0.23s
+Dump and make backups. took 0.76s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.04s
+Initial gc. took 0.12s
 DPI scale factor: 1.000000
-Creating interface object took 0.21s
+Creating interface object took 0.32s
 Cleaning stores took 0.00s
-Init translation took 0.05s
-Build styles took 0.01s
-Load screen analysis took 0.00s
-Analyze screens took 0.03s
-Save screen analysis took 0.16s
-Prepare screens took 0.15s
-Save pyanalysis. took 0.16s
-Save bytecode. took 0.12s
+Init translation took 0.18s
+Build styles took 0.06s
+Load screen analysis took 0.17s
+Analyze screens took 0.19s
+Save screen analysis took 0.42s
+Prepare screens took 0.29s
+Save pyanalysis. took 0.39s
+Save bytecode. took 0.31s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.04s
+Interface start took 0.08s
 
 primary display bounds: (0, 0, 1366, 768)
 swap interval: 1 frames
@@ -258,46 +258,26 @@ Texture testing:
 - 2048px textures work.
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
-Total time until interface ready: 16.1660001278s
+Total time until interface ready: 8.78999996185s
 - Target is 5 frames in 0.333333333333 seconds.
 - Frame drawn at 0.000000 seconds.
-- Frame drawn at 0.018667 seconds.
-- Frame drawn at 0.034667 seconds.
-- Frame drawn at 0.052667 seconds.
-- Frame drawn at 0.069667 seconds.
-- 0.069667 seconds to render 5 frames.
+- Frame drawn at 0.019667 seconds.
+- Frame drawn at 0.036667 seconds.
+- Frame drawn at 0.051666 seconds.
+- Frame drawn at 0.070667 seconds.
+- 0.070667 seconds to render 5 frames.
 
-Full traceback:
-  File "game/limbo.rpy", line 108, in script
-    show Karen at right, hop:
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1183, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1153, in show_imspec
-    atl=atl)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\exports.py", line 717, in show
-    sls.add(layer, img, key, zorder, behind, at_list=at_list, name=name, atl=atl, default_transform=default_transform, transient=transient)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 1070, in add
-    thing._show()
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\transform.py", line 1048, in _show
-    super(ATLTransform, self)._show()
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\transform.py", line 1014, in _show
-    self.update_state()
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\transform.py", line 1036, in update_state
-    fr = self.execute(self, self.st, self.at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\atl.py", line 521, in execute
-    block = self.compile()
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\atl.py", line 489, in compile
-    block = self.atl.compile(self.context)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\atl.py", line 684, in compile
-    statements = [ i.compile(ctx) for i in self.statements ]
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\atl.py", line 897, in compile
-    child = ctx.eval(expr)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\atl.py", line 246, in eval
-    return eval(expr, renpy.store.__dict__, self.context)  # @UndefinedVariable
-  File "<string>", line 1, in <module>
-NameError: name 'Karen' is not defined
+primary display bounds: (0, 0, 1366, 768)
+swap interval: 1 frames
+Windowed mode.
+Screen sizes: virtual=(1280, 720) physical=(681, 696) drawable=(681, 696)
+Root FBO is: 0
+FBO Maximum Texture Size: 2048
 
-Compiling ATL code at game/limbo.rpy:109
-  File "game/limbo.rpy", line 108, in script
-    show Karen at right, hop:
-NameError: name 'Karen' is not defined
+primary display bounds: (0, 0, 1366, 768)
+swap interval: 1 frames
+Windowed mode.
+Screen sizes: virtual=(1280, 720) physical=(1366, 705) drawable=(1366, 705)
+Root FBO is: 0
+FBO Maximum Texture Size: 2048
+The window was minimized.

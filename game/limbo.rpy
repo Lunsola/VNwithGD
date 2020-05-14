@@ -4,7 +4,7 @@
 #e "dialogue goes here" (where e is the variable associated with the character)
 #"this is a narrative with no actual speaker"
 
-image Karen flip = im.Flip("Karen.png", vertical=True)
+image Karen flip = im.Flip("Karen.png", horizontal=True)
 
 label limbobegin:
     scene black
@@ -119,7 +119,6 @@ label limbobegin:
             "She grabs my hand and pulls me inside before he has a chance to respond."
             hide Karen flip
             show Karen at right
-            Pause(.2)
             hide Karen
             with moveoutright
             "As we quickly retreat from the doorway, I see him shrug as he turns back to the crowd outside."

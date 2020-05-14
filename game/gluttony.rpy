@@ -91,8 +91,7 @@ label rlonelyday:
     "Anyway, maybe I should head to the library today. Knock some work out now so I’ll be ahead by Monday. {p=1.0}Yeah. {p=1.0}That’s what I’ll do."
     scene bg themil
     "It’s so peaceful and quiet in here. I wonder where everyone is. Oh yeah, probably out socializing or whatever. It was such a good idea to come here on a quiet day!"
-    show marie happy at sright
-    with moveinright
+    show marie happy at sright with moveinright
     "Oh no, that’s Marie!"
     "Why is she here?"
     hide marie happy
@@ -110,9 +109,10 @@ label rlonelyday:
             show josh shock at sright, hop
             r "%(pname)s is that you?"
             hide marie surprised
+            #TODO: fix that she looks a little too confused
             show marie confused at sleft
             hide josh shock
-            show josh happy
+            show josh happy at sright
             r "Why are you under the desk?"
             m "What? Oh, I...uh..."
             m "dropped something."
@@ -584,7 +584,7 @@ label notclosetojosh:
 
 label finishgluttony:
     "Finally taking the big step of eating dinner by myself. I’m so hungry, even after that big lunch. I hope no one thinks I’m a loser because I’m sitting alone."
-    ??? "You again? No way brah."
+    w "You again? No way brah."
     show josh grateful moveinbottom
     j "It’s me, Josh!"
     hide josh grateful
