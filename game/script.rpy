@@ -215,7 +215,7 @@ label start:
 
     # Name your character: (moved to limbo. "Oh hi, I'm %(pname)s")
 
-    jump pridebegin
+    jump limbobegin
 
     # This ends the game.
 

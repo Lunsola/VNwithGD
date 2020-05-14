@@ -12,7 +12,7 @@ label pridebegin:
     hide marie averse
     show marie nervous2
     r "I even dropped my toast running here"
-    m "Hello Marie"
+    m "Good morning Marie"
     "Who does she think she is, Sailor Moon?"
     r "Aren't you excited that we are finally taking classes for %(pmajor)s?"
     "Honestly, I think this class will be a piece of cake. Pshhhh. It'll be like eyeballing ingredients"
@@ -845,7 +845,8 @@ label twostudyday:
     r "I'm gonna go sleep now so I can wake up early to study again tomorrow"
     hide marie nervous with dissolve
     "I guess I can't really go to the convention again tomorrow"
-    "Sigh.. that's two days worth of money into the void...{p=2} but wait Marv didn't ask me to pay yet"
+    "Sigh.. that's two days worth of money into the void...{p=2} but wait, Marv didn't ask me to pay yet"
+    scene bg black with fade
     "Either way, it's another day of grinding tomorrow"
 
     scene bg mil with blinds
@@ -856,8 +857,7 @@ label onestudyday:
     scene bg mil
     "Alright, self"
     "It is COMPLETELY possible for me to pass ASSES if I study all day today and pull an all-nighter"
-    "I'm just gonna stay here and focus until the day's gone"
-    #can add a bunch of people
+
     jump examday
 
 label conventionday3:
