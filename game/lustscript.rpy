@@ -140,12 +140,12 @@ label prof_email:
 
 label bonden_draft(contact, message_title="Meeting Inquiry"):
     menu:
-        "Hi Professor, Would really appreciate if we could schedule a meeting for tomorrow":
+        "Hi Professor, I would really appreciate if we could schedule a meeting for tomorrow":
             $ contact.draft_label = None # must include this line for each option
             $ add_message("Meeting Inquiry:Re", "Professor Bonden", "Yes! Of course. Come by my office tomorrow")
             $ prof_friendship +=1
             #TODO: Message notification sound
-        "Hi Professor, Any way I can help boost my grade ;). Down for anything ;))))))":
+        "Hi Professor, Any way I can help boost my grade? ;). Down for anything ;))))))":
             $ contact.draft_label = None
             $ prof_friendship -=1
             $ add_message("Meeting Inquiry:Re", "Professor Bonden", "Excuse me? Let's discuss in my office tomorrow")
@@ -166,9 +166,9 @@ label fri_morn:
 
     scene bg bedroom with fade
     "Ah!!! It's already 11 am. Time to get up"
+    show screen mailbox_overlay
     "First things first, let's check message updates"
     #TODO: Message notification sound
-    show screen mailbox_overlay
     if prof_email == True:
 
         $ add_message("Reminder!", "", "Meeting with Professor Today")
@@ -834,11 +834,12 @@ label sat_room:
     "Not to mention, what Maximillion said about the {b}{i}T r i a n g l e{/i}{/b} application. Things like this actually happen?"
     #TODO: Message notification sound
     show screen mailbox_overlay
+    $ add_message("Congratulations", "{b}{i}T r i a n g l e{/i}{/b}", "Hi, We would like to cordially offer you the opportunity to join our ranks. Please come to Hamilton 705 at 11 am tomorrow for your interview with one of our executive board members")
     "Oh speaking about the Triangle, new email notification."
-    $ add_message("Congratulations", "{b}{i}T r i a n g l e{/i}{/b}", "Hi %(pname)s, We would like to cordially offer you the opportunity to join our ranks. Please come to Hamilton 705 at 11 am tomorrow for your interview with one of our executive board members")
     #phone conveying interview
     "Yes!! I landed the interview tomorrow"
     "Trying to refocus on my work, nothing really gets done for the entire day as I deliberate the best course of action"
+    hide screen mailbox_overlay
     "Come on, %(pname)s! What to do, what to do"
     "After a lot of deliberation, and the day pretty much gone to waste. The one thing I'm set on is that I need to go to Hel's and talk to Maximillion some more."
 
