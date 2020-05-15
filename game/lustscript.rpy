@@ -14,9 +14,10 @@ label lust_start_dorm:
     "Ayyy. Bless. First round of testing season is over ... {p=3.0}and it's a Thursday night!! No immediate responsibilities that need to be taken care of and no need to stress about academics for a while...."
     "...{p=1.0}Maybe I should finally check my scores for Science of Everything class."
     "I've been avoiding checking grades to minimize stress but I'm free from everything! {p=2.0}Nothing can hurt me now."
-
-    #TODO Need to figure out how to program a dramatic scroll and frame with grades
-    #otherwise show image of grades would suffice
+    call phone_start
+    call message_start("OfCourseItWorks", "Science of Everything Midterm: 50")
+    call message("OfCourseItWorks", "Science of Everything Midterm(Class Avg): 80, STD: 10")
+    call phone_end
     "Oh"
     "My"
     "Gosh"
@@ -125,9 +126,8 @@ label social_media:
 label prof_email:
 
     $ prof = Contact("Professor Bonden", "bonden_draft")
-
-    "Let's draft this message! Check your message box at the upper right"
     show screen mailbox_overlay
+    "Let's draft this message! Check your message box at the upper right"
     "{p=3.0} Great message. Much professionalism"
     hide screen mailbox_overlay
     #menu:
@@ -885,6 +885,7 @@ label mel_night:
             "Oh wow, that went amazingly!"
         "Seduction time":
             $seduce_prof = True
+            $grade_change = False
             m "Don't worry Professor I know exactly what kind of activities will get me in your good graces"
             p "It doesn't quite work like that %(pname)s, I need to agree on what the assignment will actually be. I was actually thinking of"
             m "Shh. Don't worry, I know."
@@ -898,7 +899,8 @@ label mel_night:
             m "How about you let me take you to the Planetarium? We can learn about astronomy then afterward maybe I can expore Uranus"
             hide professor neutral
             show professor surprised
-            p "Excuse me, %(pname)s! As much as I appreciate you illustrating your....{p=2.0} understanding of the sciences? {p=1.0}What. {p=1.0}Are. {p=1.0}You. {p=1.0}Doing.?"
+            p "Excuse me, %(pname)s! As much as I appreciate you illustrating your....{p=2.0} understanding of the sciences?"
+            p "{p=1.0}What. {p=1.0}Are. {p=1.0}You. {p=1.0}Doing.?"
             p "I'm sorry if I confused you regarding our relationship but I would like to keep things strictly professional"
             #here: can offer a menu option where you maybe feign romantic interest in professor (better ending in terms of your relationship with the professor)
             #menu:
@@ -1121,18 +1123,23 @@ label lust_ending:
     else:
         "Ugh, I can't stand him. He's so arrogant and condescending. The less of him I see the better"
     "Not to mention my Science of Everything exam. Please will the spirit of Prezbo depart some good fortune"
-    "Oh dear speaking about the Science of Evereything class, new email notification!"
+    #TODO: add ping sound
+    show screen mailbox_overlay
     if grade_change ==True:
         $ success +=1
-        "Hey %(pname)s, I've spoken with the TAs and they agreed that even though it's past the regrade period. There were definitely some oversights in our grading rubric so we'll be extending the option to all students to submit a new request. Regarding the extra credit we've spoken about, it's still an option open to you if you're interested. Just let me know!"
+        $ add_message("Regarding Exam and Extra Credit", "Professor Bonden", "Hey, I've spoken with the TAs and they agreed that even though it's past the regrade period. There were definitely some oversights in our grading rubric so we'll be extending the option to all students to submit a new request. Regarding the extra credit we've spoken about, it's still an option open to you if you're interested. Just let me know!")
+        "Oh dear speaking about the Science of Evereything class, new email notification!"
         m "YESSSSSSSSSSSSSSSSSSS. I've boosted my grade and I can do extra credit"
     else:
         if prof_friendship >=0:
-            "Hey %(pname)s, I've spoken with the TAs and I'm sorry to inform you that the grade on your exam has not changed. But as we've spoken earlier, extra credit is certainly an option. Please just let me know about the details of what you would like to work on"
+            $ add_message("Regarding Exam and Extra Credit", "Professor Bonden", "Hey, I've spoken with the TAs and I'm sorry to inform you that the grade on your exam has not changed. But as we've spoken earlier, extra credit is certainly an option. Please just let me know about the details of what you would like to work on")
+            "Oh dear speaking about the Science of Evereything class, new email notification!"
             m "Bless Professor Bonden has spared me and graced me with some extra credit"
         else:
-            "Hey %(pname)s, I've spoken with the TAs and I'm sorry to inform you that the grade on your exam has not changed and we can't offer extra credit at this time"
+            $ add_message("Regarding Exam and Extra Credit", "Professor Bonden", "Hey, I've spoken with the TAs and I'm sorry to inform you that the grade on your exam has not changed and we can't offer extra credit at this time")
+            "Oh dear speaking about the Science of Evereything class, new email notification!"
             m "NOOOOOOOOOOOOOOOOOOOOOO. I'm so screwed for this class"
             m "I thought Professor Bonden was going to at least offer extra credit. What did I do wrong?"
-    "Well, time to get this bread!"
+    hide screen mailbox_overlay
+    "Everything is going to be fine! There's always next semester after all. Time to get this bread!"
 jump career_fair_intro

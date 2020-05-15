@@ -35,7 +35,7 @@ image marie surprised = "roomate_astonished.png"
 image marie astonished = "roomate_very_astonished.png"
 image marie confused = "roomate_extremely_astonished.png"
 image marie ingenuine = "roomate_fake_smile.png"
-image marie averse = "roomate_aversion.png"
+image marie aversem = "roomate_aversion.png"
 image marie v happy = "roomate_big_smile.png"
 image marie mad = "roomate_smiling_angry.png"
 image marie nervous = "roomate_surprized.png"
@@ -113,6 +113,7 @@ image down:
     "down_arrow.png"
 image Karen = "Karen.png"
 image PosterP = "partyposter.png"
+image gift = "gift.jpg"
 image meme1 = "meme1.jpg"
 image meme2 = "meme2.jpg"
 
@@ -169,7 +170,10 @@ image bg columbialawn:
 image bg milfloor = "milfloor.jpg"
 image bg entrance = "entrance.jpg"
 image bg convention = "convention.jpg"
-
+image bg careerfair1 = "careerfair1.jpg"
+image bg careerfair2:
+    zoom 2.5
+    "careerfair2.jpg"
 
 
 # The game starts here.

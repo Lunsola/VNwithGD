@@ -4,14 +4,14 @@ label career_fair_intro:
     show text "{size=50}Semester 3: What's this? More School{/size}"
     with Pause(2)
     hide text
-    ##scene bg careerfair1
+    scene bg careerfair1 with fade
 
     "It's finally the day of the career fair! I will make something out of
     myself today just like Pres Beau wanted."
 
     "I guess I need to go talk to some recruiters though..."
 
-    ##scene bg careerfair2
+    scene bg careerfair2 with fade
 
     "Ah! MicroHard! That's a really competitive company... Ugh... I should
     probably apply shouldn't I..."
@@ -28,7 +28,7 @@ label career_fair_intro:
     recruit "Yes, well we have several hands-on opportunities for all years!
     If you are interesting in applying..."
 
-    ##fade bg Burner
+    scene bg lernerramps with fade
 
     "That was exhausting. I should..."
 
@@ -78,6 +78,7 @@ label career_dorm:
     jump career_email
 
 label career_Burner:
+    scene bg lernerramps
     show max charm
     b "%(pname)s! Congratulations you've been blessed by the great Maximillion's presence"
     b "I crushed it in there! I handed out all 60 copies of my resume and had them practically eating out of my hand. But that's to be expected from such simpletons"
@@ -106,7 +107,7 @@ label career_email:
     "Man, nothing beats eating snacks in the dorm after a long day"
     #TODO: notification sound
     show screen mailbox_overlay
-    $ add_message("Offer to Your Dream Job","Recruiter","Hi %(pname)s, The first step in getting an internship at Dream Job and Co. is to apply. For your application you'll need a resume, cover letter, and letter of recommendation. Thank you for expressing your interest in us. We hope to hear from you soon", "Meeting with Professor Today" )
+    $ add_message("Offer to Your Dream Job","Recruiter","Hi, The first step in getting an internship at Dream Job and Co. is to apply. For your application you'll need a resume and letter of recommendation. Thank you for expressing your interest in us. We hope to hear from you soon", "Meeting with Professor Today" )
     "Ahhhh, is that an internship update? So soon? No way"
     "Let's check my messages"
     "Hmm. Guess I can't really get the internship offer if I haven't applied to the intership yet."
@@ -131,41 +132,200 @@ label bonden_route:
     show professor neutral
     "Hey Professor Bonden! I hope you've been well. I was wondering if it would be possible for you to write me a letter of recommendation?"
     if seduce_prof == True:
-        p "I'm sorry %(pname)s. I'm still flustered and honestly still perturbed by our last misunderstanding. I think it would be better if you ask someone else"
-        m "That's totally fine! Thanks for your honesty"
-        jump breaken_route
-        #need to account for good and bad letter options
+        if sin >=3:
+            p "I'm sorry %(pname)s. I'm still flustered and honestly still perturbed by our last misunderstanding. I think it would be better if you ask someone else"
+            m "That's totally fine! Thanks for your honesty"
+            jump breaken_route
+        else:
+            show professor pleased
+            p "Sure %(pname)s. I think I have a great perception about your talents and your character. I would love to write a letter for you"
+            "That's kind of surprising. Especially given how our last Mel's fiasco went"
+            $success-=1
+            m "Thank you so much Professor I really appreciate it"
+            p "Any time"
+    else:
+        if prof_friendship>=0:
+            show professor pleased
+            p "Sure %(pname)s. I would love to. I really enjoyed having your in my class and I think you're certainly going places"
+            m "Thank you so much Professor I really appreciate it"
+            $success+=1
+            p "Any time"
+        else:
+            show professor pleased
+            p "Sure %(pname)s. I think I have a pretty good grasp on who you are. I think that I can provide valuable insight to your prospective employer. It would be my pleasure"
+            m "Thank you so much Professor I really appreciate it"
+            "I had never thought we had the greatest relationship but Professor Bonden as always is a really nice guy"
+            $success-=1
+            p "Any time"
 
 label breaken_route: #need to add an option for giving up
     scene bg office with fade
     show Karen
-    m "Hey Professor Breaken, I was hoping to ask"
-    op "Sorry can't talk right now"
-    hide Karen with dissolve
-    "Guess I'll have to try again some other time"
+    menu:
+        "Hey Professor Breaken, I was hoping to ask":
+            op "Sorry can't talk right now"
+            hide Karen with dissolve
+            "Guess I'll have to try again some other time"
+        "Never mind":
+            "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
+            jump prof_reject
     scene bg columbialawn with fade
     show Karen with moveinright
     "Oh I see Professor Breaken!"
-    m "Hi"
-    op "Nope. Bye"
-    hide Karen with moveoutright
-    "There's always next time"
+    menu:
+        "Hi":
+            op "Nope. Bye"
+            hide Karen with moveoutright
+            "There's always next time"
+        "Never mind":
+            "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
+            jump prof_reject
     scene bg milfloor with fade
     show Karen with moveinleft
     "It's like seeing a unicorn"
-    m "I was hoping to ask"
-    op "Sorry, can't chat. I've got something more important"
-    hide Karen with moveoutright
-    "Oof I didn't realize the sting of rejection would hurt this much"
+    menu:
+        "I was hoping to ask":
+            op "Sorry, can't chat. I've got something more important"
+            hide Karen with moveoutright
+            "Oof I didn't realize the sting of rejection would hurt this much"
+        "Never mind":
+            "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
+            jump prof_reject
     scene bg collegewalk with fade
     show Karen with moveinbottom
-    "Maybe fourth time the charm"
-    m "Hi Professor Breaken! It's great to see you. I was hoping to ask if you would mind writing a letter of recommendation for you"
-    "I'm quite shocked when I managed to say my entire request. Seems like fourh time was the one after all"
-    op "Sorry, who are you again?"
-    "I blink"
-    "The professor blinks"
-    "We both blink"
-    m "Oh!! Sorry for not introducing myself. I'm %(pname)s I am taking the seminar, Everything you Need to Know About %(pmajor)s this year?"
-    op "Right, right"
-    "At the newest development, I contemplate {i}hello darkness my old friend{/i}"
+    "Maybe fourth time's the charm?"
+    menu:
+        "Hi Professor Breaken! It's great to see you. I was hoping to ask if you would mind writing a letter of recommendation for you":
+            "I'm quite shocked when I managed to say my entire request. Seems like fourth time was the one after all"
+            op "Sorry, who are you again?"
+            "I blink"
+            "The professor blinks"
+            "We both blink"
+            m "Oh!! Sorry for not introducing myself. I'm %(pname)s I am taking the seminar, Everything you Need to Know About Everything this year?"
+            op "Right, right"
+            "At the newest development, I contemplate {i}hello darkness my old friend{/i}"
+            m "Right so about that letter of recommendation?"
+            if sin >=3:
+                op "I'm pretty busy since I have an upcoming presentation coming up.{p=3.0} But I think I can squeeze you in"
+                $success+=1
+                m "Thank you thank you Professor Breaken! I really appreciate it"
+                "Wow, bless whatever higher being for rewarding me with Professor Breaken's kindness"
+                op "No problem. Is there anything else"
+                "I'm so thrilled. I wnat to given the professor a hug but I suppress my urges. I have a newly bought box of chocolates that I was saving for a rainy day. Should I give it to them?"
+                menu:
+                    "Give gift":
+                        show gift at center
+                        m "Yes, actually. I was hoping you would accept these chocolates as a thank you from me"
+                        hide gift with dissolve
+                        #show professor happy
+                        "I can see my professor's eyes widen in shock and they look almost happy? It's the first I've ever seen them like this"
+                        op "{p=3.0} Thanks %(pname)s, heh, I always did enjoy reading your work for my class"
+                        "This is wrinkling my mind"
+                        m "...Thanks Professor. That means a lot"
+                    "Keep chocolates":
+                        "I'm not obligated to share. The Professor can get their own chocolates"
+                        m "Nope, that's all! Thank you so much Professor"
+                        op "Any time, any time"
+            else:
+                op "I'm pretty busy since I have an upcoming presentation coming up.{p=3.0} So I don't think I can write you one unfortunately"
+                m "Are you sure there's no way? Surely you can fit the time to write one letter"
+                op "Yes I'm sure, unless you want to have a poorly written letter which can also be arranged"
+                m "Never mind, thanks for your time"
+                jump prof_reject
+        "Never mind":
+            "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
+            jump prof_reject
+$ prof2 = Contact("Professor Breaken", "breaken_draft")
+label prof_reject:
+    "Sigh, what a pointless endeavor. I'm going to head back to my room and dwell in sadness for a bit"
+    scene bg bedroom with fade
+    "The prospect of getting an internship was shrinking"
+    "With that, you drift off to sleep"
+    r "Yay!!!!!!!"
+    "You're jolted awake"
+    show marie v happy with moveinright
+    r "Guess what, guess what"
+    m "I guess you've got some good news to share?"
+    r "Ding! Ding! You're absoultely right"
+    show marie v happy at sright, hop
+    r "Professor Breaken wrote a recommendation letter for me"
+    "What. Professor Breaken to busy to spare any time for me, Professor Breakn?"
+    m "Woah, you got notoriously mean Professor Breaken, ain't got no time for anybody Professor Breaken, to write you a recommendation letter for you??"
+    r "Yeah!! I'm super excited. I'm going to facetime my parents and tell them the good news. With this, I'll be able to get an internship in no time. See you!"
+    m "Wait, wait. Before you do that, I wanted to ask you something"
+    "I'm still rec-letter less but maybe Marie can help me out"
+    menu:
+        "Can I see your recommendation letter?":
+            m "I was asking around for recommenedation letters but to no avail"
+            r "Sure! Roomies need to support each other after all!"
+            r "Together we'll take the world by storm"
+            m "Haha, thank you so much! You're the best Marie"
+            "I quickly snap a picture of her recommendation letter"
+            r "No prob! Now I'm going to run and make that call! I'll see you soon %(pname)s"
+            "Yes!!! With this, I can forge my own recommendation letter to send out to companies"
+            "I'll be able to get an internship in no time. Who needs Professor Breaken anyways"
+            $success+=1
+            $sin-=1
+        "Never mind! I'm good actually. Have a nice call":
+            show marie surprised
+            r "Are you sure? I can stick around"
+            m "Yeah! I'm good don't worry about it"
+            r "Okie!! See you soon, I'll be back"
+            show marie v happy moveoutright
+            "The thought of asking to see Marie's letter in order to forge it briefly crossed my mind"
+            "It'd be so easy to do and it wouldn't even hurt anyone, but I decided against it after seeing how Marie deserved her recommendation letter after all of her hard work"
+            "After all, it was me that was rejected by Professor Breaken"
+            $success-=1
+            $sin+=1
+    "I was left alone to my brooding. I was still pretty salty about how Professor Breaken had shown such obvious favoritism for Marie over me. Considering how we're in the same major, she'll be getting all of the job offers"
+    "We can't have that now. I thought of a way to even the playing field. I remember hearing how Professor Breaken was super strict about violations of academic integrity"
+    "Maybe I can write an email letting them know about Marie's \'violations\'"
+    menu:
+        "Write the email":
+            "Yes! This is perfect. This way I'll still be fine and get rid of my competition in the process"
+            "Let's draft this message! Check your message box at the upper right"
+            show screen mailbox_overlay
+            "{p=3.0} Great. With this, I'll be paving the road for my success"
+            $sin-=1
+            hide screen mailbox_overlay
+            jump sab_marie
+        "Forget it":
+            "Oh my goodness, what am i thinking. I can't do that to Marie. She's been such a great roommate"
+            "I'm really going to turn down the salt levels. I'll be just fine without having to ruin someone else's chances"
+
+
+label breaken_draft(contact, message_title="Report Academic Violation"):
+    menu:
+        "Hi Professor, I wanted to report Marie for violating our school's academic integrity policies. Her final paper for the course was purchased through a third party":
+            $ contact.draft_label = None # must include this line for each option
+            $ add_message("Report Academic Violation:Re", "Professor Breaken", "Thank you for reporting this offense. This shall be dealt with immediately")
+    return
+
+label sab_marie:
+    r "Oh no. no no no no no no no no. This can't be happening"
+    show marie distressed moveinright
+    m "What's wrong?"
+    "I had an idea"
+    r "Professor Breaken just emailed me saying that I was being suspected of violating the academic integrity policy. I might be getting a 0 in their class"
+    r "They even said that they wanted to take back the recommendation letter and says they're forbidding me from using it"
+    r "I have no idea why this is happening. I would never cheat!"
+    menu:
+        "Oh no! I'm sure the truth will come out and things will be fine":
+            show marie concerned
+            r "I really hope so. It feels like the world's out to get me or something"
+            r "I've always had such a hard time making friends with others and the bullying certainly didn't help"
+            m "That's so surprising. You're such a kind and intelligent person; I'm glad that you're my roomie. You deserve the world. Everything is going to work out for you"
+            "I started to feel a bit guilty. But it's all a competition after all"
+            r "Thanks %(pname)s. Sorry for throwing all of my emotional baggage on you"
+            r "I'm really glad that I have such great friends like you and Josh in my life. Honestly, at our school it can feel a little toxic sometimes with how competitive people get"
+            r "I'm glad that I have such a loyal roomie like you to rely on"
+            m "Of course! I'm glad that I can be here for you too"
+            "Wow, I'm top snek in this den"
+            $marie_friendship += 1
+        "Sorry, I don't have time for this right now":
+            r "Oh, I'm sorry for venting at you. I'll leave you alone"
+            "The guilt was slightly eating away at me. But this was for the best, wouldn't it be worse to lead her on while being the direct cause of her problems?"
+            r "You're kind of hard to talk to..."
+            hide marie distressed moveoutright
+label resume:
+    pass
