@@ -11,6 +11,8 @@ image bg john jay outside = "johnjayoutside.jpg"
 image bg ferris = "ferrisbooth.jpg"
 image bg ferris inside = "ferrisinside.jpg"
 
+#TODO: make a place to enter major other than when Marie asks
+
 label roommateintro:
     $renpy.music.set_volume(0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.5, channel="Chan2")
@@ -185,6 +187,8 @@ label libraryjmcont:
             hide josh happy
             show josh wink at sright
             j "It’s all part of the experience."
+            hide josh wink
+            show josh happy at sright
             m "Can I catch you guys for lunch some other time? It’s a shame I missed today."
             j "Of course, bro! Anytime. Give me your number and I’ll text you sometime."
             $ josh_hasnumber = True
@@ -419,6 +423,7 @@ label gluttonybeginday2:
                         m "Whatever. Worth it!"
                     "Get mad.":
                         $ sin -=1
+                        #TODO: change these sprites
                         m "You want to eat off my plate now? Really? God, isn’t it enough I’m having lunch with you? This is my first real meal today so back off."
                         j "Woah, hey, I didn’t mean--"
                         hide josh shock
@@ -643,11 +648,11 @@ label finishgluttony:
     hide josh happy
     show josh stress
     j "Me too, bro, me too. I only had time to break for lunch and then I went right back to the grind."
-    #TODO: card decline sound
+    #TODO: card decline sound (line, because we don't have sound)
     hide josh stress
     show josh sad
     j "Oh no. This is so embarrassing dude. I don’t have enough swipes."
-    m "Darn, that’s annoying!"
+    m "Damn, that’s annoying!"
     j "Shoot, what am I gonna do? Oh man, I was really counting on this swipe. I don’t know how I miscounted."
     "He really does look panicked. I wonder if he can afford to get food somewhere else.  But...this is my last swipe of the week. I only have one left."
     menu:
@@ -699,15 +704,16 @@ label finishgluttony:
                         "No, you know what, I’m fine. It’s not my fault he can’t take a joke! I’m gonna enjoy my food in peace."
                     elif josh_friendship = 0:
                         hide josh shock
-                        show josh sad
+                        show josh neutral
                         j "That wasn’t very nice, brah. I wouldn’t do you like that."
-                        hide josh sad with moveoutright
+                        hide josh neutral with moveoutright
                         "Well that was extremely awkward. Hope I never run into him again. I’ve just gotta put it out of my mind and enjoy some food."
                     else:
-                        #TODO: get a josh mad sprite
+                        hide josh sad
+                        show josh mad
                         j "You know what? Ever since you first met me you’ve been nasty to me. Do you have a problem with me? Say it to my face. Because I don’t think you’re a very nice person."
                         $ josh_friendship -=4
-                        hide josh sad with moveoutright
+                        hide josh mad with moveoutright
                         "Well, burned that bridge for sure. Just have to avoid him for the next three years until he graduates. On the bright side, at least he’ll leave me alone. Now...about that food. I’m starving."
                         $ fightwithjosh = True
     jump lust_start_dorm

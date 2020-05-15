@@ -14,14 +14,21 @@ image bg low:
     zoom .45
     "lowsteps.jpg"
 
+image josh mad = "josh_anger.png"
+image josh neutral = "josh_neutral.png"
+image bg columbiagates:
+    zoom 1.2
+    "columbiagates.jpg"
+
 label beginenvy:
     scene black
     with Pause(1)
     show text "{size=50}Semester 5: Junior year???{/size}"
     with Pause(2)
     hide text
+    scene bg columbiagates
+    with dissolve
     "How is it that I’m already a junior, but I don’t feel any more mature than when I was a freshman? I thought by this point in my life I would have things more figured out, but I feel pretty much the same as I did before."
-    #TODO: background near gates???
     "I don’t have that many swipes this year. Time to check out the food carts."
     ##figure out the values we should expect Marie to be at
     if marieevil:
@@ -117,7 +124,7 @@ label ongoodtermswjosh:
             "Okay, maybe I’ll ask Josh about something that’s a little more stressful. I’m not proud of this, but I want to hear that he’s got some struggles too."
             m "So Josh, how’s baseball going? I know it’s been hard to balance school and sports sometimes these past three years."
             j "Dude, you have a good point. I’m actually scaling back a lot this year. Coach understands that my degree has to come first. I haven’t been playing so well anyway so I think he was okay with my switching to (insert sports demotion here, I have no idea how this works)."
-            m "Oh well that’s... [p=1.0]great."
+            m "Oh well that’s... {p=1.0}great."
             "So he’s like...doing fine? He’s not struggling at all? No offense to Josh, but he was always the one who made me feel better about not having my shit together. Now suddenly he has his shit together way more than me."
             show marie happy at center with move
             show music_neutral at right with moveinright
@@ -126,22 +133,23 @@ label ongoodtermswjosh:
             show music_wink at right
             a "Hey guys, what’s up? Good to see you’re looking well %(pname)s."
             hide music_wink
-            show music_neutral
+            show music_neutral at right
             "Ew."
             j "We’re just hanging out man, what’s up with you?"
             a "I’m pretty good, nothing much going on with me."
             "Well that’s a relief at least. Thank god Marven doesn’t have some big accomplishment to tell us about."
             hide music_neutral
-            show music_talk
+            show music_talk at right
             a "I mean...okay, I did just get hired by Amazim but I don’t want to brag or anything. I’m sure you guys have cool stuff going on too."
             hide music_talk
-            show music_neutral
+            show music_neutral at right
             "Ah. Okay. Well...shoot me. Also, what’s with all this fake modesty? I bet he’s crowing on the inside."
             hide music_neutral
-            show music_talk
+            show music_talk at right
             a "You know, Amazim like really really hard to get an internship at, nevermind a job. They called me a...well like, just quoting them or whatever, but they called me a prodigy. And yeah, before you ask, it’s true that my uncle is a top executive there but let me just say that that had NOTHING to do with the hiring process."
             hide music_talk
-            show music_neutral
+            show music_neutral at right
+            #TODO: add more memes for Marven dialogue
             "There’s the old Marven I know and love. Okay, to be honest, all this is stressing me out. Anyone else want to come up and tell me all about their accomplishments? At this point, I kind of want to just spend the rest of the day in my room where no one can find me and tell me how succesful they are. Yeah...that sounds like fun."
             hide josh happy with moveoutleft
             hide marie happy with moveoutleft
@@ -276,7 +284,7 @@ label endeswday1:
     r "Oh my gosh, %(pname)s it’s you again! Wow, we just keep running into you, huh?"
     "'We'?"
     "Who's 'we'?"
-    show marie happy at sleft with move
+    show marie happy at sright with move
     show josh happy at center with moveinbottom
     j "Oh hey %(pname)s. Marie and I were just taking a stroll around campus."
     "They were {i}taking a stroll{/i}? Why’s Josh being all weird?"
@@ -287,7 +295,7 @@ label endeswday1:
                 m "Well, good to see you guys hanging out together! Because, you know, I kinda think of you guys as like loner types. Glad you’re making friends."
                 #TODO: again, sadistic Marie
                 hide marie happy
-                show marie ingenuine at sleft
+                show marie ingenuine at sright
                 r "That’s right, it is great to make friends! Speaking of...where are your friends exactly?"
                 m "In the bathroom, okay!? They’re coming right out. And they’re real. They exist they just had to leave for a second."
                 j "Uh...sure bro. Whatever floats your boat."
@@ -327,7 +335,7 @@ label endeswday1:
                 r "I’m going with him! Yeah, I know it’s crazy timing. I’m studying abroad in Paris next semester and we’ll be living right across the street from each other."
                 "Well isn’t that just groovy."
                 hide marie v happy
-                show marie happy
+                show marie happy at sright
                 m "Cool. That’s amazing. Well anyway, I got a friend waiting for me in Ferris so I should probably skeddadle. Congrats on your stuff though."
                 j "Thanks, bro!"
                 hide josh happy with moveoutright
@@ -355,10 +363,10 @@ label dawnofthelastday:
     j "THIS IS SO CRAZY BRO WHAT THE HECK?!?"
     "What’s--"
     #TODO: check which side Josh is facing? So he slides in facing in. Also, get happy shock
-    show josh happy at right with moveinright
+    show josh happy at left with moveinleft
     j "HEY EVERYONE! Marie just won the lottery! This is the craziest day of my life!!"
     "Is this a joke."
-    hide josh happy with moveoutright
+    hide josh happy with moveoutleft
     "I don't want to see or hear this at least to protect my already battered ego."
     r "Oh my gosh I’m hyperventilating. I need to sit down. I just won twenty million dollars."
     j "Marie...you’re like, so rad dude. I know this feels crazy, but I feel like the universe is sending us a sign. That it wants us to be together and make a life together. Marie, when the madness of Columbia University in the City of New York has passed...will you marry me?"

@@ -12,13 +12,14 @@ init offset = -1
 #change the main menu
 screen main_menu:
     tag menu
-
     if persistent.ending == "unlock 1":
         use main_menu_1
     elif persistent.ending == "unlock 2":
         use main_menu_2
     else:
         use main_menu_default
+
+#########
 
 style default:
     properties gui.text_properties()
@@ -380,6 +381,15 @@ screen main_menu_default():
     ## contents of the main menu are in the navigation screen.
     use navigation
 
+    #if gui.show_name:
+
+    #    vbox:
+    #        text "[config.name!t]":
+    #            style "main_menu_title"
+
+    #        text "[config.version]":
+    #            style "main_menu_version"
+
 screen main_menu_1():
 
     ## This ensures that any other menu screen is replaced.
@@ -404,7 +414,7 @@ screen main_menu_2():
 
     style_prefix "main_menu"
 
-    add gui.main_menu_background2
+    add gui.game_menu_background2
 
     ## This empty frame darkens the main menu.
     frame:
@@ -457,9 +467,15 @@ screen game_menu(title, scroll=None, yinitial=0.0):
     style_prefix "game_menu"
 
     if main_menu:
-        add gui.main_menu_background
+        #add gui.main_menu_background
+        if persistent.ending == "unlock 1":
+            add gui.main_menu_background1
+        elif persistent.ending == "unlock 2":
+            add gui.game_menu_background2
+        else:
+            add gui.main_menu_background
     else:
-        add gui.game_menu_background
+        add gui.main_menu_background
 
     frame:
         style "game_menu_outer_frame"

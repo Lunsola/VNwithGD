@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/envyslothwrath.rpy", line 59: end of line expected.
-    show marie nervous at sright move
-                                 ^
+File "game/screens.rpy", line 16: u'persistent' is not a keyword argument or valid child for the screen statement.
+    persistent.ending = set()
+              ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Thu May 14 18:20:54 2020
+Fri May 15 15:50:32 2020
