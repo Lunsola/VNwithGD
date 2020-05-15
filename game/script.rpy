@@ -122,7 +122,7 @@ image bg EC = "EC.jpg"
 image bg themil = "library.jpg"
 image bg bednight:
     zoom 1.2
-    im.Grayscale("bedroom.jpg") #GrayscaleSepia
+    "bedroom_night.jpg"
 image bg bedroom:
     zoom 1.2
     "bedroom.jpg"
