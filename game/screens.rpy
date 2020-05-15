@@ -9,6 +9,17 @@ init offset = -1
 ## Styles
 ################################################################################
 
+#change the main menu
+screen main_menu:
+    tag menu
+
+    if persistent.ending == "unlock 1":
+        use main_menu_1
+    elif persistent.ending == "unlock 2":
+        use main_menu_2
+    else:
+        use main_menu_default
+
 style default:
     properties gui.text_properties()
     language gui.language
@@ -352,7 +363,7 @@ style navigation_button_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
-screen main_menu():
+screen main_menu_default():
 
     ## This ensures that any other menu screen is replaced.
     tag menu
@@ -369,15 +380,39 @@ screen main_menu():
     ## contents of the main menu are in the navigation screen.
     use navigation
 
-    if gui.show_name:
+screen main_menu_1():
 
-        vbox:
-            text "[config.name!t]":
-                style "main_menu_title"
+    ## This ensures that any other menu screen is replaced.
+    tag menu
 
-            text "[config.version]":
-                style "main_menu_version"
+    style_prefix "main_menu"
 
+    add gui.main_menu_background1
+
+    ## This empty frame darkens the main menu.
+    frame:
+        pass
+
+    ## The use statement includes another screen inside this one. The actual
+    ## contents of the main menu are in the navigation screen.
+    use navigation
+
+screen main_menu_2():
+
+    ## This ensures that any other menu screen is replaced.
+    tag menu
+
+    style_prefix "main_menu"
+
+    add gui.main_menu_background2
+
+    ## This empty frame darkens the main menu.
+    frame:
+        pass
+
+    ## The use statement includes another screen inside this one. The actual
+    ## contents of the main menu are in the navigation screen.
+    use navigation
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox

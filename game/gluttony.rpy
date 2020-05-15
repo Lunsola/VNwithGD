@@ -4,21 +4,26 @@
 #e "dialogue goes here" (where e is the variable associated with the character)
 #"this is a narrative with no actual speaker"
 
-init -1 python:
-    renpy.music.register_channel("Chan1", mixer= "music", loop=True, stop_on_mute=False, tight=True)
-    renpy.music.register_channel("Chan2", mixer= "music", loop=True, stop_on_mute=False, tight=True)
+image marie cry = "roomate_sad_2.png"
+image bg shakeshack = "shakeshack.jpeg"
+image bg john jay inside = "johnjayinside.jpg"
+image bg john jay outside = "johnjayoutside.jpg"
+image bg ferris = "ferrisbooth.jpg"
+image bg ferris inside = "ferrisinside.jpg"
 
 label roommateintro:
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.play("audio/GluttonyMain.mp3", channel="Chan1", synchro_start=True)
+    $renpy.music.play("audio/GluttonyMarie.mp3", channel="Chan2", synchro_start=True)
+    $renpy.music.play("audio/GluttonyJosh.mp3", channel="Chan3", synchro_start=True)
     scene black
     with Pause(1)
     show text "{size=50}Semester 1: Actual School{/size}"
     with Pause(2)
     hide text
     scene bg EC
-    $renpy.music.set_volume(1.0, channel="Chan1")
-    $renpy.music.set_volume(volume=1.0, channel="Chan2")
-    $renpy.music.play("audio/LimboDraftMarie.mp3", channel="Chan1", synchro_start=True)
-    $renpy.music.play("audio/LimboDraftMain.mp3", channel="Chan2", synchro_start=True)
     "Okay, first weekend day with nothing on the agenda. Take a deep breath. I can do this."
     show marie happy
     with dissolve
@@ -46,13 +51,18 @@ label roommateintro:
                 "No offense, but that sounds really lame. I’m okay, thanks.":
                     hide marie neutral
                     show marie astonished
-                    r "Oh my gosh, I didn’t even realize I was being lame! That’s so embarrassing. I’m so sorry, I won’t ask again."
-                    m "Please don’t. I need my space."
-                    #TODO: get the sad marie sprites in jc
-                    #hide marie astonished
-                    #show marie sad
-                    $ marie_friendship -=1
+                    r "Oh my gosh, I didn’t even realize I was being lame! That’s so embarrassing."
                     hide marie astonished
+                    show marie concerned
+                    r "I’m so sorry, I won’t ask again."
+                    show marie concerned at left with move
+                    hide marie concerned
+                    show marie cry at left
+                    m "Please don’t. I need my space."
+                    $ marie_friendship -=1
+                    hide marie sad with moveoutleft
+                    $renpy.music.set_volume(1.0, channel="Chan1")
+                    $renpy.music.set_volume(volume=0.0, channel="Chan2")
                     m "Finally!"
                     jump rlonelyday
         "Don't say anything":
@@ -74,15 +84,19 @@ label roommateintro:
                     hide marie neutral
                     show marie surprised
                     r "Oh! I don’t know, I thought...{p=1.0}I thought..."
+                    hide marie surprised
+                    show marie concerned
                     m "I barely even know you! Why would I call you my friend?"
                     m "Obviously, you thought wrong."
-                    hide marie surprised
+                    hide marie concerned
                     #TODO: check the sprites on the mean to marie route
-                    show marie distressed
+                    show marie cry
                     r "Okay... {p=1.0}I’m sorry. I’ll leave you alone now."
                     $ marie_friendship -=1
-                    hide marie distressed
-                    with moveoutright
+                    hide marie cry
+                    with moveoutleft
+                    $renpy.music.set_volume(1.0, channel="Chan1")
+                    $renpy.music.set_volume(volume=0.0, channel="Chan2")
                     m "Finally!"
                     jump rlonelyday
 
@@ -91,10 +105,14 @@ label rlonelyday:
     "Anyway, maybe I should head to the library today. Knock some work out now so I’ll be ahead by Monday. {p=1.0}Yeah. {p=1.0}That’s what I’ll do."
     scene bg themil
     "It’s so peaceful and quiet in here. I wonder where everyone is. Oh yeah, probably out socializing or whatever. It was such a good idea to come here on a quiet day!"
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, channel="Chan2")
     show marie happy at sright with moveinright
     "Oh no, that’s Marie!"
     "Why is she here?"
-    hide marie happy
+    $renpy.music.set_volume(0.33, channel="Chan1")
+    $renpy.music.set_volume(volume=0.33, channel="Chan2")
+    $renpy.music.set_volume(volume=0.33, channel="Chan3")
     show marie happy at sleft with move
     show josh happy at sright with moveinright
     "Is her OL friend giving her ANOTHER tour? Jesus, what now?"
@@ -109,11 +127,12 @@ label rlonelyday:
             show josh shock at sright, hop
             r "%(pname)s is that you?"
             hide marie surprised
-            #TODO: fix that she looks a little too confused
-            show marie confused at sleft
+            show marie astonished at sleft
             hide josh shock
             show josh happy at sright
             r "Why are you under the desk?"
+            hide marie astonished
+            show marie neutral at sleft
             m "What? Oh, I...uh..."
             m "dropped something."
             m "Under the desk."
@@ -138,28 +157,28 @@ label rlonelyday:
             show marie happy at sleft
             r "I guess I’m just a nerd, I like libraries! That’s just me though."
             hide josh happy
-            show josh v grateful
+            show josh v grateful at sright
             j "Nah dude. I frickin love libraries. I get amped just walking in and smelling all those books. There’s nothing like the smell of a new book."
             "Why is he talking about books so weirdly? I’ve never heard someone talk about liking books because of smells. Weirdo."
             hide josh v grateful
-            show josh happy
+            show josh happy at sright
             j "Anyway, bro, nice to meet you. I’m Josh, you must be %(pname)s. Marie’s told me a little about you."
             hide marie happy
             hide josh happy
             jump libraryjmcont
 
 label libraryjmcont:
-    show marie confused at sleft
+    show marie surprised at sleft
     show josh happy at sright
     m "Oh, um, good things I hope?"
     r "Of course! What bad thing could I possibly say about you?"
     "Oof. Seems like she doesn’t remember this morning? Or maybe she’s just too polite to mention it. Should I bring it up?"
     menu:
         "Apologize for earlier":
-            hide marie confused
-            show marie surprised at sleft
-            m "Hey, so listen, I’m sorry if I snapped at you this morning. That didn’t go how I wanted it to. Can we move on and be friends again?"
             hide marie surprised
+            show marie astonished at sleft
+            m "Hey, so listen, I’m sorry if I snapped at you this morning. That didn’t go how I wanted it to. Can we move on and be friends again?"
+            hide marie astonished
             show marie happy at sleft
             r "Oh don’t even mention it! I totally get it. I’ve been so tired lately too. It can be so hard to be around people constantly."
             j "Yeah dude. I totally vibe with that. I get so frickin tired of being around my roommate all the time that sometimes I just get so aggro it’s crazy."
@@ -170,6 +189,9 @@ label libraryjmcont:
             j "Of course, bro! Anytime. Give me your number and I’ll text you sometime."
             $ josh_hasnumber = True
             r "Anyway, Josh was just showing me around. I’ll leave you alone to study now. I’m so glad we ran into you!"
+            $renpy.music.set_volume(1.0, channel="Chan1")
+            $renpy.music.set_volume(volume=0.0, channel="Chan2")
+            $renpy.music.set_volume(volume=0.0, channel="Chan3")
             jump gluttonybeginday2
         "Don't bring it up.":
             "You know what?"
@@ -179,25 +201,30 @@ label libraryjmcont:
             "All I wanted was some peace and quiet. I’ll show her."
             "I’ll go get a great lunch at Shake Shack, {p=1.0}as a treat, {p=1.0}just for myself."
             "..."
-            "..."
             hide marie neutral
             show marie happy at sleft
             r "Well, anyway, we’d better get going and let you study. Josh was just showing me around. See you later!"
             m "Yeah, see you!"
             hide marie happy with moveoutleft
             hide josh happy with moveoutleft
-            "Whew, dodged a bullet there! Honestly, that could have gone worse. At least I didn’t yell at her or anything, right? Now...about that Shake Shack."
-            #TODO: shake shack stuff
-            #show shake shack
-            "Well, I had my Shake Shack. Smokestack double cheeseburger with fries, chicken tenders, and a birthday cake milkshake. It was delicious."
+            $renpy.music.set_volume(1.0, channel="Chan1")
+            $renpy.music.set_volume(volume=0.0, channel="Chan2")
+            $renpy.music.set_volume(volume=0.0, channel="Chan3")
+            "Whew, dodged a bullet there! Honestly, that could have gone worse. At least I didn’t yell at her or anything, right?"
+            "Now...about that Shake Shack."
+            scene bg shakeshack with pushleft
+            show chickenfries
+            "Well, I had my Shake Shack. Chick'N'Shack with fries, chicken tenders, and a birthday cake milkshake. It was delicious."
             "I have to admit though, it felt weird eating that huge meal all by myself. I kinda missed having company. But hey, I guess I’ll just have to get used to it."
+            hide chickenfries
             jump gluttonybeginday2
-
-####### typed up to here
 
 label rmeetjosh:
     scene bg john jay
     "Found the dining hall! First challenge of the day complete."
+    $renpy.music.set_volume(0.33, channel="Chan1")
+    $renpy.music.set_volume(volume=0.33, channel="Chan2")
+    $renpy.music.set_volume(volume=0.33, channel="Chan3")
     show josh wave at sright
     show marie happy at sleft:
         zoom .75
@@ -331,17 +358,22 @@ label rmeetjosh:
     jump gluttonybeginday2
 
 label gluttonybeginday2:
-    scene bg EC
-    "Where did the weekend go? How is it Sunday already? Geez, I feel like I did nothing but eat. The freshman fifteen is real, folks."
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    scene bg EC with dissolve
+    "Where did the weekend go? How is it Sunday already?"
+    "Geez, I feel like I did nothing but eat. The freshman fifteen is real, folks."
     if josh_hasnumber == True:
         call phone_start
-        call message_start("Josh", "Yo %(pname)s, wanna have lunch together today?")
+        call message_start("Josh", "Yo, wanna have lunch together today?")
         call message("Josh", "I’m hungry like a beast for some pizza.")
         call reply_message("Yeah, dude, name a dining hall!")
         call phone_end
         $ josh_friendship +=1
-        #TODO: swap this to Ferris...
-        scene bg john jay
+        scene bg ferris
+        $renpy.music.set_volume(0.5, channel="Chan1")
+        $renpy.music.set_volume(volume=0.5, channel="Chan3")
         show josh wave
         "Geez, that man waves like his life depends on it. I see him already!"
         hide josh wave
@@ -351,11 +383,13 @@ label gluttonybeginday2:
         j "Dude! Righteous to see you brah."
         m "You too, man. I’m hungry, let’s get food!"
         hide josh happy
+        #TODO: food transition again (add food images)
+        scene bg ferris inside
         with dissolve
-        #TODO: food transition again
         "Definitely got too much food. Am I really gonna finish all of this?"
-        show josh happy
+        scene bg ferris
         with dissolve
+        show josh happy
         j "Woah, that pizza looks sick! Can I try some?"
         menu:
             "Sure, I’ll cut you  a slice.":
@@ -502,7 +536,10 @@ label joshhonesthours:
     jump finishgluttony
 
 label runintojosh:
-    #TODO: add shake shack bg
+    scene bg shakeshack with pushleft
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, channel="Chan3")
     "Shake Shack again! Man it’s so convenient this place is so close to campus."
     "Let’s see...I’ll get a Chick’n Shack with fries, and maybe throw in a flat-top dog just for funsies."
     show josh shockbat with moveinright
@@ -528,7 +565,9 @@ label runintojosh:
     show josh happy
     "Well I guess I have no choice."
     m "Sure, let’s do it."
+    show flatdog
     "This food looks delicious. If only I could enjoy it in peace and quiet."
+    hide flatdog
     j "So, bro, how’s your week been going? First real week of college, dude!"
     menu:
         "It's been all right":
@@ -583,9 +622,13 @@ label notclosetojosh:
     return
 
 label finishgluttony:
+    scene bg john jay outside with dissolve
     "Finally taking the big step of eating dinner by myself. I’m so hungry, even after that big lunch. I hope no one thinks I’m a loser because I’m sitting alone."
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, channel="Chan3")
     w "You again? No way brah."
-    show josh grateful moveinbottom
+    show josh grateful with moveinbottom
     j "It’s me, Josh!"
     hide josh grateful
     show josh happy
