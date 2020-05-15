@@ -9,6 +9,7 @@ define j = Character("Josh")
 define b = Character("Maximillion")
 define m = Character("Me")
 define p = Character("Professor Bonden")
+define op = Character("Professor Breaken")
 define k = Character("Karen")
 define a = Character("Marven")
 define s = Character("Professor")
@@ -207,12 +208,18 @@ label start:
     $ josh_hasnumber = False #does player have josh's number?
     $ cheated = False #Did player cheat in pride
     $ stolesg = False # Did player steal study guide
-    $seduce_prof = False
+    # Message System Variables
+    #Todo: Make some dialogue edits in script so it's less tell more show
+    $ mail = []
+    $ mail_queue = []
+    $ contacts = []
 
     #important flags
     $ fightwithjosh = False #were you so mean to Josh he called you out?
     $ marieevil = False #did you steal Marie's resume?
     $ committedArson = False #did you set fire to Marie's room???
+    $seduce_prof = False
+
 
 
 

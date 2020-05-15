@@ -1,8 +1,5 @@
 label lust_start_dorm:
-    # Message System Variables
-    $ mail = []
-    $ mail_queue = []
-    $ contacts = []
+    
     $prof_email = False
 
     $grade_change = False
