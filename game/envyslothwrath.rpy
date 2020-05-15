@@ -9,6 +9,10 @@
 #$ committedArson = False
 
 image marie urdumb = "roomate_speechless.png"
+image marie angry = "roomate_angry.png"
+image bg low:
+    zoom .45
+    "lowsteps.jpg"
 
 label beginenvy:
     scene black
@@ -39,7 +43,6 @@ label goodtermswmarie:
     show marie happy
     m "Yeah, well, definitely worked more hours there than I ever thought I would in my life. What about you, how was your summer?"
     hide marie happy
-    #TODO: look into sprites that better fit this moment. Also is there a Marie wink??
     show marie happy at center, hop
     r "Amazing actually! I got this super cool internship!"
     r "Basically I got to go and do hands on research in my field for this exciting company. It’s kind of under wraps right now so I can’t say too much, I’ll send you the link when the company releases the report to the papers!"
@@ -90,7 +93,8 @@ label ongoodtermswjosh:
             j "Cool beans, let’s head out! Once we get our food of course."
             hide marie ingenuine with moveoutright
             hide josh happy with moveoutleft
-            #TODO: transition to Low steps
+            scene bg low
+            with dissolve
             show josh happy at left with moveinright
             show marie v happy at right with moveinright
             r "So, Josh, how was your summer? You’re so talented, I bet you’re doing incredible things!"
@@ -153,44 +157,55 @@ label joshstillbitter:
     "Is he gonna invite me?"
     m "*cough* well, bye Marie."
     hide josh grateful
-    show josh sad at left
-    hide marie grateful
-    show marie happy at sright
+    show josh sad at sleft
+    if marieevil:
+        hide marie concerned
+        show marie angry
+    else:
+        hide marie grateful
+        show marie happy at sright
     j "Oh…%(pname)s, um, didn’t see you there."
     #TODO: crickets sound effect or a cough earlier
     hide josh sad
-    show josh happy at left
+    show josh happy at sleft
     j "Uh...how are you?"
     "Well screw this. Now I feel like a third wheel. Last thing I’m gonna do is admit I’m not doing anything right now. Jeez, I guess I’d better come up with a believeable sounding lie real quick."
     m "I’m great. Just got this huge job opportunity in my field so...no complaints here."
     hide josh happy
-    show josh support at left
+    show josh support at sleft
     j "Wow, that’s amazing. That’s such a coincidence, I just got a huge opportunity too. I’m so glad you’re doing so well."
     "Is he being sincere? He seems weirdly genuinely happy for me. Does he not remember our fight? I kind of feel bad for lying now."
     m "What was the opportunity?"
     hide josh support
-    show josh happy at left
+    show josh happy at sleft
     j "I got this cool gig at Dolphin Classics, where I was totally, like, working as an assitant editor."
-    hide marie happy
-    show marie v happy at sright, hop
+    if marieevil:
+        hide marie angry
+        show marie ingenuine at center, hop
+    else:
+        hide marie happy
+        show marie v happy at sright, hop
     r "Wow, Josh, that’s so cool! Isn’t your dream job working in publishing?"
     hide josh happy
-    show josh grateful at left
+    show josh grateful at sleft
     j "Yeah bro, pretty much. I feel like I’m moving forward in my career right in time to graduate. And they’re letting me stay on part time this year so maybe it could even be my first job out of college."
-    show marie v happy at center with move
+    if marieevil:
+        pass
+    else:
+        show marie v happy at center with move
     hide josh grateful
-    show josh happy at left
+    show josh happy at sleft
     r "Josh, I’m so happy for you. It’s everything you’ve  been wanting these past few years."
     m "Yeah that’s...great. It’s definitely...everything you’ve been wanting."
+    hide marie ingenuine
     hide marie v happy
     show marie happy at center, hop
     r "Oh, there’s my food!"
-    j "Got mine too. Well, um..."
+    j "Got mine, too. Well, um..."
     j "Catch you later %(pname)s. Nice to catch up."
     hide josh happy with moveoutleft
     hide marie happy with moveoutleft
     m "Yeah...right. So nice."
-    #TODO: fix this transition how does the next line make sense???
     jump lunchaloneesw
 
 label lunchaloneesw:
@@ -204,28 +219,48 @@ label lunchaloneesw:
 label wrongedmarie:
     "Ugh, this line is long. Guess I don’t really have anywhere to be."
     #TODO: figure out faces for a sadistic Marie
+    show marie happy with moveinright
     r "Oh, my god. %(pname)s, you’re here."
     "Shit. It’s my formerly-nice-turned-terrible-double-crossing-ex-roommate. Time to smile and act normal."
     m "Oh, uh, Marie. Hi."
+    hide marie happy
+    show marie ingenuine
     r "So good to see you! How was your summer?"
     "What’s happening? Why is she pretending to be nice to me?"
     m "Uh, not much. Just worked a lot of shifts at FishMart. You?"
     r "Oh, it was amazing! I got this super cool internship doing research--well it’s kind of under wraps right now so I shouldn’t say anything really, but let’s just say the future is looking bright!"
+    show marie ingenuine at center, hop
     "Ah. Now I get it. She wants to brag and make me feel bad all for the price of one interaction. Well, it’s working. Dammit."
-    j "Woah, Marie, so funny running into you! This is so crazy brah I was just thinking of you."
+    show marie happy at sright with move
+    show josh shock at sleft with moveinleft
+    j "Woah, Marie, so funny running into you!"
+    hide josh shock
+    show josh grateful at sleft
+    j "This is so crazy brah I was just thinking of you."
+    hide josh grateful
+    show josh happy at sleft
     r "Oh my gosh, Josh! I totally didn’t know this is your favorite place to get lunch, haha. I guess we can..."
+    show marie ingenuine at center with move
     r "have lunch together?"
     "Is she...flirting?"
     "What is happening right now?"
+    hide marie ingenuine
+    show marie concerned
     j "Bro, that’s a bitchin’ idea. I’m so down."
     if fightwithjosh:
         jump joshstillbitter
     else:
         j "Oh hey %(pname)s, sorry bro didn’t see you there. Want to come to lunch with us?"
+        hide marie concerned
+        show marie angry
         "Well, I would if I could but...I’m not on good terms with Marie. I don’t want to spend all of lunch having her rub her success in my face."
         m "Um, I’m okay. Thanks for the offer though."
+        hide marie angry
+        show marie ingenuine
         r "Your loss, sweetie. Anyway, I’ve got my food so I guess we can move out."
         j "Yeah, uh, sounds good. See you later, %(pname)s."
+        hide josh happy with moveoutleft
+        hide marie ingenuine with moveoutleft
         jump lunchaloneesw
 
 label endeswday1:
@@ -251,6 +286,8 @@ label endeswday1:
             "Make passive aggressive comment.":
                 m "Well, good to see you guys hanging out together! Because, you know, I kinda think of you guys as like loner types. Glad you’re making friends."
                 #TODO: again, sadistic Marie
+                hide marie happy
+                show marie ingenuine at sleft
                 r "That’s right, it is great to make friends! Speaking of...where are your friends exactly?"
                 m "In the bathroom, okay!? They’re coming right out. And they’re real. They exist they just had to leave for a second."
                 j "Uh...sure bro. Whatever floats your boat."
