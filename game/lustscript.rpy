@@ -5,6 +5,13 @@ label lust_start_dorm:
     $ contacts = []
     $prof_email = False
 
+    $grade_change = False
+
+    scene black
+    with Pause(1)
+    show text "{size=50}Semester 2: Still at School{/size}"
+    with Pause(2)
+    hide text
     scene bg bednight with ease
 
     "Ayyy. Bless. First round of testing season is over ... {p=3.0}and it's a Thursday night!! No immediate responsibilities that need to be taken care of and no need to stress about academics for a while...."
@@ -27,7 +34,6 @@ label lust_start_dorm:
         "Contact professor":
             "There must have been some mistake. There's no way that's my grade. I skipped classes and crammed for 12 hours straight. I need to speak with the professor."
             $prof_email = True
-            $ prof_friendship +=1
             jump prof_email
 
 label roomie_talk:
@@ -58,6 +64,7 @@ label roomie_talk:
                     hide marie averse
                     "Finally some peace and quiet. How annoying"
                     $marie_friendship -=1;
+                    $sin -=1;
                     jump thurs_end
                 "Say Nothing":
                     "I appreciate the sentiment but no reply comes to mind"
@@ -70,6 +77,7 @@ label roomie_talk:
             r "Oh no! Can I give you a hug?"
             menu:
                 "Accepts Hug":
+                    $marie_friendship +=1;
                     "We hug for a couple of seconds. It's nice and reassurring"
                     m "Thanks Marie, I needed that. Sometimes things can feel really overwhelming. You know?"
                     hide marie concerned
@@ -81,6 +89,8 @@ label roomie_talk:
                     hide marie concerned
                     jump thurs_end
                 "Screw off":
+                    $marie_friendship -=1;
+                    $sin -=1;
                     hide marie concerned
                     show marie distressed
                     m "I don't need your pity"
@@ -110,21 +120,19 @@ label social_media:
 
 
 label prof_email:
-    #TODO: figure out how to do screen
-    #$ email = renpy.input("Email to Professor Bonden")
-    $ prof = Contact("Professor Bonden", "bonden_draft")
-    # to change the draft message, do something like $ fredo.draft = "fred_draft2"
-    # $ fredo.delete() if you don't want him on the list anymore (sorry fred)
 
-    "Let's draft this message!"
+    $ prof = Contact("Professor Bonden", "bonden_draft")
+
+    "Let's draft this message! Check your message box at the upper right"
     show screen mailbox_overlay
-    "Is it done?"
-    menu:
-        "Yes":
-            hide screen mailbox_overlay
-        "No":
-            "Let's hurry up and send that email"
-            hide screen mailbox_overlay
+    "{p=3.0} Great message. Much professionalism"
+    hide screen mailbox_overlay
+    #menu:
+    #    "Yes":
+    #        hide screen mailbox_overlay
+    #    "No":
+    #        "Let's hurry up and send that email"
+    #        hide screen mailbox_overlay
     jump thurs_end
 
 label bonden_draft(contact, message_title="Meeting Inquiry"):
@@ -132,9 +140,13 @@ label bonden_draft(contact, message_title="Meeting Inquiry"):
         "Hi Professor, Would really appreciate if we could schedule a meeting for tomorrow":
             $ contact.draft_label = None # must include this line for each option
             $ add_message("Meeting Inquiry:Re", "Professor Bonden", "Yes! Of course. Come by my office tomorrow")
-        "Hi Professor, You suck and I hate you":
+            $ prof_friendship +=1
+            #TODO: Message notification sound
+        "Hi Professor, Any way I can help boost my grade ;). Down for anything ;))))))":
             $ contact.draft_label = None
-            $ add_message("Meeting Inquiry:Re", "Professor Bonden", "Excuse me?")
+            $ prof_friendship -=1
+            $ add_message("Meeting Inquiry:Re", "Professor Bonden", "Excuse me? Let's discuss in my office tomorrow")
+            #TODO: Message notification sound
         "Discard draft.":
             pass
     return
@@ -152,18 +164,16 @@ label fri_morn:
     scene bg bedroom with fade
     "Ah!!! It's already 11 am. Time to get up"
     "First things first, let's check message updates"
+    #TODO: Message notification sound
     show screen mailbox_overlay
     if prof_email == True:
 
         $ add_message("Reminder!", "", "Meeting with Professor Today")
         $ add_message("Triangle Info Session", "{b}{i}T r i a n g l e{/i}{/b}", "Thank you for expressing interest into joining the Triangles! We will be hosting a meeting in Hamilton 702. Hope to see you there. Please wear business casual!")
         $ add_message("Message", "Friend", "Hey, wanna hang out?")
-
-        "3. Friend: Let's Hang out 4. Email from Triangle: Make sure to be in business casual for club meeting today"
     else:
         $ add_message("Triangle Info Session", "{b}{i}T r i a n g l e{/i}{/b}", "Thank you for expressing interest into joining the Triangles! We will be hosting a meeting in Hamilton 702. Hope to see you there. Please wear business casual!")
         $ add_message("Message", "Friend", "Hey, wanna hang out?")
-        "1. Triangle Info Session 2. Friend: Let's Hang out 3. Email from Triangle: Make sure to be in business casual for club meeting today"
 
     "Ah!! So much to get done. But let's see... time to figure out what to wear"
     hide screen mailbox_overlay
@@ -187,7 +197,7 @@ label short_meet:
     p "Hey %(pname)s, I'm actully on my way out. I'm going to buy planetarium viewing tickets before they run out. I'm really excited for their exhibit tomorrow."
     p "Is there something that I can do for you?"
     menu:
-        "Flattery":
+        "Your research is so interesting!":
             $ prof_friendship +=1
             "Maybe if I ask more about him, he'll be more open to changing my exam grade"
             m "I read your most recent publication. It was really interesting. You're so knowledgeable. I was hoping that we could talk more about it?"
@@ -197,6 +207,7 @@ label short_meet:
             "Guess, I'll head over to the Triangle's info session early"
             jump club_info
         "Complain about grade":
+            $sin -=1;
             $ prof_friendship -=1
             m "I was really surprised about my grade. There must have been a grading error"
             hide professor neutral
@@ -228,7 +239,7 @@ label prof_meet:
     "I highly doubt the tickets to a planetarium would have sold out so soon but as long as the professor's happy I guess!"
     p "What can I do to help you today?"
     menu:
-        "Flatery/Ask about Research":
+        "Your research is so interesting!":
             $ prof_friendship +=1
             "Flattery gets you everywhere right? Maybe asking him about his interests will make the Professor more willing to change my exam grade"
             m "I'm really curious about your most recent publication. Woud you mind speaking more about it?"
@@ -236,7 +247,7 @@ label prof_meet:
             "I blink blankly at Professor Bonden and nod in 'comprehension'. Wow, am I supposed to be understanding what he's saying based on the class materials?? Maybe there's nothing wrong with the test grading after all...."
             p "And that pretty much sums up that paper. Was there anything else you wanted to talk about?"
             menu:
-                "Flattery":
+                "I want to be like you":
                     $ prof_friendship +=1
                     m "That's really cool! You're so knowledgeable Professor! How did you get into doing research? I think it's something I might want to pursue in the future"
                     show professor happy
@@ -244,8 +255,9 @@ label prof_meet:
                     "I'm not sure how to respond to that. It's really nice to hear someone so passionate about their job"
                     p "Ah, but enough about me. Is there something else I can help you with?"
                     menu:
-                        "Flattery":
-                            $ prof_friendship -=3
+                        "Your class is my favorite":
+                            $ prof_friendship -=2
+                            $sin -=1;
                             hide professor happy
                             show professor neutral
                             m "I really liked your lecture last class!"
@@ -270,6 +282,7 @@ label prof_meet:
             jump exam_inquiry
 
 label complain_grade:
+    $sin -=1;
     $ prof_friendship -=1
     m "I was really surprised about my grade. There must have been a grading error"
     hide professor neutral
@@ -397,6 +410,7 @@ label club_info:
             $ maximillion_friendship +=1
             jump club_app
         "Insult":
+            $sin -=1;
             "This absolute ass"
             m "How can a pile of trash such as yourself help me?"
             show max mad
@@ -406,6 +420,7 @@ label club_info:
             $ maximillion_friendship -=1
             jump club_app
         "Compliment":
+            $sin +=1;
             show max neutral
             "Let's just ignore the commoner comment. This dude clearly has a superiority complex better play into it. It might help my chances of getting in"
             m "Hi, great job up there! I'm %(pname)s Hopefully, I'll be able to be up there with you guys next year presenting about the great Triangle club"
@@ -621,6 +636,7 @@ label max_library:
                         b "Wow, how refreshing to hear that's how you feel. Actually, speaking about all of this."
                         show max wink
                         $ maximillion_friendship +=1
+                        $sin -=1;
                         b "Just to give you an insider tip, there's a supplement you can attach for your {b}{i}T r i a n g l e{/i}{/b} application too."
                         b "Involving us {p=2.0}....attaching ourselves together"
                         hide max wink
@@ -682,11 +698,13 @@ label max_library:
                                 b "You didn't hear it from me. But maybe you want to consider doing something supplemental with your interview on Sunday morning and everything."
                                 b "Let me know what you decide at Mel's tomorrow night"
                                 m "WHAT"
+                                $ maximillion_friendship -=1
                                 hide max wink with dissolve
                             "Accept":
                                 m "Huh, I'm surprised to hear that Professor Bonden would be the type. But I guess with every system, there's bound to be some form of corruption"
                                 b "Even a desperate idiot like you gets it. How refreshing"
                                 show max vicious
+                                $sin -=1;
                                 b "I'll let you in on some even more infomation. That's actually something that could benefit your {b}{i}T r i a n g l e{/i}{/b} application too."
                                 m "Ugh. The thing that you're implying sickens me greatly"
                                 b "You sicken me. Well...you wouldn't want to hurt your chances especially since you've made it to the interview stage and everything"
@@ -711,6 +729,7 @@ label max_library:
                                 m "Ugh of course you'd be the type to be so nonchalant about this"
                                 b "What's wrong? A mutualistic relationship, the professor gets something and the student gets something"
                                 b "With a whole lot of debauchery"
+                                $ maximillion_friendship -=1
                                 show max wink
                                 b "We actually do something similar at the {b}{i}T r i a n g l e{/i}{/b} too"
                                 m "What."
@@ -722,6 +741,7 @@ label max_library:
                                 m "Huh, I'm surprised to hear that Professor Bonden would be the type. But I guess with every system there's some form of corruption"
                                 b "Even an idiot like you gets it. How refreshing"
                                 show max vicious
+                                $sin -=1;
                                 b "I'll let you in on some even more infomation. That's actulally something that could benefit your {b}{i}T r i a n g l e{/i}{/b} application too."
                                 m "Ugh. The thing that you're implying sickens me greatly"
                                 b "You sicken me. Well...you wouldn't want to hurt your chances especially since you've made it to the interview stage and everything"
@@ -787,6 +807,7 @@ label max_library:
                         b "Wow, how refreshing to hear that's how you feel. Actually, speaking about all of this."
                         show max wink
                         $maximillion_friendship +=1
+                        $sin -=1;
                         b "Just to give you an insider tip, there's a supplement you can attach for your {b}{i}T r i a n g l e{/i}{/b} application too."
                         b "Involving us {p=2.0}....attaching ourselves together"
                         hide max wink
@@ -808,7 +829,10 @@ label sat_room:
     "I get a restless sleep. Thinking about what Maximillion had said the other today. What kind of extra credit did Professor Bonden mean?"
     "I was originally thinking about doing a presentation or report about the planetarium or something academic related. Who would have thought that getting a good grade would be this complicated"
     "Not to mention, what Maximillion said about the {b}{i}T r i a n g l e{/i}{/b} application. Things like this actually happen?"
+    #TODO: Message notification sound
+    show screen mailbox_overlay
     "Oh speaking about the Triangle, new email notification."
+    $ add_message("Congratulations", "{b}{i}T r i a n g l e{/i}{/b}", "Hi %(pname)s, We would like to cordially offer you the opportunity to join our ranks. Please come to Hamilton 705 at 11 am tomorrow for your interview with one of our executive board members")
     #phone conveying interview
     "Yes!! I landed the interview tomorrow"
     "Trying to refocus on my work, nothing really gets done for the entire day as I deliberate the best course of action"
@@ -851,9 +875,12 @@ label mel_night:
             p "That's still an option of course, if you'd rather do that instead?"
             m "Oh no, that's fine. I'm excited about working with you on this report after all"
             p "Splendid! Alright, I must run now. Have a good one, %(pname)s"
+            $ prof_friendship +=1
+            $sin +=1;
             hide professor pleased
             "Oh wow, that went amazingly!"
         "Seduction time":
+            $seduce_prof = True
             m "Don't worry Professor I know exactly what kind of activities will get me in your good graces"
             p "It doesn't quite work like that %(pname)s, I need to agree on what the assignment will actually be. I was actually thinking of"
             m "Shh. Don't worry, I know."
@@ -883,6 +910,8 @@ label mel_night:
             "I have no words to say. I want to vaporize away. I had the completely wrong understanding"
             p "I see now that we are not on the same page. So, I'll get back to you about looking at your exam for a regrade. I must get going. Good night,%(pname)s. I guess I'll see you on Monday."
             hide professor mad
+            $ prof_friendship -=3
+            $sin -=2;
             "Oh my gosh. That went HORRIBLY"
     show max charm
     b "Hey, so how'd the big confrontation go?"
@@ -915,6 +944,7 @@ label mel_night:
     "What are you going to do?"
     menu:
         "Join Maximillion":
+            $sin -=1;
             if maximillion_friendship >= 2:
                 m "Looks like you're getting lucky tonight"
                 b "Pshh let's be real, this must be beyond your wildest imagination"
@@ -933,6 +963,7 @@ label mel_night:
                 b "Eh, I like to think about it as community service"
             jump morning_aftermax
         "Go to Room":
+            $sin +=1;
             if maximillion_friendship >= 2:
                 m "As pleasant as your company always is, I need to get going"
                 m "I think I've got things covered with my {b}{i}T r i a n g l e{/i}{/b} application."
@@ -959,6 +990,7 @@ label mel_night:
                 hide max charm
             else:
                 m "I'd rather bite my tongue, you nasty"
+                $maximillion_friendship -= 1
                 hide max charm
                 show max mad
                 b "Oh please do, save me from hearing the blatherings of an idiot"
@@ -1031,6 +1063,7 @@ label morning_aftermax:
                 $ maximillion_friendship -=2;
         "Hey! Good Morning":
             "I missed my interview but might as well still be amiable. It's not Maximillion's fault after all "
+            $maximillion_friendship += 1;
             if maximillion_friendship >= 2:
                 b "Aren't you quite the sleepyhead? It's practically noon already. You missed your interview I believe?"
                 m "Oh well, at least I've been able to bask longer in your presence"
@@ -1058,7 +1091,8 @@ label morning_aftermax:
 label morning_afterhome:
     scene bg bednight with fade
     "Ah!! I'm so nervous. This is it. Let's get to the interview!"
-    scene bg black
+    scene bg classroom with fade
+    show Karen with dissolve
     w "Hey %(pname)s! Thanks for coming in. The {b}{i}T r i a n g l e{/i}{/b} is always excited to welcome new applicants"
     m "Thanks for having me"
     w "Now, let's get started. Why do you want to join the {b}{i}T r i a n g l e{/i}{/b}?"
@@ -1085,6 +1119,7 @@ label lust_ending:
     "Not to mention my Science of Everything exam. Please will the spirit of Prezbo depart some good fortune"
     "Oh dear speaking about the Science of Evereything class, new email notification!"
     if grade_change ==True:
+        $ success +=1
         "Hey %(pname)s, I've spoken with the TAs and they agreed that even though it's past the regrade period. There were definitely some oversights in our grading rubric so we'll be extending the option to all students to submit a new request. Regarding the extra credit we've spoken about, it's still an option open to you if you're interested. Just let me know!"
         m "YESSSSSSSSSSSSSSSSSSS. I've boosted my grade and I can do extra credit"
     else:

@@ -207,7 +207,7 @@ label start:
     $ josh_hasnumber = False #does player have josh's number?
     $ cheated = False #Did player cheat in pride
     $ stolesg = False # Did player steal study guide
-    $grade_change = False
+    $seduce_prof = False
 
     #important flags
     $ fightwithjosh = False #were you so mean to Josh he called you out?
