@@ -1,5 +1,5 @@
 label lust_start_dorm:
-    
+
     $prof_email = False
 
     $grade_change = False
@@ -108,11 +108,17 @@ label roomie_talk:
 
 
 label social_media:
-    "Here lies the spiciest of the spicy memes"
-    "This is premium"
-    "Quality"
-    "Content"
+    call phone_start
+    call message_img("Meme Central", "Here lies the spiciest of the spicy memes","meme1.jpg")
+    call message_img("Meme Central", "This is premium","meme2.jpg")
+    call message_img("Meme Central", "Quality","meme3.jpg")
+    call message_img("Meme Central", "Content","meme4.png")
+    #call message_start("Meme Central", "Yo, wanna have lunch together today?")
+    #call message("Josh", "I’m hungry like a beast for some pizza.")
     #TODO: add some memes
+    call phone_end
+    "Your eyes burn from absorbing the memes and decide that's enough avoiding your pain today"
+    "I'll just go and look for Professor Bonden tomorrow. Everything will be fine"
     jump thurs_end
 
 

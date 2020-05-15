@@ -113,6 +113,8 @@ image down:
     "down_arrow.png"
 image Karen = "Karen.png"
 image PosterP = "partyposter.png"
+image meme1 = "meme1.jpg"
+image meme2 = "meme2.jpg"
 
 #backgrounds
 image bg classroom:
