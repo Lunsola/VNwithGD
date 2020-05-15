@@ -206,7 +206,7 @@ label start:
     $ classgrade = 0 #pride chapter grade
     $ josh_hasnumber = False #does player have josh's number?
     $ cheated = False #Did player cheat in pride
-    $ stolesg = False #Did player steal study guide
+    $ stolesg = False # Did player steal study guide
     $grade_change = False
 
     #important flags
