@@ -143,7 +143,6 @@ image bg lecture hall:
     zoom 0.35
     "havemeyer.jpeg"
 image bg mil = "milstein.jpg"
-image bg lerner = "lerner.jpg"
 image bg buthall:
     zoom 0.6
     "buthall.jpg"
@@ -205,7 +204,7 @@ label start:
     $ music_friendship = 0 #marvien friendship points
     $ classgrade = 0 #pride chapter grade
     $ josh_hasnumber = False #does player have josh's number?
-    $ cheated = False #Did player cheat in pride
+    $ finalscore = 0 #final score counter for pride
     $ stolesg = False # Did player steal study guide
     $grade_change = False
 

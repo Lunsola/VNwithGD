@@ -1,43 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-Compiling ATL code at game/limbo.rpy:109
-  File "game/limbo.rpy", line 108, in script
-    show Karen at right, hop:
-NameError: name 'Karen' is not defined
+While running game code:
+  File "game/pride.rpy", line 27, in script
+    show marie astonished at left with moverinright
+  File "game/pride.rpy", line 27, in <module>
+    show marie astonished at left with moverinright
+NameError: name 'moverinright' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/limbo.rpy", line 108, in script
-    show Karen at right, hop:
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1183, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1153, in show_imspec
-    atl=atl)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\exports.py", line 717, in show
-    sls.add(layer, img, key, zorder, behind, at_list=at_list, name=name, atl=atl, default_transform=default_transform, transient=transient)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 1070, in add
-    thing._show()
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\transform.py", line 1048, in _show
-    super(ATLTransform, self)._show()
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\transform.py", line 1014, in _show
-    self.update_state()
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\transform.py", line 1036, in update_state
-    fr = self.execute(self, self.st, self.at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\atl.py", line 521, in execute
-    block = self.compile()
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\atl.py", line 489, in compile
-    block = self.atl.compile(self.context)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\atl.py", line 684, in compile
-    statements = [ i.compile(ctx) for i in self.statements ]
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\atl.py", line 897, in compile
-    child = ctx.eval(expr)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\atl.py", line 246, in eval
-    return eval(expr, renpy.store.__dict__, self.context)  # @UndefinedVariable
-  File "<string>", line 1, in <module>
-NameError: name 'Karen' is not defined
+  File "game/pride.rpy", line 27, in script
+    show marie astonished at left with moverinright
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\ast.py", line 1385, in execute
+    paired = renpy.python.py_eval(self.paired)
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\python.py", line 2059, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\python.py", line 2052, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/pride.rpy", line 27, in <module>
+    show marie astonished at left with moverinright
+NameError: name 'moverinright' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 CU_HEdoubleL 1.0
-Wed May 13 14:03:43 2020
+Thu May 14 20:53:46 2020

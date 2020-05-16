@@ -2,9 +2,41 @@
 errors listed below, and try again.
 
 
-File "game/limbo.rpy", line 122: expected statement.
-    Pause(1)
-            ^
+File "game/pride.rpy", line 887: expected statement.
+    "1":
+       ^
+
+File "game/pride.rpy", line 889: expected statement.
+    "2":
+       ^
+
+File "game/pride.rpy", line 891: expected statement.
+    "3":
+       ^
+
+File "game/pride.rpy", line 893: expected statement.
+    "4":
+       ^
+
+File "game/pride.rpy", line 897: expected statement.
+    "12":
+        ^
+
+File "game/pride.rpy", line 899: expected statement.
+    "10":
+        ^
+
+File "game/pride.rpy", line 901: expected statement.
+    "9":
+       ^
+
+File "game/pride.rpy", line 903: expected statement.
+    "8":
+       ^
+
+File "game/pride.rpy", line 905: menu statement expects a non-empty block.
+    menu: 
+        ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Thu May 14 13:27:09 2020
+Fri May 15 17:45:43 2020
