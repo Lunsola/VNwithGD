@@ -598,7 +598,7 @@ label real_interview:
     menu:
         "Alright, last question of the day."
         "Some brilliant response":
-            pass            :
+            pass
         "Some brilliant response":
             pass
 

@@ -12,9 +12,8 @@ label pridebegin:
     r "I even dropped my toast running here"
     "Who does she think she is, Sailor Moon?"
     m "Hello Marie, this is literally the most well known lecture hall on campus"
-    r "Well exciting thatour first class for %(pmajor)s is in here?"
-    m "I was actually part of the %(pmajor)s bowl in high school, so I feel prepared"
-    "Honestly, this class will be a piece of cake. Pshhhh. It'll be like eyeballing ingredients"
+    r "Well exciting that our first class for %(pmajor)s is in here?"
+    m "I was actually part of the %(pmajor)s bowl in high school, so I feel real prepared for this class"
     hide marie nervous2
     show marie v happy
     r "Aw I wish I did something like that! I don't feel too prepared for Advanced Scientific Stochastic Estimation Systems"
@@ -57,7 +56,7 @@ label pridebegin:
             with fade
             a "Anyways are you guys into memes?"
             m "Hell yeah"
-            r "%(pname)s always stays up scrolling through spicy memes!"
+            r "%(pname)s always stays up scrolling while chuckling like an old man!"
             hide music_talk
             show music_neutral at right
             a "What memes are you into?"
