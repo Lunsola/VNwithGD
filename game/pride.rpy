@@ -1,3 +1,5 @@
+image cgexam = "cgexam.jpg"
+image cgconv = "cgconvention.jpg"
 label pridebegin:
     scene bg lecture hall
     "New semester new me"
@@ -143,6 +145,7 @@ label pridebegin:
     scene bg bedroom
     with dissolve
     play sound "audio/mario_coin_sound.mp3"
+    pause 2
     "Big yikes the ASSES TAs are fast"
     menu:
         "Check your grade":
@@ -254,7 +257,7 @@ label music_encounter:
     hide music_talk
     show music_wink
     a "Who's your meme idol?"
-    "Can I still impress Marven with my epic taste in memes?"
+    "Can I impress Marven with my taste in memes?"
     menu:
         "Burnie Sanders I am once again asking meme":
             $ music_friendship +=1
@@ -513,7 +516,7 @@ label walk:
             hide music_dark
             show music_dark:
                 zoom 3
-                yalign 1.01
+                yalign 2
                 xalign .3
             play sound "audio/OOT_Scarecrow_Shake1.mp3"
             a "EGGDOG IS FIRE MY D00D"
@@ -538,27 +541,25 @@ label eathewitt:
     scene bg black
     "I go with Marven to hewitt and have a lit time eating pesto pasta and smoothies"
     jump cheat
-
 label cheat:
     scene bg lecture hall
     "Urk I really don't feel too confident about today's exam"
-    show marie neutral at moveinright
+    show marie neutral at center with moveinright
     r "Hey ready for the ASSES examination?"
     m "The WHAT.. oh yeah. Sure"
-    show marie neutral at moveoutleft
+    hide marie neutral with moveoutleft
+    pause
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
-    show music_neutral at moveinright:
+    show music_neutral at center with moveinright
     a "Where are you sitting?"
     m "Uhh my assigned seat is... {p=2} here"
-    a "Ayyy I'm right next to you!"
-    show music_neutral at moveoutleft
-    scene bg lecture hall:
-        zoom 2
+    a "Ayyy I'm right in front of you!"
+    hide music_neutral with moveoutleft
     "Ok I can do this {size=-10}maybe"
     pause 1
     "This is really hard"
     "I wonder how Marven is doing"
-    #CG
+    show cgexam
     "Aw man I can see his test sheet crystal clear"
     menu:
         "Cheat":
@@ -566,16 +567,18 @@ label cheat:
         "Look away":
             "I can't compromise my academic integrity for the sake of a mistake that was completely my fault"
             "I might fail, but I'll do it with honor"
+    hide cgexam
     jump goinghome
 label passexam:
     scene bg lecture hall
     "I feel pretty confident about today's exam"
-    show marie neutral
+    show marie neutral with dissolve
     r "Hey ready for the ASSES examination?"
     m "The WHAT.. oh yeah. Sure"
-    show marie neutral at moveoutleft
+    hide marie neutral with dissolve
     scene bg lecture hall:
-        zoom 2
+        xalign 1.0 yalign 0.3
+        zoom 4
     "Hm these questions all make sense, unlike the first exam"
     "Hoo studying sure pays off"
     jump goinghome
@@ -619,8 +622,9 @@ label goinghome:
     hide music_smile with dissolve
     "No big deal, I'll just go for one day and soak up the spiciness to the max. Delicious!"
 label conventionday1:
-    scene bg entrance
-    "Hoe my gourd I've never seen so many people dressed in memes"
+    scene bg entrance:
+        zoom 0.4
+    "Hoe my gourd I've never seen so many people in meme costumes"
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
     show music_default
     with dissolve
@@ -704,23 +708,22 @@ label conventionday2:
     m "Ya yeet!"
     scene bg convention
     with irisin
-    show music_bent
     a "Wow it sure is crowded today"
     a "Guess everyone chills on hump day"
-    #show cg
+    show cgconv with dissolve
     "Omg. Marven brought an ASSES study guide"
     "If I had that, it could potentially rocket my ASSES grade into the heavens above"
     menu:
         "Steal it":
             $ stolesg = True
+            $ classgrade =+ 1
             "I take the precious study guide out and stuff it into my bag"
-            #show empty bag
         "Ignore":
             "..."
+    hide cgconv
+    scene bg convention with dissolve
     m "Hey Marven your bag is unzipped"
-    # unshow cg
-    scene bg convention
-    show music_smile
+    show music_default with dissolve
     a "Oh hey thanks way to be a bro!"
     scene bg black with fade
     scene bg bednight
@@ -729,13 +732,11 @@ label conventionday2:
     r "yawnnn"
     hide marie grateful
     show marie nervous
-    r "You're finally back %(pname)s!"
     r "I'm gonna go sleep now so I can wake up early to study again tomorrow"
     hide marie nervous with dissolve
     "Man I don't know if I should go to the convention again tomorrow"
     "I've already seen pretty much everything and maybe I should study for finals"
-    "I'll email Marven to meet me on campus tomorrow and see what they think"
-    "Why does this guy only respond to email anyways?"
+    "I'll message Marven to meet me on campus tomorrow and see what they think"
     scene bg black with blinds
     scene bg bedroom with blinds
     show marie neutral with dissolve
@@ -853,10 +854,10 @@ label conventionday3:
             pass
         "Spec":
             pass
-    a "Hm, you think so? I'd be a sad pepe to brush off the insight of an epic memer like you."
+    a "I'll take your word for it. I'd be a sad pepe to brush off the insight of an epic memer like you."
     hide music_talk
     show music_smile
-    a "%(pname)s, I just want to say, thank you for spending these past three days with me."
+    a "%(pname)s, I just want to say, thank you memeing with me this year."
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
     a "It's been the dankest three days of my five years here. {p=2}And you've been the best friend I've ever had, like, we really vibe"
     m "Wait, so you're a fifth-year?"
@@ -864,8 +865,8 @@ label conventionday3:
     show music_nervous
     a "I guess that's what you call it? I did not arrive at this school a Chad."
     a "First I suffered from Imposter Syndrome, then Major Indecisivity, then I became too prideful of my image and flunked ASSES the first time I took it"
-    "The tea has been spilt. Turns out Marv may be an underachiever who has just accumulated over the years."
-    a "Memes are my coping mechanism and I hopeful that they will carry me through graduation"
+    "The tea has been spilt. Turns out Marv's school smarts have just accumulated over the years."
+    a "Memes are my coping mechanism they motivate me when nothing else in this depressing world does."
     m "Epic backstory Marv, do you have any tips on the final ASSES assessment?"
     hide music_nervous
     show music_wink
@@ -886,13 +887,14 @@ label examday:
     pause .5
     show marie averse
     with hpunch
-    r "Why didn't you wake me up? Such a cruel roommie!"
+    r "Why didn't you wake me up? Such a cruel roommie! What if I missed the final?"
     m "Sorry, I was feeling angsty so I came first"
     hide marie averse
-    show marie nervous
-    r "Ahh you must really be nervous to apoligize to me. Don't worry! This final is multiple choice and it's worth 50% of your grade!"
+    show marie nervous2
+    r "Ahh you must really be nervous to apoligize to me. Don't worry! This final is multiple choice and it's worth 50 percent of your grade!"
     "It's true, it feels like this is the culmination of my entire semester. My performance today is gonna make it or break it"
     "Well, here goes nothing."
+    hide marie nervous2 with dissolve
     "{i}FINAL ASSES EXAMINATION START"
     menu:
         "Consider the width of Butler Library, as measured from its westernmost side to its easternmost side. Estimate the width to the nearest power of ten."
@@ -1000,5 +1002,5 @@ label prideend:
             else:
                 "I failed!"
         "Dont check":
-            pass
+            "If I cared about ASSES, I would've tried harer in first place"
     "What an underwhelming conclusion to this cursed semester. How much more of this hell to endure until graduation?"
