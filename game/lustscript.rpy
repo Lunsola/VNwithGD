@@ -117,6 +117,7 @@ label social_media:
     call message_img("Meme Central", "This is premium","meme2.jpg")
     call message_img("Meme Central", "Quality","meme3.jpg")
     call message_img("Meme Central", "Content","meme4.png")
+    call message_img("Meme Central", "Life when you have a smol bean of a roommate","meme5.jpg")
     #call message_start("Meme Central", "Yo, wanna have lunch together today?")
     #call message("Josh", "I’m hungry like a beast for some pizza.")
     #TODO: add some memes

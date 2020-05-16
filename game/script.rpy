@@ -192,6 +192,9 @@ image bg careerfair2:
 image bg CCE:
     zoom 1.5
     "CCE.jpg"
+image bg Interview:
+    zoom 1.75
+    "Interview.jpg"
 
 
 # The game starts here.
@@ -253,7 +256,7 @@ label start:
 
     # Name your character: (moved to limbo. "Oh hi, I'm %(pname)s")
 
-    jump pridebegin
+    jump limbobegin
 
     # This ends the game.
 
