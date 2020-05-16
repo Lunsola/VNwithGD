@@ -22,24 +22,26 @@ label pridebegin:
     w "Y'all mean ASSES?"
     hide marie astonished
     show marie astonished at center:
-        xalign 0.5 yalign 0.0
+        xalign 0.5 yalign 1.0
         linear .5 xalign .25
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
+    pause 1
     show music_neutral at right:
-        xalign 1.5 yalign 0.0
+        xalign 1.5 yalign 1.0
         linear .5 xalign .75
-        #play the maraca shake noise
     w "Y'all didn't know that {b}A{/b}dvanced {b}S{/b}cientific {b}S{/b}tochastic {b}E{/b}stimation {b}S{/b}ystems..."
     w "...is shortened to {b}ASSES{/b}?"
     hide marie astonished
     show marie confused at left:
-        yalign 0.0 xalign .25
+        yalign 1.0 xalign .25
     r "{size=+10}A S S E S"
     m "That's campus culture right there"
     "Honestly the title of this class is so long I don't bother to remember it"
     a "Anyhoo, name's Marven. I'm taking this class as a requirement for my major"
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     hide music_neutral
     show music_wink at right:
-        yalign 0.0 xalign .75
+        yalign 1.0 xalign .75
     a "I'm a music + philosophy double major. {p=2}PLease don't ask me what kind of job I can get with that."
     r "Wowww that's so cool!"
     s "{b}Please sit down, class is about to start"
@@ -48,6 +50,7 @@ label pridebegin:
         "Let's grab those front row seats!":
             pass
         "Ugh let's go sit in the back":
+            $ music_friendship =+1
             scene bg lecture hall:
                 xalign 1.0 yalign 0.3
                 zoom 4
@@ -86,7 +89,7 @@ label pridebegin:
     r "He seemed really cool! Like he is double majoring but still takes time to enjoy college life!"
     m "Overachievers often have dark pasts and make up for their insecurities by participating in an assortment of activities"
     r "Well, I've memorized the syllabus already so I can do my best in this class"
-    r "We have four homeworks! {p=.5}Two midterms!{p=.5} And a final!"
+    r "We have four homeworks! {p=.5}Two midterms! {p=.5}And a final!"
     m "I think maybe you should save your brain cells for actual class material"
     m "Well, the professor seems to be a bad lecturer, so going to class probably won't help either way."
     hide marie happy
@@ -100,8 +103,7 @@ label pridebegin:
     scene bg bedroom
     with dissolve
     "Ah"
-    "Tomorrow I have ASSES"
-    "Haven't done the homework yet"
+    "It's already Sunday? Where did the weekend go?"
     show marie nervous
     with hpunch
     r "%(pname)s"
@@ -126,20 +128,21 @@ label pridebegin:
     r "See you in class tomorrow then!"
     hide marie v happy
     with dissolve
-    "Geez what kind of joke was that homework. {w}This class is gonna be a breeze"
+    "Geez what kind of joke was that homework."
 
     scene bg lecture hall
     "Today is ASSES Examination 1"
     "There's no way I could fail. {p=2} I could jinx myself and still wreck that curve like a pro"
     "{i}EXAM START"
-    $ m1_q1 = renpy.input("{i}How many times on average will a columbia student be asked for directions on campus?")
-    $ m2_q2 = renpy.input("{i}How many earthworms die on average on college walk every time it rains??")
-    $ m3_q3 = renpy.input("{i}How many brain cells have you lost playing this game?")
+    $ m1_q1 = renpy.input("{i}How many US presidents have graduated from Columbia?")
+    $ m2_q2 = renpy.input("{i}How many earthworms die on average on college walk every rainy day??")
+    $ m3_q3 = renpy.input("{i}How many brain cells have you lost playing this game???")
     "Alright that's all of the questions"
     "I have a bad feeling about this"
 
     scene bg bedroom
     with dissolve
+    play sound "audio/mario_coin_sound.mp3"
     "Big yikes the ASSES TAs are fast"
     menu:
         "Check your grade":
@@ -222,6 +225,7 @@ label hw2fail:
     "Ugh another day of zero motivation"
     "..."
     "Who's that familiar figure?"
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     show music_neutral
     with moveinleft
     a "Hey my d00d. Fancy meeting you here"
@@ -264,6 +268,7 @@ label music_encounter:
     a "Ya YEET you've got pretty good meme-sense!"
     hide music_wink
     show music_dark
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     a "Wanna go to a party with me? {p=2}It's Spicy Meme themed"
     "GASPPP SPICYYY MEMEEEES"
     menu:
@@ -339,7 +344,7 @@ label m2begin:
     scene bg bedroom with fade
     "Another day, another dollar. I pour my energy and time into wrangling with these esoteric questions from ASSES, but will this knowledge be useful in the real world?"
     "{i}How many tourist groups come to low every year?"
-    #sound?
+    play sound "audio/big-crash.mp3"
     "What's that awful crashing sound coming from low?"
     "AGH CaN'T conCentraTe"
     show marie happy
@@ -392,6 +397,7 @@ label milstein:
     scene bg mil
     "This is the super silent fourth floor of Milsting, where so much as heavy breathing attracts angry glares"
     "Only the hard Core kids come here"
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     show music_smile
     with dissolve
     "wtf"
@@ -414,7 +420,6 @@ label milstein:
     menu:
         "OOF":
             a "oof"
-            #sound?
         "Grapefruit technique":
             hide music_smile
             show music_moody
@@ -428,6 +433,7 @@ label milstein:
     m "Hey I'm gonna find a seat back upstairs to study ASSES, ok?"
     hide music_smile
     show music_dark
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     a "Oho? You're that serious about studying?"
     a "Thought you said it was a piece of cake?"
     "Shoot, Marven's gonna think I'm lame. {w}Do I sacrifice my pride or my grade?"
@@ -464,13 +470,12 @@ label m2goodgrade:
     "I study with Marie for 6 hours straight"
     "I'm so big brain that even if I don't ace this next exam I can drop out and become a CEO"
     jump passexam
-
 label nap:
     "Bright day, plenty of assignments due, finals right around the corner"
     "Great day for a niceeee long nap"
     scene bg black
     with blinds
-    #play crashing
+    play sound "audio/big-crash.mp3"
     "GAWD THEY'RE SO LOUD"
     scene bg bedroom with blinds
     "Those lion dancers are gonna regret ever leaving the zoo"
@@ -478,6 +483,7 @@ label nap:
     "Of course as soon as I rampage they disappear"
     jump walk
 label walk:
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     w "Ayyyy lmao"
     show music_smile
     with dissolve
@@ -509,6 +515,7 @@ label walk:
                 zoom 3
                 yalign 1.01
                 xalign .3
+            play sound "audio/OOT_Scarecrow_Shake1.mp3"
             a "EGGDOG IS FIRE MY D00D"
             hide music_dark
             show music_wink
@@ -539,6 +546,7 @@ label cheat:
     r "Hey ready for the ASSES examination?"
     m "The WHAT.. oh yeah. Sure"
     show marie neutral at moveoutleft
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     show music_neutral at moveinright:
     a "Where are you sitting?"
     m "Uhh my assigned seat is... {p=2} here"
@@ -575,6 +583,7 @@ label goinghome:
     scene bg collegewalk
     "Well I turned that cursed test right after I got to the end of it"
     "Better pray that the curve is good"
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     w "Ayyyyyyyy d00d"
     "Uh oh"
     show music_neutral
@@ -605,13 +614,14 @@ label goinghome:
             pass
     hide music_unimpressed
     show music_smile
-    a "Ya yeet my d00d. I'll buy you tickets! Check your email later today."
+    a "Ya yeet my d00d. I'll buy the tics!"
     a "Chill out my d00d"
     hide music_smile with dissolve
     "No big deal, I'll just go for one day and soak up the spiciness to the max. Delicious!"
 label conventionday1:
     scene bg entrance
     "Hoe my gourd I've never seen so many people dressed in memes"
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     show music_default
     with dissolve
     "Ayyyyyy %(pname)s"
@@ -631,6 +641,7 @@ label conventionday1:
     hide music_default with dissolve
     pause 1
     m "Wait! Do you have my tickets?"
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     show music_default with dissolve
     a "Oh yeah sillyhead me! Here they are. {w}Pay me back later?"
     m "Thanks"
@@ -686,6 +697,7 @@ label conventionday2:
     scene bg black with blinds
     pause 1
     scene bg entrance with fade
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     show music_default
     with dissolve
     a "Top 'o the mornin' my d00d {p=1}Ready for another day of big bumpin'?"
@@ -748,6 +760,7 @@ label conventionday2:
                             a "Geez. I thought you were smart"
                             a "You know what this maraca is for?"
                             a "It's coming down on you for a vibe check"
+                            play sound "audio/OOT_Scarecrow_Shake1.mp3"
                             hide music_cross
                             show music_default
                             with vpunch
@@ -770,6 +783,7 @@ label twostudyday:
     "Alright, feels bad I ditched Marv but I wrote an email explaining why"
     "Time to grind on ASSES"
     pause 1
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     show music_mad
     with dissolve
     a "Hey I read your shitpost email"
@@ -785,6 +799,7 @@ label twostudyday:
     a "L A M E"
     a "I am going by myself then!"
     a "You know what this maraca is for?"
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     a "It's coming down on you for a vibe check"
     hide music_inimpressed
     show music_smile
@@ -842,6 +857,7 @@ label conventionday3:
     hide music_talk
     show music_smile
     a "%(pname)s, I just want to say, thank you for spending these past three days with me."
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     a "It's been the dankest three days of my five years here. {p=2}And you've been the best friend I've ever had, like, we really vibe"
     m "Wait, so you're a fifth-year?"
     hide music_smile
@@ -858,6 +874,7 @@ label conventionday3:
     Speaking of which, WHen did she say the exam is?"
     m "Shoot, the test is tomorrow!"
     hide music_wink
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     show music_dark
     a "Yea, my d00d, but you know everything so you'll do fine?"
     "Ugh, Marv needs to stop spamming me with this line"
@@ -936,8 +953,9 @@ label examday:
         w "Ayyyy"
         hide marie nervous2
         show marie neutral at center:
-            xalign 0.5 yalign 0.0
+            xalign 0.5 yalign 1.0
             linear .5 xalign .25
+        play sound "audio/OOT_Scarecrow_Shake1.mp3"
         show music_talk at right with moveinright
         a "What's up d00ds"
         r "We're discussing the final ASSES"
@@ -956,6 +974,7 @@ label examday:
         else:
             pass
         a "I gotta skrt right now, but y'all should come watch me at graduation!"
+        play sound "audio/OOT_Scarecrow_Shake1.mp3"
         hide music_talk with fade
         jump goodendingpride
     else:
@@ -971,6 +990,8 @@ label goodendingpride:
     "His last words were: %(pname)s, I'm glad I was your senpai. I wouldn't have graduated without you by my side"
     jump prideend
 label prideend:
+    play sound "audio/mario_coin_sound.mp3"
+    pause 1
     "Oh? It seems that my grade for ASSES has been uploaded"
     menu:
         "check grade":
