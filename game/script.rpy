@@ -9,6 +9,7 @@ define j = Character("Josh")
 define b = Character("Maximillion")
 define m = Character("Me")
 define p = Character("Professor Bonden")
+define op = Character("Professor Breaken")
 define k = Character("Karen")
 define a = Character("Marven")
 define s = Character("Professor")
@@ -34,7 +35,7 @@ image marie surprised = "roomate_astonished.png"
 image marie astonished = "roomate_very_astonished.png"
 image marie confused = "roomate_extremely_astonished.png"
 image marie ingenuine = "roomate_fake_smile.png"
-image marie averse = "roomate_aversion.png"
+image marie aversem = "roomate_aversion.png"
 image marie v happy = "roomate_big_smile.png"
 image marie mad = "roomate_smiling_angry.png"
 image marie nervous = "roomate_surprized.png"
@@ -112,6 +113,9 @@ image down:
     "down_arrow.png"
 image Karen = "Karen.png"
 image PosterP = "partyposter.png"
+image gift = "gift.jpg"
+image meme1 = "meme1.jpg"
+image meme2 = "meme2.jpg"
 
 #backgrounds
 image bg classroom:
@@ -122,7 +126,7 @@ image bg EC = "EC.jpg"
 image bg themil = "library.jpg"
 image bg bednight:
     zoom 1.2
-    im.Grayscale("bedroom.jpg") #GrayscaleSepia
+    "bedroom_night.jpg"
 image bg bedroom:
     zoom 1.2
     "bedroom.jpg"
@@ -165,7 +169,10 @@ image bg columbialawn:
 image bg milfloor = "milfloor.jpg"
 image bg entrance = "entrance.jpg"
 image bg convention = "convention.jpg"
-
+image bg careerfair1 = "careerfair1.jpg"
+image bg careerfair2:
+    zoom 2.5
+    "careerfair2.jpg"
 
 
 # The game starts here.
@@ -206,12 +213,18 @@ label start:
     $ josh_hasnumber = False #does player have josh's number?
     $ finalscore = 0 #final score counter for pride
     $ stolesg = False # Did player steal study guide
-    $grade_change = False
+    # Message System Variables
+    #Todo: Make some dialogue edits in script so it's less tell more show
+    $ mail = []
+    $ mail_queue = []
+    $ contacts = []
 
     #important flags
     $ fightwithjosh = False #were you so mean to Josh he called you out?
     $ marieevil = False #did you steal Marie's resume?
     $ committedArson = False #did you set fire to Marie's room???
+    $seduce_prof = False
+
 
 
 

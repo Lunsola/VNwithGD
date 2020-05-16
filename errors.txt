@@ -2,6 +2,7 @@
 errors listed below, and try again.
 
 
+<<<<<<< HEAD
 File "game/pride.rpy", line 887: expected statement.
     "1":
        ^
@@ -40,3 +41,11 @@ File "game/pride.rpy", line 905: menu statement expects a non-empty block.
 
 Ren'Py Version: Ren'Py 7.3.5.606
 Fri May 15 17:45:43 2020
+=======
+File "game/screens.rpy", line 16: u'persistent' is not a keyword argument or valid child for the screen statement.
+    persistent.ending = set()
+              ^
+
+Ren'Py Version: Ren'Py 7.3.5.606
+Fri May 15 15:50:32 2020
+>>>>>>> 41bb2ad452554a4c0ef764daffe6812cfe058a8b

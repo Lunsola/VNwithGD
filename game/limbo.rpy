@@ -6,7 +6,20 @@
 
 image Karen flip = im.Flip("Karen.png", horizontal=True)
 
+init python:
+    if persistent.endings is None:
+        persistent.endings = set()
+
+init -1 python:
+    renpy.music.register_channel("Chan1", mixer= "music", loop=True, stop_on_mute=False, tight=True)
+    renpy.music.register_channel("Chan2", mixer= "music", loop=True, stop_on_mute=False, tight=True)
+    renpy.music.register_channel("Chan3", mixer= "music", loop=True, stop_on_mute=False, tight=True)
+
 label limbobegin:
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.play("audio/LimboDraftMain.mp3", channel="Chan1", synchro_start=True)
+    $renpy.music.play("audio/LimboDraftMarie.mp3", channel="Chan2", synchro_start=True)
     scene black
     with Pause(1)
     show text "{size=50}Semester 1: Orientation{/size}"
@@ -18,10 +31,14 @@ label limbobegin:
     with dissolve
     k "Welcome to Columbia! I’m Karen, your orientation leader. What’s your name?"
     $ pname = renpy.input("My name is:")
+    jump beginenvy
     show Karen at sleft
     with move
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, channel="Chan2")
     show marie happy at sright
     with moveinright
+    $ persistent.ending="unlock 1"
     r "Oh, hey! You must be my roommate! %(pname)s, right?"
     "Her face {i}is{/i} familiar. You think you must have flicked through her social media when roommates were assigned."
     m "That would be me! And you're..."
@@ -34,6 +51,8 @@ label limbobegin:
     r "I have to go to join my own orientation group now, but we should definitely talk later!"
     hide marie happy
     with moveoutright
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
     show Karen at center
     with move
     "Thank goodness for not having to come up with small talk."
@@ -63,7 +82,10 @@ label limbobegin:
     "Hmm, what's this?"
     scene bg black
     with dissolve
+    window hide
     show PosterP
+    pause
+    window show
     "I guess I don’t have anything else going on Saturday night."
     "Wait a second…"
     "You have to RSVP?"
@@ -92,6 +114,7 @@ label limbobegin:
     "It’s a long shot, but I think if I say I’m with Karen and call her over, she might cover for me and help me get inside."
     "On the other hand, it’s a little unfair for everyone else who’s been waiting for a long time."
     "I have to act now. What should I do?"
+    #TODO: make the choice more clear?? WHy does this matter
     $ getinparty = False
     menu:
         "Leave the party":
@@ -201,7 +224,7 @@ label limboend:
             "I don’t remember the last time the frisbee was thrown."
             "I’m waiting for a frisbee."
             "I’m waiting."
-            #ENDING: INFINITE FRISBEE GAME
+            #TODO: ENDING: INFINITE FRISBEE GAME
         "Meet Karen":
             m "Sorry guys, I’ll have to catch you later!"
             w "Alright, fine. See you later, %(pname)s."
@@ -210,9 +233,10 @@ label limboend:
             "I hurry to the dining hall and find Karen sitting at a table."
             m "Hey, Karen! Sorry I’m late, I lost track of time."
             k "Hey, %(pname)s. No worries, I know how it goes."
-            "Once you’re on that lawn, it’s really hard to leave."
+            k "Once you’re on that lawn, it’s really hard to leave."
             m "Yeah, exactly!"
             k "Ok, go get your food before they take it all away."
             m "Right! Be right back."
             "I quickly get my food and sit down."
+            #TODO: make the transition clearer
             jump roommateintro
