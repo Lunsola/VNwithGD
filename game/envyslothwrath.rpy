@@ -14,15 +14,36 @@ image bg low:
     zoom .45
     "lowsteps.jpg"
 
+image bg lowonfire:
+    zoom .45
+    "lowstepsburn.jpg"
+
 image bg singleroom:
     zoom .95
+    "singleurs.jpg"
+
+image bg singleroomd:
+    zoom .95
+    "singleursd.jpg"
+
+image bg singlemarie:
+    zoom .95
     "single.jpg"
+
+image bg singlemaried:
+    zoom .95
+    "singledark.jpg"
+
+image bg singleonfire:
+    zoom .95
+    "singleburn.jpg"
 
 image josh mad = "josh_anger.png"
 image josh neutral = "josh_neutral.png"
 image bg columbiagates:
     zoom 1.5
     "columbiagates.jpg"
+define c = Character("Crowd")
 
 label beginenvy:
     ####temp test
@@ -93,7 +114,6 @@ label ongoodtermswjosh:
     show josh approve at left
     hide marie grateful
     show marie neutral
-    #TODO: pun on Low?
     j "%(pname)s, you coming too? We could all go over to sit on Low Steps to eat."
     "I feel like Marie kind of wants a moment alone with Josh. Maybe I should let them do their thing and not intrude."
     menu:
@@ -129,7 +149,7 @@ label ongoodtermswjosh:
             "Is it just me, or did both Marie and Josh get crazy lucky opportunities almost at the exact same time? Now I feel weird that I don’t have news to share. Just last year it felt like we were all on the same level, but now they’re both so much farther than me in their careers."
             "Okay, maybe I’ll ask Josh about something that’s a little more stressful. I’m not proud of this, but I want to hear that he’s got some struggles too."
             m "So Josh, how’s baseball going? I know it’s been hard to balance school and sports sometimes these past three years."
-            j "Dude, you have a good point. I’m actually scaling back a lot this year. Coach understands that my degree has to come first. I haven’t been playing so well anyway so I think he was okay with my switching to (insert sports demotion here, I have no idea how this works)."
+            j "Dude, you have a good point. I’m actually scaling back a lot this year. Coach understands that my degree has to come first. I haven’t been playing so well anyway so I think he was okay with my mostly staying on the bench this semester."
             m "Oh well that’s... {p=1.0}great."
             "So he’s like...doing fine? He’s not struggling at all? No offense to Josh, but he was always the one who made me feel better about not having my shit together. Now suddenly he has his shit together way more than me."
             show marie happy at center with move
@@ -243,8 +263,7 @@ label lunchaloneesw:
     m "Ok, well good for you man. That sounds great."
     b "It is fairly exceptional, yes. So what’s up with you?"
     "Well this is awkward. Nothing much at all is up with me. What am I doing with my life? Am I a failure as a person?"
-    hide max happy
-    show max neutral with hpunch
+    with hpunch
     "Oh god, I peaked at 18!"
     menu:
         "Embellish! Lie!":
@@ -332,14 +351,14 @@ label wrongedmarie:
         jump lunchaloneesw
 
 label endeswday1:
-    scene bg singleroom
+    scene bg singleroomd
     with dissolve
     "It’s the first day of junior year, which should be exciting. But I’m already feeling weirdly bad. Why does everyone seem to be doing better than me? I’ve never even had one internship before, never mind these amazing career starting opportunities."
     "Also I spent most of the day in my room. So that probably didn’t help."
     "I guess all that’s left is to take this one day at a time."
     "Relax, %(pname)s. {p=1.0}You’re probably being paranoid. I’m sure plenty of people are in the same boat as you."
     scene black
-    Pause (1)
+    with dissolve
     scene bg singleroom with dissolve
     "Ugh, rise and grind!"
     "Let’s hope no one has any big job opportunities come to them today. I might have to kill someone. Jk jk...{p=1.0}unless?"
@@ -357,18 +376,54 @@ label endeswday1:
         menu:
             "Make passive aggressive comment.":
                 m "Well, good to see you guys hanging out together! Because, you know, I kinda think of you guys as like loner types. Glad you’re making friends."
-                #TODO: again, sadistic Marie
+                if fightwithjosh:
+                    hide josh happy
+                    show josh neutral at center
                 hide marie happy
                 show marie ingenuine at sright
                 r "That’s right, it is great to make friends! Speaking of...where are your friends exactly?"
                 m "In the bathroom, okay!? They’re coming right out. And they’re real. They exist they just had to leave for a second."
+                if fightwithjosh == False:
+                    hide josh happy
+                    show josh neutral at center
                 j "Uh...sure bro. Whatever floats your boat."
                 m "You know what? I don’t have to justify myself to you! Have fun on your date or whatever this is, figures that you two would pick each other."
+                if fightwithjosh:
+                    hide josh neutral
+                    show josh mad at center
+                else:
+                    hide josh neutral
+                    show josh shock at center, hop
                 j "What does that mean?"
+                if marieevil:
+                    hide marie ingenuine
+                    show marie mad at sright
+                else:
+                    hide marie ingenuine
+                    show marie shock at sright, hop
+                if fightwithjosh == False:
+                    hide josh shock
+                    show josh sad at center
                 m "Oh, you know. It’s just that people like you tend to find each other. Like, you know, ditzy types."
+                if marieevil == False:
+                    hide marie shock
+                    show marie cry at sright
                 r "%(pname)s, I think it would be best if you left."
                 m "I was just thinking of leaving myself, actually. I’m meeting up with a friend. Bye."
-                j "Bruh...bye?"
+                if marieevil:
+                    hide marie mad with moveoutright
+                else:
+                    hide marie cry with moveoutright
+                if fightwithjosh:
+                    if marieevil == False:
+                        j "I see you're still the same awful person."
+                        hide josh mad with moveoutright
+                    else:
+                        "Bye."
+                        hide josh mad with moveoutright
+                else:
+                    "Bruh... bye?"
+                    hide josh sad with moveoutright
             "Stalk away in a huff":
                 "Those two are dating?? Why does it feel like everyone in my life is pairing off except me? Oh god, I’m gonna die alone and I’m not even going to have a good career to show for it! I’ll just be lonely and sad. I hate this. Why are other people happy and I’m not??"
                 hide josh happy with moveoutright
@@ -377,13 +432,12 @@ label endeswday1:
         m "Oh...I didn’t realize you two were close. Glad y’all are hanging out!"
         "Y’all?? I sound like a weirdo."
         hide marie happy
-        #TODO: see if there's a more fitting reaction
-        show marie v happy at sright, hop
+        show marie grateful at sright, hop
         r "Well...I guess you could say we’ve been getting closer lately."
         "Ew. I did not need to hear that."
         menu:
             "Ask how they're doing.":
-                hide marie v happy
+                hide marie grateful
                 show marie happy at sright
                 m "So...how are you guys?"
                 hide josh happy
@@ -405,7 +459,7 @@ label endeswday1:
                 hide josh happy with moveoutright
                 hide marie happy with moveoutright
                 "So Josh and Marie are dating now. Am I blind for not seeing that coming?"
-                #TODO: transition to bedroom
+                scene bg singleroomd with dissolve
                 "I’ve never even been in a relationship. Am I a freak? Oh god, I’m never going to find someone am I? I’m just gonna while away the rest of my days, alone in my parents’ basement."
                 "But how can I sleep when I’m so full of existential dread?"
             "Make an excuse and go.":
@@ -414,19 +468,18 @@ label endeswday1:
                 hide marie happy with moveoutright
                 "Those two are dating?? Why does it feel like everyone in my life is pairing off except me?"
                 "Oh god, I’m gonna die alone and I’m not even going to have a good career to show for it! I’ll just be lonely and sad. I hate this. Why are other people happy and I’m not??"
-                #TODO: transition to bedroom
+                scene bg singleroomd with dissolve
         "I’m looking at my future and it’s so dark. Just like this room...oh shit it’s 3 a.m. Bedtime I guess?"
         jump dawnofthelastday
 
 label dawnofthelastday:
-    #TODO: insert Ferris image
+    scene bg ferris with dissolve
     "Ah, the smell of rubbery Ferris eggs in the morning. There’s nothing like it. Okay, all I have to do today is avoid Marie and Josh who are apparently the most successful people I have ever and will ever meet. Should be easy enough."
     r "OH MY GOD"
     "You’re kidding. Oh wait, she’s not talking to me. What’s--"
-    #TODO: ferris with hpunch!
+    with hpunch
     j "THIS IS SO CRAZY BRO WHAT THE HECK?!?"
     "What’s--"
-    #TODO: check which side Josh is facing? So he slides in facing in. Also, get happy shock
     show josh happy at left with moveinleft
     j "HEY EVERYONE! Marie just won the lottery! This is the craziest day of my life!!"
     "Is this a joke."
@@ -437,13 +490,12 @@ label dawnofthelastday:
     "What the fuck."
     r "I do! I mean, I will! Jeepers I’m all mixed up."
     "I have to get out of here before I throw up."
-    #TODO: get outside
+    scene bg low with pushleft
     "I’m actually not sure what just happened. Did I hallucinate that?"
-    #TODO: hook up a crowd name tag and an image of a crowd. Make image fuzzier?
-    w "Josh, Josh, Josh, Josh!"
+    c "Josh, Josh, Josh, Josh!"
     "And am I hallucinating right now? What are people shouting?"
-    w "JOSH, JOSH, JOSH, JOSH!"
-    #TODO: make image even hazier
+    c "JOSH, JOSH, JOSH, JOSH!"
+    with pixellate
     j "Aw shucks, this is so embarrassing. You guys don’t need to make so much of a fuss!"
     show josh grateful at center with moveinbottom
     m "Josh? Hey, Josh? What...what’s happening?"
@@ -465,22 +517,24 @@ label dawnofthelastday:
     m "Hold on, none of this makes sense. Aren’t you scaling back on sports in your senior year? Also, why the hell did you propose to Marie? Didn’t you literally just start dating?"
     j "Aw, dude, what a rad day huh!"
     m "That’s the second time you’ve said that. Do you realize you’re repeating yourself?"
-    #TODO: INSERT SHOCK HAPPY IMAGE!!
+    hide josh happy
+    show josh neutral
     j "Uh...bro...what a rad day huh!"
     "Is Josh broken? Whatever’s going on I need to get out of here. Pretty sure this is some kind of bad acid trip or something."
-    #TODO: insert image of marie's bedroom. Can I do something to make it hazy?
+    scene bg singlemaried
     "Not gonna lie, that was highkey creepy. That almost didn’t feel...real. Am I hallucinating right now?"
     "Maybe I’ll just take a nap? Sleeping it off might work."
-    #TODO: fade out
-    #wait
-    #fade in
+    scene black
+    with dissolve
+    scene bg singlemarie with dissolve
     "I think that worked! I do feel refreshed now. I had the weirdest dream about Josh and Marie…"
     "Speaking of Josh and Marie...their accomplishments are starting to really bum me out! I honestly thought they were still working their lives out just like me, but all of a sudden they have jobs and relationships. Where does that leave me? What does it say about me that I don’t have those things?"
     "I probably should actually take time today to focus on all the shit I have to get done before classes start. But I kind of...don’t feel like it? All I can think about is Josh and Marie, Marie and Josh. It’s like, my brain is stuck on them or something. Why do they have all the things I want? Why do other people get to be happy and I don’t?"
-    #TODO: pan room?
-    "Wait a second. Something feels off about this room. How did I not notice before? This isn’t my room it’s...Marie’s."
-    "But wait, that doesn’t make sense. Why would I walk into Marie’s room instead of my own? That’s so random? And why does Marie have a box of matches lying open on her desk? Are we even allowed to have those?"
-    #TODO: show matches
+    "Wait a second. Something feels off about this room."
+    with hpunch
+    "How did I not notice before? This isn’t my room it’s...Marie’s."
+    "But wait, that doesn’t make sense. Why would I walk into Marie’s room instead of my own? That’s so random?"
+    "And why does Marie have a box of matches lying open on her desk? Are we even allowed to have those?"
     "..."
     "Why does Marie get all the things I want? She’s like me, but if I didn’t do all the stupid shit I do. I want her life. Why can’t I have it? What’s to stop me from…"
     "..."
@@ -488,8 +542,11 @@ label dawnofthelastday:
         "Set fire to Marie's room.":
             $ sin = sin-5
             $ committedArson = True
-            #TODO: layer on images of flame baby!!
-            "The fire catches weirdly quickly. I kind of thought this would be hard to do actually but...nope. As it spreads, I run outside...no...wait. Somehow I’m in front of Lowe Steps. Lowe is on fire too. In fact, the whole college...could that be because of me? I don’t understand…"
+            scene bg singleonfire
+            "The fire catches weirdly quickly. I kind of thought this would be hard to do actually but...nope. As it spreads, I run outside...no...wait."
+            scene bg lowonfire
+            "Somehow I’m in front of Lowe Steps. Lowe is on fire too. In fact, the whole college...could that be because of me? I don’t understand…"
+            show marie mad
             r "Hi, %(pname)s."
             m "Marie! Oh thank god. I thought I was the only person alive in this school for a second. Have you called 911?"
             r "You set fire to my room."
@@ -498,37 +555,86 @@ label dawnofthelastday:
             m "Figured what out? Marie, have you called 911?"
             r "There’s no need to call anyone. Everyone here already knows. We know everything you do. Every choice you’ve made in your time at Columbia, we’ve been watching you. We know who you are, %(pname)s. We know what you’re capable of."
             m "I don’t know what’s going on. Marie, our school is literally burning to the ground right in front of us. Where is everyone?"
+            hide marie mad
+            show marie urdumb
             r "You don’t get it. Well. You always have been slow on the uptake."
             m "Marie--what--"
             jump closecurtains
         "Don't do that":
             "I’ve got to get out of here. This place is putting weird things into my head. I can’t take this anymore."
+            scene bg low
+            show marie ingenuine
             r "Hi, %(pname)s."
             m "Oh...Marie. Hi. I’ve got to go actually, I’ve got a friend waiting for me and--"
+            hide marie ingenuine
+            show marie neutral
             r "No, you don’t."
             m "What?"
             r "You don’t have a friend waiting for you. You just left my room, where you were tempted to commit arson. Before that, you saw Josh be cheered for winning the big game and saw me win the lottery. I know where you’ve been and what you’ve done, %(pname)s. We’re always watching."
             m "Are you spying on me? That’s illegal! I could get you arrested for that."
+            hide marie neutral
+            show marie concerned
             r "Go ahead and try. In fact, go ahead and try dialing any number that does not belong to someone you’ve met at this school. I promise you, it won’t go through. Your phone isn’t connected to any cell service that exists in the United States. In the world, actually."
             m "Marie, you’re freaking me out. Can you just leave me alone?"
             r "Unfortunately, that’s something I can’t do. You see, I don’t actually exist without you. Well, I do, but this body does not. We’re linked, for better or worse."
             m "Stop being so weird and vague. If you have something to say, say it now."
+            jump closecurtains
 
 label closecurtains:
+    hide marie concerned
+    hide marie urdumb
+    show marie neutral
     r "Do you remember moving into Columbia freshman year, %(pname)s? I know it feels like a long time ago. But do try to remember."
     m "Uh, I mean, I guess? I think I went to a party, hung out with my OL...why does that matter now? That was years ago."
+    if committedArson or marieevil:
+        hide marie neutral
+        show marie urdumb
     r "No, before that. Before the party. Before you met Karen. What was it like moving into your dorm? Who did you meet on the way in? Did you bring your parents?"
     m "I...I don’t know, it was a long time ago! I just don’t remember!"
-    r "You don’t remember because it didn’t happen. You came into existence on Columbia’s campus at the beginning of your first week here. You remember nothing before that because you never actually moved into Columbia University. You choked on a carrot the day before the first day of NSOP and died. And then...you came here. I hope you’ll forgive us for having a little fun. The fire and brimstone gets so boring after a while. Since you died right as your college life was beginning, we decided to set up a sort of test. Of how your time at Columbia would have gone, if you’d lived."
+    hide marie urdumb
+    show marie neutral
+    r "You don’t remember because it didn’t happen."
+    r "You came into existence on Columbia’s campus at the beginning of your first week here. You remember nothing before that because you never actually moved into Columbia University."
+    hide marie neutral
+    show marie aversem
+    r "You choked on a carrot the day before the first day of NSOP and died. And then...you came here. I hope you’ll forgive us for having a little fun. The fire and brimstone gets so boring after a while. Since you died right as your college life was beginning, we decided to set up a sort of test. Of how your time at Columbia would have gone, if you’d lived."
+    hide marie aversem
+    show marie neutral
     m "Marie--what--why are you saying these things? I don’t understand."
     r "I think you do. I think you’ve always known. Somewhere, deep in the back of your head. You must have felt us watching you. We’re hard to miss."
     m "You said this was a--test? Of what? Did I pass?"
     if sin > 0 and committedArson:
-        r "I actually don’t know how you did it. But you just scraped by. Don’t worry, though, %(pname)s. Up there, they can be awfully picky about what behaviors they accept. I’ll give you a hint: arson isn’t one of them. But...for now. You did it. Congratulations. You’re graduating from hell."
-    elif sin <=0:
-        r "I think you know the answer to that question, %(pname)s. The irony is, I’m sort of you, in a way. I’m the way your life could have gone, if you’d done all the right things and played your cards right. But you chose the path you chose. You chose selfishness, cruelty, and destructiveness. Welcome to hell, %(pname)s."
+        hide marie neutral
+        show marie shock
+        r "I actually don’t know how you did it."
+        hide marie shock
+        show marie concerned
+        r "But you just scraped by. Don’t worry, though, %(pname)s. Up there, they can be awfully picky about what behaviors they accept."
+        hide marie concerned
+        show marie happy
+        r "I’ll give you a hint: arson isn’t one of them. But...for now. You did it. Congratulations. You’re graduating from hell."
+    elif sin < 0:
+        hide marie neutral
+        show marie mad
+        r "I think you know the answer to that question, %(pname)s."
+        r "The irony is, I’m sort of you, in a way. I’m the way your life could have gone, if you’d done all the right things and played your cards right. But you chose the path you chose. You chose selfishness, cruelty, and destructiveness."
+        r "Welcome to hell, %(pname)s."
+    elif sin == 0:
+        hide marie neutral
+        show marie shock
+        r "..."
+        r "Wait."
+        r "This test can't be inconclusive."
+        r "We have to run the numbers again. I-"
     else:
-        r "I think I can safely say you did. You know, it was a toss up, %(pname)s. Some of the things you did on Earth made us wonder if you’d be up to the challenge of the test. But you did it. You chose friendship over bitterness and generosity over vindictiveness. Congratulations. You’re graduating from hell."
+        hide marie neutral
+        show marie happy
+        r "I think I can safely say you did."
+        r "You know, it was a toss up, %(pname)s. Some of the things you did on Earth made us wonder if you’d be up to the challenge of the test. But you did it."
+        r "You chose friendship over bitterness and generosity over vindictiveness."
+        hide marie happy
+        show marie v happy at center, hop
+        r "Congratulations. You’re graduating from hell."
     jump credits
 
 ####
