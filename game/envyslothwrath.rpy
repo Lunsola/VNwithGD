@@ -14,13 +14,19 @@ image bg low:
     zoom .45
     "lowsteps.jpg"
 
+image bg singleroom:
+    zoom .95
+    "single.jpg"
+
 image josh mad = "josh_anger.png"
 image josh neutral = "josh_neutral.png"
 image bg columbiagates:
-    zoom 1.2
+    zoom 1.5
     "columbiagates.jpg"
 
 label beginenvy:
+    ####temp test
+    $ marieevil = True
     scene black
     with Pause(1)
     show text "{size=50}Semester 5: Junior year???{/size}"
@@ -131,7 +137,7 @@ label ongoodtermswjosh:
             r "Oh look, it’s Marven! Hey Marven, come say hi!"
             hide music_neutral
             show music_wink at right
-            a "Hey guys, what’s up? Good to see you’re looking well %(pname)s."
+            a "Hey d00ds, what’s up? Good to see you’re looking well %(pname)s."
             hide music_wink
             show music_neutral at right
             "Ew."
@@ -146,10 +152,13 @@ label ongoodtermswjosh:
             "Ah. Okay. Well...shoot me. Also, what’s with all this fake modesty? I bet he’s crowing on the inside."
             hide music_neutral
             show music_talk at right
-            a "You know, Amazim like really really hard to get an internship at, nevermind a job. They called me a...well like, just quoting them or whatever, but they called me a prodigy. And yeah, before you ask, it’s true that my uncle is a top executive there but let me just say that that had NOTHING to do with the hiring process."
+            a "You know, Amazim like really really hard to get an internship at, nevermind a job."
+            a "And like, just saying, but they called me a prodigy. And yeah, before you ask, it’s true that my uncle is a top executive there but let me just say that that had NOTHING to do with the hiring process."
             hide music_talk
-            show music_neutral at right
-            #TODO: add more memes for Marven dialogue
+            show music_heh at right
+            a "I just ball that hard."
+            hide music_heh
+            show music_smile at right
             "There’s the old Marven I know and love. Okay, to be honest, all this is stressing me out. Anyone else want to come up and tell me all about their accomplishments? At this point, I kind of want to just spend the rest of the day in my room where no one can find me and tell me how succesful they are. Yeah...that sounds like fun."
             hide josh happy with moveoutleft
             hide marie happy with moveoutleft
@@ -165,7 +174,7 @@ label joshstillbitter:
     "Is he gonna invite me?"
     m "*cough* well, bye Marie."
     hide josh grateful
-    show josh sad at sleft
+    show josh neutral at sleft
     if marieevil:
         hide marie concerned
         show marie angry
@@ -173,19 +182,14 @@ label joshstillbitter:
         hide marie grateful
         show marie happy at sright
     j "Oh…%(pname)s, um, didn’t see you there."
-    #TODO: crickets sound effect or a cough earlier
-    hide josh sad
-    show josh happy at sleft
     j "Uh...how are you?"
     "Well screw this. Now I feel like a third wheel. Last thing I’m gonna do is admit I’m not doing anything right now. Jeez, I guess I’d better come up with a believeable sounding lie real quick."
     m "I’m great. Just got this huge job opportunity in my field so...no complaints here."
-    hide josh happy
-    show josh support at sleft
+    hide josh neutral
+    show josh happy at sleft
     j "Wow, that’s amazing. That’s such a coincidence, I just got a huge opportunity too. I’m so glad you’re doing so well."
     "Is he being sincere? He seems weirdly genuinely happy for me. Does he not remember our fight? I kind of feel bad for lying now."
     m "What was the opportunity?"
-    hide josh support
-    show josh happy at sleft
     j "I got this cool gig at Dolphin Classics, where I was totally, like, working as an assitant editor."
     if marieevil:
         hide marie angry
@@ -217,16 +221,68 @@ label joshstillbitter:
     jump lunchaloneesw
 
 label lunchaloneesw:
-    #transition
-    #max says snarky intro
+    scene black
+    with Pause(.5)
+    show text "{size=20}minutes of waiting in a foodtruck line later{/size}"
+    with Pause(1)
+    hide text
+    scene bg columbiagates
+    show max happy with moveinbottom
+    b "Hey, it’s you! The plebian. I haven’t seen you in a while."
     "Great. This is just who I needed today."
     m "Oh, hey Max. How’re you doing?"
-    #TODO: finish up this part with Max after script
+    hide max happy
+    show max charm
+    b "I am actually finding myself in a fairly tremendous position this year! I have received a job offer from the one and only Silverman Backs, which is what I call incredible news. They’re moving me out to London next year to start. It’ll be an entry level salary, only like between 80 and 90k."
+    hide max charm
+    show max wink
+    b "Evidently I’ll have to climb the ladder to get more."
+    hide max wink
+    show max happy
+    "Ugh, this guy is gross. 80 thousand dollars as a starting salary? Right now anything over 20k sounds good to me. Also what the fuck? Why does everyone seem to be getting such great jobs right now?"
+    m "Ok, well good for you man. That sounds great."
+    b "It is fairly exceptional, yes. So what’s up with you?"
+    "Well this is awkward. Nothing much at all is up with me. What am I doing with my life? Am I a failure as a person?"
+    hide max happy
+    show max neutral with hpunch
+    "Oh god, I peaked at 18!"
+    menu:
+        "Embellish! Lie!":
+            hide max neutral
+            show max skeptic
+            m "Actually, I’m doing great! I just got this huge job opportunity in my field so...I guess you could say we’re both succeeding."
+            b "Oh--that’s--I see. How impressive."
+            hide max skeptic
+            show max charm
+            b "I have to say I honestly did not expect that from you. Good for you."
+            hide max charm
+            show max happy
+            m "Thanks, man. And you too."
+            hide max happy with moveoutleft
+            "Ok, I’m getting depressed just standing outside right now. Anyone else want to come up and tell me about their accomplishments? I think I’m just gonna spend the day in my room at this point. Yeah...that sounds like fun."
+        "Tell the truth":
+            m "You know, I’m kind of between things right now. Still getting back into school mode haha. But if you hear anything about internship opportunities hit me up! I’m actually looking for one right now."
+            b "Oh...that’s awkward. Well--sorry? I have to say, you are so brave. I don’t even know what I’d do if I was a junior with zero internship prospects."
+            if seduce_max:
+                hide max neutral
+                show max charm
+            else:
+                hide max neutral
+                show max vicious
+            b "That’s so humiliating, I’d probably just die or something."
+            "Yeah, he definitely would. Pretty sure his life is his career. Oh, I’m sorry, ‘career.’ Yeah I said it. Good luck in the real world pal."
+            hide max charm
+            hide max vicious
+            show max happy
+            m "Well, not all of us can be as successful as you."
+            b "It’s true, it’s true. Anyway, I suppose I’ll see you later. I always manage to run into plebians even when I’m not meaning to."
+            hide max happy with moveoutleft
+            "Wow. He couldn’t have made his exit any quicker than if I’d just confessed to being radioactive. Obviously figured I couldn’t advance his career."
+            "Why did telling the truth back there not make me feel any better? I was the bigger person! I told my truth! But now I actually feel terrible. Huh. I think I’m just gonna spend the day in my room at this point. Yeah...that sounds like fun."
     jump endeswday1
 
 label wrongedmarie:
     "Ugh, this line is long. Guess I don’t really have anywhere to be."
-    #TODO: figure out faces for a sadistic Marie
     show marie happy with moveinright
     r "Oh, my god. %(pname)s, you’re here."
     "Shit. It’s my formerly-nice-turned-terrible-double-crossing-ex-roommate. Time to smile and act normal."
@@ -254,6 +310,8 @@ label wrongedmarie:
     "What is happening right now?"
     hide marie ingenuine
     show marie concerned
+    hide josh happy
+    show josh happy at sleft
     j "Bro, that’s a bitchin’ idea. I’m so down."
     if fightwithjosh:
         jump joshstillbitter
@@ -261,6 +319,8 @@ label wrongedmarie:
         j "Oh hey %(pname)s, sorry bro didn’t see you there. Want to come to lunch with us?"
         hide marie concerned
         show marie angry
+        hide josh happy
+        show josh happy at sleft
         "Well, I would if I could but...I’m not on good terms with Marie. I don’t want to spend all of lunch having her rub her success in my face."
         m "Um, I’m okay. Thanks for the offer though."
         hide marie angry
@@ -272,12 +332,16 @@ label wrongedmarie:
         jump lunchaloneesw
 
 label endeswday1:
-    #TODO: get a room in here
+    scene bg singleroom
+    with dissolve
     "It’s the first day of junior year, which should be exciting. But I’m already feeling weirdly bad. Why does everyone seem to be doing better than me? I’ve never even had one internship before, never mind these amazing career starting opportunities."
     "Also I spent most of the day in my room. So that probably didn’t help."
     "I guess all that’s left is to take this one day at a time."
     "Relax, %(pname)s. {p=1.0}You’re probably being paranoid. I’m sure plenty of people are in the same boat as you."
-    #TODO: start of next day
+    scene black
+    Pause (1)
+    scene bg singleroom with dissolve
+    "Ugh, rise and grind!"
     "Let’s hope no one has any big job opportunities come to them today. I might have to kill someone. Jk jk...{p=1.0}unless?"
     "Okay, I kid. But seriously, yesterday was a major bust. I hope someone I know flunks a test today or something."
     show marie happy at center with moveinbottom
@@ -465,3 +529,43 @@ label closecurtains:
         r "I think you know the answer to that question, %(pname)s. The irony is, I’m sort of you, in a way. I’m the way your life could have gone, if you’d done all the right things and played your cards right. But you chose the path you chose. You chose selfishness, cruelty, and destructiveness. Welcome to hell, %(pname)s."
     else:
         r "I think I can safely say you did. You know, it was a toss up, %(pname)s. Some of the things you did on Earth made us wonder if you’d be up to the challenge of the test. But you did it. You chose friendship over bitterness and generosity over vindictiveness. Congratulations. You’re graduating from hell."
+    jump credits
+
+####
+
+label credits:
+    $ credits_speed = 25 #scrolling speed in seconds
+    scene black #replace this with a fancy background
+    with dissolve
+    show theend:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(1)
+    hide theend
+    show cred at Move((0.5, 5.0), (0.5, 0.0), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="bottom")
+    with Pause(credits_speed)
+    show thanks:
+        yanchor 0.5 ypos 0.5
+        xanchor 0.5 xpos 0.5
+    with dissolve
+    with Pause(3)
+    hide thanks
+    return
+
+init python:
+    credits = ('Artists', 'Justin'), ('Artists', 'Ren Huang'), ('Artists', 'Emmy Wang'), ('Artists', 'Kimberly Li'), ('Music', 'Ramy El Baghir'), ('Writers/Programmers', 'Sophia Gates'), ('Writers/Programmers', 'Emmy Wang'), ('Writers/Programmers', 'Kimberly Li'), ('Writers/Programmers', 'Katrina'), ('Writers/Programmers', 'Sarah'), ('Phone code', 'Nadia Nova'), ('Credits code', 'DaFool'), ('Special thanks to:', 'CU Game Dev!')
+    credits_s = "{size=80}Credits\n\n"
+    c1 = ''
+    for c in credits:
+        if not c1==c[0]:
+            credits_s += "\n{size=40}" + c[0] + "\n"
+        credits_s += "{size=60}" + c[1] + "\n"
+        c1=c[0]
+    credits_s += "\n{size=40}Engine\n{size=60}Ren'py\n7.3.5" #Don't forget to set this to your Ren'py version
+
+init:
+#    image cred = Text(credits_s, font="myfont.ttf", text_align=0.5) #use this if you want to use special fonts
+    image cred = Text(credits_s, text_align=0.5)
+    image theend = Text("{size=80}The end", text_align=0.5)
+    image thanks = Text("{size=80}Thanks for Playing!", text_align=0.5)
