@@ -7,7 +7,9 @@
 image marie cry = "roomate_sad_2.png"
 image bg shakeshack = "shakeshack.jpeg"
 image bg john jay inside = "johnjayinside.jpg"
-image bg john jay outside = "johnjayoutside.jpg"
+image bg john jay outside:
+    zoom 1.1
+    "johnjayoutside.jpg"
 image bg ferris = "ferrisbooth.jpg"
 image bg ferris inside = "ferrisinside.jpg"
 
@@ -648,9 +650,9 @@ label finishgluttony:
     hide josh happy
     show josh stress
     j "Me too, bro, me too. I only had time to break for lunch and then I went right back to the grind."
-    #TODO: card decline sound (line, because we don't have sound)
     hide josh stress
     show josh sad
+    "When Josh goes to swipe the machine replies with an angry beep."
     j "Oh no. This is so embarrassing dude. I don’t have enough swipes."
     m "Damn, that’s annoying!"
     j "Shoot, what am I gonna do? Oh man, I was really counting on this swipe. I don’t know how I miscounted."
@@ -684,7 +686,7 @@ label finishgluttony:
                     j "Bye %(pname)s! Sorry I don’t get to join you."
                     "Yeesh, I feel kinda weird about that. Maybe I should’ve offered to give him my swipe? No, you know what, I deserve it. I’ve had a long day. I barely know him. I feel just fine about enjoying some food."
                 "Sucks to suck, loser!":
-                    $ sin = sin -2
+                    $ sin -=2
                     hide josh sad
                     show josh shock
                     m "Thank god I get to eat dinner alone after all."
@@ -695,14 +697,14 @@ label finishgluttony:
                         hide josh sad with moveoutright
                         "Yikes, he looked like a kicked puppy. Where did that even come from? I’m always saying mean things without thinking about it. Is something wrong with me?"
                         "No, you know what, I’m fine. It’s not my fault he can’t take a joke! I’m gonna enjoy my food in peace."
-                    elif josh_friendship = 1:
+                    elif josh_friendship == 1:
                         hide josh shock
                         show josh sad
                         j "What? Bro, why would you say that to me?"
                         hide josh sad with moveoutright
                         "Yikes, he looked like a kicked puppy. Where did that even come from? I’m always saying mean things without thinking about it. Is something wrong with me?"
                         "No, you know what, I’m fine. It’s not my fault he can’t take a joke! I’m gonna enjoy my food in peace."
-                    elif josh_friendship = 0:
+                    elif josh_friendship == 0:
                         hide josh shock
                         show josh neutral
                         j "That wasn’t very nice, brah. I wouldn’t do you like that."

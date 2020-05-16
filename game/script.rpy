@@ -173,6 +173,9 @@ image bg careerfair1 = "careerfair1.jpg"
 image bg careerfair2:
     zoom 2.5
     "careerfair2.jpg"
+image bg CCE:
+    zoom 1.5
+    "CCE.jpg"
 
 
 # The game starts here.
@@ -224,6 +227,7 @@ label start:
     $ marieevil = False #did you steal Marie's resume?
     $ committedArson = False #did you set fire to Marie's room???
     $seduce_prof = False
+    $seduce_max = False
 
 
 

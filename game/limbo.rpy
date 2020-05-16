@@ -31,7 +31,9 @@ label limbobegin:
     with dissolve
     k "Welcome to Columbia! I’m Karen, your orientation leader. What’s your name?"
     $ pname = renpy.input("My name is:")
-    jump beginenvy
+
+    ####temporary to test envy
+    jump finishgluttony
     show Karen at sleft
     with move
     $renpy.music.set_volume(0.5, channel="Chan1")
@@ -89,12 +91,10 @@ label limbobegin:
     "I guess I don’t have anything else going on Saturday night."
     "Wait a second…"
     "You have to RSVP?"
-    #TODO: add sound: decline sound
     "Aaaand the QR code has expired. Of course."
     "Still, maybe a bunch of people signed up and aren’t gonna end up going. I’ll go anyway and see if I can find my way inside."
     scene bg partyline
     with dissolve
-    #TODO: add sound: general crowd noise
     "What’s this crowd, is it for the party?! There must be at least 50 people trying to get in! I wasn’t expecting it to be this popular…"
     "I might not be able to just get in like I’d hoped."
     scene bg partylinefront
@@ -114,7 +114,6 @@ label limbobegin:
     "It’s a long shot, but I think if I say I’m with Karen and call her over, she might cover for me and help me get inside."
     "On the other hand, it’s a little unfair for everyone else who’s been waiting for a long time."
     "I have to act now. What should I do?"
-    #TODO: make the choice more clear?? WHy does this matter
     $ getinparty = False
     menu:
         "Leave the party":
@@ -145,6 +144,7 @@ label limbobegin:
             hide Karen
             with moveoutright
             "As we quickly retreat from the doorway, I see him shrug as he turns back to the crowd outside."
+            "I feel a little guilty as a couple more people are turned away from the door and leave without much fuss, but I quickly forget."
             "The party ends up being a lot of fun, thanks to Karen for getting me in. I never expected my orientation leader to look out for me like that! I gotta say, I’m pretty optimistic about this school now."
             $ getinparty = True
             jump limboend
@@ -210,21 +210,31 @@ label limboend:
             m "Alright, fine. But we get possession!"
             w "Awesome! Yeah, you guys get possession."
             "We keep playing on the lawn, having a great time."
+            with pixellate
             "I start to lose track of time again."
             "But this time, {p=1.0}I don’t really care."
             "Back and forth, we throw the frisbee, joking around with each other. {p=1.0}Eventually we start moving a little slower. But we all want to keep playing. {p=1.0}The running slowly morphs into walking."
             "We all have our hands up waiting to catch a disc."
             "Every so often, I catch one, and I slowly throw it to someone else. Without even looking."
             "We want to keep playing."
+            with pixellate
             "Now we’re all standing, with one arm up waiting for a disc. {p=1.0}Everyone’s smiles have been replaced with blank stares."
             "The others on the lawn are doing the same thing."
             "We want to keep playing."
             ".{p=1.0}.{p=1.0}."
             "We’re still standing."
             "I don’t remember the last time the frisbee was thrown."
+            with pixellate
             "I’m waiting for a frisbee."
+            with pixellate
             "I’m waiting."
-            #TODO: ENDING: INFINITE FRISBEE GAME
+            scene black
+            with Pause(1)
+            show text "{size=50}Ending: Infinite frisbee game{/size}"
+            with Pause(2)
+            hide text
+            with dissolve
+            jump credits
         "Meet Karen":
             m "Sorry guys, I’ll have to catch you later!"
             w "Alright, fine. See you later, %(pname)s."
@@ -237,6 +247,5 @@ label limboend:
             m "Yeah, exactly!"
             k "Ok, go get your food before they take it all away."
             m "Right! Be right back."
-            "I quickly get my food and sit down."
-            #TODO: make the transition clearer
+            "I get my food and have a pleasant lunch with my OL."
             jump roommateintro

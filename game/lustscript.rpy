@@ -1,9 +1,7 @@
 label lust_start_dorm:
 
     $prof_email = False
-
     $grade_change = False
-
     scene black
     with Pause(1)
     show text "{size=50}Semester 2: Still at School{/size}"
@@ -950,7 +948,8 @@ label mel_night:
     "What are you going to do?"
     menu:
         "Join Maximillion":
-            $sin -=1;
+            $sin -=1
+            $seduce_max = True
             if maximillion_friendship >= 2:
                 m "Looks like you're getting lucky tonight"
                 b "Pshh let's be real, this must be beyond your wildest imagination"
