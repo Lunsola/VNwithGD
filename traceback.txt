@@ -1,125 +1,46 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-<<<<<<< HEAD
-  File "game/gluttony.rpy", line 693, in script
-    if josh_friendship > 1:
-SyntaxError: invalid syntax (game/gluttony.rpy, line 707)
-=======
-<<<<<<< HEAD
-  File "game/pride.rpy", line 27, in script
-    show marie astonished at left with moverinright
-  File "game/pride.rpy", line 27, in <module>
-    show marie astonished at left with moverinright
-NameError: name 'moverinright' is not defined
-=======
-  File "renpy/common/00gamemenu.rpy", line 173, in script
-    $ ui.interact()
-  File "renpy/common/00gamemenu.rpy", line 173, in <module>
-    $ ui.interact()
-  File "game/screens.rpy", line 764, in execute
-    screen preferences():
-  File "game/screens.rpy", line 764, in execute
-    screen preferences():
-  File "game/screens.rpy", line 768, in execute
-    use game_menu(_("Preferences"), scroll="viewport"):
-  File "game/screens.rpy", line 465, in execute
-    screen game_menu(title, scroll=None, yinitial=0.0):
-  File "game/screens.rpy", line 465, in execute
-    screen game_menu(title, scroll=None, yinitial=0.0):
-  File "game/screens.rpy", line 469, in execute
-    if main_menu:
-  File "game/screens.rpy", line 472, in execute
-    add gui.game_menu_background
-AttributeError: 'StoreModule' object has no attribute 'game_menu_background'
->>>>>>> 41bb2ad452554a4c0ef764daffe6812cfe058a8b
->>>>>>> 0138d17f6e782e381027cfcf6f95ece230cc0983
+  File "game/gluttony.rpy", line 78, in script
+    "..."
+IOError: Couldn't find file 'rupee-collect.mp3'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-<<<<<<< HEAD
-  File "game/gluttony.rpy", line 693, in script
-    if josh_friendship > 1:
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2057, in py_eval
-    code = py_compile(code, 'eval')
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 692, in py_compile
-    raise e
-SyntaxError: invalid syntax (game/gluttony.rpy, line 707)
-=======
-<<<<<<< HEAD
-  File "game/pride.rpy", line 27, in script
-    show marie astonished at left with moverinright
-  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\ast.py", line 1385, in execute
-    paired = renpy.python.py_eval(self.paired)
-  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\python.py", line 2059, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\python.py", line 2052, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/pride.rpy", line 27, in <module>
-    show marie astonished at left with moverinright
-NameError: name 'moverinright' is not defined
-=======
-  File "renpy/common/00gamemenu.rpy", line 173, in script
-    $ ui.interact()
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 914, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2028, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "renpy/common/00gamemenu.rpy", line 173, in <module>
-    $ ui.interact()
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ui.py", line 297, in interact
+  File "game/gluttony.rpy", line 78, in script
+    "..."
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\ast.py", line 708, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\exports.py", line 1345, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\character.py", line 1142, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, **display_args)
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\character.py", line 842, in do_display
+    **display_args)
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\character.py", line 591, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\ui.py", line 297, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 2702, in interact
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\display\core.py", line 2702, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 3094, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 541, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 541, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 541, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 541, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\screen.py", line 430, in visit_all
-    callback(self)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 3094, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\screen.py", line 440, in per_interact
-    self.update()
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\screen.py", line 625, in update
-    self.screen.function(**self.scope)
-  File "game/screens.rpy", line 764, in execute
-    screen preferences():
-  File "game/screens.rpy", line 764, in execute
-    screen preferences():
-  File "game/screens.rpy", line 768, in execute
-    use game_menu(_("Preferences"), scroll="viewport"):
-  File "game/screens.rpy", line 465, in execute
-    screen game_menu(title, scroll=None, yinitial=0.0):
-  File "game/screens.rpy", line 465, in execute
-    screen game_menu(title, scroll=None, yinitial=0.0):
-  File "game/screens.rpy", line 469, in execute
-    if main_menu:
-  File "game/screens.rpy", line 472, in execute
-    add gui.game_menu_background
-  File "<screen language>", line 472, in <module>
-AttributeError: 'StoreModule' object has no attribute 'game_menu_background'
->>>>>>> 41bb2ad452554a4c0ef764daffe6812cfe058a8b
->>>>>>> 0138d17f6e782e381027cfcf6f95ece230cc0983
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\display\core.py", line 3380, in interact_core
+    renpy.audio.audio.periodic()
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\audio\audio.py", line 1060, in periodic
+    six.reraise(exc[0], exc[1], exc[2])
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\audio\audio.py", line 1038, in periodic_thread_main
+    periodic_pass()
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\audio\audio.py", line 979, in periodic_pass
+    c.periodic()
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\audio\audio.py", line 457, in periodic
+    topf = load(self.file_prefix + filename + self.file_suffix)
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\audio\audio.py", line 73, in load
+    rv = renpy.loader.load(fn)
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\loader.py", line 576, in load
+    raise IOError("Couldn't find file '%s'." % name)
+IOError: Couldn't find file 'rupee-collect.mp3'.
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 CU_HEdoubleL 1.0
-<<<<<<< HEAD
-Fri May 15 20:56:06 2020
-=======
-<<<<<<< HEAD
-Thu May 14 20:53:46 2020
-=======
-Fri May 15 15:51:52 2020
->>>>>>> 41bb2ad452554a4c0ef764daffe6812cfe058a8b
->>>>>>> 0138d17f6e782e381027cfcf6f95ece230cc0983
+Sat May 16 11:18:03 2020
