@@ -12,9 +12,8 @@ label pridebegin:
     r "I even dropped my toast running here"
     "Who does she think she is, Sailor Moon?"
     m "Hello Marie, this is literally the most well known lecture hall on campus"
-    r "Well exciting thatour first class for %(pmajor)s is in here?"
-    m "I was actually part of the %(pmajor)s bowl in high school, so I feel prepared"
-    "Honestly, this class will be a piece of cake. Pshhhh. It'll be like eyeballing ingredients"
+    r "Well exciting that our first class for %(pmajor)s is in here?"
+    m "I was actually part of the %(pmajor)s bowl in high school, so I feel real prepared for this class"
     hide marie nervous2
     show marie v happy
     r "Aw I wish I did something like that! I don't feel too prepared for Advanced Scientific Stochastic Estimation Systems"
@@ -57,7 +56,7 @@ label pridebegin:
             with fade
             a "Anyways are you guys into memes?"
             m "Hell yeah"
-            r "%(pname)s always stays up scrolling through spicy memes!"
+            r "%(pname)s always stays up scrolling while chuckling like an old man!"
             hide music_talk
             show music_neutral at right
             a "What memes are you into?"
@@ -97,7 +96,7 @@ label pridebegin:
     hide marie averse
     with dissolve
     "Haha she's so gullible"
-    "I'll show Marven who's the mightier memelord yet, and do it while nabbing an A+ in ASSES"
+    "I'll show Marven who's the mightier memelord, all while nabbing an A+ in ASSES"
     scene bg bedroom
     with dissolve
     "Ah"
@@ -298,7 +297,7 @@ label hw3fail:
         "Lie":
             m "Sorry, my phone ran out of battery"
             r "Mmmm ok. {w}Anyways, why was there even such a big party the day before class?"
-            "She's sharper than she acts"
+            "SHe may not be the sharpest tool in the shed, but she rolled me there"
         "Truth":
             m "I actually went out with Marven from ASSES to a Spicy Meme themed party"
             r "Oh ok. {w}It's totally fine that you didn't invite me even thought we are roommates and in the same ASSES"
@@ -307,7 +306,7 @@ label hw3fail:
     hide marie concerned
     show marie averse
     r "%(pname)s! Are you ok?"
-    m "mmmmm still woozy"
+    m "mmmmmmmghhh I'm fine"
     with pixellate
     hide marie averse
     show marie averse:
@@ -338,9 +337,8 @@ label hw3fail:
     pause 2
 label m2begin:
     scene bg bedroom with fade
-    "Ugh another day of wrangling with these esoteric questions from ASSES. Will this knowledge be useful in the real world?"
+    "Another day, another dollar. I pour my energy and time into wrangling with these esoteric questions from ASSES, but will this knowledge be useful in the real world?"
     "{i}How many tourist groups come to low every year?"
-    pause 1
     #sound?
     "What's that awful crashing sound coming from low?"
     "AGH CaN'T conCentraTe"
@@ -392,8 +390,8 @@ label m2begin:
                                 jump m2goodgrade
 label milstein:
     scene bg mil
-    "This is the silent fourth floor of Milsting, where so much as heavy breathing attracts angry glares"
-    "Only the hard core kids come here"
+    "This is the super silent fourth floor of Milsting, where so much as heavy breathing attracts angry glares"
+    "Only the hard Core kids come here"
     show music_smile
     with dissolve
     "wtf"
@@ -425,7 +423,7 @@ label milstein:
             hide music_smile
             show music_smile
         "Rick roll":
-            a "Aw yesss Litty AF"
+            a "Aw yesss I would never give it up"
     "I gotta put a stop to this if I am ever gonna study"
     m "Hey I'm gonna find a seat back upstairs to study ASSES, ok?"
     hide music_smile
@@ -435,7 +433,7 @@ label milstein:
     "Shoot, Marven's gonna think I'm lame. {w}Do I sacrifice my pride or my grade?"
     menu:
         "Yes, but I still have to study to do well":
-            $ music_friendship =-3
+            $ music_friendship =-2
             $ classgrade +=1
             a "Hmmm ok, sounds like a drag"
             a "Have fun stuDYING"
@@ -880,58 +878,58 @@ label examday:
     "Well, here goes nothing."
     "{i}FINAL ASSES EXAMINATION START"
     menu:
-        "Consider the width of Butler Library, as measured from its westernmost side to its easternmost side. Estimate the width to the nearest power of ten.":
-            "4":
-                pass
-            "3":
-                pass
-            "2":
-                $ finalscore =+1;
-            "1":
-                pass
+        "Consider the width of Butler Library, as measured from its westernmost side to its easternmost side. Estimate the width to the nearest power of ten."
+        "4":
+            pass
+        "3":
+            pass
+        "2":
+            $ finalscore =+1;
+        "1":
+            pass
     menu:
-        "Now, let's scale up to Earth. What is the circumference of Earth, as measured through the north and south poles? Consider the value of your estimate of the distance from NYC to the Canadian border and scale up from there.":
-            "12":
-                pass
-            "10":
-                pass
-            "9":
-                pass
-            "8":
-                $ finalscore =+1;
+        "Now, let's scale up to Earth. What is the circumference of Earth, as measured through the north and south poles? Consider the value of your estimate of the distance from NYC to the Canadian border and scale up from there."
+        "12":
+            pass
+        "10":
+            pass
+        "9":
+            pass
+        "8":
+            $ finalscore =+1;
     menu:
-        "How many floors does lerner have?":
-            "9":
-                pass
-            "8":
-                $ finalscore =+1;
-            "7":
-                pass
-            "6":
-                pass
+        "How many floors does lerner have?"
+        "9":
+            pass
+        "8":
+            $ finalscore =+1;
+        "7":
+            pass
+        "6":
+            pass
     menu:
-        "When was Barnard founded?":
-            "1889":
-                $ finalscore =+1;
-            "1988":
-                pass
-            "1898":
-                pass
-            "1899":
-                pass
+        "When was Barnard founded?"
+        "1889":
+            $ finalscore =+1;
+        "1988":
+            pass
+        "1898":
+            pass
+        "1899":
+            pass
     menu:
-        "Which value is closest to the membership of Columbia Buy Sale Memes as of 2020?":
-            "48.000":
-                pass
-            "47:900":
-                pass
-            "48000":
-                $ finalscore =+1;
-            "47900":
-                pass
+        "Which value is closest to the membership of Columbia Buy Sale Memes as of 2020?"
+        "48.000":
+            pass
+        "47:900":
+            pass
+        "48000":
+            $ finalscore =+1;
+        "47900":
+            pass
     "Whew that's the end. Nothing screams high stakes like a five-question final."
     "I want to say I want to know my score now, but in truth, I never want to figure out. I just want to know if I passed or not."
-    if music_friendship >= 10
+    if music_friendship >= 10:
         scene bg lernerramps with irisin
         show marie nervous2
         r "Hoowah so glad to have gotten that over with! It was easier than I thought!"
@@ -962,17 +960,17 @@ label examday:
         jump goodendingpride
     else:
         jump badendingpride
-label badendingpride
+label badendingpride:
     scene bg collegewalk
     "After graduation, I never saw Marven again"
     "Perhaps later in life, I would regret not trying more. We could've been really good friends through shared interests"
     jump prideend
-label goodendingpride
+label goodendingpride:
     scene bg columbialawn
     "After graduation, Marven decided to do some traveling to search for his purpose in life"
     "His last words were: %(pname)s, I'm glad I was your senpai. I wouldn't have graduated without you by my side"
     jump prideend
-label prideend
+label prideend:
     "Oh? It seems that my grade for ASSES has been uploaded"
     menu:
         "check grade":

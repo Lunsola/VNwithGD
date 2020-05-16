@@ -35,7 +35,7 @@ image marie surprised = "roomate_astonished.png"
 image marie astonished = "roomate_very_astonished.png"
 image marie confused = "roomate_extremely_astonished.png"
 image marie ingenuine = "roomate_fake_smile.png"
-image marie aversem = "roomate_aversion.png"
+image marie averse = "roomate_aversion.png"
 image marie v happy = "roomate_big_smile.png"
 image marie mad = "roomate_smiling_angry.png"
 image marie nervous = "roomate_surprized.png"
@@ -236,7 +236,7 @@ label start:
 
     # Name your character: (moved to limbo. "Oh hi, I'm %(pname)s")
 
-    jump limbobegin
+    jump roommateintro
 
     # This ends the game.
 
