@@ -267,7 +267,7 @@ label prof_reject:
     "I'm still rec-letter less but maybe Marie can help me out"
     menu:
         "Can I see your recommendation letter?":
-            m "I was asking around for recommenedation letters but to no avail"
+            m "I was asking around for recommendation letters but to no avail"
             r "Sure! Roomies need to support each other after all!"
             r "Together we'll take the world by storm"
             m "Haha, thank you so much! You're the best Marie"
@@ -344,7 +344,7 @@ label sab_marie:
 label resume:
     "Anyways yay, I've figured out my recommendation letter!"
     "Hmm, what's next on the list that Dream Job and Co. to include in my application again?"
-    "Right! A resume. Let's head over to But to properly focus"
+    "Right! A resume. Let's head over to Buttler to properly focus"
     scene bg buthall with fade
     "Oh wow look at that, Marie is also here!"
     show marie happy
@@ -413,7 +413,8 @@ label resume:
                         #potentially show image of resume
             show marie distressed
             r "Hey %(pname)s. Do you mind if I just vent to you for a moment?"
-            r "Recently, I've been feeling so lost in life. It feels like everyone here knows exactly what they plan on doing and they're working to make that happen. For me, I just feel like a poser that doesn't deserve to be here. Heck, I'm not evne sure that I like what we're studying anymore"
+            r "Recently, I've been feeling so lost in life. It feels like everyone here knows exactly what they plan on doing and they're working to make that happen."
+            r "For me, I just feel like a poser that doesn't deserve to be here. Heck, I'm not even sure if I like what we're studying anymore"
             r "I couldn't even will myself to go the career fair because it felt so hopeless. There's no way those companies would hire someone like me anyways"
             menu:
                 "They'd be lucky to have you!":
@@ -500,7 +501,7 @@ label intern_interview:
             m "Totally, everyone knows that the younger siblings are better anyways"
             b "{p=1.0}... Silence peasant, my brother is still someone greater than you could ever be"
             if maximillion_friendship > 0:
-                show max happy
+                show max happy at right
                 b "{p=2.0}...but it's not bad talking to you"
                 hide max neutral with dissolve
         "Sure, of course":
@@ -532,14 +533,14 @@ label intern_interview:
     else:
         jump job_results
 
-"""$ timer_range = 0
+$ timer_range = 0
 $ timer_jump = 0
 transform alpha_dissolve:
     alpha 0.0
     linear 0.5 alpha 1.0
     on hide:
         linear 0.5 alpha 0
-    # This is to fade the bar in and out, and is only required once in your script"""
+    # This is to fade the bar in and out, and is only required once in your script
 
 screen countdown:
     timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01), false=[Hide('countdown'), Jump(timer_jump)])
@@ -584,24 +585,142 @@ label real_interview:
             $int_score+=1
             recruit "Oh, that's interesting! It's always great to hear about students interests outside of the classroom"
         #    hide screen countdown
-        "Once, I called CAVA for my very wasted important":
+        "Once, I called CAVA for my very wasted floormates":
             recruit "Haha that brings me back in the day. What a time"
         #    hide screen countdown
     #show screen countdown #ques4
-    $ fight = renpy.input("How many words are in Columbia's Fight Song")
-    if 39-fight <=5:
+    $ fight = int(renpy.input("How many words are in Columbia's Fight Song"))
+    if int(39)-int(fight) <=5:
         $int_score+=1
         recruit "Very good, very good"
     else:
         recruit "How interesting"
     #hide screen countdown
     menu:
-        "Alright, last question of the day."
-        "Some brilliant response":
-            pass            :
-        "Some brilliant response":
-            pass
-
+        "What do you view to be your greatest weakness?"
+        "I'm scared that the goals I have are because that's what is expected from me rather than my own desire":
+            recruit "Thank you for your honesty. I think that given more time in your field of interest you get to gauge your earnest interest for it"
+            $int_score+=1
+        "I'm too reliant on memes for daily function. It's quite the crutch":
+            recruit "Thank you, that was very honest"
+        "I've never climbed onto any rooftops like a scrub":
+            recruit "Don't worry, I don't think I ever have either!"
+            m "{size=-8}like a scrub{/size}"
+    recruit "Alright! I think that's all the questions that I have for you"
+    m "Thank you for this opportunity!"
+    recruit "No, thank you for coming in!"
+    recruit " Hmm{p=1.0} I probably shouldn't be offering but since I have a soft spot for any students of my alma mater. Want me to give you a heads up about your application?"
+    m "Oh my. Here are the legendary aLuMnI connections coming in clutch. Yes please! Thank you so much"
+    recruit "Haha, any time"
+    if int_score >=3:
+        $greed_check+=1
+        $success+=1
+    "Wow, that was certainly a whirlwind. I think that overall went decently? Oh well. All I can do now is wait anyways"
 
 label job_results:
-    pass
+    scene bg bedroom with fade
+    if greed_check == 3:
+        "AHHHH the suspense for whether I got the job or not is killing me"
+        if copy_res == True:
+            call phone_start
+            call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and I would be saying you got the job")
+            "Omg. Omg. this is SO EXCITING"
+            call message("Dream Job and Co", "But, unfortunately that's not what this message is going to end up being. I would have given you the job but it turns out that there was something suspicious in your resume so things didn't manage to work out in the end")
+            "Wait, what?"
+            call phone_end
+            "How could this be? My resume was perfect, especially considering I copied mine from Marie."
+            "...I should go ask her about it"
+            jump copied_marie
+        else:
+            call phone_start
+            call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and let you know that you got it!! I can't wait for your journey to continue with us here. Please feel free to reach out whenever")
+            call phone_end
+            "OMG. THIS IS SO EXCITING"
+            "YAYYYYY"
+            "Man, this is wild. I should try and calm down a bit. Let's go on a walk. In fact, maybe I'll see someone and share the good news!"
+            $success+=2
+            if maximillion_friendship >= marie_friendship:
+                jump sad_max
+            else:
+                jump sad_marie
+        #interviewed and got the job
+    elif greed_check == 2 and interview_offer == True:
+        "AHHHH the suspense for whether I got the job or not is killing me"
+        if copy_res == True:
+            call phone_start
+            call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and let you know that ... you should probably send out more applications. You just weren't up to snuff for what we were looking for and I think there was also something wonky about your resume?")
+            "Wait, what?"
+            call phone_end
+            "How could this be? My resume was perfect, especially considering I copied mine from Marie."
+            "...I should go ask her about it"
+            jump copied_marie
+        else:
+            call phone_start
+            call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and let you know that ... you should probably send out more applications. You just weren't up to snuff for what we were looking for.")
+            call phone_end
+            "Aww, that's unfortunate that things didn't work out"
+            "Guess, it's back to the grind then"
+            "First, I wanna go on a walk though. I want to clear my head"
+            if maximillion_friendship >= marie_friendship:
+                jump sad_max
+            else:
+                jump sad_marie
+        #interviewed and didn't get job
+    else:
+        "Man, I should really go and send an application to some other companies. Just because it didn't work out with Dream Job and Co. doesn't mean that it wouldn't work ouut somewhere else"
+        "Man, job hunting is so stressful. I need to go on a walk and clear my head first before I do anything"
+        #didn't get job
+        "Guess, it's back to the grind then"
+        "First, I wanna go on a walk though. I want to clear my head"
+        if copy_res == True:
+            jump copied_marie
+        else:
+            if maximillion_friendship >= marie_friendship:
+                jump sad_max
+            else:
+                jump sad_marie
+label copied_marie:
+    $ marieevil = True
+    scene bg columbialawn with fade
+    show marie happy at right with dissolve
+    m "Oh hey Marie! How are you doing?"
+    r "I'm doing really great! It's so nice and sunny outside. Everything is absolutely as perfect as it can be. "
+    r "What's up with you?"
+    m "I'm kind of bummed. I didn't manage to get an internship at Dream Jobs and Co after all"
+    hide marie happy
+    show marie ingenuine at right, hop
+    r "Wow, that sucks. I can't believe you didn't get the job. I just got an offer from them today actually!"
+    "What."
+    "How could that be? I didn't even know Marie had applied"
+    r "Why aren't you saying anything?"
+    m "Oh, congratulations Marie! I'm so happy for you"
+    r "Hehehe. That's funny"
+    r "I'm really surprised you didn't get the job though. I mean, I even let you see my resume which was actually pretty similar to yours, wasn't it?"
+    "Wait, does{p=1.0}.{p=1.0}.{p=1.0}Marie know? How?"
+    show marie concerned at right
+    r "Are you alright? You look a little red?"
+    hide marie concerned
+    show marie happy at right, hop
+    r "Well, your resume looks pretty similar to my edited resume anyways"
+    "Woah, wtf Marie completely strung me along"
+    r "Hehe, I'll leave you to your thoughts"
+    jump end_greed
+
+label sad_marie:
+    scene bg columbialawn with fade
+    if greed_check == 3:     #dialogue for you getting job
+        pass
+    else:
+        pass
+    jump end_greed
+
+label sad_max:
+    scene bg collegewalk with fade
+    if greed_check == 3:     #dialogue for you getting job
+        pass
+    else:
+        pass
+    jump end_greed
+
+label end_greed:
+    "Man, will the grind ever end"
