@@ -704,23 +704,105 @@ label copied_marie:
     r "Well, your resume looks pretty similar to my edited resume anyways"
     "Woah, wtf Marie completely strung me along"
     r "Hehe, I'll leave you to your thoughts"
+    hide marie happy with moveoutright
     jump end_greed
 
 label sad_marie:
     scene bg columbialawn with fade
+    "Oh hey look it's Marie! "
+    show marie distressed at topright with dissolve
     if greed_check == 3:     #dialogue for you getting job
-        pass
+        "I'm so excited to tell her the good news"
+        m "Marie! Hey!!"
+        hide marie distressed with dissolve
+        show marie distressed at right, sright
+        "Wait, oh no. Is Marie crying?"
+        r "H...hey %(pname)s, how's it going?"
+        m "Are you alright? You seem sad. I've got some news that should brightern your spirits!"
+        r "I'm doing...okay. What's the good news?"
+        m "I got the internship at Dream Job and Co!!!"
+        r "{p=1}{size=-8}oh{/size}"
+        r "{p=1}{size=-3}That's really great!{p=1} I'm r-really happy for you{/size}"
+        r "You deserve it for all of your hard work"
+        r "..."
+        hide marie distressed
     else:
-        pass
+        "I'll share my sorrows with her. Chatting with Marie always cheers me up"
+        m "Marie! Hey!!"
+        hide marie distressed with dissolve
+        show marie distressed at right, sright
+        "Wait, oh no. Is Marie crying?"
+        r "H...hey %(pname)s, How's it going?"
+        m "Are you alright? You seem sad. Actually, I'm feeling a bit down too."
+        r "I'm doing...{p=1}okay.{p=1} What's up with you?"
+        m "I was rejected from Dream Job and Co"
+        r "{p=1}{size=-8}Dream Job and Co?{/size}"
+    show marie cry at right, shake
+    r "I was rejected byt them"
+    m "Oh no, Marie. Come here and let me give you a hug"
+    r "I-{p=1}I always knew I was useless. I knew that it was pointless to even try applying"
+    m "Nonono"
+    m "Don't think like that Marie. You're one of the smartest people I know. I admire you so much and I hope that you recognize your talents too"
+    r "{p=1}... Thanks %(pname)s. I don't agree with you but I really appreciate your support"
+    m "Aww, do you want to go for a pick me up snack? We can spice up our life and get the spiciest level at the dry hot pot place?"
+    hide marie cry
+    show marie neutral
+    r "Hehe, thanks for the offer. But, I think I want some time alone right now"
+    m "Totally fine! I'm always here if you change your mind."
+    hide marie neutral with moveoutleft
     jump end_greed
 
 label sad_max:
     scene bg collegewalk with fade
+    b "%(pname)s! I command you to wait up"
+    show max charm at right, sright
+    "Ah the Magnificent Maximillion"
+    m "How's it going Maximillion?"
+    b "Everything's going great as always! As per usual, I'm living a life that Lady Fortune has blessed after all"
+    b "How did things work out with Dream Job and Co? It's a ruler's responsibility to look after the peasants of the land after all"
     if greed_check == 3:     #dialogue for you getting job
-        pass
+        m "Oh! Thanks for asking! I ended up getting the internship!! I'm super excited"
+        hide max charm
+        show max neutral at right, sright
+        b "Pssh, you simpleton how can you be so happy to have landed such a mediocre internship"
+        m "Ah, everything probably pales in comparison to whatever it is you're up to, Oh Great One"
+        m "But, it doesn't change the fact that I'm still really excited about this opportunity!"
+        b"Hmm, you're an interesting one %(pname)s"
+        m "What about you though? Have you finalized your plans?"
     else:
-        pass
+        m "Oh! Thanks for asking! Things didn't work out in the end. I was formally rejected and everything"
+        hide max charm
+        show max neutral at right, sright
+        b "Sorry to hear that peasant. Take comfort that it was a mediocre internship to be applying for anyways!"
+        m "Ah, I didn't view it as a mediocre internship. But it's okay! I'm still going to apply again next year. It's my dream to work there after all"
+        b "Hmm, you're oddly earnest %(pname)s"
+        m "What about you though? Great one, have you finalized your plans?"
+    b "{p=1}{size=-8}um{/size}"
+    b "{size=-5}Well I now definitively know that I wasn't offered the Dream Job and Co internship{/size}"
+    m "What? I thought you had rejected their offer"
+    hide max neutral
+    show max breaking at right, shake
+    b "{p=1}Ha{p=1}ha{p=1}ha That's what I originally thought"
+    "Oh no, Maximillion being emotionally vulnerable? The end of the world must be coming or something"
+    b "You peasants wouldn't understand. I've rejected them before. So Dream Job and Co. was like my safety internship if nothing else panned out"
+    b "{p=1}{size=-8}and nothing has really panned out yet{/size}{p=1}{size=-12}and then I didn't hear back from Dream Job and Co either{/size}"
+    m "Things will work out! Don't be discouraged"
+    b "Pipe down. You peasants wouldn't get it anyways"
+    b "I can't even satisfy my parent's minimum expectations. Nonetheless make them proud of me. I keep failing my parents"
+    b "Not even the Zook name can save me now"
+    b "And then there's Mark who's leaps ahead of me in every league"
+    m "Don't be like that. Isn't your brother older?"
+    m "From the time that I've known you, I'm confident that you're destined for really big things"
+    m "You're Maximillion the Magnificent after all"
+    b "Ugh, how pathetic. For an underclassmen peasant to see me in such a dimmed light."
+    hide max breaking
+    show max grateful at right
+    b "Don't worry peasant %(pname)s. I, your leader, will be shining brightly whenever you see me next"
+    m "Thank you. I feel inspired already" 
+    hide max grateful with moveoutleft
     jump end_greed
 
 label end_greed:
-    "Man, will the grind ever end"
+    "Sigh, the job hunt is so cruel"
+    "Man, will the grind ever end?"
+    jump pridebegin

@@ -26,6 +26,22 @@ transform hop: #makes character do small jump
     yalign 1.0
     linear .1 yalign .5
     linear .1 yalign 1.0
+transform shake:
+        yalign 1.0
+        xalign .75
+        ease .06 xoffset 8
+        ease .06 xoffset -8
+        ease .05 xoffset 2
+        ease .05 xoffset -2
+        ease .04 xoffset 4
+        ease .04 xoffset -4
+        ease .03 xoffset 6
+        ease .03 xoffset -6
+        ease .02 xoffset 4
+        ease .02 xoffset -4
+        ease .01 xoffset 2
+        ease .01 xoffset -2
+        ease .01 xoffset 0
 
 #marie images
 image marie neutral = "roomate_rabbit.png"
@@ -228,6 +244,7 @@ label start:
     $ committedArson = False #did you set fire to Marie's room???
     $seduce_prof = False
     $seduce_max = False
+
 
 
 
