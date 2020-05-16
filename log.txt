@@ -1,39 +1,117 @@
-Fri May 15 15:57:07 2020
+Fri May 15 22:18:11 2020
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
  
 
-Bootstrap to the start of init.init took 0.31s
-Early init took 0.02s
-Loader init took 0.15s
+Bootstrap to the start of init.init took 0.32s
+Early init took 0.01s
+Loader init took 0.16s
 Loading error handling took 0.11s
-Loading script took 2.04s
-Loading save slot metadata. took 0.16s
+Loading script took 2.53s
+Loading save slot metadata. took 0.14s
 Loading persistent took 0.00s
-Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.40s
-Loading analysis data took 0.26s
-Analyze and compile ATL took 0.04s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\Kimberly\\AppData\\Roaming/RenPy/backups\\CU_HEdoubleL':
-Dump and make backups. took 0.40s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc. took 0.07s
+
+File "game/pride.rpy", line 884: expected statement.
+    "4":
+       ^
+
+File "game/pride.rpy", line 886: expected statement.
+    "3":
+       ^
+
+File "game/pride.rpy", line 888: expected statement.
+    "2":
+       ^
+
+File "game/pride.rpy", line 890: expected statement.
+    "1":
+       ^
+
+File "game/pride.rpy", line 894: expected statement.
+    "12":
+        ^
+
+File "game/pride.rpy", line 896: expected statement.
+    "10":
+        ^
+
+File "game/pride.rpy", line 898: expected statement.
+    "9":
+       ^
+
+File "game/pride.rpy", line 900: expected statement.
+    "8":
+       ^
+
+File "game/pride.rpy", line 904: expected statement.
+    "9":
+       ^
+
+File "game/pride.rpy", line 906: expected statement.
+    "8":
+       ^
+
+File "game/pride.rpy", line 908: expected statement.
+    "7":
+       ^
+
+File "game/pride.rpy", line 910: expected statement.
+    "6":
+       ^
+
+File "game/pride.rpy", line 914: expected statement.
+    "1889":
+          ^
+
+File "game/pride.rpy", line 916: expected statement.
+    "1988":
+          ^
+
+File "game/pride.rpy", line 918: expected statement.
+    "1898":
+          ^
+
+File "game/pride.rpy", line 920: expected statement.
+    "1899":
+          ^
+
+File "game/pride.rpy", line 924: expected statement.
+    "48.000":
+            ^
+
+File "game/pride.rpy", line 926: expected statement.
+    "47:900":
+            ^
+
+File "game/pride.rpy", line 928: expected statement.
+    "48000":
+           ^
+
+File "game/pride.rpy", line 930: expected statement.
+    "47900":
+           ^
+
+File "game/pride.rpy", line 934: reached end of line when expecting ':'.
+    if music_friendship >= 10
+                             ^
+
+File "game/pride.rpy", line 963: expected statement.
+    else:
+        ^
+
+File "game/pride.rpy", line 965: expected ':' not found.
+    label badendingpride
+                        ^
+
+File "game/pride.rpy", line 970: expected ':' not found.
+    label goodendingpride
+                         ^
+
+File "game/pride.rpy", line 975: expected ':' not found.
+    label prideend
+                  ^
 DPI scale factor: 1.000000
-Creating interface object took 0.24s
-Cleaning stores took 0.00s
-Init translation took 0.09s
-Build styles took 0.02s
-Load screen analysis took 0.00s
-Analyze screens took 0.09s
-Save screen analysis took 0.36s
-Prepare screens took 0.39s
-Save pyanalysis. took 0.88s
-Save bytecode. took 0.34s
-Running _start took 0.01s
-Performance test:
-Interface start took 0.09s
+Interface start took 0.55s
 
 primary display bounds: (0, 0, 1366, 768)
 swap interval: 1 frames
@@ -258,11 +336,4 @@ Texture testing:
 - 2048px textures work.
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
-Total time until interface ready: 8.07999992371s
-- Target is 5 frames in 0.333333333333 seconds.
-- Frame drawn at 0.000000 seconds.
-- Frame drawn at 0.018667 seconds.
-- Frame drawn at 0.033667 seconds.
-- Frame drawn at 0.050667 seconds.
-- Frame drawn at 0.066667 seconds.
-- 0.066667 seconds to render 5 frames.
+Total time until interface ready: 5.23199987411s
