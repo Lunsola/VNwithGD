@@ -388,7 +388,7 @@ label resume:
                     "There's a tiny twinge of guilt. But I ignore it. With Marie's resume, I'll be able to land that internship!"
                     show marie happy
                     r "Any time! Happy to help"
-                    hide marie happy
+                    hide marie happy with dissolve
                     "I quickly copy over Marie's resuem and tweak it just a bit so that it's plausibly my own"
                     "Perfect"
                     $success +=1
@@ -398,7 +398,7 @@ label resume:
                     "While the thought of copying Marie's resume crosses my mind, I resist the temptation. It's better for my resume to be made solely of my efforts anyways"
                     "So, I get to work. The hours pass by at Butler with many meme breaks and stretching but eventually my resume is complete"
                     $sin += 1
-                    if $success >=2:
+                    if success >=2:
                         $greed_check +=1
                         "It doesn't look too bad. Solid GPA. Fluffed up extracurricular activities"
                         "I think if I took it to CCE there wouldn't be too much criticism"
@@ -414,7 +414,7 @@ label resume:
             show marie distressed
             r "Hey %(pname)s. Do you mind if I just vent to you for a moment?"
             r "Recently, I've been feeling so lost in life. It feels like everyone here knows exactly what they plan on doing and they're working to make that happen. For me, I just feel like a poser that doesn't deserve to be here. Heck, I'm not evne sure that I like what we're studying anymore"
-            r "I couldn't even will myself to go the career fair because it felt so hopeless. There's no way those copanies would hire someone like me anyways"
+            r "I couldn't even will myself to go the career fair because it felt so hopeless. There's no way those companies would hire someone like me anyways"
             menu:
                 "They'd be lucky to have you!":
                     m "Please don't think that!"
@@ -432,11 +432,11 @@ label resume:
                 "I didn't give you permission to spill your feelings to me":
                     m "Please kindly keep your thoughts to yourself."
                     m "Else, I'll be required to venmo you for emotional labor"
-                    show marie aversem at left with move
+                    show marie aversem
                     hide marie aversem
                     r "Oh...I thought we could support each other. I shouldn't have assumed."
-                    show marie cry at left
-                    hide marie sad with moveoutrightt
+                    show marie cry
+                    hide marie sad with moveoutright
                     "Yikes, what a wreck"
     jump intern_interview
 label intern_interview:
@@ -500,7 +500,7 @@ label intern_interview:
             m "Totally, everyone knows that the younger siblings are better anyways"
             b "{p=1.0}... Silence peasant, my brother is still someone greater than you could ever be"
             if maximillion_friendship > 0:
-                show max happy at right
+                show max happy
                 b "{p=2.0}...but it's not bad talking to you"
                 hide max neutral with dissolve
         "Sure, of course":
@@ -525,17 +525,83 @@ label intern_interview:
             if seduce_max == True:
                 b "I so deeply regreat that night after Mel's"
             hide max mad with dissolve
-    if interview_offer = True:
+    "Maximillion, always a whirlwind to handle as always"
+    "Anyways, I've got my own stuff to do after all"
+    if interview_offer == True:
         jump real_interview
     else:
         jump job_results
 
-label real_interview:
-    scene bg bedroom with fade
-    if greed_check >=2:
+"""$ timer_range = 0
+$ timer_jump = 0
+transform alpha_dissolve:
+    alpha 0.0
+    linear 0.5 alpha 1.0
+    on hide:
+        linear 0.5 alpha 0
+    # This is to fade the bar in and out, and is only required once in your script"""
 
-        pass
+screen countdown:
+    timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01), false=[Hide('countdown'), Jump(timer_jump)])
+    bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve # This is the timer bar.
+
+label real_interview:
+    $int_score =0
+    scene bg bedroom with fade
+    "Ah!! I'm so nervous about the interview today. This is it. Time to see if all that prep paid off"
+    scene bg Interview with fade
+    recruit "Hi %(pname)s, Thank you for taking the time to come in and of courrse your interst in Dream Jobs and Co. Our goal is always to have our employees be at their dream job."
+    recruit "You must know that we service half of the nation's population with our unique services"
+    """$ time = 5
+    $ timer_range = 5
+    $ timer_jump = 'menu1_slow'"""
+    #show screen countdown
+    $ pitch = renpy.input("Who are you and what makes you a qualified candidate?")
+    if len(pitch) >=30 and pitch.isalpha():
+        $int_score+=1
+    #hide screen countdown
+    "Hmm, very interesting"
+    #show screen countdown
+    menu: #ques2:
+        "As a Columbia Alum, I have to ask: Which is the best dining hall"
+        "JJs":
+            recruit "Good ol' JJs. We love our guarantee of the Freshman (or any year) 15"
+            #hide screen countdown
+        "Ferris":
+            recruit "Their cheesecakes were so good! "
+            #hide screen countdown
+        "Hewitt":
+            $int_score+=1
+            recruit "You've got very good taste"
+            #hide screen countdown
+    #show screen countdown
+    menu: #ques3:
+        "Please describe a time where you've shown initiative"
+        "During the Crisis known as 2020, I attended the majority of my Zoom classes":
+            recruit "That's great to hear!"
+            #hide screen countdown
+        "I was the team leader for a group project and decided to make a game!":
+            $int_score+=1
+            recruit "Oh, that's interesting! It's always great to hear about students interests outside of the classroom"
+        #    hide screen countdown
+        "Once, I called CAVA for my very wasted important":
+            recruit "Haha that brings me back in the day. What a time"
+        #    hide screen countdown
+    #show screen countdown #ques4
+    $ fight = renpy.input("How many words are in Columbia's Fight Song")
+    if 39-fight <=5:
+        $int_score+=1
+        recruit "Very good, very good"
     else:
-        pass
+        recruit "How interesting"
+    #hide screen countdown
+    menu:
+        "Alright, last question of the day."
+        "Some brilliant response":
+            pass            :
+        "Some brilliant response":
+            pass
+
+
 label job_results:
     pass
