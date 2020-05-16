@@ -3,7 +3,7 @@ image cgconv = "cgconvention.jpg"
 label pridebegin:
     scene bg lecture hall
     "New semester new me"
-    "Glad all those core classes are over"
+    "Sooo glad all those core classes are over"
     w "{size=+10}UWAH!!! {p=1.0}%(pname)s!!!!!"
     pause .5
     show marie averse
@@ -13,8 +13,8 @@ label pridebegin:
     show marie nervous2
     r "I even dropped my toast running here"
     "Who does she think she is, Sailor Moon?"
-    m "Hello Marie, this is literally the most well known lecture hall on campus"
-    r "Well exciting that our first class for %(pmajor)s is in here?"
+    m "Hello Marie, this is literally the most well known classroom on campus"
+    r "Well, isn't exciting that our first class for %(pmajor)s is in here?"
     m "I was actually part of the %(pmajor)s bowl in high school, so I feel real prepared for this class"
     hide marie nervous2
     show marie v happy
@@ -39,12 +39,12 @@ label pridebegin:
     r "{size=+10}A S S E S"
     m "That's campus culture right there"
     "Honestly the title of this class is so long I don't bother to remember it"
-    a "Anyhoo, name's Marven. I'm taking this class as a requirement for my major"
+    a "Anyhoo, name's Marven. I'm taking this class to fulfil a requirement"
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
     hide music_neutral
     show music_wink at right:
         yalign 1.0 xalign .75
-    a "I'm a music + philosophy double major. {p=2}PLease don't ask me what kind of job I can get with that."
+    a "I'm a music + philosophy double major. {p=2}Puh-lease don't ask me what kind of job I can get with that."
     r "Wowww that's so cool!"
     s "{b}Please sit down, class is about to start"
     a "Oop, gotta go fast!"
@@ -61,7 +61,7 @@ label pridebegin:
             with fade
             a "Anyways are you guys into memes?"
             m "Hell yeah"
-            r "%(pname)s always stays up scrolling while chuckling like an old man!"
+            r "%(pname)s always stays up scrolling, chuckling like an old man!"
             hide music_talk
             show music_neutral at right
             a "What memes are you into?"
@@ -131,12 +131,12 @@ label pridebegin:
     hide marie v happy
     with dissolve
     "Geez what kind of joke was that homework."
-
-    scene bg lecture hall
+    scene bg black with fade
+    scene bg lecture hall with irisin
     "Today is ASSES Examination 1"
     "There's no way I could fail. {p=2} I could jinx myself and still wreck that curve like a pro"
     "{i}EXAM START"
-    $ m1_q1 = renpy.input("{i}How many US presidents have graduated from Columbia?")
+    $ m1_q1 = renpy.input("{i}How many Certified Ethical Hackers have graduated from Columbia?")
     $ m2_q2 = renpy.input("{i}How many earthworms die on average on college walk every rainy day??")
     $ m3_q3 = renpy.input("{i}How many brain cells have you lost playing this game???")
     "Alright that's all of the questions"
@@ -144,16 +144,18 @@ label pridebegin:
 
     scene bg bedroom
     with dissolve
-    play sound "audio/mario_coin_sound.mp3"
+    play sound "audio/phone_notif.mp3"
     pause 2
     "Big yikes the ASSES TAs are fast"
     menu:
         "Check your grade":
-            pause 1
-            "...24"
+            call phone_start
+            call message_start("OfCourseItWorks", "ASSES Examination 1: 24")
+            call phone_end
+            "...24? This can't be right? But it was a scantron test?"
             show marie grateful
             with dissolve
-            r "Hey %(pname)s, have you checked your ASSES Examination. It just got uploaded"
+            r "Hey %(pname)s, have you checked your ASSES Examination? It just got uploaded"
         "Spicy meme time":
             "I can check later; gotta update myself on the hottest memes."
             "Hehe"
@@ -166,7 +168,10 @@ label pridebegin:
             m "my WHAT"
             r "Your grade for the first midterm last week. It just got uploaded"
             "Ugh I guess I gotta check it now"
-            "{p=2}...24 {w}This can't be right? But it was a scantron test?"
+            call phone_start
+            call message_start("OfCourseItWorks", "ASSES Examination 1: 24")
+            call phone_end
+            "...24? This can't be right? But it was a scantron test?"
             "Well, I can't be the only one doing this badly"
     r "so what did you get?"
     menu:
@@ -984,7 +989,8 @@ label examday:
 label badendingpride:
     scene bg collegewalk
     "After graduation, I never saw Marven again"
-    "Perhaps later in life, I would regret not trying more. We could've been really good friends through shared interests"
+    "Life is really like a visual novel"
+    "A single choice could change your relationship with a person forever. Me and Marven could've been really good friends through shared interests"
     jump prideend
 label goodendingpride:
     scene bg columbialawn
@@ -1004,3 +1010,4 @@ label prideend:
         "Dont check":
             "If I cared about ASSES, I would've tried harer in first place"
     "What an underwhelming conclusion to this cursed semester. How much more of this hell to endure until graduation?"
+jump beginenvy
