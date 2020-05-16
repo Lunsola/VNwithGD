@@ -112,6 +112,7 @@ label career_email:
     #TODO: notification sound
     show screen mailbox_overlay
     $ add_message("Offer to Your Dream Job","Recruiter","Hi, The first step in getting an internship at Dream Job and Co. is to apply. For your application you'll need a resume and letter of recommendation. Thank you for expressing your interest in us. We hope to hear from you soon. With Dream Job and Co, all of our dreams will come true" )
+    play sound "audio/email_notif.mp3"
     "Ahhhh, is that an internship update? So soon? No way"
     "Let's check my messages"
     "Hmm. Guess I can't really get the internship offer if I haven't applied to the intership yet."
@@ -312,6 +313,7 @@ label breaken_draft(contact, message_title="Report Academic Violation"):
         "Hi Professor, I wanted to report Marie for violating our school's academic integrity policies. Her final paper for the course was purchased through a third party":
             $ contact.draft_label = None # must include this line for each option
             $ add_message("Report Academic Violation:Re", "Professor Breaken", "Thank you for reporting this offense. This shall be dealt with immediately")
+            play sound "audio/email_notif.mp3"
     return
 
 label sab_marie:
@@ -450,6 +452,7 @@ label intern_interview:
         #The Interviews
         #Todo: Message notification sound
         $ add_message("Offer to Your Dream Job:Re","HR @ Dream Job and Co","Hi, We are pleased to inform you that you are invited to the next stage of our interview process. Please come to SomeOffice at Number Lane at 5 pm on Friday. We're excited to learn more about you. With Dream Job and Co, all of our dreams will come true")
+        play sound "audio/email_notif.mp3"
         "An email notification!"
         "Omg yes!! All of the studying and nights falling asleep in But. with questionable hygeine"
         "All of this preparation has paid off! I'm going to become top dog around here!"
@@ -458,6 +461,7 @@ label intern_interview:
         "I'm so excited!!! AHHHHH"
     else:
         $ add_message("Offer to Your Dream Job:Re","HR @ Dream Job and Co","Hi, We regret to inform you that we will not be continuing with your application. Please note that this year's applicant pool was very competitive. While your skills and experience were very impressive, we sound someone better for the position. We look forward to your continued interest with Dream Job and Co. With Dream Job and Co, all of your dreams aren't coming true")
+        play sound "audio/email_notif.mp3"
         "An email notification!"
         "Oh no"
         "It's exactly as I feared, it looks like my application wasn't good enough after all *sigh*"
@@ -624,8 +628,10 @@ label job_results:
         if copy_res == True:
             call phone_start
             call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and I would be saying you got the job")
+            play sound "audio/phone_notif.mp3"
             "Omg. Omg. this is SO EXCITING"
             call message("Dream Job and Co", "But, unfortunately that's not what this message is going to end up being. I would have given you the job but it turns out that there was something suspicious in your resume so things didn't manage to work out in the end")
+            play sound "audio/phone_notif.mp3"
             "Wait, what?"
             call phone_end
             "How could this be? My resume was perfect, especially considering I copied mine from Marie."
@@ -634,6 +640,7 @@ label job_results:
         else:
             call phone_start
             call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and let you know that you got it!! I can't wait for your journey to continue with us here. Please feel free to reach out whenever")
+            play sound "audio/phone_notif.mp3"
             call phone_end
             "OMG. THIS IS SO EXCITING"
             "YAYYYYY"
@@ -649,6 +656,7 @@ label job_results:
         if copy_res == True:
             call phone_start
             call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and let you know that ... you should probably send out more applications. You just weren't up to snuff for what we were looking for and I think there was also something wonky about your resume?")
+            play sound "audio/phone_notif.mp3"
             "Wait, what?"
             call phone_end
             "How could this be? My resume was perfect, especially considering I copied mine from Marie."
@@ -657,6 +665,7 @@ label job_results:
         else:
             call phone_start
             call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and let you know that ... you should probably send out more applications. You just weren't up to snuff for what we were looking for.")
+            play sound "audio/phone_notif.mp3"
             call phone_end
             "Aww, that's unfortunate that things didn't work out"
             "Guess, it's back to the grind then"
@@ -798,7 +807,7 @@ label sad_max:
     hide max breaking
     show max grateful at right
     b "Don't worry peasant %(pname)s. I, your leader, will be shining brightly whenever you see me next"
-    m "Thank you. I feel inspired already" 
+    m "Thank you. I feel inspired already"
     hide max grateful with moveoutleft
     jump end_greed
 
