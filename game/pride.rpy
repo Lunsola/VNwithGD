@@ -14,12 +14,13 @@ label pridebegin:
         $renpy.music.play("audio/PrideBonden.mp3", channel="Chan4", synchro_start=True)
     image cgexam = "cgexam.jpg"
     image cgconv = "cgconvention.jpg"
+    $ studyday = 0
     $ finalscore = 0
     $ stolesg = False # Did player steal study guide
-    $ classgrade = 1 #pride chapter grade (starts with one bc hw1 is a gimmie)
+    $ classgrade = 0 #pride chapter grade (starts with one bc hw1 is a gimmie)
     scene black
     with Pause(1)
-    show text "{size=50}Semester 4: You better know what you're majoring in!{/size}"
+    show text "{size=50}Semester 4: Are You Sick of School?{/size}"
     pause
     hide text
     scene bg lecture hall
@@ -124,7 +125,7 @@ label pridebegin:
     hide marie surprised
     show marie happy
     r "Well, I've memorized the syllabus so I can do my best in this class"
-    r "We have four homeworks! {p=.5}Two midterms! {p=.5}And a final!"
+    r "We have two homeworks! {p=.5}Two midterms! {p=.5}And a final!"
     m "I think maybe you should save your brain cells for actual class material"
     m "The professor seems to be a bad lecturer, so going to class probably won't help either way."
     hide marie happy
@@ -169,6 +170,7 @@ label pridebegin:
     "Geez what kind of joke was that homework."
     scene bg black with fade
     show screen mailbox_overlay
+    $ classgrade +=1
     $ add_message("ASSES HW1", "ASSES TA", "Your grade for this assignment is 100")
     play sound "audio/email_notif.mp3"
     "The HW1 grade has been posted"
@@ -251,14 +253,12 @@ label pridebegin:
             r "Yay! I actually have a study room reserved tomorrow at the library!"
             r "I'll wake you up at 8 am!"
             "Holy crap, this better be worth it"
-            $ classgrade +=1;
             jump hw2pass
         "Nah, I'm busy with other classes":
             r "Aw that's a shame, good luck!"
-            "She said it herself, there's still three homeworks and another midterm, {p=1}not to mention the final"
+            "She said it herself, there's still another homework and another midterm, {p=1}not to mention the final"
             "Plenty of time to make it up!"
             jump hw2fail
-
 label hw2pass:
     scene bg themil with fade
     "It's so early I can feel the fatigue of last night's all-nighters still hanging in the air"
@@ -338,7 +338,7 @@ label music_encounter:
             show music_smile
             a "Coolio. Gimme your number, I'll email you the deets"
             m "Woahhhhh I'm going to a SPICY MEME PARTY"
-            jump hw3fail
+            jump hangover
         "Naw man I'm good":
             $ classgrade +=1
             hide music_dark
@@ -349,14 +349,16 @@ label music_encounter:
             $ add_message("ASSES HW2", "ASSES TA", "Your grade for this assignment is 100")
             play sound "audio/email_notif.mp3"
             jump m2begin
-label hw3fail:
+            
+label hangover:
     $renpy.music.set_volume(1.0, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, channel="Chan3")
     scene bg black with fade
     scene bg bedroom with irisin
     "That was funnnnn. BUrP~"
-    "I think I might've eaten a tide pod"
+    play sound "audio/phone_notif.mp3"
+    pause 1
     call phone_start
     call message_start("MaRv", "Hey d00d, that was real lit yesterday. Make sure you consume lots of H2O today, ok?")
     call phone_end
@@ -365,6 +367,7 @@ label hw3fail:
     $renpy.music.set_volume(0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.5, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    "I think I might've eaten a tide pod"
     show marie nervous
     r "%(pname)s? You were out all night and you didn't tell me!"
     m "Oh g'morning Marie {w}...Errr yeah I went to a party"
@@ -462,7 +465,7 @@ label m2begin:
             hide marie v happy
             "Finally, that nosy loli is gone"
             if classgrade <= 1:
-                "I've been really slacking off {w}It really is a pain in the ass to have such an anal class in the red tho"
+                "I've been really slacking off, tho. It really is a pain in the ass to have such an anal class in the red."
                 "Should I really take a nap?"
                 menu:
                     "I need to rest in order to be productive":
@@ -547,13 +550,12 @@ label milstein:
             hide music_dark
             hide music_moody
             jump eathewitt
-
 label m2goodgrade:
     $ classgrade +=2
     $renpy.music.set_volume(1.0, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, channel="Chan3")
-    "Marie might poke her nose into my business a lot, but I know it's because she cares"
+    "Marie might poke her nose into my business a lot, but I know it's because she cares. As a bonus, she's a truebred tryhard."
     scene bg buthall
     $renpy.music.set_volume(0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.5, channel="Chan2")
@@ -570,7 +572,7 @@ label m2goodgrade:
     $renpy.music.set_volume(volume=0.0, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, channel="Chan3")
     "I study with Marie for 6 hours straight"
-    "I'm so big brain that even if I don't ace this next exam I can drop out and become a CEO"
+    "I feel so big brain now that even if I don't ace this next exam, I can drop out and become a CEO"
     jump passexam
 label nap:
     $renpy.music.set_volume(1.0, channel="Chan1")
@@ -598,7 +600,7 @@ label walk:
     a "Are you here to inSPECT the cute doggos and puppers too?"
     m "I was actually searching for some felines"
     a "You mean those dragon things?"
-    a "Yoooo they left like 2 mins ago to steal food from Milsting"
+    a "Yoooo they left like 2 mins ago to cop free food from Milsting"
     hide music_smile
     show music_wink at center,  hop
     a "Those are top notch furries tho. Yo momma would stan."
@@ -636,7 +638,6 @@ label walk:
             "That's always a classic, but kinda basic? Ya know?"
     hide music_wink
     jump eathewitt
-
 label eathewitt:
     show music_smile
     a "So you're free now?"
@@ -664,6 +665,7 @@ label cheat:
     a "Ayyy I'm right in front of you!"
     hide music_neutral with moveoutleft
     "Ok I can do this {size=-10}maybe"
+    "{i} ASSES EXAMINATION 2 START"
     pause 1
     "This is really hard"
     "I wonder how Marven is doing"
@@ -671,7 +673,7 @@ label cheat:
     "Aw man I can see his test sheet crystal clear"
     menu:
         "Cheat":
-            $ classgrade =+ 1
+            $ classgrade += 1
             $sin -=1
             hide cgexam with fade
             "I copy the questions I am struggling with and hand in the exam before Marven"
@@ -695,11 +697,13 @@ label passexam:
     $renpy.music.set_volume(volume=0.0, channel="Chan3")
     scene bg lecture hall with irisin
     $sin +=1
-    "I feel pretty confident about today's exam"
+    "I'm pretty confident about today's exam"
     show marie neutral with dissolve
     r "Hey ready for the ASSES examination?"
     m "The WHAT.. oh yeah. Sure"
     hide marie neutral with dissolve
+    "{i} ASSES EXAMINATION 2 START"
+    pause 1
     "Hm these questions all make sense, unlike the first exam"
     "Hoo studying sure pays off"
     $ add_message("ASSES M2", "ASSES TA", "Your grade for this exam is 92")
@@ -707,7 +711,7 @@ label passexam:
     jump goinghome
 label goinghome:
     scene bg milfloor with fade
-    "Hmmm what's with this confuzzling major declaration process"
+    "Sophomore second semester is when we choose our major... but what's with this confuzzling major declaration process"
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
     $renpy.music.set_volume(0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, channel="Chan2")
@@ -730,7 +734,7 @@ label goinghome:
     hide music_dark
     show music_unimpressed
     a "...you actually study for finals?"
-    "Oh shoot, if Marie reminded me correctly, the ASSES final is on the first day of finals"
+    "Oh shoot, if Marie reminded me correctly, the ASSES final is on the first day after reading week"
     "But I reallllllly want to go. Also I have my pride as a memer to defend."
     menu:
         "Flex on the h8rs, I'm going":
@@ -766,8 +770,8 @@ label conventionday1:
         "Is this a pigeon":
             a "Love them anime refs"
         "Arthur clenched fist":
-            a "Honeslty tho, this one's such a mood"
-    a "Alright, time for us to enter!"
+            a "Honestly tho, this one's such a mood"
+    a "Alright, time to proceed!"
     hide music_default with dissolve
     pause 1
     m "Wait! Do you have my tickets?"
@@ -854,8 +858,8 @@ label conventionday2:
     menu:
         "Steal it":
             $ stolesg = True
-            $sin -=1
-            $ classgrade =+ 1
+            $ sin -=1
+            $ studyday += 1
             "I take the precious study guide out and stuff it into my bag"
         "Ignore":
             "..."
@@ -928,6 +932,7 @@ label twostudyday:
     $renpy.music.set_volume(volume=0.0, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, channel="Chan3")
     scene bg mil with irisin
+    $ studyday +=1
     $ music_friendship =-5
     "Alright, feels bad I ditched Marv but I wrote an email explaining why"
     "Time to grind on ASSES"
@@ -981,6 +986,7 @@ label onestudyday:
     $renpy.music.set_volume(1.0, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $ studyday +=1
     "Alright, self"
     "Time to glue my thinking cap to my head"
     if marie_friendship >= 1 and marieevil == False:
@@ -1058,7 +1064,7 @@ label conventionday3:
     a "Well, my advice is, gotta go fast! And it does help if you've been around for five years, like me."
     "Wasn't counting on Marv helping anyways. Someone like Marie who has been following the lectures and studying consistently is more reliable.
     Speaking of which, when did she say the exam is?"
-    m "Shoot, the test is tomorrow!"
+    m "ERMAHGERD, the test is tomorrow!"
     hide music_wink
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
     show music_dark
@@ -1234,19 +1240,33 @@ label prideend:
     "And my final grade has been posted to OfCourseItWorks"
     menu:
         "check grade":
-            if classgrade >= 6:
+            if classgrade >= 9:
                 $ success +=1
-                if classgrade >= 9:
-                    "I got an A! It's a miracle!"
-                elif classgrade == 8:
-                    "I got a B. Not bad, not bad!"
-                else:
-                    "I got a C. Meh"
+                "I got an A! It's a miracle!"
+            elif classgrade == 8:
+                $ success +=1
+                "I got a B. Not bad, not bad at all!"
+            elif classgrade == 7:
+                $ success +=1
+                "I got a C. Meh."
             else:
-                "I failed! :o"
+                if studygrade == 1:
+                    if classgrade >= 6:
+                        $ success +=1
+                        "I got a C. Meh."
+                elif studygrade == 2:
+                    if classgrade >= 5:
+                        $ success += 1
+                        "I got a C. Meh."
+                else:
+                    "I failed! :o"
         "Dont check":
-            if classgrade >= 5:
-                $ success +=1
+            if studygrade == 1:
+                if classgrade >= 6:
+                    $ success += 1
+            elif studygrade == 2:
+                if classgrade >= 5:
+                    $ success += 1
             "If I cared about ASSES, I would've tried harer in first place"
     "What an underwhelming conclusion to this rollercoaster of semester. How much more of this hell to endure until graduation?"
     hide screen mailbox_overlay
