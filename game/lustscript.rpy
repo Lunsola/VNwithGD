@@ -118,9 +118,6 @@ label social_media:
     call message_img("Meme Central", "Quality","meme3.jpg")
     call message_img("Meme Central", "Content","meme4.png")
     call message_img("Meme Central", "Life when you have a smol bean of a roommate","meme5.jpg")
-    #call message_start("Meme Central", "Yo, wanna have lunch together today?")
-    #call message("Josh", "I’m hungry like a beast for some pizza.")
-    #TODO: add some memes
     call phone_end
     "Your eyes burn from absorbing the memes and decide that's enough avoiding your pain today"
     "I'll just go and look for Professor Bonden tomorrow. Everything will be fine"
@@ -149,13 +146,11 @@ label bonden_draft(contact, message_title="Meeting Inquiry"):
             $ add_message("Meeting Inquiry:Re", "Professor Bonden", "Yes! Of course. Come by my office tomorrow")
             play sound "audio/email_notif.mp3"
             $ prof_friendship +=1
-            #TODO: Message notification sound
         "Hi Professor, Any way I can help boost my grade? ;). Down for anything ;))))))":
             $ contact.draft_label = None
             $ prof_friendship -=1
             $ add_message("Meeting Inquiry:Re", "Professor Bonden", "Excuse me? Let's discuss in my office tomorrow")
             play sound "audio/email_notif.mp3"
-            #TODO: Message notification sound
         "Discard draft.":
             pass
     return
@@ -175,7 +170,6 @@ label fri_morn:
     "Ah!!! It's already 11 am. Time to get up"
     show screen mailbox_overlay
     "First things first, let's check message updates"
-    #TODO: Message notification sound
     if prof_email == True:
         $ add_message("Reminder!", "", "Meeting with Professor Today")
         play sound "audio/email_notif.mp3"
@@ -878,12 +872,10 @@ label sat_room:
     "I get a restless sleep. Thinking about what Maximillion had said the other today. What kind of extra credit did Professor Bonden mean?"
     "I was originally thinking about doing a presentation or report about the planetarium or something academic related. Who would have thought that getting a good grade would be this complicated"
     "Not to mention, what Maximillion said about the {b}{i}T r i a n g l e{/i}{/b} application. Things like this actually happen?"
-    #TODO: Message notification sound
     show screen mailbox_overlay
     $ add_message("Congratulations", "{b}{i}T r i a n g l e{/i}{/b}", "Hi, We would like to cordially offer you the opportunity to join our ranks. Please come to Hamilton 705 at 11 am tomorrow for your interview with one of our executive board members")
     play sound "audio/email_notif.mp3"
     "Oh speaking about the Triangle, new email notification."
-    #phone conveying interview
     "Yes!! I landed the interview tomorrow"
     "Trying to refocus on my work, nothing really gets done for the entire day as I deliberate the best course of action"
     hide screen mailbox_overlay
@@ -1171,7 +1163,6 @@ label lust_ending:
     else:
         "Ugh, I can't stand him. He's so arrogant and condescending. The less of him I see the better"
     "Not to mention my Science of Everything exam. Please will the spirit of Prezbo depart some good fortune"
-    #TODO: add ping sound
     show screen mailbox_overlay
     if grade_change ==True:
         $ success +=1
