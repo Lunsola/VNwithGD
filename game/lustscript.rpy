@@ -1,10 +1,13 @@
-label lust_start_dorm:
+label lust_begin:
 
     $prof_email = False
     $grade_change = False
     $twin = False
     $bizboss = False
     $dinoroar = False
+    image bg but_entrance:
+        zoom 0.50
+        "But_Entrance.jpg"
     scene black
     with Pause(1)
     show text "{size=50}Semester 2: Still at School{/size}"
@@ -109,8 +112,6 @@ label roomie_talk:
             hide marie concerned
             jump thurs_end
 
-
-
 label social_media:
     call phone_start
     call message_img("Meme Central", "Here lies the spiciest of the spicy memes","meme1.jpg")
@@ -123,7 +124,6 @@ label social_media:
     "I'll just go and look for Professor Bonden tomorrow. Everything will be fine"
     jump thurs_end
 
-
 label prof_email:
 
     $ prof = Contact("Professor Bonden", "bonden_draft")
@@ -131,12 +131,6 @@ label prof_email:
     "Let's draft this message! Check your message box at the upper right"
     "{p=3.0} Great message. Much professionalism"
     hide screen mailbox_overlay
-    #menu:
-    #    "Yes":
-    #        hide screen mailbox_overlay
-    #    "No":
-    #        "Let's hurry up and send that email"
-    #        hide screen mailbox_overlay
     jump thurs_end
 
 label bonden_draft(contact, message_title="Meeting Inquiry"):
@@ -178,9 +172,8 @@ label fri_morn:
     else:
         $ add_message("Triangle Info Session", "{b}{i}T r i a n g l e{/i}{/b}", "Thank you for expressing interest into joining the Triangles! We will be hosting a meeting in Hamilton 702. Hope to see you there. Please wear business casual!")
         play sound "audio/email_notif.mp3"
-    "Ah!! So much to get done. But let's see... time to figure out what to wear"
-    hide screen mailbox_overlay
     menu: #TODO Figure out problem with loading images as menu options
+        "Ah!! So much to get done. But let's see... time to figure out what to wear"
         "I 8 π T-shirt and Jeans": #"{image = ../images/itsandwich.png}":
             $twin = True
             pass
@@ -190,6 +183,7 @@ label fri_morn:
         "Dino Onesie": #"No pictures pls":
             $dinoroar = True
             pass
+    hide screen mailbox_overlay
     "Now all ready to take on today's challenges! We should go speak with Professor Bonden to learn more about what exactly happened with the exam"
     if prof_email == True:
         jump prof_meet
@@ -243,9 +237,9 @@ label short_meet:
             jump club_info
         "Inquire about Exam":
             m "I was hoping to look over what I did incorrectly on my exam."
-            p "Ah yes, I can give you your exam back! Let me go grab yours. Remember that any question regrades should have been requested already"
+            p "Ah yes, I can give you your exam back! Remember that any question regrades should have been requested already"
             m "Thanks Professor Bonden!"
-            p "Sorry to cut our meeting short but I do need to run. If you need me for anything, feel free to find me later!"
+            p "Sorry I can't stay and chat. But there you have your test back. If you need me for anything else, feel free to find me later!"
             hide professor neutral
             "Man, he's disappeared already. I'll need to find the Professor again later but it seems like he's pretty strict on grade request deadlines. Maybe we can work out something else though"
             "Oh! Look at the time, I need to get the Triangle's info-session"
@@ -415,10 +409,12 @@ label club_info:
     "Muttering “I’m sorrys” for disrupting the people on the floor, I signed myself in and shuffled to an empty spot along the wall."
     "The room feel to a hush as some stranger started their presentation"
     show max charm with dissolve
+    play sound "audio/chimes.mp3"
     w "Hi Guys! Thank you all for your interest in joining the {b}{i}T r i a n g l e{/i}{/b}! We’re a tight knit community from across the schools. We do X, Y and Z for the school, really great things. We have lots of funding for whatever projects that you come up with."
     "I promptly zone out at the standard club pitch"
     "I over hear someone whispering: {i}I've heard that getting into the Triangle sets you up for guaranteed work at any of the big companies. Their alumni low key rule the world.{/i}"
     "Woah, I definitely want to get in if that's the case. It'll help me for whatever I want to do in the future"
+    play sound "audio/chimes.mp3"
     w "And that's the {b}{i}T r i a n g l e{/i}{/b}! Thank you all for coming. Please feel free to come up to any of the board members to fill out an application form and get to know us!"
     hide max charm
     show max wink
@@ -428,20 +424,20 @@ label club_info:
     "Whoa arrogant much? Let's chat with him"
     if bizboss == True:
         $ maximillion_friendship +=1
+        show max charm
         w "Ooh, hey stranger. I like your attire. Very appropriate"
         "Hmm, maybe he's not so bad.{p=1.0} maybe"
     if dinoroar == True:
         w "Uh, did you get the memo. What in the world are you wearing weirdo?"
         "Case in point"
     b "Hi, I'm Maximillion. My friends call me Max though. How can I assist a commoner like you today?"
-    "Commoner?"
     menu:
-        "Ignore ":
+        "Commoner?"
+        "Ignore the comment":
             "Commoner, the heck is wrong with this dude. Better to just fill out my club application and call it a day"
             m "Hi,I'm %(pname)s"
             jump club_app
-        "Snarkily Compliment":
-            m "Nice job up there. Maybe you're not a fellow commoner after all "
+        "Nice job up there. Maybe you're not a fellow commoner after all ":
             show max charm
             b "Wow. Sass back. I like. Be careful though, with someone as classy as myself. It'll be hard to keep up."
             m "Sounds to me like you're scared of some competition"
@@ -452,21 +448,20 @@ label club_info:
             m"Haha anyways"
             $ maximillion_friendship +=1
             jump club_app
-        "Insult":
+        "How can a pile of trash such as yourself help me?":
             $sin -=1;
             "This absolute ass"
-            m "How can a pile of trash such as yourself help me?"
             show max mad
             b "You must have no friends so you don't understand the premise of helping others"
             m "Not really. Sounds like you've had a lot of personal experience with having no friends though"
             b "...What can I do for you trash?"
             $ maximillion_friendship -=1
             jump club_app
-        "Compliment":
+        "Great job up there!":
             $sin +=1;
             show max neutral
             "Let's just ignore the commoner comment. This dude clearly has a superiority complex better play into it. It might help my chances of getting in"
-            m "Hi, great job up there! I'm %(pname)s Hopefully, I'll be able to be up there with you guys next year presenting about the great Triangle club"
+            m "Hi, I'm %(pname)s! Nice to meet you. Hopefully, I'll be able to be up there with you guys next year promoting the great {b}{i}T r i a n g l e{/i}{/b}"
             hide max neutral
             show max skeptic
             b "One can dream haha. What can I help you with?"
@@ -572,9 +567,8 @@ label caffeine:
     m "Hey Professor"
     p "Hey %(pname)s, nice to see you again. How are you doing?"
     menu:
-        "Ask about Well Being":
+        "I'm doing pretty well! Thanks for asking. How are you doing?":
             $ prof_friendship +=1
-            m "I'm doing pretty well! Thanks for asking. How are you doing?"
             p "I am doing amazingly! I have my Planetarium tickets that I'm super excited for. They're doing an exclusive show about a recent breakthrough on {b}Dark Energy{\b}."
             p "It should be really exciting! If you get a chance, you should check it out!"
             m "Maybe! Sounds interesting"
@@ -583,10 +577,9 @@ label caffeine:
             p "We can work out the details later! But for now, I gotta run!"
             hide professor happy
             "I'm so glad to have Professor Bonden. His passion for astronomy is adorable. Nerdy. {p=1.5} But adorable. Hmm I wonder what the extra credit assignment is going to be exactly?"
-        "Snarkily Mention Grade":
+        "I'm doing eh. Could be better. Especially if my exam score was better":
             $ prof_friendship -=1
             $grade_change = False
-            m "I'm doing eh. Could be better. Especially if my exam score was better"
             hide professor happy
             show professor neutral
             p "I'm sorry %(pname)s. Rules are rules. There can't be any exceptions regarding regrades"
@@ -595,8 +588,7 @@ label caffeine:
             m "Thank you. Thank you! I'll definitely do it"
             p "No promises though. I need to run, see you"
             "I don't think Professor Bonden appreciated the attitude. Or maybe he did. He's considering giving me more points for extra credit after all! Now what kind of extra credit assignment would be grand enough to convince him of giving me extra points?"
-        "Polite Grade Inquiry":
-            m "I'm doing well, thanks for asking! I was wondering if you would mind if we continued our discussion from earlier?"
+        "I'm doing well, thanks for asking! I was wondering if you would mind if we continued our discussion from earlier?":
             hide professor happy
             show professor neutral
             p "Yeah, sure. I can spare a few minutes."
@@ -614,10 +606,13 @@ label caffeine:
                 p "Hahahaha I'm glad to be of service."
                 p "I actually need to run now, but let's hash out the specifics later!"
                 "Professor Bonden is so nice. I wonder what the extra credit assignment is going to be exactly?"
+    "Ah, well anyways. Now with my life saving bean juice, I shall head over to Butler"
     jump max_library
 
 label max_library:
-    scene bg themil with fade
+    scene bg but_entrance with  Pause(1.5) #fade,
+    "Good Ol' Butler"
+    scene bg themil with slideup
     show max neutral with dissolve
     if maximillion_friendship >= 2:
         hide max neutral
@@ -632,8 +627,8 @@ label max_library:
         show max wink
         show max charm
         b "Sure, I'll depart my wisdom upon today's uncouth youth"
-        "What do I want to talk about?"
         menu:
+            "What do I want to talk about?"
             "Professor Bonden":
                 m "Do you know about Professor Bonden?"
                 b "Yep! He's one of the science professors, yeah? I think I've heard mixed things about him"
@@ -652,7 +647,7 @@ label max_library:
                 menu:
                     "Confused":
                         m "Huh? Is that where his students go to present their side report? Why not just do it in his office or the classroom?"
-                        b "Hahahahahahahahahahahaha that's funny. {p=3.0}  Wait are you forreal? How oblivious can you be"
+                        b "Hahahahahahahahahahahaha that's funny. {p=1.5}  Wait {p=1 }are you forreal? How oblivious can you be"
                         hide max wink
                         show max neutral
                         b "Simpleton much?"
@@ -665,6 +660,7 @@ label max_library:
                         m "Alright!!! I get it. Stop it. People are looking at us weirdly"
                         b "Well, now you know."
                         m "I don't know, Bonden doesn't seem like the type."
+                        play sound "audio/chimes.mp3"
                         b "Why not? Sometimes that's just how it is. Actually, something similar happens with the {b}{i}T r i a n g l e{/i}{/b} actually"
                         m "So, if I were to get closer with you, I'd be a future Traingle huh?"
                         hide max neutral
@@ -680,6 +676,7 @@ label max_library:
                         show max wink
                         $ maximillion_friendship +=1
                         $sin -=1;
+                        play sound "audio/chimes.mp3"
                         b "Just to give you an insider tip, there's a supplement you can attach for your {b}{i}T r i a n g l e{/i}{/b} application too."
                         b "Involving us {p=2.0}....attaching ourselves together"
                         hide max wink
@@ -709,8 +706,8 @@ label max_library:
         hide max mad
         show max skeptic
         b "I guess...I'll do some charity work and depart my wisdom upon today's uncouth youth"
-        "What do I want to talk about?"
         menu:
+            "What do I want to talk about?"
             "Professor Bonden":
                 hide max skeptic
                 show max neutral
@@ -736,6 +733,7 @@ label max_library:
                                 b "With a whole lot of debauchery"
                                 show max wink
                                 b "Since you're so desperate for information. Let me give you some extra intel. Consider it a gift for the unfortunate"
+                                play sound "audio/chimes.mp3"
                                 b "We actually do something similar at the {b}{i}T r i a n g l e{/i}{/b} too"
                                 m "What."
                                 b "You didn't hear it from me. But maybe you want to consider doing something supplemental with your interview on Sunday morning and everything."
@@ -748,6 +746,7 @@ label max_library:
                                 b "Even a desperate idiot like you gets it. How refreshing"
                                 show max vicious
                                 $sin -=1;
+                                play sound "audio/chimes.mp3"
                                 b "I'll let you in on some even more infomation. That's actually something that could benefit your {b}{i}T r i a n g l e{/i}{/b} application too."
                                 m "Ugh. The thing that you're implying sickens me greatly"
                                 b "You sicken me. Well...you wouldn't want to hurt your chances especially since you've made it to the interview stage and everything"
@@ -774,6 +773,7 @@ label max_library:
                                 b "With a whole lot of debauchery"
                                 $ maximillion_friendship -=1
                                 show max wink
+                                play sound "audio/chimes.mp3"
                                 b "We actually do something similar at the {b}{i}T r i a n g l e{/i}{/b} too"
                                 m "What."
                                 b "You didn't hear it from me. But maybe you want to consider doing something supplemental with your interview on Sunday Morning and everything."
@@ -785,6 +785,7 @@ label max_library:
                                 b "Even an idiot like you gets it. How refreshing"
                                 show max vicious
                                 $sin -=1;
+                                play sound "audio/chimes.mp3"
                                 b "I'll let you in on some even more infomation. That's actulally something that could benefit your {b}{i}T r i a n g l e{/i}{/b} application too."
                                 m "Ugh. The thing that you're implying sickens me greatly"
                                 b "You sicken me. Well...you wouldn't want to hurt your chances especially since you've made it to the interview stage and everything"
@@ -803,8 +804,8 @@ label max_library:
         m "Actually, would you mind if I asked you about something?"
         b  "Sure, I'll depart my wisdom upon today's uncouth youth"
         "My gosh. Uncouth? Youth? What type of eccentric boomer is this"
-        "What do I want to talk about?"
         menu:
+            "What do I want to talk about?"
             "Professor Bonden":
                 m "Do you know about Professor Bonden?"
                 b "Yep! He's one of the science professors, yeah? I think I've heard mixed things about him"
@@ -836,6 +837,7 @@ label max_library:
                         m "Alright!!! I get it. Stop it. People are looking at us weirdly"
                         b "Well, now you know."
                         m "I don't know, Bonden doesn't seem like the type."
+                        play sound "audio/chimes.mp3"
                         b "Why not? Sometimes that's just how it is. Actually, something similar happens with the {b}{i}T r i a n g l e{/i}{/b} actually"
                         m "So, if I were to get closer with you, I'd be a future Traingle huh?"
                         hide max neutral
@@ -851,6 +853,7 @@ label max_library:
                         show max wink
                         $maximillion_friendship +=1
                         $sin -=1;
+                        play sound "audio/chimes.mp3"
                         b "Just to give you an insider tip, there's a supplement you can attach for your {b}{i}T r i a n g l e{/i}{/b} application too."
                         b "Involving us {p=2.0}....attaching ourselves together"
                         hide max wink
@@ -896,8 +899,8 @@ label mel_night:
     m "Hey ....Professor! It's nice seeing your here"
     p "Yeah! I must tell you, the Planetarium was mind boggling. So many interesting things you can learn over there"
     p "Sorry for cutting our conversation short yesterday. About the extra credit?"
-    "What will your extra credit be?"
     menu:
+        "What will your extra credit be?"
         "Science Report":
             m "Right! So looking into your research, I was thinking about doing a report or giving a presentation on Dark Matter or something astronomy related?"
             "I hold my breath. This is where Profesesor might shoot me down"
@@ -920,7 +923,7 @@ label mel_night:
             p "Splendid! Alright, I must run now. Have a good one, %(pname)s"
             $ prof_friendship +=1
             $sin +=1;
-            hide professor pleased
+            hide professor pleased with moveoutright
             "Oh wow, that went amazingly!"
         "Seduction time":
             $seduce_prof = True
@@ -954,11 +957,11 @@ label mel_night:
             "Oh no. This all unravelled so quickly"
             "I have no words to say. I want to vaporize away. I had the completely wrong understanding"
             p "I see now that we are not on the same page. So, I'll get back to you about looking at your exam for a regrade. I must get going. Good night,%(pname)s. I guess I'll see you on Monday."
-            hide professor mad
+            hide professor mad with moveoutright
             $ prof_friendship -=3
             $sin -=2;
             "Oh my gosh. That went HORRIBLY"
-    show max charm
+    show max charm with moveinleft
     b "Hey, so how'd the big confrontation go?"
     menu:
         "Confront":
@@ -986,8 +989,8 @@ label mel_night:
             m "Righttttt"
     show max charm
     b "Now moving on from that, did you have time to think over my offer from last night? Will you be joining me for some fun night activities tonight?"
-    "What are you going to do?"
     menu:
+        "What are you going to do?"
         "Join Maximillion":
             $sin -=1
             $seduce_max = True
@@ -1058,7 +1061,7 @@ label morning_aftermax:
     "Double Crap."
     "Triple Crap"
     "What time is it?"
-    "{p=3.0} I'M LATE FOR MY INTERVIEW"
+    "{p=2.0} I'M LATE FOR MY INTERVIEW"
     "There's only like 5 minutes left, damn it"
     "Ahhhhh, what was the point of last night then, ugh"
     show max charm with moveinright
@@ -1084,13 +1087,13 @@ label morning_aftermax:
                 jump lust_ending
             elif maximillion_friendship >= 0:
                 b "I thought you took care of your own matters by setting an alarm?"
-                "The annoyance bubbles. He has a point but the lack of remorse is quite irritating"
+                "My annoyance grows. He has a point but the lack of remorse is quite irritating"
                 m "Yeah, it seems like I forgot to sent once since yesterday took an unexpected turn"
                 b "What can I say, I bring spice to the normies' lives"
                 "Who does this guy think he is?!"
                 m "Right, yeah. I'm just going to head out now"
                 b "Alright! Maybe I'll see you later."
-                m "Yeah, maybe or maybe not"
+                m "Yeah ... {size=-8}hopefully not{/size}"
                 "AHH I'm so annoyed. Last night was pointless in the end and Maximillion is a pretty aggravating guy"
                 $ maximillion_friendship -=1;
             else:
@@ -1139,6 +1142,7 @@ label morning_afterhome:
     "Ah!! I'm so nervous. This is it. Let's get to the interview!"
     scene bg classroom with fade
     show Karen with dissolve
+    play sound "audio/chimes.mp3"
     w "Hey %(pname)s! Thanks for coming in. The {b}{i}T r i a n g l e{/i}{/b} is always excited to welcome new applicants"
     m "Thanks for having me"
     w "Now, let's get started. Why do you want to join the {b}{i}T r i a n g l e{/i}{/b}?"
@@ -1185,4 +1189,4 @@ label lust_ending:
             m "I thought Professor Bonden was going to at least offer extra credit. What did I do wrong?"
     hide screen mailbox_overlay
     "Everything is going to be fine! There's always next semester after all. Time to get this bread!"
-jump career_fair_intro
+jump greed_begin

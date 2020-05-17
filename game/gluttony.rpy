@@ -378,7 +378,9 @@ label gluttonybeginday2:
     if josh_hasnumber == True:
         call phone_start
         call message_start("Josh", "Yo, wanna have lunch together today?")
+        play sound "audio/phone_notif.mp3"
         call message("Josh", "I’m hungry like a beast for some pizza.")
+        play sound "audio/phone_notif.mp3"
         call reply_message("Yeah, dude, name a dining hall!")
         call phone_end
         $ josh_friendship +=1
@@ -724,4 +726,4 @@ label finishgluttony:
                         hide josh mad with moveoutright
                         "Well, burned that bridge for sure. Just have to avoid him for the next three years until he graduates. On the bright side, at least he’ll leave me alone. Now...about that food. I’m starving."
                         $ fightwithjosh = True
-    jump lust_start_dorm
+    jump lust_begin

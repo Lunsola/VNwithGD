@@ -34,6 +34,8 @@ label limbobegin:
 
     ####temporary to test envy
     jump rmeetjosh
+    #jump finishgluttony
+    #jump pridebegin
     show Karen at sleft
     with move
     $renpy.music.set_volume(0.5, channel="Chan1")
@@ -196,8 +198,11 @@ label limboend:
     "After some time, I decide to take a break and check my phone. Three texts from Karen."
     call phone_start
     call message_start("Karen", "Dining hall closes in 30 minutes, wanna meet there now?")
+    play sound "audio/phone_notif.mp3"
     call message("Karen", "?")
+    play sound "audio/phone_notif.mp3"
     call message("Karen", "15 minutes left for fooood")
+    play sound "audio/phone_notif.mp3"
     call phone_end
     m "Oh man, sorry guys, I have to go! I’m supposed to meet a friend for lunch."
     w "What? Oh come on, %(pname)s"
@@ -240,6 +245,7 @@ label limboend:
             w "Alright, fine. See you later, %(pname)s."
             scene bg john jay
             with dissolve
+            show Karen at right with dissolve
             "I hurry to the dining hall and find Karen sitting at a table."
             m "Hey, Karen! Sorry I’m late, I lost track of time."
             k "Hey, %(pname)s. No worries, I know how it goes."
