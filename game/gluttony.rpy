@@ -128,6 +128,7 @@ label rlonelyday:
         "Try to hide":
             "Quick, under the desk!"
             #TODO: add crash sound
+            with hpunch
             "Oh crap, that was noiser than I thought it would be."
             hide marie happy
             show marie surprised at sleft, hop

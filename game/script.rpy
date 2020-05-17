@@ -108,15 +108,9 @@ image music_cross = "music_maskcross.png"
 #professor images
 image professor happy = "Professor_happy.png"
 image professor surprised = "Professor_Shocked.png"
-image professor mad:
-    zoom 0.8
-    "Professor_annoyed.png"
-image professor neutral:
-    zoom 0.8
-    "Professor_neutral.png"
-image professor pleased:
-    zoom 0.8
-    "Professor_pleased.png"
+image professor mad = "Professor_annoyed.png"
+image professor neutral = "Professor_neutral.png"
+image professor pleased = "Professor_pleased.png"
 
 
 #item images
@@ -253,7 +247,7 @@ label start:
 
     # Name your character: (moved to limbo. "Oh hi, I'm %(pname)s")
 
-    jump lust_begin
+    jump limbobegin
 
     # This ends the game.
 
