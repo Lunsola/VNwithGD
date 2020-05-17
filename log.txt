@@ -1,4 +1,4 @@
-Sun May 17 14:26:29 2020
+Sun May 17 14:33:36 2020
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
  
@@ -6,33 +6,33 @@ Ren'Py 7.3.5.606
 Bootstrap to the start of init.init took 0.29s
 Early init took 0.01s
 Loader init took 0.15s
-Loading error handling took 0.12s
-Loading script took 1.29s
-Loading save slot metadata. took 0.21s
+Loading error handling took 0.11s
+Loading script took 3.52s
+Loading save slot metadata. took 0.46s
 Loading persistent took 0.01s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.39s
+Running init code took 0.48s
 Loading analysis data took 0.12s
-Analyze and compile ATL took 0.13s
+Analyze and compile ATL took 0.05s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\Kimberly\\AppData\\Roaming/RenPy/backups\\CU_HEdoubleL':
-Dump and make backups. took 0.35s
+Dump and make backups. took 0.45s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.08s
+Initial gc. took 0.09s
 DPI scale factor: 1.000000
-Creating interface object took 0.22s
+Creating interface object took 0.23s
 Cleaning stores took 0.00s
 Init translation took 0.09s
 Build styles took 0.02s
 Load screen analysis took 0.00s
 Analyze screens took 0.07s
-Save screen analysis took 0.39s
+Save screen analysis took 0.37s
 Prepare screens took 0.30s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.35s
-Running _start took 0.00s
-Interface start took 0.12s
+Save pyanalysis. took 0.64s
+Save bytecode. took 0.39s
+Running _start took 0.01s
+Interface start took 0.10s
 
 primary display bounds: (0, 0, 1366, 768)
 swap interval: 1 frames
@@ -257,80 +257,4 @@ Texture testing:
 - 2048px textures work.
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
-Total time until interface ready: 6.375s
-
-Full traceback:
-  File "game/envyslothwrath.rpy", line 546, in script
-    c "Josh, Josh, Josh, Josh!"
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 685, in execute
-    raise Exception("Sayer %s is not a function or string." % self.who.encode("utf-8"))
-Exception: Sayer c is not a function or string.
-
-While running game code:
-  File "game/envyslothwrath.rpy", line 546, in script
-    c "Josh, Josh, Josh, Josh!"
-Exception: Sayer c is not a function or string.
-
-Full traceback:
-  File "game/envyslothwrath.rpy", line 548, in script
-    c "JOSH, JOSH, JOSH, JOSH!"
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 685, in execute
-    raise Exception("Sayer %s is not a function or string." % self.who.encode("utf-8"))
-Exception: Sayer c is not a function or string.
-
-While running game code:
-  File "game/envyslothwrath.rpy", line 548, in script
-    c "JOSH, JOSH, JOSH, JOSH!"
-Exception: Sayer c is not a function or string.
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.02s
-Load screen analysis took 0.49s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.01s
-The window was minimized.
-The window was restored.
-
-primary display bounds: (0, 0, 1366, 768)
-swap interval: 1 frames
-Windowed mode.
-Screen sizes: virtual=(1280, 720) physical=(1182, 665) drawable=(1182, 665)
-Root FBO is: 0
-FBO Maximum Texture Size: 2048
-
-<<<<<<< HEAD
-Full traceback:
-  File "game/envyslothwrath.rpy", line 546, in script
-    c "Josh, Josh, Josh, Josh!"
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 685, in execute
-    raise Exception("Sayer %s is not a function or string." % self.who.encode("utf-8"))
-Exception: Sayer c is not a function or string.
-
-While running game code:
-  File "game/envyslothwrath.rpy", line 546, in script
-    c "Josh, Josh, Josh, Josh!"
-Exception: Sayer c is not a function or string.
-=======
-primary display bounds: (0, 0, 1366, 768)
-swap interval: 1 frames
-Windowed mode.
-Screen sizes: virtual=(1280, 720) physical=(1184, 665) drawable=(1184, 665)
-Root FBO is: 0
-FBO Maximum Texture Size: 2048
-<<<<<<< HEAD
-Using gl renderer.
-Texture testing:
-- Hardware max texture size: 16384
-- 64px textures work.
-- 128px textures work.
-- 256px textures work.
-- 512px textures work.
-- 1024px textures work.
-- 2048px textures work.
-Root FBO is: 0
-FBO Maximum Texture Size: 2048
-Total time until interface ready: 763.274999857s
-=======
->>>>>>> 83aaebdb452db7a4b09f5e0c4eac902738d37baa
->>>>>>> 8a394c379ba3f8cb714549c046b9290a0439b9d8
+Total time until interface ready: 9.38000011444s

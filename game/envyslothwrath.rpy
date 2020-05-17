@@ -8,43 +8,6 @@
 #$ marieevil = False
 #$ committedArson = False
 
-image marie urdumb = "roomate_speechless.png"
-image marie angry = "roomate_angry.png"
-image bg low:
-    zoom .45
-    "lowsteps.jpg"
-
-image bg lowonfire:
-    zoom .45
-    "lowstepsburn.jpg"
-
-image bg singleroom:
-    zoom .95
-    "singleurs.jpg"
-
-image bg singleroomd:
-    zoom .95
-    "singleursd.jpg"
-
-image bg singlemarie:
-    zoom .95
-    "single.jpg"
-
-image bg singlemaried:
-    zoom .95
-    "singledark.jpg"
-
-image bg singleonfire:
-    zoom .95
-    "singleburn.jpg"
-
-image josh mad = "josh_anger.png"
-image josh neutral = "josh_neutral.png"
-image bg columbiagates:
-    zoom 1.5
-    "columbiagates.jpg"
-define c = Character("Crowd")
-
 label beginenvy:
     $renpy.music.set_volume(1.0, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, channel="Chan2")
