@@ -1,24 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/pride.rpy", line 1067, in script
-    $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 100")
-SyntaxError: invalid syntax (game/pride.rpy, line 1067)
+  File "game/pride.rpy", line 1080, in script
+    if finalscore == 0:
+  File "game/pride.rpy", line 1080, in <module>
+    if finalscore == 0:
+NameError: name 'finalscore' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/pride.rpy", line 1067, in script
-    $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 100")
+  File "game/pride.rpy", line 1080, in script
+    if finalscore == 0:
   File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
     if renpy.python.py_eval(condition):
-  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\python.py", line 2057, in py_eval
-    code = py_compile(code, 'eval')
-  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\python.py", line 692, in py_compile
-    raise e
-SyntaxError: invalid syntax (game/pride.rpy, line 1067)
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\python.py", line 2059, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\python.py", line 2052, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/pride.rpy", line 1080, in <module>
+    if finalscore == 0:
+NameError: name 'finalscore' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 CU_HEdoubleL 1.0
-Sat May 16 23:01:01 2020
+Sun May 17 00:33:04 2020

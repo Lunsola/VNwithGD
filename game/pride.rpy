@@ -1,12 +1,12 @@
-image cgexam = "cgexam.jpg"
-image cgconv = "cgconvention.jpg"
-$ finalscore = 0 #final score counter for pride
-$ stolesg = False # Did player steal study guide
-$ classgrade = 1 #pride chapter grade (starts with one bc hw1 is a gimmie)
 label pridebegin:
+    image cgexam = "cgexam.jpg"
+    image cgconv = "cgconvention.jpg"
+    $ finalscore = 0
+    $ stolesg = False # Did player steal study guide
+    $ classgrade = 1 #pride chapter grade (starts with one bc hw1 is a gimmie)
     scene black
     with Pause(1)
-    show text "{size=50}Semester 4: You'd never guessed, but...even more school!{/size}"
+    show text "{size=50}Semester 4: You better know what you're majoring in!{/size}"
     pause
     hide text
     scene bg lecture hall
@@ -216,7 +216,7 @@ label pridebegin:
     "This airhead...got a higher grade than me?!"
     menu:
         "Yeah let's work together!":
-            "Maybe I missed one thing that was super important. I can ask Marie"
+            "Maybe I missed one thing that was unproportionally important. I can ask Marie"
             r "Yay! I actually have a study room reserved tomorrow at the library!"
             r "I'll wake you up at 8 am!"
             "Holy crap, this better be worth it"
@@ -246,7 +246,6 @@ label hw2pass:
     with moveinleft
     a "Hey my d00d. Fancy meeting you here"
     jump music_encounter
-
 label hw2fail:
     scene bg lernerramps
     "Ugh another day of zero motivation"
@@ -264,7 +263,6 @@ label hw2fail:
         "Raise eyebrow":
             pause 2
     jump music_encounter
-
 label music_encounter:
     hide music_neutral
     show music_wink
@@ -848,9 +846,9 @@ label twostudyday:
     with dissolve
     a "Hey I read your shitpost email"
     m "{size=-5}Indoor voice pleaseee"
-    "Uh oh. That girl in the back is giving the death stare with already lifeless eyes"
-    scene bg milfloor
-    show music_moody
+    "That girl in the back is giving the death stare with already lifeless eyes"
+    scene bg milfloor with fade
+    show music_moody with dissolve
     a "I just want you to know that I am very salty that you ditched me on the second day."
     a "This is top ten anime betrayals. I thought you were WOKE, fam"
     m "Sorry, I realized I have to study for finals"
@@ -859,17 +857,17 @@ label twostudyday:
     a "L A M E"
     a "I am going by myself then!"
     a "You know what this maraca is for?"
-    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     a "It's coming down on you for a vibe check"
-    hide music_inimpressed
+    hide music_unimpressed
     show music_smile
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     with vpunch
     a "And that's what you get"
     hide music_smile with dissolve
     "Marv bonked me on the head and walked away..."
     "Big ouch"
-    scene bg mil with irisin
-    "Alright time to get to work"
+    scene bg black with fade
+    "Many hours of studying later"
     scene bg bednight
     with irisin
     "Today was very productive"
@@ -882,25 +880,25 @@ label twostudyday:
     hide marie nervous with dissolve
     "I guess I can't go to the convention again"
     "Sigh.. that's two days worth of money into the void...{p=2} but wait Marv didn't ask me to pay yet"
-    "Either way, I'm too tired to process this drama..."
+    "Either way, I'm too tired to process this drama...tomorrow will be another study day"
     jump onestudyday
 label onestudyday:
     scene bg mil with irisin
     "Alright, self"
     "Time to glue my thinking cap to my head"
-    if $ marie_friendship >=1 and marieevil = False:
+    if marie_friendship >= 1 and marieevil == False:
         show marie v happy with dissolve
         r "{size=-10}Working hard, %(pname)s?"
         show marie v happy with dissolve
-    if fightwithjosh = False and $ josh_friendship >= 1:
+    if fightwithjosh == False and josh_friendship >= 1:
         show josh approve with dissolve
         j "{size=-10}You can do this, brah."
         show josh approve with dissolve
-    if $ maximillion_friendship >= 1:
+    if maximillion_friendship >= 1:
         show max wink with dissolve
         b "{size=-10}How refreshing it is to see the serf toiling earnestly"
         show max wink with dissolve
-    $ prof_friendship >= 1:
+    if prof_friendship >= 1:
         show professor happy with dissolve
         b "{size=-10}Very admirable, keep up the good work, %(pname)s."
         show professor happy with dissolve
@@ -914,7 +912,7 @@ label conventionday3:
     scene bg black with irisin
     "Afterwards, Marv invites me to hang in Hels"
     scene bg hels
-    show music_talk with dissolve
+    show music_neutral with dissolve
     m "It sure has been a fufilling and exhausting three days. Thank you for inviting me to go with you."
     a "Oh yea? Then no need to pay for your tickets. But answer this question."
     a "If our school had a meme page, which of these would be featured the most?"
@@ -926,7 +924,7 @@ label conventionday3:
         "Strangely shaped fountains on low":
             pass
     a "I'll take your word for it. I'd be a sad pepe to brush off the insight of an epic memer like you."
-    hide music_talk
+    hide music_neutral
     show music_smile
     a "%(pname)s, I just want to say, thank you memeing with me this year."
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
@@ -974,8 +972,8 @@ label examday:
         "3":
             pass
         "2":
-            $ classgrade =+1
-            $ finalscore =+20;
+            $ classgrade +=1;
+            $ finalscore +=20;
         "1":
             pass
     menu:
@@ -987,15 +985,15 @@ label examday:
         "9":
             pass
         "8":
-            $ classgrade =+1
-            $ finalscore =+20;
+            $ classgrade +=1;
+            $ finalscore +=20;
     menu:
         "How many floors does lerner have?"
         "9":
             pass
         "8":
-            $ classgrade =+1
-            $ finalscore =+20;
+            $ classgrade +=1;
+            $ finalscore +=20;
         "7":
             pass
         "6":
@@ -1003,8 +1001,8 @@ label examday:
     menu:
         "When was Barnard founded?"
         "1889":
-            $ classgrade =+1
-            $ finalscore =+20;
+            $ classgrade +=1;
+            $ finalscore +=20;
         "1988":
             pass
         "1898":
@@ -1018,8 +1016,8 @@ label examday:
         "47:900":
             pass
         "48000":
-            $ classgrade =+1
-            $ finalscore =+20;
+            $ classgrade +=1;
+            $ finalscore +=20;
         "47900":
             pass
     "Whew that's the end. Nothing screams high stakes like a five-question final."
@@ -1038,7 +1036,7 @@ label examday:
         a "What's up d00ds"
         r "We're discussing the final ASSES"
         a "LMFAO d00ds, like we should totally dab on the exam. It was a cakewalk by the ocean"
-        if stolesg = True and marieevil = True:
+        if stolesg == True and marieevil == True:
             r "If it weren't for %(psname)s's study guide, I think I would feel much more anxious right now!"
             m "What study guide?"
             hide music_talk
@@ -1051,7 +1049,7 @@ label examday:
             show marie v happy at left, hop
             r "Well, that could be a coincidence! %(pname)s tends to have things that looks other people's belongings, isn't that right, %(pname)s?"
             a "%(pname)s, you're a snek"
-            hide music_dark with fade
+            hide music_dark with dissolve
             jump badendingpride
         a "I gotta skrt right now, but y'all should come watch me at graduation!"
         play sound "audio/OOT_Scarecrow_Shake1.mp3"
@@ -1060,34 +1058,34 @@ label examday:
     else:
         jump badendingpride
 label badendingpride:
-    scene bg collegewalk with irisin
+    scene bg milfloor with irisin
     "After graduation, I never heard of Marven again"
-    "Life is really like a visual novel"
-    "A single choice could change your relationship with a person forever. Me and Marven could've been really good friends through shared interests"
+    "Life is like a visual novel. A single choice could change your relationship with a person forever."
+    "Me and Marven could've been really good friends through shared interests"
     jump prideend
 label goodendingpride:
     scene bg columbialawn with irisin
     "After graduation, Marven decided to do some traveling to search for a purpose in life"
-    if music_friendship >=10:
+    if music_friendship >=9:
         $ success +=1
         "His last words were: %(pname)s, I'm glad I was your senpai. Here is a stack of GRE and TOEFL books, along with study guides made with my blood, sweat, and tears"
     "He sends me the occasional finely curated meme"
     call phone_start
     call message_img("MaRv", "LmfAO sksksk","pride_meme2.jpg")
-    call message("lol")
-    call phone_endi
+    call reply_message("lol")
+    call phone_end
     jump prideend
 label prideend:
     play sound "audio/email_notif.mp3"
-    if finalscore == 1:
+    if finalscore == 0:
         $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 0")
-    elif finalscore == 0:
+    elif finalscore == 20:
         $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 20")
-    elif finalscore == 2:
+    elif finalscore == 40:
         $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 40")
-    elif finalscore == 3:
+    elif finalscore == 60:
         $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 60")
-    elif finalscore == 4:
+    elif finalscore == 80:
         $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 80")
     else:
         $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 100")
