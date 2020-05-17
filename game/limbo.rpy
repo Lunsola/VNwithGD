@@ -33,7 +33,7 @@ label limbobegin:
     $ pname = renpy.input("My name is:")
 
     ####temporary to test envy
-    jump finishgluttony
+    jump pridebegin
     show Karen at sleft
     with move
     $renpy.music.set_volume(0.5, channel="Chan1")

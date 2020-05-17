@@ -532,6 +532,8 @@ label dawnofthelastday:
     "I probably should actually take time today to focus on all the shit I have to get done before classes start. But I kind of...don’t feel like it? All I can think about is Josh and Marie, Marie and Josh. It’s like, my brain is stuck on them or something. Why do they have all the things I want? Why do other people get to be happy and I don’t?"
     "Wait a second. Something feels off about this room."
     with hpunch
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.play("audio/Wrath.mp3", channel="Chan1", synchro_start=True)
     "How did I not notice before? This isn’t my room it’s...Marie’s."
     "But wait, that doesn’t make sense. Why would I walk into Marie’s room instead of my own? That’s so random?"
     "And why does Marie have a box of matches lying open on her desk? Are we even allowed to have those?"
@@ -581,6 +583,7 @@ label dawnofthelastday:
             jump closecurtains
 
 label closecurtains:
+    #TODO: JUDGE 'EM FOR THEIR SINS or their love?
     hide marie concerned
     hide marie urdumb
     show marie neutral
@@ -626,6 +629,7 @@ label closecurtains:
         r "Wait."
         r "This test can't be inconclusive."
         r "We have to run the numbers again. I-"
+        with pixellate
     else:
         hide marie neutral
         show marie happy
