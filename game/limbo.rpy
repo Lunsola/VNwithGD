@@ -14,6 +14,7 @@ init -1 python:
     renpy.music.register_channel("Chan1", mixer= "music", loop=True, stop_on_mute=False, tight=True)
     renpy.music.register_channel("Chan2", mixer= "music", loop=True, stop_on_mute=False, tight=True)
     renpy.music.register_channel("Chan3", mixer= "music", loop=True, stop_on_mute=False, tight=True)
+    renpy.music.register_channel("Chan4", mixer= "music", loop=True, stop_on_mute=False, tight=True)
 
 label limbobegin:
     $renpy.music.set_volume(1.0, channel="Chan1")
@@ -33,7 +34,7 @@ label limbobegin:
     $ pname = renpy.input("My name is:")
 
     ####temporary to test envy
-    jump rmeetjosh
+    jump lust_begin
     #jump finishgluttony
     #jump pridebegin
     show Karen at sleft

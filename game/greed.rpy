@@ -1,4 +1,13 @@
 label greed_begin:
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.play("audio/GreedMain.mp3", channel="Chan1", synchro_start=True)
+    $renpy.music.play("audio/GreedBonden.mp3", channel="Chan2", synchro_start=True)
+    $renpy.music.play("audio/GreedMaximillion.mp3", channel="Chan3", synchro_start=True)
+    $renpy.music.play("audio/GreedMarie.mp3", channel="Chan4", synchro_start=True)
+
     $copy_res = False
     $interview_offer = False
     $greed_check = 0
@@ -51,6 +60,10 @@ label career_dorm:
 
     "Ah, finally it's time to nap."
 
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.5, channel="Chan4")
     show marie happy with moveinleft
 
     r "Hey, %(pname)s"
@@ -83,6 +96,10 @@ label career_dorm:
 
 label career_Burner:
     scene bg lernerramps
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
     show max charm
     b "%(pname)s! Congratulations you've been blessed by the great Maximillion's presence"
     b "I crushed it in there! I handed out all 60 copies of my resume and had them practically eating out of my hand. But that's to be expected from such simpletons"
@@ -108,6 +125,10 @@ label career_Burner:
     jump career_email
 label career_email:
     scene bg EC with fade
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
     "Man, nothing beats eating snacks in the dorm after a long day"
     show screen mailbox_overlay
     $ add_message("Offer to Your Dream Job","Recruiter","Hi, The first step in getting an internship at Dream Job and Co. is to apply. For your application you'll need a resume and letter of recommendation. Thank you for expressing your interest in us. We hope to hear from you soon. With Dream Job and Co, all of our dreams will come true" )
@@ -133,6 +154,10 @@ label career_email:
             jump breaken_route
 label bonden_route:
     scene bg office with fade
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
     show professor neutral
     "Hey Professor Bonden! I hope you've been well. I was wondering if it would be possible for you to write me a letter of recommendation?"
     if seduce_prof == True:
@@ -169,6 +194,10 @@ label bonden_route:
 
 label breaken_route: #need to add an option for giving up
     scene bg office with fade
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
     show Karen
     menu:
         "Hey Professor Breaken, I was hoping to ask":
@@ -249,6 +278,10 @@ label breaken_route: #need to add an option for giving up
             "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
             jump prof_reject
 label prof_reject:
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
     "Sigh, what a pointless endeavor. I'm going to head back to my room and dwell in sadness for a bit"
     scene bg bedroom with fade
     "The prospect of getting an internship was shrinking"
@@ -256,6 +289,10 @@ label prof_reject:
     ""
     ""
     "30 minutes pass by before"
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.5, channel="Chan4")
     r "Yay!!!!!!!"
     "You're jolted awake"
     show marie v happy with moveinright
@@ -278,6 +315,11 @@ label prof_reject:
             "I quickly snap a picture of her recommendation letter"
             $greed_check +=1
             r "No prob! Now I'm going to run and make that call! I'll see you soon %(pname)s"
+            $renpy.music.set_volume(1.0, channel="Chan1")
+            $renpy.music.set_volume(volume=0.0, channel="Chan2")
+            $renpy.music.set_volume(volume=0.0, channel="Chan3")
+            $renpy.music.set_volume(volume=0.0, channel="Chan4")
+            hide marie v happy with moveoutright
             "Yes!!! With this, I can forge my own recommendation letter to send out to companies"
             "I'll be able to get an internship in no time. Who needs Professor Breaken anyways"
             $success+=1
@@ -290,6 +332,10 @@ label prof_reject:
             show marie v happy at sright
             r "Okie!! See you soon, I'll be back"
             hide marie v happy with moveoutright
+            $renpy.music.set_volume(1.0, channel="Chan1")
+            $renpy.music.set_volume(volume=0.0, channel="Chan2")
+            $renpy.music.set_volume(volume=0.0, channel="Chan3")
+            $renpy.music.set_volume(volume=0.0, channel="Chan4")
             "The thought of asking to see Marie's letter in order to forge it briefly crossed my mind"
             "It'd be so easy to do and it wouldn't even hurt anyone, but I decided against it after seeing how Marie deserved her recommendation letter after all of her hard work"
             "After all, it was me that was rejected by Professor Breaken"
@@ -323,6 +369,10 @@ label breaken_draft(contact, message_title="Report Academic Violation"):
     return
 
 label sab_marie:
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.5, channel="Chan4")
     r "Oh no. no no no no no no no no. This can't be happening"
     show marie distressed with moveinright
     m "What's wrong?"
@@ -349,6 +399,10 @@ label sab_marie:
             r "You're kind of hard to talk to..."
             $sin-=1
             hide marie distressed moveoutright
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
     jump resume
 label resume:
     "Anyways yay, I've figured out my recommendation letter!"
@@ -356,6 +410,10 @@ label resume:
     "Right! A resume. Let's head over to Buttler to properly focus"
     scene bg buthall with fade
     "Oh wow look at that, Marie is also here!"
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.5, channel="Chan4")
     show marie happy
     r "Hey %(pname)s! What are you doing here?"
     m "Ah, I'm writing my resume"
@@ -364,6 +422,10 @@ label resume:
     menu:
         "Write your resume by yourself":
             hide marie happy with dissolve
+            $renpy.music.set_volume(1.0, channel="Chan1")
+            $renpy.music.set_volume(volume=0.0, channel="Chan2")
+            $renpy.music.set_volume(volume=0.0, channel="Chan3")
+            $renpy.music.set_volume(volume=0.0, channel="Chan4")
             "I think I've got things covered. How hard can writing a resume be anyways"
             "The hours pass by at Butler with many meme breaks and stretching but eventually my resume is complete"
             $sin+=1
@@ -443,14 +505,18 @@ label resume:
                     $marie_friendship-=1
                     m "Please kindly keep your thoughts to yourself."
                     m "Else, I'll be required to venmo you for emotional labor"
-                    show marie aversem
-                    hide marie aversem
+                    show marie averse
+                    hide marie averse
                     r "Oh...I thought we could support each other. I shouldn't have assumed."
                     show marie cry
                     hide marie sad with moveoutright
                     "Yikes, what a wreck"
     jump intern_interview
 label intern_interview:
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
     scene bg bedroom with fade
     "Man, it's been days since I've submitted my application to Dream Job and Co. I'm getting nervous. The lack of news is probably bad news"
     show screen mailbox_overlay
@@ -481,6 +547,10 @@ label intern_interview:
     scene bg CCE with fade
     "Hmm, that mock interview was mildly helpful. The best advice that they gave was be charming and confident. Easier said than done"
     "But whatever, I guess I'll have to keep doing research about Dream Job and Co. and doing more interview prep before Friday"
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
     show max neutral at right with dissolve
     "Oh woah, it's Maximillion! I wonder if he had an interview or something. Lucky dude must be raking it in with the internship interviews and getting offers left and right"
     m "Hey, Maximillion! How's it going? Did you just have an interview? How'd it go?"
@@ -537,6 +607,10 @@ label intern_interview:
             if seduce_max == True:
                 b "I so deeply regreat that night after Mel's"
             hide max mad with dissolve
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
     "Maximillion, always a whirlwind to handle as always"
     "Anyways, I've got my own stuff to do after all"
     if interview_offer == True:
@@ -558,6 +632,10 @@ screen countdown: #relates to question 1
     bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve # This is the timer bar.
 
 label real_interview:
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
     $int_score =0
     scene bg bedroom with fade
     "Ah!! I'm so nervous about the interview today. This is it. Time to see if all that prep paid off"
@@ -727,6 +805,10 @@ label job_results:
 label copied_marie:
     $ marieevil = True
     scene bg columbialawn with fade
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.5, channel="Chan4")
     show marie happy at right with dissolve
     m "Oh hey Marie! How are you doing?"
     r "I'm doing really great! It's so nice and sunny outside. Everything is absolutely as perfect as it can be. "
@@ -755,6 +837,10 @@ label copied_marie:
 label sad_marie:
     scene bg columbialawn with fade
     "Oh hey look it's Marie! "
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.5, channel="Chan4")
     show marie distressed at topright with dissolve
     if greed_check == 3:     #dialogue for you getting job
         "I'm so excited to tell her the good news"
@@ -799,6 +885,10 @@ label sad_marie:
 
 label sad_max:
     scene bg collegewalk with fade
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
     b "%(pname)s! I command you to wait up"
     show max charm at right, sright
     "Ah the Magnificent Maximillion"
@@ -845,6 +935,10 @@ label sad_max:
     b "Don't worry peasant %(pname)s. I, your leader, will be shining brightly whenever you see me next"
     m "Thank you. I feel inspired already"
     hide max grateful with moveoutleft
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
     jump end_greed
 
 label end_greed:
