@@ -373,7 +373,9 @@ label gluttonybeginday2:
     if josh_hasnumber == True:
         call phone_start
         call message_start("Josh", "Yo, wanna have lunch together today?")
+        play sound "audio/phone_notif.mp3"
         call message("Josh", "I’m hungry like a beast for some pizza.")
+        play sound "audio/phone_notif.mp3"
         call reply_message("Yeah, dude, name a dining hall!")
         call phone_end
         $ josh_friendship +=1

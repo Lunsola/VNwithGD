@@ -125,8 +125,8 @@ label career_email:
         "I really bonded with Professor Bonden when I was trying to get my grade changed, I mean, trying to form a genuine bond. Regardless, Professor Bonden has always been really sweet"
     "Professor Breaken on the other hand is a whole other story"
     "Gulpa says that they're the best but I swear it feels like they hate me. Maybe I'm just over thinking things though"
-    "Who to ask? What a dilemma"
     menu:
+        "Who to ask? What a dilemma"
         "Professor Bonden":
             jump bonden_route
         "Professor Breaken":
@@ -185,7 +185,8 @@ label breaken_route: #need to add an option for giving up
         "Hi":
             op "Nope. Bye"
             hide Karen with moveoutright
-            "There's always next time"
+            "Oh...that was kind of rude. Maybe Professor Breakn's avoiding me?"
+            "Well I guess, there's always next time"
         "Never mind":
             "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
             jump prof_reject
@@ -216,7 +217,7 @@ label breaken_route: #need to add an option for giving up
             m "Right so about that letter of recommendation?"
             if sin >=3:
                 $greed_check +=1
-                op "I'm pretty busy since I have an upcoming presentation coming up.{p=3.0} But I think I can squeeze you in"
+                op "I'm pretty busy since I have an upcoming presentation coming up.{p=2.0} But I think I can squeeze you in"
                 $success+=1
                 m "Thank you thank you Professor Breaken! I really appreciate it"
                 "Wow, bless whatever higher being for rewarding me with Professor Breaken's kindness"
@@ -246,18 +247,20 @@ label breaken_route: #need to add an option for giving up
         "Never mind":
             "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
             jump prof_reject
-$ prof2 = Contact("Professor Breaken", "breaken_draft")
 label prof_reject:
     "Sigh, what a pointless endeavor. I'm going to head back to my room and dwell in sadness for a bit"
     scene bg bedroom with fade
     "The prospect of getting an internship was shrinking"
     "With that, you drift off to sleep"
+    ""
+    ""
+    "30 minutes pass by before"
     r "Yay!!!!!!!"
     "You're jolted awake"
     show marie v happy with moveinright
     r "Guess what, guess what"
     m "I guess you've got some good news to share?"
-    r "Ding! Ding! You're absoultely right"
+    r "Ding! Ding!Ding! You're absoultely right"
     show marie v happy at sright, hop
     r "Professor Breaken wrote a recommendation letter for me"
     "What. Professor Breaken to busy to spare any time for me, Professor Breakn?"
@@ -282,27 +285,30 @@ label prof_reject:
             show marie surprised
             r "Are you sure? I can stick around"
             m "Yeah! I'm good don't worry about it"
+            hide marie surprised
+            show marie v happy at sright
             r "Okie!! See you soon, I'll be back"
-            show marie v happy with moveoutright
+            hide marie v happy with moveoutright
             "The thought of asking to see Marie's letter in order to forge it briefly crossed my mind"
             "It'd be so easy to do and it wouldn't even hurt anyone, but I decided against it after seeing how Marie deserved her recommendation letter after all of her hard work"
             "After all, it was me that was rejected by Professor Breaken"
-            "I guess, I'll just have to accept the L and write my own reccomendation letter or ask someone other than my Professors"
+            "I guess, I'll just have to accept the L and write my own recommendation letter or ask someone other than my Professors"
             $success-=1
             $sin+=1
     "I was left alone to my brooding. I was still pretty salty about how Professor Breaken had shown such obvious favoritism for Marie over me. Considering how we're in the same major, she'll be getting all of the job offers"
     "We can't have that now. I thought of a way to even the playing field. I remember hearing how Professor Breaken was super strict about violations of academic integrity"
     "Maybe I can write an email letting them know about Marie's \'violations\'"
     menu:
-        "Write the email":
+        "Write an email lying about Marie cheating":
+            show screen mailbox_overlay
+            $ prof2 = Contact("Professor Breaken", "breaken_draft")
             "Yes! This is perfect. This way I'll still be fine and get rid of my competition in the process"
             "Let's draft this message! Check your message box at the upper right"
-            show screen mailbox_overlay
             "{p=3.0} Great. With this, I'll be paving the road for my success"
             $sin-=1
             hide screen mailbox_overlay
             jump sab_marie
-        "Forget it":
+        "Forget it and leave it alone":
             "Oh my goodness, what am i thinking. I can't do that to Marie. She's been such a great roommate"
             "I'm really going to turn down the salt levels. I'll be just fine without having to ruin someone else's chances"
     jump resume
@@ -317,11 +323,11 @@ label breaken_draft(contact, message_title="Report Academic Violation"):
 
 label sab_marie:
     r "Oh no. no no no no no no no no. This can't be happening"
-    show marie distressed moveinright
+    show marie distressed with moveinright
     m "What's wrong?"
-    "I had an idea"
+    "Being the perpetrator, I already knew what was going to come next"
     r "Professor Breaken just emailed me saying that I was being suspected of violating the academic integrity policy. I might be getting a 0 in their class"
-    r "They even said that they wanted to take back the recommendation letter and says they're forbidding me from using it"
+    r "They even said that they wanted to take back the recommendation letter and they forbid me from using it"
     r "I have no idea why this is happening. I would never cheat!"
     menu:
         "Oh no! I'm sure the truth will come out and things will be fine":
