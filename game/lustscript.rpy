@@ -5,6 +5,9 @@ label lust_start_dorm:
     $twin = False
     $bizboss = False
     $dinoroar = False
+    image bg but_entrance:
+        zoom 0.70
+        "But_Entrance.jpg"
     scene black
     with Pause(1)
     show text "{size=50}Semester 2: Still at School{/size}"
@@ -109,8 +112,6 @@ label roomie_talk:
             hide marie concerned
             jump thurs_end
 
-
-
 label social_media:
     call phone_start
     call message_img("Meme Central", "Here lies the spiciest of the spicy memes","meme1.jpg")
@@ -122,7 +123,6 @@ label social_media:
     "Your eyes burn from absorbing the memes and decide that's enough avoiding your pain today"
     "I'll just go and look for Professor Bonden tomorrow. Everything will be fine"
     jump thurs_end
-
 
 label prof_email:
 
@@ -172,7 +172,6 @@ label fri_morn:
     else:
         $ add_message("Triangle Info Session", "{b}{i}T r i a n g l e{/i}{/b}", "Thank you for expressing interest into joining the Triangles! We will be hosting a meeting in Hamilton 702. Hope to see you there. Please wear business casual!")
         play sound "audio/email_notif.mp3"
-    hide screen mailbox_overlay
     menu: #TODO Figure out problem with loading images as menu options
         "Ah!! So much to get done. But let's see... time to figure out what to wear"
         "I 8 π T-shirt and Jeans": #"{image = ../images/itsandwich.png}":
@@ -184,6 +183,7 @@ label fri_morn:
         "Dino Onesie": #"No pictures pls":
             $dinoroar = True
             pass
+    hide screen mailbox_overlay
     "Now all ready to take on today's challenges! We should go speak with Professor Bonden to learn more about what exactly happened with the exam"
     if prof_email == True:
         jump prof_meet
@@ -433,12 +433,11 @@ label club_info:
     b "Hi, I'm Maximillion. My friends call me Max though. How can I assist a commoner like you today?"
     menu:
         "Commoner?"
-        "Ignore ":
+        "Ignore the comment":
             "Commoner, the heck is wrong with this dude. Better to just fill out my club application and call it a day"
             m "Hi,I'm %(pname)s"
             jump club_app
-        "Snarkily Compliment":
-            m "Nice job up there. Maybe you're not a fellow commoner after all "
+        "Nice job up there. Maybe you're not a fellow commoner after all ":
             show max charm
             b "Wow. Sass back. I like. Be careful though, with someone as classy as myself. It'll be hard to keep up."
             m "Sounds to me like you're scared of some competition"
@@ -449,21 +448,20 @@ label club_info:
             m"Haha anyways"
             $ maximillion_friendship +=1
             jump club_app
-        "Insult":
+        "How can a pile of trash such as yourself help me?":
             $sin -=1;
             "This absolute ass"
-            m "How can a pile of trash such as yourself help me?"
             show max mad
             b "You must have no friends so you don't understand the premise of helping others"
             m "Not really. Sounds like you've had a lot of personal experience with having no friends though"
             b "...What can I do for you trash?"
             $ maximillion_friendship -=1
             jump club_app
-        "Compliment":
+        "Great job up there!":
             $sin +=1;
             show max neutral
             "Let's just ignore the commoner comment. This dude clearly has a superiority complex better play into it. It might help my chances of getting in"
-            m "Hi, great job up there! I'm %(pname)s Hopefully, I'll be able to be up there with you guys next year presenting about the great Triangle club"
+            m "Hi, I'm %(pname)s! Nice to meet you. Hopefully, I'll be able to be up there with you guys next year promoting the great {b}{i}T r i a n g l e{/i}{/b}"
             hide max neutral
             show max skeptic
             b "One can dream haha. What can I help you with?"
@@ -569,9 +567,8 @@ label caffeine:
     m "Hey Professor"
     p "Hey %(pname)s, nice to see you again. How are you doing?"
     menu:
-        "Ask about Well Being":
+        "I'm doing pretty well! Thanks for asking. How are you doing?":
             $ prof_friendship +=1
-            m "I'm doing pretty well! Thanks for asking. How are you doing?"
             p "I am doing amazingly! I have my Planetarium tickets that I'm super excited for. They're doing an exclusive show about a recent breakthrough on {b}Dark Energy{\b}."
             p "It should be really exciting! If you get a chance, you should check it out!"
             m "Maybe! Sounds interesting"
@@ -580,10 +577,9 @@ label caffeine:
             p "We can work out the details later! But for now, I gotta run!"
             hide professor happy
             "I'm so glad to have Professor Bonden. His passion for astronomy is adorable. Nerdy. {p=1.5} But adorable. Hmm I wonder what the extra credit assignment is going to be exactly?"
-        "Snarkily Mention Grade":
+        "I'm doing eh. Could be better. Especially if my exam score was better":
             $ prof_friendship -=1
             $grade_change = False
-            m "I'm doing eh. Could be better. Especially if my exam score was better"
             hide professor happy
             show professor neutral
             p "I'm sorry %(pname)s. Rules are rules. There can't be any exceptions regarding regrades"
@@ -592,8 +588,7 @@ label caffeine:
             m "Thank you. Thank you! I'll definitely do it"
             p "No promises though. I need to run, see you"
             "I don't think Professor Bonden appreciated the attitude. Or maybe he did. He's considering giving me more points for extra credit after all! Now what kind of extra credit assignment would be grand enough to convince him of giving me extra points?"
-        "Polite Grade Inquiry":
-            m "I'm doing well, thanks for asking! I was wondering if you would mind if we continued our discussion from earlier?"
+        "I'm doing well, thanks for asking! I was wondering if you would mind if we continued our discussion from earlier?":
             hide professor happy
             show professor neutral
             p "Yeah, sure. I can spare a few minutes."
@@ -611,10 +606,13 @@ label caffeine:
                 p "Hahahaha I'm glad to be of service."
                 p "I actually need to run now, but let's hash out the specifics later!"
                 "Professor Bonden is so nice. I wonder what the extra credit assignment is going to be exactly?"
+    "Ah, well anyways. Now with my life saving bean juice, I shall head over to Butler"
     jump max_library
 
 label max_library:
-    scene bg themil with fade
+    scene bg but_entrance with  Pause(1.5) #fade,
+    "Good Ol' Butler"
+    scene bg themil with slideup
     show max neutral with dissolve
     if maximillion_friendship >= 2:
         hide max neutral

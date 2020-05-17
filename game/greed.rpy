@@ -178,19 +178,19 @@ label breaken_route: #need to add an option for giving up
         "Never mind":
             "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
             jump prof_reject
-    scene bg columbialawn with fade
+    scene bg columbialawn with slideright
     show Karen with moveinright
     "Oh I see Professor Breaken!"
     menu:
         "Hi":
             op "Nope. Bye"
             hide Karen with moveoutright
-            "Oh...that was kind of rude. Maybe Professor Breakn's avoiding me?"
+            "Oh...that was kind of rude. Maybe Professor Breaken's avoiding me?"
             "Well I guess, there's always next time"
         "Never mind":
             "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
             jump prof_reject
-    scene bg milfloor with fade
+    scene bg milfloor with slideawayleft
     show Karen with moveinleft
     "It's like seeing a unicorn"
     menu:
@@ -201,7 +201,7 @@ label breaken_route: #need to add an option for giving up
         "Never mind":
             "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
             jump prof_reject
-    scene bg collegewalk with fade
+    scene bg collegewalk with irisin
     show Karen with moveinbottom
     "Maybe fourth time's the charm?"
     menu:
