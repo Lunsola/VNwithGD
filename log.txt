@@ -1,43 +1,43 @@
-Sun May 17 14:03:29 2020
+Sun May 17 14:26:29 2020
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
  
 
-Bootstrap to the start of init.init took 0.30s
-Early init took 0.02s
+Bootstrap to the start of init.init took 0.29s
+Early init took 0.01s
 Loader init took 0.15s
-Loading error handling took 0.22s
-Loading script took 9.29s
-Loading save slot metadata. took 0.20s
-Loading persistent took 0.11s
+Loading error handling took 0.12s
+Loading script took 1.29s
+Loading save slot metadata. took 0.21s
+Loading persistent took 0.01s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.69s
-Loading analysis data took 0.11s
-Analyze and compile ATL took 0.06s
+Running init code took 0.39s
+Loading analysis data took 0.12s
+Analyze and compile ATL took 0.13s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\Kimberly\\AppData\\Roaming/RenPy/backups\\CU_HEdoubleL':
-Dump and make backups. took 0.72s
+Dump and make backups. took 0.35s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.09s
+Initial gc. took 0.08s
 DPI scale factor: 1.000000
-Creating interface object took 0.23s
+Creating interface object took 0.22s
 Cleaning stores took 0.00s
-Init translation took 0.11s
-Build styles took 0.03s
+Init translation took 0.09s
+Build styles took 0.02s
 Load screen analysis took 0.00s
-Analyze screens took 0.08s
-Save screen analysis took 0.45s
-Prepare screens took 0.40s
-Save pyanalysis. took 0.70s
-Save bytecode. took 0.41s
-Running _start took 0.01s
+Analyze screens took 0.07s
+Save screen analysis took 0.39s
+Prepare screens took 0.30s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.35s
+Running _start took 0.00s
 Interface start took 0.12s
 
 primary display bounds: (0, 0, 1366, 768)
 swap interval: 1 frames
 Windowed mode.
-Screen sizes: virtual=(1280, 720) physical=(1184, 666) drawable=(1184, 666)
+Screen sizes: virtual=(1280, 720) physical=(1182, 665) drawable=(1182, 665)
 Vendor: 'Intel'
 Renderer: 'Intel(R) HD Graphics 4600'
 Version: '4.3.0 - Build 10.18.15.4248'
@@ -257,274 +257,56 @@ Texture testing:
 - 2048px textures work.
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
-Total time until interface ready: 17.4849998951s
-
-primary display bounds: (0, 0, 1366, 768)
-swap interval: 1 frames
-Windowed mode.
-Screen sizes: virtual=(1280, 720) physical=(1184, 664) drawable=(1184, 664)
-Root FBO is: 0
-FBO Maximum Texture Size: 2048
-
-primary display bounds: (0, 0, 1366, 768)
-swap interval: 1 frames
-Windowed mode.
-Screen sizes: virtual=(1280, 720) physical=(1184, 665) drawable=(1184, 665)
-Root FBO is: 0
-FBO Maximum Texture Size: 2048
+Total time until interface ready: 6.375s
 
 Full traceback:
-  File "game/lustscript.rpy", line 644, in script
-    scene bg but_entrance with  Pause(1.5) #fade,
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1389, in execute
-    renpy.exports.with_statement(trans, paired)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\exports.py", line 1601, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 2251, in do_with
-    clear=clear)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 2702, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 3194, in interact_core
-    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 2094, in draw_screen
-    renpy.config.screen_height,
-  File "renpy/display/render.pyx", line 490, in renpy.display.render.render_screen (gen\renpy.display.render.c:6805)
-    rv = render(root, width, height, st, st)
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\layout.py", line 722, in render
-    surf = render(child, width, height, cst, cat)
-  File "renpy/display/render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:4075)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\transition.py", line 87, in render
-    return null_render(self, width, height, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\transition.py", line 61, in null_render
-    st, at)
-  File "renpy/display/render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:4075)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\layout.py", line 722, in render
-    surf = render(child, width, height, cst, cat)
-  File "renpy/display/render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:4075)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\layout.py", line 722, in render
-    surf = render(child, width, height, cst, cat)
-  File "renpy/display/render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:4075)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "accelerator.pyx", line 110, in renpy.display.accelerator.transform_render
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\image.py", line 500, in render
-    return wrap_render(self.target, width, height, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\image.py", line 306, in wrap_render
-    rend = render(child, w, h, st, at)
-  File "renpy/display/render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:4075)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "accelerator.pyx", line 110, in renpy.display.accelerator.transform_render
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\im.py", line 583, in render
-    return cache.get(self, render=True)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\im.py", line 266, in get
-    surf = image.load()
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\im.py", line 628, in load
-    surf = renpy.display.pgrender.load_image(renpy.loader.load(self.filename), self.filename)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\loader.py", line 576, in load
-    raise IOError("Couldn't find file '%s'." % name)
-IOError: Couldn't find file 'But_Entrance.jpg'.
-
-While loading <'Image' 'But_Entrance.jpg'>:
-  File "game/lustscript.rpy", line 644, in script
-    scene bg but_entrance with  Pause(1.5) #fade,
-IOError: Couldn't find file 'But_Entrance.jpg'.
-
-Full traceback:
-  File "game/lustscript.rpy", line 645, in script
-    "Good Ol' Butler"
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 708, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\exports.py", line 1345, in say
-    who(what, *args, **kwargs)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\character.py", line 1142, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, **display_args)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\character.py", line 842, in do_display
-    **display_args)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\character.py", line 591, in display_say
-    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ui.py", line 297, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 2702, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 3194, in interact_core
-    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 2094, in draw_screen
-    renpy.config.screen_height,
-  File "renpy/display/render.pyx", line 490, in renpy.display.render.render_screen (gen\renpy.display.render.c:6805)
-    rv = render(root, width, height, st, st)
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\layout.py", line 722, in render
-    surf = render(child, width, height, cst, cat)
-  File "renpy/display/render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:4075)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\layout.py", line 722, in render
-    surf = render(child, width, height, cst, cat)
-  File "renpy/display/render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:4075)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\layout.py", line 722, in render
-    surf = render(child, width, height, cst, cat)
-  File "renpy/display/render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:4075)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "accelerator.pyx", line 110, in renpy.display.accelerator.transform_render
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\image.py", line 500, in render
-    return wrap_render(self.target, width, height, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\image.py", line 306, in wrap_render
-    rend = render(child, w, h, st, at)
-  File "renpy/display/render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:4075)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "accelerator.pyx", line 110, in renpy.display.accelerator.transform_render
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\im.py", line 583, in render
-    return cache.get(self, render=True)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\im.py", line 266, in get
-    surf = image.load()
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\im.py", line 628, in load
-    surf = renpy.display.pgrender.load_image(renpy.loader.load(self.filename), self.filename)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\loader.py", line 576, in load
-    raise IOError("Couldn't find file '%s'." % name)
-IOError: Couldn't find file 'But_Entrance.jpg'.
-
-While loading <'Image' 'But_Entrance.jpg'>:
-  File "game/lustscript.rpy", line 645, in script
-    "Good Ol' Butler"
-IOError: Couldn't find file 'But_Entrance.jpg'.
-
-Full traceback:
-  File "game/lustscript.rpy", line 646, in script
-    scene bg themil with slideup
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1389, in execute
-    renpy.exports.with_statement(trans, paired)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\exports.py", line 1601, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 2251, in do_with
-    clear=clear)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 2702, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 3194, in interact_core
-    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 2094, in draw_screen
-    renpy.config.screen_height,
-  File "renpy/display/render.pyx", line 490, in renpy.display.render.render_screen (gen\renpy.display.render.c:6805)
-    rv = render(root, width, height, st, st)
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\layout.py", line 722, in render
-    surf = render(child, width, height, cst, cat)
-  File "renpy/display/render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:4075)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\transition.py", line 890, in render
-    bottom = render(self.bottom, width, height, st, at)
-  File "renpy/display/render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:4075)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\layout.py", line 722, in render
-    surf = render(child, width, height, cst, cat)
-  File "renpy/display/render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:4075)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\layout.py", line 722, in render
-    surf = render(child, width, height, cst, cat)
-  File "renpy/display/render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:4075)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "accelerator.pyx", line 110, in renpy.display.accelerator.transform_render
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\image.py", line 500, in render
-    return wrap_render(self.target, width, height, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\image.py", line 306, in wrap_render
-    rend = render(child, w, h, st, at)
-  File "renpy/display/render.pyx", line 166, in renpy.display.render.render (gen\renpy.display.render.c:4075)
-    cpdef render(d, object widtho, object heighto, double st, double at):
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "accelerator.pyx", line 110, in renpy.display.accelerator.transform_render
-  File "renpy/display/render.pyx", line 259, in renpy.display.render.render (gen\renpy.display.render.c:3520)
-    rv = d.render(widtho, heighto, st, at)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\im.py", line 583, in render
-    return cache.get(self, render=True)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\im.py", line 266, in get
-    surf = image.load()
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\im.py", line 628, in load
-    surf = renpy.display.pgrender.load_image(renpy.loader.load(self.filename), self.filename)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\loader.py", line 576, in load
-    raise IOError("Couldn't find file '%s'." % name)
-IOError: Couldn't find file 'But_Entrance.jpg'.
-
-While loading <'Image' 'But_Entrance.jpg'>:
-  File "game/lustscript.rpy", line 646, in script
-    scene bg themil with slideup
-IOError: Couldn't find file 'But_Entrance.jpg'.
-
-Full traceback:
-  File "game/pride.rpy", line 1253, in script
-    if studygrade == 1:
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2059, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2052, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/pride.rpy", line 1253, in <module>
-    if studygrade == 1:
-NameError: name 'studygrade' is not defined
+  File "game/envyslothwrath.rpy", line 546, in script
+    c "Josh, Josh, Josh, Josh!"
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 685, in execute
+    raise Exception("Sayer %s is not a function or string." % self.who.encode("utf-8"))
+Exception: Sayer c is not a function or string.
 
 While running game code:
-  File "game/pride.rpy", line 1253, in script
-    if studygrade == 1:
-  File "game/pride.rpy", line 1253, in <module>
-    if studygrade == 1:
-NameError: name 'studygrade' is not defined
+  File "game/envyslothwrath.rpy", line 546, in script
+    c "Josh, Josh, Josh, Josh!"
+Exception: Sayer c is not a function or string.
+
+Full traceback:
+  File "game/envyslothwrath.rpy", line 548, in script
+    c "JOSH, JOSH, JOSH, JOSH!"
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 685, in execute
+    raise Exception("Sayer %s is not a function or string." % self.who.encode("utf-8"))
+Exception: Sayer c is not a function or string.
+
+While running game code:
+  File "game/envyslothwrath.rpy", line 548, in script
+    c "JOSH, JOSH, JOSH, JOSH!"
+Exception: Sayer c is not a function or string.
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.02s
+Load screen analysis took 0.49s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.01s
 The window was minimized.
 The window was restored.
 
 primary display bounds: (0, 0, 1366, 768)
 swap interval: 1 frames
 Windowed mode.
-Screen sizes: virtual=(1280, 720) physical=(1184, 665) drawable=(1184, 665)
+Screen sizes: virtual=(1280, 720) physical=(1182, 665) drawable=(1182, 665)
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
-The window was minimized.
-The window was restored.
 
-primary display bounds: (0, 0, 1366, 768)
-swap interval: 1 frames
-Windowed mode.
-Screen sizes: virtual=(1280, 720) physical=(1184, 665) drawable=(1184, 665)
-Root FBO is: 0
-FBO Maximum Texture Size: 2048
+Full traceback:
+  File "game/envyslothwrath.rpy", line 546, in script
+    c "Josh, Josh, Josh, Josh!"
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 685, in execute
+    raise Exception("Sayer %s is not a function or string." % self.who.encode("utf-8"))
+Exception: Sayer c is not a function or string.
+
+While running game code:
+  File "game/envyslothwrath.rpy", line 546, in script
+    c "Josh, Josh, Josh, Josh!"
+Exception: Sayer c is not a function or string.
