@@ -109,9 +109,9 @@ label career_Burner:
 label career_email:
     scene bg EC with fade
     "Man, nothing beats eating snacks in the dorm after a long day"
-    #TODO: notification sound
     show screen mailbox_overlay
     $ add_message("Offer to Your Dream Job","Recruiter","Hi, The first step in getting an internship at Dream Job and Co. is to apply. For your application you'll need a resume and letter of recommendation. Thank you for expressing your interest in us. We hope to hear from you soon. With Dream Job and Co, all of our dreams will come true" )
+    play sound "audio/email_notif.mp3"
     "Ahhhh, is that an internship update? So soon? No way"
     "Let's check my messages"
     "Hmm. Guess I can't really get the internship offer if I haven't applied to the intership yet."
@@ -312,6 +312,7 @@ label breaken_draft(contact, message_title="Report Academic Violation"):
         "Hi Professor, I wanted to report Marie for violating our school's academic integrity policies. Her final paper for the course was purchased through a third party":
             $ contact.draft_label = None # must include this line for each option
             $ add_message("Report Academic Violation:Re", "Professor Breaken", "Thank you for reporting this offense. This shall be dealt with immediately")
+            play sound "audio/email_notif.mp3"
     return
 
 label sab_marie:
@@ -448,8 +449,8 @@ label intern_interview:
     if greed_check >=2:
         $interview_offer = True
         #The Interviews
-        #Todo: Message notification sound
         $ add_message("Offer to Your Dream Job:Re","HR @ Dream Job and Co","Hi, We are pleased to inform you that you are invited to the next stage of our interview process. Please come to SomeOffice at Number Lane at 5 pm on Friday. We're excited to learn more about you. With Dream Job and Co, all of our dreams will come true")
+        play sound "audio/email_notif.mp3"
         "An email notification!"
         "Omg yes!! All of the studying and nights falling asleep in But. with questionable hygeine"
         "All of this preparation has paid off! I'm going to become top dog around here!"
@@ -458,6 +459,7 @@ label intern_interview:
         "I'm so excited!!! AHHHHH"
     else:
         $ add_message("Offer to Your Dream Job:Re","HR @ Dream Job and Co","Hi, We regret to inform you that we will not be continuing with your application. Please note that this year's applicant pool was very competitive. While your skills and experience were very impressive, we sound someone better for the position. We look forward to your continued interest with Dream Job and Co. With Dream Job and Co, all of your dreams aren't coming true")
+        play sound "audio/email_notif.mp3"
         "An email notification!"
         "Oh no"
         "It's exactly as I feared, it looks like my application wasn't good enough after all *sigh*"
@@ -542,7 +544,7 @@ transform alpha_dissolve:
         linear 0.5 alpha 0
     # This is to fade the bar in and out, and is only required once in your script
 
-screen countdown:
+screen countdown: #relates to question 1
     timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01), false=[Hide('countdown'), Jump(timer_jump)])
     bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve # This is the timer bar.
 
@@ -553,60 +555,89 @@ label real_interview:
     scene bg Interview with fade
     recruit "Hi %(pname)s, Thank you for taking the time to come in and of courrse your interst in Dream Jobs and Co. Our goal is always to have our employees be at their dream job."
     recruit "You must know that we service half of the nation's population with our unique services"
-    """$ time = 5
+    recruit "I shall now ask you a series of questions we ask all of our candidates with some of my own unique ones. If you don't respond, I'll assume that you would like to stop."
+    $ time = 5
     $ timer_range = 5
-    $ timer_jump = 'menu1_slow'"""
-    #show screen countdown
+    $ timer_jump = 'menu1_slow'
+    show screen countdown
     $ pitch = renpy.input("Who are you and what makes you a qualified candidate?")
     if len(pitch) >=30 and pitch.isalpha():
+        hide screen countdown
         $int_score+=1
-    #hide screen countdown
-    "Hmm, very interesting"
-    #show screen countdown
+        "Very good points"
+    else:
+        hide screen countdown
+        "Hmm, very interesting"
+    $ time = 5
+    $ timer_range = 5
+    $ timer_jump = 'menu1_slow'
+    show screen countdown
     menu: #ques2:
         "As a Columbia Alum, I have to ask: Which is the best dining hall"
         "JJs":
+            hide screen countdown
             recruit "Good ol' JJs. We love our guarantee of the Freshman (or any year) 15"
-            #hide screen countdown
         "Ferris":
+            hide screen countdown
             recruit "Their cheesecakes were so good! "
-            #hide screen countdown
         "Hewitt":
+            hide screen countdown
             $int_score+=1
             recruit "You've got very good taste"
-            #hide screen countdown
-    #show screen countdown
+    $ time = 5
+    $ timer_range = 5
+    $ timer_jump = 'menu1_slow'
+    show screen countdown
     menu: #ques3:
         "Please describe a time where you've shown initiative"
         "During the Crisis known as 2020, I attended the majority of my Zoom classes":
+            hide screen countdown
             recruit "That's great to hear!"
-            #hide screen countdown
         "I was the team leader for a group project and decided to make a game!":
+            hide screen countdown
             $int_score+=1
             recruit "Oh, that's interesting! It's always great to hear about students interests outside of the classroom"
-        #    hide screen countdown
         "Once, I called CAVA for my very wasted floormates":
+            hide screen countdown
             recruit "Haha that brings me back in the day. What a time"
-        #    hide screen countdown
-    #show screen countdown #ques4
-    $ fight = int(renpy.input("How many words are in Columbia's Fight Song"))
-    if int(39)-int(fight) <=5:
+    $ time = 5
+    $ timer_range = 5
+    $ timer_jump = 'menu1_slow'
+    show screen countdown #ques4
+    $ fight = renpy.input("How many words are in Columbia's Fight Song(Please provide an integer value)")
+    if not fight.isalpha() and (int(39)-int(fight) <=5):
+        hide screen countdown
         $int_score+=1
         recruit "Very good, very good"
     else:
-        recruit "How interesting"
-    #hide screen countdown
+        hide screen countdown
+        if fight.isalpha():
+            recruit "How interesting, you didn't provide an integer value -_-"
+        else:
+            recruit "How interesting"
+    $ time = 5
+    $ timer_range = 5
+    $ timer_jump = 'menu1_slow'
+    show screen countdown
     menu:
         "What do you view to be your greatest weakness?"
         "I'm scared that the goals I have are because that's what is expected from me rather than my own desire":
+            hide screen countdown
             recruit "Thank you for your honesty. I think that given more time in your field of interest you get to gauge your earnest interest for it"
             $int_score+=1
         "I'm too reliant on memes for daily function. It's quite the crutch":
+            hide screen countdown
             recruit "Thank you, that was very honest"
+            recruit "To be honest, we're pretty pro-meme culture here. So you'd fit in quite nicely"
         "I've never climbed onto any rooftops like a scrub":
+            hide screen countdown
             recruit "Don't worry, I don't think I ever have either!"
             m "{size=-8}like a scrub{/size}"
     recruit "Alright! I think that's all the questions that I have for you"
+    label menu1_slow:
+        hide screen countdown
+        recruit "...Well if you're not going to respond then that's all of the questions I have for you"
+
     m "Thank you for this opportunity!"
     recruit "No, thank you for coming in!"
     recruit " Hmm{p=1.0} I probably shouldn't be offering but since I have a soft spot for any students of my alma mater. Want me to give you a heads up about your application?"
@@ -624,8 +655,10 @@ label job_results:
         if copy_res == True:
             call phone_start
             call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and I would be saying you got the job")
+            play sound "audio/phone_notif.mp3"
             "Omg. Omg. this is SO EXCITING"
             call message("Dream Job and Co", "But, unfortunately that's not what this message is going to end up being. I would have given you the job but it turns out that there was something suspicious in your resume so things didn't manage to work out in the end")
+            play sound "audio/phone_notif.mp3"
             "Wait, what?"
             call phone_end
             "How could this be? My resume was perfect, especially considering I copied mine from Marie."
@@ -634,6 +667,7 @@ label job_results:
         else:
             call phone_start
             call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and let you know that you got it!! I can't wait for your journey to continue with us here. Please feel free to reach out whenever")
+            play sound "audio/phone_notif.mp3"
             call phone_end
             "OMG. THIS IS SO EXCITING"
             "YAYYYYY"
@@ -649,6 +683,7 @@ label job_results:
         if copy_res == True:
             call phone_start
             call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and let you know that ... you should probably send out more applications. You just weren't up to snuff for what we were looking for and I think there was also something wonky about your resume?")
+            play sound "audio/phone_notif.mp3"
             "Wait, what?"
             call phone_end
             "How could this be? My resume was perfect, especially considering I copied mine from Marie."
@@ -657,6 +692,7 @@ label job_results:
         else:
             call phone_start
             call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and let you know that ... you should probably send out more applications. You just weren't up to snuff for what we were looking for.")
+            play sound "audio/phone_notif.mp3"
             call phone_end
             "Aww, that's unfortunate that things didn't work out"
             "Guess, it's back to the grind then"
@@ -798,7 +834,7 @@ label sad_max:
     hide max breaking
     show max grateful at right
     b "Don't worry peasant %(pname)s. I, your leader, will be shining brightly whenever you see me next"
-    m "Thank you. I feel inspired already" 
+    m "Thank you. I feel inspired already"
     hide max grateful with moveoutleft
     jump end_greed
 

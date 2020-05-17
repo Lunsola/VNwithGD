@@ -1,20 +1,28 @@
-image cgexam = "cgexam.jpg"
-image cgconv = "cgconvention.jpg"
 label pridebegin:
+    image cgexam = "cgexam.jpg"
+    image cgconv = "cgconvention.jpg"
+    $ finalscore = 0
+    $ stolesg = False # Did player steal study guide
+    $ classgrade = 1 #pride chapter grade (starts with one bc hw1 is a gimmie)
+    scene black
+    with Pause(1)
+    show text "{size=50}Semester 4: You better know what you're majoring in!{/size}"
+    pause
+    hide text
     scene bg lecture hall
     "New semester new me"
-    "Glad all those core classes are over"
+    "Soooo glad all those core classes done"
     w "{size=+10}UWAH!!! {p=1.0}%(pname)s!!!!!"
     pause .5
     show marie averse
     with hpunch
     r "I had such a hard time finding this room, I thought I was gonna be late!"
+    r "I even dropped my toast running here"
+    "WHo does she think she is, Sailor Moon?"
     hide marie averse
     show marie nervous2
-    r "I even dropped my toast running here"
-    "Who does she think she is, Sailor Moon?"
-    m "Hello Marie, this is literally the most well known lecture hall on campus"
-    r "Well exciting that our first class for %(pmajor)s is in here?"
+    m "Hello Marie, this is literally the most well known classroom on campus"
+    r "Well, isn't exciting that our first class for %(pmajor)s is in here?"
     m "I was actually part of the %(pmajor)s bowl in high school, so I feel real prepared for this class"
     hide marie nervous2
     show marie v happy
@@ -39,12 +47,12 @@ label pridebegin:
     r "{size=+10}A S S E S"
     m "That's campus culture right there"
     "Honestly the title of this class is so long I don't bother to remember it"
-    a "Anyhoo, name's Marven. I'm taking this class as a requirement for my major"
+    a "Anyhoo, name's Marven. I'm taking this class to fulfil a requirement"
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
     hide music_neutral
     show music_wink at right:
         yalign 1.0 xalign .75
-    a "I'm a music + philosophy double major. {p=2}PLease don't ask me what kind of job I can get with that."
+    a "I'm a music + philosophy double major. {p=2}Puh-lease don't ask me what kind of job I can get with that."
     r "Wowww that's so cool!"
     s "{b}Please sit down, class is about to start"
     a "Oop, gotta go fast!"
@@ -61,7 +69,7 @@ label pridebegin:
             with fade
             a "Anyways are you guys into memes?"
             m "Hell yeah"
-            r "%(pname)s always stays up scrolling while chuckling like an old man!"
+            r "%(pname)s always stays up scrolling, chuckling like an old man!"
             hide music_talk
             show music_neutral at right
             a "What memes are you into?"
@@ -77,19 +85,22 @@ label pridebegin:
                     a  "So what did it taste like?"
     s "{b}Can you guys in the back be quiet please"
     a "hee hee"
-    hide music_neutral
-    with dissolve
-    scene bg john jay
+    scene bg john jay with irisin
     pause 1
-    show marie v happy
+    show marie v happy with dissolve
     r "Hoowah! Nothing like eating a big meal after that tough introduction to ASSES!"
     hide marie v happy
     show marie happy
-    r "Marvin seemed like a nice guy. I hope we can be friends in that class."
+    r "Marvin seemed like a nice guy. I wanna be study buddies!."
     m "I dunno. He smelled like a memey poser"
     r "Now, you can't make those kinds of assumptions right off the bat! You two have a lot in common!"
     r "He seemed really cool! Like he is double majoring but still takes time to enjoy college life!"
     m "Overachievers often have dark pasts and make up for their insecurities by participating in an assortment of activities"
+    hide marie happy
+    show marie surprised
+    pause 1
+    hide marie surprised
+    show marie happy
     r "Well, I've memorized the syllabus already so I can do my best in this class"
     r "We have four homeworks! {p=.5}Two midterms! {p=.5}And a final!"
     m "I think maybe you should save your brain cells for actual class material"
@@ -131,29 +142,34 @@ label pridebegin:
     hide marie v happy
     with dissolve
     "Geez what kind of joke was that homework."
-
-    scene bg lecture hall
+    scene bg black with fade
+    show screen mailbox_overlay
+    $ add_message("ASSES HW1", "ASSES TA", "Your grade for this assignment is 100")
+    play sound "audio/email_notif.mp3"
+    "The HW1 grade has been posted"
+    scene bg lecture hall with irisin
     "Today is ASSES Examination 1"
     "There's no way I could fail. {p=2} I could jinx myself and still wreck that curve like a pro"
     "{i}EXAM START"
-    $ m1_q1 = renpy.input("{i}How many US presidents have graduated from Columbia?")
+    $ m1_q1 = renpy.input("{i}How many Certified Ethical Hackers have graduated from Columbia?")
     $ m2_q2 = renpy.input("{i}How many earthworms die on average on college walk every rainy day??")
     $ m3_q3 = renpy.input("{i}How many brain cells have you lost playing this game???")
     "Alright that's all of the questions"
     "I have a bad feeling about this"
-
     scene bg bedroom
     with dissolve
-    play sound "audio/mario_coin_sound.mp3"
+    play sound "audio/phone_notif.mp3"
     pause 2
     "Big yikes the ASSES TAs are fast"
     menu:
         "Check your grade":
-            pause 1
-            "...24"
+            call phone_start
+            call message_start("OfCourseItWorks", "ASSES Examination 1: 33")
+            call phone_end
+            "...33 This can't be right?"
             show marie grateful
             with dissolve
-            r "Hey %(pname)s, have you checked your ASSES Examination. It just got uploaded"
+            r "Hey %(pname)s, have you checked your ASSES Examination? It just got uploaded"
         "Spicy meme time":
             "I can check later; gotta update myself on the hottest memes."
             "Hehe"
@@ -166,11 +182,17 @@ label pridebegin:
             m "my WHAT"
             r "Your grade for the first midterm last week. It just got uploaded"
             "Ugh I guess I gotta check it now"
-            "{p=2}...24 {w}This can't be right? But it was a scantron test?"
+            call phone_start
+            call message_start("OfCourseItWorks", "ASSES Examination 1: 33")
+            call phone_end
+            "...33? This can't be right?"
             "Well, I can't be the only one doing this badly"
     r "so what did you get?"
+    $ add_message("ASSES M1", "ASSES TA", "Your grade for this exam is 33")
+    play sound "audio/email_notif.mp3"
     menu:
         "Lie":
+            $sin -=1
             m "I got a 95"
             r "Ah as expected!"
             hide marie grateful
@@ -181,6 +203,7 @@ label pridebegin:
             r "That's chill! I get that."
             hide marie neutral
         "Tell her":
+            $sin +=1
             m "I got a 24"
             hide marie grateful
             show marie astonished
@@ -193,7 +216,7 @@ label pridebegin:
     "This airhead...got a higher grade than me?!"
     menu:
         "Yeah let's work together!":
-            "Maybe I missed one thing that was super important. I can ask Marie"
+            "Maybe I missed one thing that was unproportionally important. I can ask Marie"
             r "Yay! I actually have a study room reserved tomorrow at the library!"
             r "I'll wake you up at 8 am!"
             "Holy crap, this better be worth it"
@@ -218,11 +241,11 @@ label hw2pass:
     scene bg buthall with fade
     "Phew"
     "Marie rushed me to the library so fast I didn't go through my morning routine"
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     show music_neutral
     with moveinleft
     a "Hey my d00d. Fancy meeting you here"
     jump music_encounter
-
 label hw2fail:
     scene bg lernerramps
     "Ugh another day of zero motivation"
@@ -240,7 +263,6 @@ label hw2fail:
         "Raise eyebrow":
             pause 2
     jump music_encounter
-
 label music_encounter:
     hide music_neutral
     show music_wink
@@ -260,13 +282,12 @@ label music_encounter:
     "Can I impress Marven with my taste in memes?"
     menu:
         "Burnie Sanders I am once again asking meme":
-            $ music_friendship +=1
             a "Burnard is like, literally my dad"
         "Bean Jong-ho making his academy awards kiss":
-            $ music_friendship +=3
+            $ music_friendship +=2
             a "Hey I appreciate this rare boi"
         "Water bottle flipping man":
-            $ music_friendship +=2
+            $ music_friendship +=1
             a "No one more edgy than our local meme legend huh"
     a "Ya YEET you've got pretty good meme-sense!"
     hide music_wink
@@ -288,11 +309,18 @@ label music_encounter:
             show music_sad
             a "Uwu that's your loss"
             "No way I'm accepting a sus party invitation from this d00d"
+            scene bg black with fade
+            $ add_message("ASSES HW2", "ASSES TA", "Your grade for this assignment is 100")
+            play sound "audio/email_notif.mp3"
             jump m2begin
 label hw3fail:
-    scene bg bedroom
+    scene bg black with fade
+    scene bg bedroom with irisin
     "That was funnnnn. BUrP~"
     "I think I might've eaten a tide pod"
+    call phone_start
+    call message_start("MaRv", "Hey d00d, that was real lit yesterday. Make sure you consume lots of H2O today, ok?")
+    call phone_end
     with pixellate
     "At least I showed Marven I'm a d00d who's book smart AND meme smart"
     show marie nervous
@@ -303,10 +331,12 @@ label hw3fail:
     "Whoops I was having so much fun I didn't even see her texts"
     menu:
         "Lie":
+            $ sin -=1
             m "Sorry, my phone ran out of battery"
             r "Mmmm ok. {w}Anyways, why was there even such a big party the day before class?"
-            "SHe may not be the sharpest tool in the shed, but she rolled me there"
+            "She may not be the sharpest tool in the shed, but she rolled me there"
         "Truth":
+            $ sin +=1
             m "I actually went out with Marven from ASSES to a Spicy Meme themed party"
             r "Oh ok. {w}It's totally fine that you didn't invite me even thought we are roommates and in the same ASSES"
     show marie concerned
@@ -342,10 +372,12 @@ label hw3fail:
     "RIP ASSES hw3"
     scene bg black
     with pixellate
+    $ add_message("ASSES HW2", "ASSES TA", "Your grade for this assignment is 0")
+    play sound "audio/email_notif.mp3"
     pause 2
 label m2begin:
     scene bg bedroom with fade
-    "Another day, another dollar. I pour my energy and time into wrangling with these esoteric questions from ASSES, but will this knowledge be useful in the real world?"
+    "Another day, another pickle. I pour my energy and time into wrangling with these esoteric ASSES questions, but will this knowledge be useful in the real world?"
     "{i}How many tourist groups come to low every year?"
     play sound "audio/big-crash.mp3"
     "What's that awful crashing sound coming from low?"
@@ -361,7 +393,7 @@ label m2begin:
     m "Someone file a public noise complaint!"
     r "They're known for eating all the food at the events they're invited to. {p=2}AND making a bigger racket than the marching band ON A WEEKLY BASIS."
     m "uh, {p=1}great"
-    r "Wanna go study in the library?"
+    r "Wanna go study in the library? By the way, this upcoming midterm is weighted more than the first one"
     menu:
         "Screw this I'm going to Milsting":
             r "Okie see ya later then!"
@@ -397,23 +429,22 @@ label m2begin:
                             "Buttler":
                                 jump m2goodgrade
 label milstein:
-    scene bg mil
+    scene bg mil with irisin
     "This is the super silent fourth floor of Milsting, where so much as heavy breathing attracts angry glares"
     "Only the hard Core kids come here"
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
     show music_smile
     with dissolve
     "wtf"
-    a "{size=-10}heyyyy %(pname)s {p=1}I remembered your name!"
+    a "{size=-10}heyyyy %(pname)s! A smol birb told me you were here."
     m "{size=-10}Marven this is a no talking floor!"
     hide music_smile
     show music_nervous
     a "{size=-10}I'm not that loud!"
     "I can already see people giving us side-eye"
     m "{size=-10}We need to get out of here"
-    scene bg milfloor
-    show music_sad
-    with dissolve
+    scene bg milfloor with fade
+    show music_sad with dissolve
     a "Wow we sure yeeted outta there like skrt skrt"
     m "If we stayed stress culture would have mauled us over"
     hide music_sad
@@ -442,7 +473,6 @@ label milstein:
     "Shoot, Marven's gonna think I'm lame. {w}Do I sacrifice my pride or my grade?"
     menu:
         "Yes, but I still have to study to do well":
-            $ music_friendship =-2
             $ classgrade +=1
             a "Hmmm ok, sounds like a drag"
             a "Have fun stuDYING"
@@ -456,6 +486,7 @@ label milstein:
             $ music_friendship =+2
             a "heheh as expected of an ASSES expert"
             hide music_dark
+            hide music_moody
             jump eathewitt
 
 label m2goodgrade:
@@ -533,7 +564,7 @@ label walk:
     jump eathewitt
 
 label eathewitt:
-    show music_talk
+    show music_smile
     a "So you're free now?"
     "Shoot, Marven's gonna think I'm lame if I say I actually want to rest. {w}Gotta protect my pride tho"
     a "Let's go muck around hewitt aka best dining hall now. I'll swipe."
@@ -542,7 +573,7 @@ label eathewitt:
     "I go with Marven to hewitt and have a lit time eating pesto pasta and smoothies"
     jump cheat
 label cheat:
-    scene bg lecture hall
+    scene bg lecture hall with irisin
     "Urk I really don't feel too confident about today's exam"
     show marie neutral at center with moveinright
     r "Hey ready for the ASSES examination?"
@@ -559,39 +590,50 @@ label cheat:
     pause 1
     "This is really hard"
     "I wonder how Marven is doing"
-    show cgexam
+    show cgexam with fade
     "Aw man I can see his test sheet crystal clear"
     menu:
         "Cheat":
-            $ classgrade =+ 1;
+            $ classgrade =+ 1
+            $sin -=1
+            hide cgexam with fade
+            "I copy the questions I am struggling with and hand in the exam before Marven"
+            scene black with fade
+            $ add_message("ASSES M2", "ASSES TA", "Your grade for this exam is 70")
+            play sound "audio/email_notif.mp3"
+            pause 1
         "Look away":
             "I can't compromise my academic integrity for the sake of a mistake that was completely my fault"
             "I might fail, but I'll do it with honor"
-    hide cgexam
+            hide cgexam with fade
+            "I guess the questions I am struggling with and hand in the exam before Marven"
+            scene black with fade
+            $ add_message("ASSES M2", "ASSES TA", "Your grade for this exam is 24")
+            play sound "audio/email_notif.mp3"
+            pause 1
     jump goinghome
 label passexam:
-    scene bg lecture hall
+    scene bg lecture hall with irisin
+    $sin +=1
     "I feel pretty confident about today's exam"
     show marie neutral with dissolve
     r "Hey ready for the ASSES examination?"
     m "The WHAT.. oh yeah. Sure"
     hide marie neutral with dissolve
-    scene bg lecture hall:
-        xalign 1.0 yalign 0.3
-        zoom 4
     "Hm these questions all make sense, unlike the first exam"
     "Hoo studying sure pays off"
+    scene black with fade
+    $ add_message("ASSES M2", "ASSES TA", "Your grade for this exam is 92")
+    play sound "audio/email_notif.mp3"
     jump goinghome
 label goinghome:
-    scene bg collegewalk
-    "Well I turned that cursed test right after I got to the end of it"
-    "Better pray that the curve is good"
+    scene bg milfloor with irisin
+    "Hmmm what's with this confuzzling major declaration process"
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
     w "Ayyyyyyyy d00d"
     "Uh oh"
-    show music_neutral
+    show music_neutral with dissolve
     a "Ayyy d00d you sure pulled a speedrun on that test"
-    "Seems that Marven finished right after me"
     a "The final is gonna be just as easy peasy, ya?"
     m "Yup it's gonna be a no brainer for me kekeke"
     hide music_neutral
@@ -601,7 +643,7 @@ label goinghome:
     m "Spill the deets my d00d"
     a "It's gonna be a three day event, smack dab in the middle of the week. Cuz, y'know, who works on the weekdays?"
     m "I'm always chilling on hump day"
-    a "Yeah eggzactly! We should go"
+    a "Yeah eggzactly! We should go sksksk"
     a "Unless..."
     hide music_dark
     show music_unimpressed
@@ -622,20 +664,22 @@ label goinghome:
     hide music_smile with dissolve
     "No big deal, I'll just go for one day and soak up the spiciness to the max. Delicious!"
 label conventionday1:
+    scene bg black with fade
     scene bg entrance:
         zoom 0.4
+    with squares
     "Hoe my gourd I've never seen so many people in meme costumes"
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
     show music_default
     with dissolve
     "Ayyyyyy %(pname)s"
     m "Hello there, meme man Marven"
-    "No doubt this is my firend the maraca wielding memelord"
-    a "Ayyyy %(psname)s aren't you shook? Look at all those chickens."
+    "No doubt this is my friend the maraca wielding memelord"
+    a "Ayyyy %(pname)s aren't you shook? Look at all those chickens."
     a "What's your fave meme here?"
     menu:
         "Meme man":
-            $ music_friendship =+2
+            $ music_friendship =+1
             a "Ahh yes the very dankest. I mean, tis' in the name"
         "Is this a pigeon":
             a "Love them anime refs"
@@ -647,7 +691,7 @@ label conventionday1:
     m "Wait! Do you have my tickets?"
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
     show music_default with dissolve
-    a "Oh yeah sillyhead me! Here they are. {w}Pay me back later?"
+    a "Oh yeah sillyhead me! Here they are. Pay me back later?"
     m "Thanks"
     "..."
     m "Hey, these are three day tickets"
@@ -665,6 +709,12 @@ label conventionday1:
     "Oh great I guess I'm doing this for the next two days too"
     scene bg bednight
     with irisin
+    play sound "audio/phone_notif.mp3"
+    pause 1
+    call phone_start
+    call message_img("MaRv", "LmAo fufufu","pride_meme.jpg")
+    call reply_message("lol")
+    call phone_end
     show marie neutral with dissolve
     r "Hey %(pname)s how was the convention today?"
     m "It was super fun"
@@ -679,7 +729,7 @@ label conventionday1:
     hide marie distressed
     show marie concerned
     r "By the way, the last ASSES exam grade got posted"
-    "Check grade?"
+    "Check OfCourseItWorks?"
     menu:
         "yes":
             if classgrade <= 2:
@@ -716,15 +766,16 @@ label conventionday2:
     menu:
         "Steal it":
             $ stolesg = True
+            $sin -=1
             $ classgrade =+ 1
             "I take the precious study guide out and stuff it into my bag"
         "Ignore":
             "..."
-    hide cgconv
+    hide cgconv with fade
     scene bg convention with dissolve
     m "Hey Marven your bag is unzipped"
     show music_default with dissolve
-    a "Oh hey thanks way to be a bro!"
+    a "Oh hey thanks, way to be a bro!"
     scene bg black with fade
     scene bg bednight
     with irisin
@@ -736,7 +787,10 @@ label conventionday2:
     hide marie nervous with dissolve
     "Man I don't know if I should go to the convention again tomorrow"
     "I've already seen pretty much everything and maybe I should study for finals"
-    "I'll message Marven to meet me on campus tomorrow and see what they think"
+    call phone_start
+    call reply_message("Hey Marv, can we meet on campus tmr?")
+    call message("MaRv", "Ye ofc my d00d!")
+    call phone_end
     scene bg black with blinds
     scene bg bedroom with blinds
     show marie neutral with dissolve
@@ -746,7 +800,7 @@ label conventionday2:
     show music_bent
     a "Hey bro, what's up? Ready to go?"
     menu:
-        "I can'to go today":
+        "I can't go today":
             hide music_bent
             show music_cross
             a "What??? Today is the last day!"
@@ -757,7 +811,7 @@ label conventionday2:
                     a "Whaaa but didn't you say you already know everything?"
                     menu:
                         "Sorry.":
-                            $ music_realtionship =-5
+                            $ music_friendship =-5
                             a "Geez. I thought you were smart"
                             a "You know what this maraca is for?"
                             a "It's coming down on you for a vibe check"
@@ -768,6 +822,9 @@ label conventionday2:
                             a "And that's what you get"
                             hide music_defualt with dissolve
                             "Marv bonked me on the head and walked away..."
+                            scene bg black with fade
+                            "It is COMPLETELY possible for me to pass ASSES if I study all day today and pull an all-nighter"
+                            "I just have to shove that awful confrontation to the back of my mind"
                             jump onestudyday
                         "Yeah actually everything will be fine. Let's go":
                             jump conventionday3
@@ -779,8 +836,8 @@ label conventionday2:
             a "Come on vamanos!"
             jump conventionday3
 label twostudyday:
-    scene bg mil
-    $ music_realtionship =-6
+    scene bg mil with irisin
+    $ music_friendship =-5
     "Alright, feels bad I ditched Marv but I wrote an email explaining why"
     "Time to grind on ASSES"
     pause 1
@@ -789,9 +846,9 @@ label twostudyday:
     with dissolve
     a "Hey I read your shitpost email"
     m "{size=-5}Indoor voice pleaseee"
-    "Uh oh. That girl in the back is giving the death stare with already lifeless eyes"
-    scene bg milfloor
-    show music_moody
+    "That girl in the back is giving the death stare with already lifeless eyes"
+    scene bg milfloor with fade
+    show music_moody with dissolve
     a "I just want you to know that I am very salty that you ditched me on the second day."
     a "This is top ten anime betrayals. I thought you were WOKE, fam"
     m "Sorry, I realized I have to study for finals"
@@ -800,17 +857,17 @@ label twostudyday:
     a "L A M E"
     a "I am going by myself then!"
     a "You know what this maraca is for?"
-    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     a "It's coming down on you for a vibe check"
-    hide music_inimpressed
+    hide music_unimpressed
     show music_smile
+    play sound "audio/OOT_Scarecrow_Shake1.mp3"
     with vpunch
     a "And that's what you get"
     hide music_smile with dissolve
     "Marv bonked me on the head and walked away..."
     "Big ouch"
-    scene bg mil with irisin
-    "Alright time to get to work"
+    scene bg black with fade
+    "Many hours of studying later"
     scene bg bednight
     with irisin
     "Today was very productive"
@@ -823,39 +880,51 @@ label twostudyday:
     hide marie nervous with dissolve
     "I guess I can't go to the convention again"
     "Sigh.. that's two days worth of money into the void...{p=2} but wait Marv didn't ask me to pay yet"
-    "Either way, I'm too tired to process this drama..."
-    scene bg mil with blinds
-    "I cram for another whole day in the library and now I feel pretty good about acing this ASSES exam"
-    jump examday
+    "Either way, I'm too tired to process this drama...tomorrow will be another study day"
+    jump onestudyday
 label onestudyday:
-    scene bg mil
+    scene bg mil with irisin
     "Alright, self"
-    "It is COMPLETELY possible for me to pass ASSES if I study all day today and pull an all-nighter"
-    "I just have to shove that awful confrontation to the back of my mind"
-    scene bg black with irisin
+    "Time to glue my thinking cap to my head"
+    if marie_friendship >= 1 and marieevil == False:
+        show marie v happy with dissolve
+        r "{size=-10}Working hard, %(pname)s?"
+        show marie v happy with dissolve
+    if fightwithjosh == False and josh_friendship >= 1:
+        show josh approve with dissolve
+        j "{size=-10}You can do this, brah."
+        show josh approve with dissolve
+    if maximillion_friendship >= 1:
+        show max wink with dissolve
+        b "{size=-10}How refreshing it is to see the serf toiling earnestly"
+        show max wink with dissolve
+    if prof_friendship >= 1:
+        show professor happy with dissolve
+        b "{size=-10}Very admirable, keep up the good work, %(pname)s."
+        show professor happy with dissolve
+    scene bg black with fade
     pause 2
     jump examday
 label conventionday3:
     scene bg convention
+    $ music_friendship +=8
     "I steep myself in another indulging day at the meme convention"
     scene bg black with irisin
     "Afterwards, Marv invites me to hang in Hels"
     scene bg hels
-    show music_talk with dissolve
+    show music_neutral with dissolve
     m "It sure has been a fufilling and exhausting three days. Thank you for inviting me to go with you."
     a "Oh yea? Then no need to pay for your tickets. But answer this question."
     a "If our school had a meme page, which of these would be featured the most?"
     menu:
         "Lerner ramps":
             pass
-        "Ground floors not being first floors":
+        "Deantiny's Expert's Mind":
             pass
         "Strangely shaped fountains on low":
             pass
-        "Spec":
-            pass
     a "I'll take your word for it. I'd be a sad pepe to brush off the insight of an epic memer like you."
-    hide music_talk
+    hide music_neutral
     show music_smile
     a "%(pname)s, I just want to say, thank you memeing with me this year."
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
@@ -865,14 +934,14 @@ label conventionday3:
     show music_nervous
     a "I guess that's what you call it? I did not arrive at this school a Chad."
     a "First I suffered from Imposter Syndrome, then Major Indecisivity, then I became too prideful of my image and flunked ASSES the first time I took it"
-    "The tea has been spilt. Turns out Marv's school smarts have just accumulated over the years."
-    a "Memes are my coping mechanism they motivate me when nothing else in this depressing world does."
+    "The tea has been spilt. Turns out Marv's school smarts are just accumulated over the years."
+    a "Memes are my coping mechanism; they motivate me when nothing else in this depressing world does."
     m "Epic backstory Marv, do you have any tips on the final ASSES assessment?"
     hide music_nervous
     show music_wink
     a "Well, my advice is, gotta go fast! And it does help if you've been around for five years, like me."
     "Wasn't counting on Marv helping anyways. Someone like Marie who has been following the lectures and studying consistently is more reliable.
-    Speaking of which, WHen did she say the exam is?"
+    Speaking of which, when did she say the exam is?"
     m "Shoot, the test is tomorrow!"
     hide music_wink
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
@@ -903,7 +972,8 @@ label examday:
         "3":
             pass
         "2":
-            $ finalscore =+1;
+            $ classgrade +=1;
+            $ finalscore +=20;
         "1":
             pass
     menu:
@@ -915,13 +985,15 @@ label examday:
         "9":
             pass
         "8":
-            $ finalscore =+1;
+            $ classgrade +=1;
+            $ finalscore +=20;
     menu:
         "How many floors does lerner have?"
         "9":
             pass
         "8":
-            $ finalscore =+1;
+            $ classgrade +=1;
+            $ finalscore +=20;
         "7":
             pass
         "6":
@@ -929,7 +1001,8 @@ label examday:
     menu:
         "When was Barnard founded?"
         "1889":
-            $ finalscore =+1;
+            $ classgrade +=1;
+            $ finalscore +=20;
         "1988":
             pass
         "1898":
@@ -943,12 +1016,13 @@ label examday:
         "47:900":
             pass
         "48000":
-            $ finalscore =+1;
+            $ classgrade +=1;
+            $ finalscore +=20;
         "47900":
             pass
     "Whew that's the end. Nothing screams high stakes like a five-question final."
     "I want to say I want to know my score now, but in truth, I never want to figure out. I just want to know if I passed or not."
-    if music_friendship >= 10:
+    if music_friendship >= 6:
         scene bg lernerramps with irisin
         show marie nervous2
         r "Hoowah so glad to have gotten that over with! It was easier than I thought!"
@@ -962,19 +1036,21 @@ label examday:
         a "What's up d00ds"
         r "We're discussing the final ASSES"
         a "LMFAO d00ds, like we should totally dab on the exam. It was a cakewalk by the ocean"
-        if stolesg = True:
+        if stolesg == True and marieevil == True:
             r "If it weren't for %(psname)s's study guide, I think I would feel much more anxious right now!"
             m "What study guide?"
             hide music_talk
             show music_moody at right
             hide marie nervous2
-            show marie happy
+            show marie happy at left
             r "The one you left on your desk! It was all written in memes, which made me confused at first, but it turned out to be a very helpful memory device!"
-            a "[p=2]..."
-            hide music_dark with fade
+            a "{p=1}...I had one like that before the meme convention"
+            hide marie happy
+            show marie v happy at left, hop
+            r "Well, that could be a coincidence! %(pname)s tends to have things that looks other people's belongings, isn't that right, %(pname)s?"
+            a "%(pname)s, you're a snek"
+            hide music_dark with dissolve
             jump badendingpride
-        else:
-            pass
         a "I gotta skrt right now, but y'all should come watch me at graduation!"
         play sound "audio/OOT_Scarecrow_Shake1.mp3"
         hide music_talk with fade
@@ -982,25 +1058,57 @@ label examday:
     else:
         jump badendingpride
 label badendingpride:
-    scene bg collegewalk
-    "After graduation, I never saw Marven again"
-    "Perhaps later in life, I would regret not trying more. We could've been really good friends through shared interests"
+    scene bg milfloor with irisin
+    "After graduation, I never heard of Marven again"
+    "Life is like a visual novel. A single choice could change your relationship with a person forever."
+    "Me and Marven could've been really good friends through shared interests"
     jump prideend
 label goodendingpride:
-    scene bg columbialawn
-    "After graduation, Marven decided to do some traveling to search for his purpose in life"
-    "His last words were: %(pname)s, I'm glad I was your senpai. I wouldn't have graduated without you by my side"
+    scene bg columbialawn with irisin
+    "After graduation, Marven decided to do some traveling to search for a purpose in life"
+    if music_friendship >=9:
+        $ success +=1
+        "His last words were: %(pname)s, I'm glad I was your senpai. Here is a stack of GRE and TOEFL books, along with study guides made with my blood, sweat, and tears"
+    "He sends me the occasional finely curated meme"
+    call phone_start
+    call message_img("MaRv", "LmfAO sksksk","pride_meme2.jpg")
+    call reply_message("lol")
+    call phone_end
     jump prideend
 label prideend:
-    play sound "audio/mario_coin_sound.mp3"
+    play sound "audio/email_notif.mp3"
+    if finalscore == 0:
+        $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 0")
+    elif finalscore == 20:
+        $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 20")
+    elif finalscore == 40:
+        $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 40")
+    elif finalscore == 60:
+        $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 60")
+    elif finalscore == 80:
+        $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 80")
+    else:
+        $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 100")
+    "Oh? It seems that my grade for ASSES final has been uploaded"
+    play sound "audio/phone_notif.mp3"
     pause 1
-    "Oh? It seems that my grade for ASSES has been uploaded"
+    "And my final grade has been posted to OfCourseItWorks"
     menu:
         "check grade":
-            if classgrade >= 6:
-                "I passed!"
+            if classgrade >= 5:
+                $ success +=1
+                if classgrade >= 9:
+                    "I got an A! It's a miracle!"
+                elif classgrade == 8:
+                    "I got a B. Not bad, not bad!"
+                else:
+                    "I got a C. Meh"
             else:
-                "I failed!"
+                "I failed! :o"
         "Dont check":
+            if classgrade >= 5:
+                $ success +=1
             "If I cared about ASSES, I would've tried harer in first place"
-    "What an underwhelming conclusion to this cursed semester. How much more of this hell to endure until graduation?"
+    "What an underwhelming conclusion to this rollercoaster of semester. How much more of this hell to endure until graduation?"
+    hide screen mailbox_overlay
+jump beginenvy

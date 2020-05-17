@@ -2,19 +2,24 @@ label lust_start_dorm:
 
     $prof_email = False
     $grade_change = False
+    $twin = False
+    $bizboss = False
+    $dinoroar = False
     scene black
     with Pause(1)
     show text "{size=50}Semester 2: Still at School{/size}"
     with Pause(2)
     hide text
-    scene bg bednight with ease
+    scene bg bednight with fade
 
     "Ayyy. Bless. First round of testing season is over ... {p=3.0}and it's a Thursday night!! No immediate responsibilities that need to be taken care of and no need to stress about academics for a while...."
     "...{p=1.0}Maybe I should finally check my scores for Science of Everything class."
     "I've been avoiding checking grades to minimize stress but I'm free from everything! {p=2.0}Nothing can hurt me now."
     call phone_start
     call message_start("OfCourseItWorks", "Science of Everything Midterm: 50")
+    play sound "audio/phone_notif.mp3"
     call message("OfCourseItWorks", "Science of Everything Midterm(Class Avg): 80, STD: 10")
+    play sound "audio/phone_notif.mp3"
     call phone_end
     "Oh"
     "My"
@@ -112,9 +117,7 @@ label social_media:
     call message_img("Meme Central", "This is premium","meme2.jpg")
     call message_img("Meme Central", "Quality","meme3.jpg")
     call message_img("Meme Central", "Content","meme4.png")
-    #call message_start("Meme Central", "Yo, wanna have lunch together today?")
-    #call message("Josh", "I’m hungry like a beast for some pizza.")
-    #TODO: add some memes
+    call message_img("Meme Central", "Life when you have a smol bean of a roommate","meme5.jpg")
     call phone_end
     "Your eyes burn from absorbing the memes and decide that's enough avoiding your pain today"
     "I'll just go and look for Professor Bonden tomorrow. Everything will be fine"
@@ -141,22 +144,23 @@ label bonden_draft(contact, message_title="Meeting Inquiry"):
         "Hi Professor, I would really appreciate if we could schedule a meeting for tomorrow":
             $ contact.draft_label = None # must include this line for each option
             $ add_message("Meeting Inquiry:Re", "Professor Bonden", "Yes! Of course. Come by my office tomorrow")
+            play sound "audio/email_notif.mp3"
             $ prof_friendship +=1
-            #TODO: Message notification sound
         "Hi Professor, Any way I can help boost my grade? ;). Down for anything ;))))))":
             $ contact.draft_label = None
             $ prof_friendship -=1
             $ add_message("Meeting Inquiry:Re", "Professor Bonden", "Excuse me? Let's discuss in my office tomorrow")
-            #TODO: Message notification sound
+            play sound "audio/email_notif.mp3"
         "Discard draft.":
             pass
     return
 
 
 label thurs_end:
-    show marie neutral
-    r "It's getting late. I'm going to sleep now. Nighty night!"
-    hide marie neutral with moveoutright
+
+    show marie neutral with moveinright
+    r "Hey %(pname)s, It's getting kind of late. I'm going to head to sleep now. Nighty night!"
+    hide marie neutral with dissolve
     "Ahh how is it already 1 am?! What an emotional rollercoaster of a day. Time to conk out for today"
 
 
@@ -166,24 +170,25 @@ label fri_morn:
     "Ah!!! It's already 11 am. Time to get up"
     show screen mailbox_overlay
     "First things first, let's check message updates"
-    #TODO: Message notification sound
     if prof_email == True:
-
         $ add_message("Reminder!", "", "Meeting with Professor Today")
+        play sound "audio/email_notif.mp3"
         $ add_message("Triangle Info Session", "{b}{i}T r i a n g l e{/i}{/b}", "Thank you for expressing interest into joining the Triangles! We will be hosting a meeting in Hamilton 702. Hope to see you there. Please wear business casual!")
-        $ add_message("Message", "Friend", "Hey, wanna hang out?")
+        play sound "audio/email_notif.mp3"
     else:
         $ add_message("Triangle Info Session", "{b}{i}T r i a n g l e{/i}{/b}", "Thank you for expressing interest into joining the Triangles! We will be hosting a meeting in Hamilton 702. Hope to see you there. Please wear business casual!")
-        $ add_message("Message", "Friend", "Hey, wanna hang out?")
-
+        play sound "audio/email_notif.mp3"
     "Ah!! So much to get done. But let's see... time to figure out what to wear"
     hide screen mailbox_overlay
     menu: #TODO Figure out problem with loading images as menu options
-        "I 8 π T-shirt": #"{image = ../images/itsandwich.png}":
+        "I 8 π T-shirt and Jeans": #"{image = ../images/itsandwich.png}":
+            $twin = True
             pass
         "Dress-Shirt and Khakis": #"{image = ../images/itsandwich.png}":
+            $bizboss = True
             pass
-        "Denim Jacket": #"No pictures pls":
+        "Dino Onesie": #"No pictures pls":
+            $dinoroar = True
             pass
     "Now all ready to take on today's challenges! We should go speak with Professor Bonden to learn more about what exactly happened with the exam"
     if prof_email == True:
@@ -195,6 +200,21 @@ label short_meet:
     scene bg hallway with fade
     show professor neutral with dissolve
     "Nice! Caught Professor Bonden before they leave for the day"
+    if dinoroar == True:
+        p "Oh wow, that's some interesting attire that you've chosen. Guess you could say you're looking dino-mite"
+        m "Haha, thanks Professor, I do think I'm looking pretty explosive"
+    if twin == True:
+        p "Oh wow, would you look at. We're practically twinning!"
+        menu:
+            "Omg one of us needs to go change":
+                $prof_friendship+=1
+                p "Haha it should be you. I was on this planet first!"
+                pass
+            "If we were like chromosomes...you'd be my homologous pair":
+                p "Ha{p=1.5}haha{p=1.5}ha. Good one"
+                pass
+            "Say Nothing":
+                pass
     p "Hey %(pname)s, I'm actully on my way out. I'm going to buy planetarium viewing tickets before they run out. I'm really excited for their exhibit tomorrow."
     p "Is there something that I can do for you?"
     menu:
@@ -236,6 +256,21 @@ label prof_meet:
     scene bg office with fade
     show professor happy with dissolve
     "Oh boy, time to defend my GPA's honor"
+    if dinoroar == True:
+        p "Oh wow, that's some interesting attire that you've chosen. Guess you could say you're looking dino-mite"
+        m "Haha, thanks Professor, I do think I'm looking pretty explosive"
+    if twin == True:
+        p "Oh wow, would you look at. We're practically twinning!"
+        menu:
+            "Omg one of us needs to go change":
+                $prof_friendship+=1
+                p "Haha it should be you. I was on this planet first!"
+                pass
+            "If we were like chromosomes...you'd be my homologous pair":
+                p "Ha{p=1.5}haha{p=1.5}ha. Good one"
+                pass
+            "Say Nothing":
+                pass
     p "Hey %(pname)s, thanks for sending the headsup email! I managed to snag tickets to the Planetarium this morning. I was worried that they might have already sold out."
     "I highly doubt the tickets to a planetarium would have sold out so soon but as long as the professor's happy I guess!"
     p "What can I do to help you today?"
@@ -391,6 +426,13 @@ label club_info:
     hide max wink
     show max neutral
     "Whoa arrogant much? Let's chat with him"
+    if bizboss == True:
+        $ maximillion_friendship +=1
+        w "Ooh, hey stranger. I like your attire. Very appropriate"
+        "Hmm, maybe he's not so bad.{p=1.0} maybe"
+    if dinoroar == True:
+        w "Uh, did you get the memo. What in the world are you wearing weirdo?"
+        "Case in point"
     b "Hi, I'm Maximillion. My friends call me Max though. How can I assist a commoner like you today?"
     "Commoner?"
     menu:
@@ -577,7 +619,7 @@ label caffeine:
 label max_library:
     scene bg themil with fade
     show max neutral with dissolve
-    if maximillion_friendship == 2:
+    if maximillion_friendship >= 2:
         hide max neutral
         show max charm
         b "Well, well, well. Look who finally decided to join us. Peasant %(pname)s has arrived"
@@ -830,11 +872,10 @@ label sat_room:
     "I get a restless sleep. Thinking about what Maximillion had said the other today. What kind of extra credit did Professor Bonden mean?"
     "I was originally thinking about doing a presentation or report about the planetarium or something academic related. Who would have thought that getting a good grade would be this complicated"
     "Not to mention, what Maximillion said about the {b}{i}T r i a n g l e{/i}{/b} application. Things like this actually happen?"
-    #TODO: Message notification sound
     show screen mailbox_overlay
     $ add_message("Congratulations", "{b}{i}T r i a n g l e{/i}{/b}", "Hi, We would like to cordially offer you the opportunity to join our ranks. Please come to Hamilton 705 at 11 am tomorrow for your interview with one of our executive board members")
+    play sound "audio/email_notif.mp3"
     "Oh speaking about the Triangle, new email notification."
-    #phone conveying interview
     "Yes!! I landed the interview tomorrow"
     "Trying to refocus on my work, nothing really gets done for the entire day as I deliberate the best course of action"
     hide screen mailbox_overlay
@@ -1122,21 +1163,24 @@ label lust_ending:
     else:
         "Ugh, I can't stand him. He's so arrogant and condescending. The less of him I see the better"
     "Not to mention my Science of Everything exam. Please will the spirit of Prezbo depart some good fortune"
-    #TODO: add ping sound
     show screen mailbox_overlay
     if grade_change ==True:
         $ success +=1
         $ add_message("Regarding Exam and Extra Credit", "Professor Bonden", "Hey, I've spoken with the TAs and they agreed that even though it's past the regrade period. There were definitely some oversights in our grading rubric so we'll be extending the option to all students to submit a new request. Regarding the extra credit we've spoken about, it's still an option open to you if you're interested. Just let me know!")
+        play sound "audio/email_notif.mp3"
         "Oh dear speaking about the Science of Evereything class, new email notification!"
         m "YESSSSSSSSSSSSSSSSSSS. I've boosted my grade and I can do extra credit"
     else:
         if prof_friendship >=0:
+            $ success +=1
             $ add_message("Regarding Exam and Extra Credit", "Professor Bonden", "Hey, I've spoken with the TAs and I'm sorry to inform you that the grade on your exam has not changed. But as we've spoken earlier, extra credit is certainly an option. Please just let me know about the details of what you would like to work on")
-            "Oh dear speaking about the Science of Evereything class, new email notification!"
+            play sound "audio/email_notif.mp3"
+            "Oh dear speaking about the Science of Everything class, new email notification!"
             m "Bless Professor Bonden has spared me and graced me with some extra credit"
         else:
             $ add_message("Regarding Exam and Extra Credit", "Professor Bonden", "Hey, I've spoken with the TAs and I'm sorry to inform you that the grade on your exam has not changed and we can't offer extra credit at this time")
-            "Oh dear speaking about the Science of Evereything class, new email notification!"
+            play sound "audio/email_notif.mp3"
+            "Oh dear speaking about the Science of Everything class, new email notification!"
             m "NOOOOOOOOOOOOOOOOOOOOOO. I'm so screwed for this class"
             m "I thought Professor Bonden was going to at least offer extra credit. What did I do wrong?"
     hide screen mailbox_overlay

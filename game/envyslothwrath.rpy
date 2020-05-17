@@ -664,7 +664,7 @@ label credits:
     return
 
 init python:
-    credits = ('Artists', 'Justin'), ('Artists', 'Ren Huang'), ('Artists', 'Emmy Wang'), ('Artists', 'Kimberly Li'), ('Music', 'Ramy El Baghir'), ('Writers/Programmers', 'Sophia Gates'), ('Writers/Programmers', 'Emmy Wang'), ('Writers/Programmers', 'Kimberly Li'), ('Writers/Programmers', 'Katrina'), ('Writers/Programmers', 'Sarah'), ('Phone code', 'Nadia Nova'), ('Credits code', 'DaFool'), ('Special thanks to:', 'CU Game Dev!')
+    credits = ('Artists', 'Justin'), ('Artists', 'Ren Huang'), ('Artists', 'Emmy Wang'), ('Artists', 'Kimberly Li'), ('Music', 'Ramy El Baghir'), ('Writers/Programmers', 'Sophia Gates'), ('Writers/Programmers', 'Tiffeny Chen'),('Writers/Programmers', 'Emmy Wang'), ('Writers/Programmers', 'Kimberly Li'), ('Writers/Programmers', 'Katrina'), ('Writers/Programmers', 'Sarah'),('Setting', 'Columbia University'), ('Phone code', 'Nadia Nova'),('In-Game Messaging System code', 'saguaro'), ('Phone Sound Effects','by Notificationsounds.com is licensed under CC By 4.0'),('Credits code', 'DaFool'), ('Special thanks to:', 'CU Game Dev!')
     credits_s = "{size=80}Credits\n\n"
     c1 = ''
     for c in credits:
