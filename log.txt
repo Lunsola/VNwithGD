@@ -299,6 +299,7 @@ Screen sizes: virtual=(1280, 720) physical=(1182, 665) drawable=(1182, 665)
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
 
+<<<<<<< HEAD
 Full traceback:
   File "game/envyslothwrath.rpy", line 546, in script
     c "Josh, Josh, Josh, Josh!"
@@ -310,3 +311,26 @@ While running game code:
   File "game/envyslothwrath.rpy", line 546, in script
     c "Josh, Josh, Josh, Josh!"
 Exception: Sayer c is not a function or string.
+=======
+primary display bounds: (0, 0, 1366, 768)
+swap interval: 1 frames
+Windowed mode.
+Screen sizes: virtual=(1280, 720) physical=(1184, 665) drawable=(1184, 665)
+Root FBO is: 0
+FBO Maximum Texture Size: 2048
+<<<<<<< HEAD
+Using gl renderer.
+Texture testing:
+- Hardware max texture size: 16384
+- 64px textures work.
+- 128px textures work.
+- 256px textures work.
+- 512px textures work.
+- 1024px textures work.
+- 2048px textures work.
+Root FBO is: 0
+FBO Maximum Texture Size: 2048
+Total time until interface ready: 763.274999857s
+=======
+>>>>>>> 83aaebdb452db7a4b09f5e0c4eac902738d37baa
+>>>>>>> 8a394c379ba3f8cb714549c046b9290a0439b9d8

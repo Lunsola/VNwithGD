@@ -1250,21 +1250,21 @@ label prideend:
                 $ success +=1
                 "I got a C. Meh."
             else:
-                if studygrade == 1:
+                if studyday == 1:
                     if classgrade >= 6:
                         $ success +=1
                         "I got a C. Meh."
-                elif studygrade == 2:
+                elif studyday == 2:
                     if classgrade >= 5:
                         $ success += 1
                         "I got a C. Meh."
                 else:
                     "I failed! :o"
         "Dont check":
-            if studygrade == 1:
+            if studyday == 1:
                 if classgrade >= 6:
                     $ success += 1
-            elif studygrade == 2:
+            elif  == 2:
                 if classgrade >= 5:
                     $ success += 1
             "If I cared about ASSES, I would've tried harer in first place"
