@@ -93,7 +93,6 @@ label roommateintro:
                     m "I barely even know you! Why would I call you my friend?"
                     m "Obviously, you thought wrong."
                     hide marie concerned
-                    #TODO: check the sprites on the mean to marie route
                     show marie cry
                     r "Okay... {p=1.0}I’m sorry. I’ll leave you alone now."
                     $ marie_friendship -=1
@@ -106,9 +105,11 @@ label roommateintro:
 
 label rlonelyday:
     "Alone at last! This is good. My roommate is so annoying, can’t believe I’m stuck with her for a whole year. Yikes!"
-    "Anyway, maybe I should head to the library today. Knock some work out now so I’ll be ahead by Monday. {p=1.0}Yeah. {p=1.0}That’s what I’ll do."
+    "Anyway, maybe I should head to the library today. Knock some work out now so I’ll be ahead by Monday."
+    $ pmajor = renpy.input("I mean it's really what I should do if I'm serious about majoring in")
+    "Yeah. {p=1.0}Study. {p=1.0}That’s what I’ll do."
     scene bg themil
-    "It’s so peaceful and quiet in here. I wonder where everyone is. Oh yeah, probably out socializing or whatever. It was such a good idea to come here on a quiet day!"
+    "It’s so peaceful and quiet in here even with all these people. No stress yet so early in the semester! It was such a good idea to come here on a quiet day!"
     $renpy.music.set_volume(0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.5, channel="Chan2")
     show marie happy at sright with moveinright
