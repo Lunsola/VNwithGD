@@ -32,11 +32,6 @@ label limbobegin:
     with dissolve
     k "Welcome to Columbia! I’m Karen, your orientation leader. What’s your name?"
     $ pname = renpy.input("My name is:")
-
-    ####temporary to test envy
-    jump lust_begin
-    #jump finishgluttony
-    #jump pridebegin
     show Karen at sleft
     with move
     $renpy.music.set_volume(0.5, channel="Chan1")

@@ -46,8 +46,14 @@ image bg columbiagates:
 define c = Character("Crowd")
 
 label beginenvy:
-    ####temp test
-    $ marieevil = True
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.play("audio/EnvyMain.mp3", channel="Chan1", synchro_start=True)
+    $renpy.music.play("audio/EnvyMarie.mp3", channel="Chan2", synchro_start=True)
+    $renpy.music.play("audio/EnvyJosh.mp3", channel="Chan3", synchro_start=True)
+    $renpy.music.play("audio/EnvyMarvin.mp3", channel="Chan4", synchro_start=True)
     scene black
     with Pause(1)
     show text "{size=50}Semester 5: Junior year???{/size}"
@@ -57,7 +63,6 @@ label beginenvy:
     with dissolve
     "How is it that I’m already a junior, but I don’t feel any more mature than when I was a freshman? I thought by this point in my life I would have things more figured out, but I feel pretty much the same as I did before."
     "I don’t have that many swipes this year. Time to check out the food carts."
-    ##figure out the values we should expect Marie to be at
     if marieevil:
         jump wrongedmarie
     else:
@@ -65,6 +70,8 @@ label beginenvy:
 
 label goodtermswmarie:
     "Ugh, this line is long. Guess I don’t really have anywhere to be."
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, channel="Chan2")
     show marie v happy at center with moveinbottom
     r "Oh my gosh, %(pname)s! So good to see you. How was your summer?"
     hide marie v happy
@@ -91,6 +98,9 @@ label goodtermswmarie:
     show josh happy at left with moveinleft
     hide marie grateful
     show marie happy at right with move
+    $renpy.music.set_volume(0.33, channel="Chan1")
+    $renpy.music.set_volume(volume=0.33, channel="Chan2")
+    $renpy.music.set_volume(volume=0.33, channel="Chan3")
     j "Woah, Marie, so funny running into you! This is so crazy brah I was just thinking of you."
     hide marie happy
     show marie nervous at right, hop
@@ -153,9 +163,14 @@ label ongoodtermswjosh:
             m "Oh well that’s... {p=1.0}great."
             "So he’s like...doing fine? He’s not struggling at all? No offense to Josh, but he was always the one who made me feel better about not having my shit together. Now suddenly he has his shit together way more than me."
             show marie happy at center with move
+            $renpy.music.set_volume(0.25, channel="Chan1")
+            $renpy.music.set_volume(volume=0.25, channel="Chan2")
+            $renpy.music.set_volume(volume=0.25, channel="Chan3")
+            $renpy.music.set_volume(volume=0.25, channel="Chan4")
             show music_neutral at right with moveinright
             r "Oh look, it’s Marven! Hey Marven, come say hi!"
             hide music_neutral
+            play sound "audio/OOT_Scarecrow_Shake1.mp3"
             show music_wink at right
             a "Hey d00ds, what’s up? Good to see you’re looking well %(pname)s."
             hide music_wink
@@ -241,11 +256,23 @@ label joshstillbitter:
     jump lunchaloneesw
 
 label lunchaloneesw:
+    $renpy.music.set_volume(0.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.play("audio/EnvyMain.mp3", channel="Chan1", synchro_start=True)
+    $renpy.music.play("audio/EnvyMarie.mp3", channel="Chan2", synchro_start=True)
+    $renpy.music.play("audio/EnvyJosh.mp3", channel="Chan3", synchro_start=True)
+    $renpy.music.play("audio/EnvyMaximillion.mp3", channel="Chan4", synchro_start=True)
     scene black
     with Pause(.5)
     show text "{size=20}minutes of waiting in a foodtruck line later{/size}"
     with Pause(1)
     hide text
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.5, channel="Chan4")
     scene bg columbiagates
     show max happy with moveinbottom
     b "Hey, it’s you! The plebian. I haven’t seen you in a while."
@@ -302,6 +329,9 @@ label lunchaloneesw:
 
 label wrongedmarie:
     "Ugh, this line is long. Guess I don’t really have anywhere to be."
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
     show marie happy with moveinright
     r "Oh, my god. %(pname)s, you’re here."
     "Shit. It’s my formerly-nice-turned-terrible-double-crossing-ex-roommate. Time to smile and act normal."
@@ -316,6 +346,9 @@ label wrongedmarie:
     "Ah. Now I get it. She wants to brag and make me feel bad all for the price of one interaction. Well, it’s working. Dammit."
     show marie happy at sright with move
     show josh shock at sleft with moveinleft
+    $renpy.music.set_volume(0.33, channel="Chan1")
+    $renpy.music.set_volume(volume=0.33, channel="Chan2")
+    $renpy.music.set_volume(volume=0.33, channel="Chan3")
     j "Woah, Marie, so funny running into you!"
     hide josh shock
     show josh grateful at sleft
@@ -353,6 +386,10 @@ label wrongedmarie:
 label endeswday1:
     scene bg singleroomd
     with dissolve
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
     "It’s the first day of junior year, which should be exciting. But I’m already feeling weirdly bad. Why does everyone seem to be doing better than me? I’ve never even had one internship before, never mind these amazing career starting opportunities."
     "Also I spent most of the day in my room. So that probably didn’t help."
     "I guess all that’s left is to take this one day at a time."
@@ -363,7 +400,13 @@ label endeswday1:
     "Ugh, rise and grind!"
     "Let’s hope no one has any big job opportunities come to them today. I might have to kill someone. Jk jk...{p=1.0}unless?"
     "Okay, I kid. But seriously, yesterday was a major bust. I hope someone I know flunks a test today or something."
+    $renpy.music.set_volume(0.33, channel="Chan1")
+    $renpy.music.set_volume(volume=0.33, channel="Chan2")
+    $renpy.music.set_volume(volume=0.33, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
     show marie happy at center with moveinbottom
+    scene bg low
+    with dissolve
     r "Oh my gosh, %(pname)s it’s you again! Wow, we just keep running into you, huh?"
     "'We'?"
     "Who's 'we'?"
@@ -474,6 +517,10 @@ label endeswday1:
 
 label dawnofthelastday:
     scene bg ferris with dissolve
+    $renpy.music.set_volume(0.33, channel="Chan1")
+    $renpy.music.set_volume(volume=0.33, channel="Chan2")
+    $renpy.music.set_volume(volume=0.33, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
     "Ah, the smell of rubbery Ferris eggs in the morning. There’s nothing like it. Okay, all I have to do today is avoid Marie and Josh who are apparently the most successful people I have ever and will ever meet. Should be easy enough."
     r "OH MY GOD"
     "You’re kidding. Oh wait, she’s not talking to me. What’s--"
@@ -490,12 +537,18 @@ label dawnofthelastday:
     "What the fuck."
     r "I do! I mean, I will! Jeepers I’m all mixed up."
     "I have to get out of here before I throw up."
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
     scene bg low with pushleft
     "I’m actually not sure what just happened. Did I hallucinate that?"
     c "Josh, Josh, Josh, Josh!"
     "And am I hallucinating right now? What are people shouting?"
     c "JOSH, JOSH, JOSH, JOSH!"
     with pixellate
+    $renpy.music.set_volume(0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, channel="Chan3")
     j "Aw shucks, this is so embarrassing. You guys don’t need to make so much of a fuss!"
     show josh grateful at center with moveinbottom
     m "Josh? Hey, Josh? What...what’s happening?"
@@ -521,7 +574,15 @@ label dawnofthelastday:
     show josh neutral
     j "Uh...bro...what a rad day huh!"
     "Is Josh broken? Whatever’s going on I need to get out of here. Pretty sure this is some kind of bad acid trip or something."
-    scene bg singlemaried
+    $renpy.music.set_volume(0.0, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    scene black
+    with dissolve
+    scene bg singlemaried with dissolve
+    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.play("audio/SlothMain.mp3", channel="Chan1", synchro_start=True)
     "Not gonna lie, that was highkey creepy. That almost didn’t feel...real. Am I hallucinating right now?"
     "Maybe I’ll just take a nap? Sleeping it off might work."
     scene black

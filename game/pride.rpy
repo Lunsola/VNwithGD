@@ -349,7 +349,7 @@ label music_encounter:
             $ add_message("ASSES HW2", "ASSES TA", "Your grade for this assignment is 100")
             play sound "audio/email_notif.mp3"
             jump m2begin
-            
+
 label hangover:
     $renpy.music.set_volume(1.0, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, channel="Chan2")

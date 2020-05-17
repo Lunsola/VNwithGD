@@ -391,6 +391,7 @@ label sab_marie:
             r "I'm really glad that I have such great friends like you and Josh in my life. Honestly, at our school it can feel a little toxic sometimes with how competitive people get"
             r "I'm glad that I have such a loyal roomie like you to rely on"
             m "Of course! I'm glad that I can be here for you too"
+            hide marie concerned with moveoutleft
             "Wow, I'm top snek in this den"
             $marie_friendship += 1
         "Sorry, I don't have time for this right now":
