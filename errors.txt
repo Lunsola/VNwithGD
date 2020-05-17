@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/pride.rpy", line 714: expected 'image_name_component' not found.
-    show
-        ^
+File "game/pride.rpy", line 674: expected 'comma or end of line' not found.
+    with squares
+    ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Sat May 16 15:31:08 2020
+Sat May 16 22:45:50 2020

@@ -231,10 +231,7 @@ label start:
     $ marie_friendship = 0 #marie friendship points
     $ prof_friendship = 0 #professor friendship points
     $ music_friendship = 0 #marvien friendship points
-    $ classgrade = 0 #pride chapter grade
     $ josh_hasnumber = False #does player have josh's number?
-    $ finalscore = 0 #final score counter for pride
-    $ stolesg = False # Did player steal study guide
     # Message System Variables
     #Todo: Make some dialogue edits in script so it's less tell more show
     $ mail = []
@@ -256,7 +253,7 @@ label start:
 
     # Name your character: (moved to limbo. "Oh hi, I'm %(pname)s")
 
-    jump limbobegin
+    jump pridebegin
 
     # This ends the game.
 
