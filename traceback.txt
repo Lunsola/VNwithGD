@@ -1,28 +1,20 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/pride.rpy", line 1080, in script
-    if finalscore == 0:
-  File "game/pride.rpy", line 1080, in <module>
-    if finalscore == 0:
-NameError: name 'finalscore' is not defined
+  File "game/envyslothwrath.rpy", line 497, in script
+    c "JOSH, JOSH, JOSH, JOSH!"
+Exception: Sayer c is not a function or string.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/pride.rpy", line 1080, in script
-    if finalscore == 0:
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2059, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2052, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/pride.rpy", line 1080, in <module>
-    if finalscore == 0:
-NameError: name 'finalscore' is not defined
+  File "game/envyslothwrath.rpy", line 497, in script
+    c "JOSH, JOSH, JOSH, JOSH!"
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\ast.py", line 685, in execute
+    raise Exception("Sayer %s is not a function or string." % self.who.encode("utf-8"))
+Exception: Sayer c is not a function or string.
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 CU_HEdoubleL 1.0
-Sun May 17 00:24:35 2020
+Sun May 17 11:40:52 2020

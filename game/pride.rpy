@@ -91,7 +91,7 @@ label pridebegin:
     r "Hoowah! Nothing like eating a big meal after that tough introduction to ASSES!"
     hide marie v happy
     show marie happy
-    r "Marvin seemed like a nice guy. I wanna be study buddies!."
+    r "Marvin seemed like a nice guy. I wanna be study buddies!"
     m "I dunno. He smelled like a memey poser"
     r "Now, you can't make those kinds of assumptions right off the bat! You two have a lot in common!"
     r "He seemed really cool! Like he is double majoring but still takes time to enjoy college life!"
@@ -101,10 +101,10 @@ label pridebegin:
     pause 1
     hide marie surprised
     show marie happy
-    r "Well, I've memorized the syllabus already so I can do my best in this class"
+    r "Well, I've memorized the syllabus so I can do my best in this class"
     r "We have four homeworks! {p=.5}Two midterms! {p=.5}And a final!"
     m "I think maybe you should save your brain cells for actual class material"
-    m "Well, the professor seems to be a bad lecturer, so going to class probably won't help either way."
+    m "The professor seems to be a bad lecturer, so going to class probably won't help either way."
     hide marie happy
     show marie averse
     r "O M G"
@@ -135,8 +135,8 @@ label pridebegin:
             pass
     hide marie happy
     show marie v happy
-    r "Huh I didn't even think of it in that way!"
-    r "%(pname)s! You're so smart! {w}I'm so lucky to have you as my roommate"
+    r "Huh I didn't even think of it in that way! %(pname)s! You're so smart!"
+    r "I'm so lucky to have you as my roommate"
     m "Sure, no sweat"
     r "See you in class tomorrow then!"
     hide marie v happy
@@ -188,8 +188,6 @@ label pridebegin:
             "...33? This can't be right?"
             "Well, I can't be the only one doing this badly"
     r "so what did you get?"
-    $ add_message("ASSES M1", "ASSES TA", "Your grade for this exam is 33")
-    play sound "audio/email_notif.mp3"
     menu:
         "Lie":
             $sin -=1
@@ -212,6 +210,8 @@ label pridebegin:
             hide marie astonished
     show marie happy
     r "Would you like to work with me for the next homework? I think we can def help each other out in this class!"
+    $ add_message("ASSES M1", "ASSES TA", "Your grade for this exam is 33")
+    play sound "audio/email_notif.mp3"
     r "I got an 85 because of your help with the other homework!"
     "This airhead...got a higher grade than me?!"
     menu:
@@ -229,7 +229,7 @@ label pridebegin:
             jump hw2fail
 
 label hw2pass:
-    scene bg themil
+    scene bg themil with fade
     "It's so early I can feel the fatigue of last night's all-nighters still hanging in the air"
     r "Hey %(pname)s"
     show marie nervous2
@@ -270,10 +270,9 @@ label music_encounter:
     m "The lecture isn't that good. I just study on my own."
     hide music_wink
     show music_talk
-    a "Oho that takes some guts."
-    a "I had to go to every single class..."
-    a "...spend hours on that first homework..."
-    a "...and I barely made off with a 110"
+    a "ASSES is a class that weeds out the Virgin Yous among the Chads"
+    a "Change my mind, but tis' the truth"
+    a "...afterall, I barely made off with a 110"
     "{size=+10}wtf 110?!"
     a "Anyhoo, you seem like you Know Your Meme"
     hide music_talk
@@ -293,7 +292,7 @@ label music_encounter:
     hide music_wink
     show music_dark
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
-    a "Wanna go to a party with me? {p=2}It's Spicy Meme themed"
+    a "Wanna go to a party with me? {p=1}It's Spicy Meme themed"
     "GASPPP SPICYYY MEMEEEES"
     menu:
         "That sounds GUCCI GANG":
@@ -391,7 +390,7 @@ label m2begin:
     show marie v happy
     r "That's the Lion Dance Cult!"
     m "Someone file a public noise complaint!"
-    r "They're known for eating all the food at the events they're invited to. {p=2}AND making a bigger racket than the marching band ON A WEEKLY BASIS."
+    r "They're known for eating all the food at the events they're invited to. {w}AND making a bigger racket than the marching band ON A WEEKLY BASIS."
     m "uh, {p=1}great"
     r "Wanna go study in the library? By the way, this upcoming midterm is weighted more than the first one"
     menu:
@@ -402,7 +401,6 @@ label m2begin:
             jump milstein
         "I'll go study with you":
             r "Yayyyy!"
-            hide marie v happy
             jump m2goodgrade
         "I'm gonna take a nap":
             r "Okie see ya later then!"
@@ -490,7 +488,7 @@ label milstein:
             jump eathewitt
 
 label m2goodgrade:
-    $ classgrade +=2;
+    $ classgrade +=2
     "Marie might poke her nose into my business a lot, but I know it's because she cares"
     scene bg buthall
     show marie happy
@@ -622,12 +620,11 @@ label passexam:
     hide marie neutral with dissolve
     "Hm these questions all make sense, unlike the first exam"
     "Hoo studying sure pays off"
-    scene black with fade
     $ add_message("ASSES M2", "ASSES TA", "Your grade for this exam is 92")
     play sound "audio/email_notif.mp3"
     jump goinghome
 label goinghome:
-    scene bg milfloor with irisin
+    scene bg milfloor with fade
     "Hmmm what's with this confuzzling major declaration process"
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
     w "Ayyyyyyyy d00d"
@@ -972,7 +969,7 @@ label examday:
         "3":
             pass
         "2":
-            $ classgrade +=1;
+            $ classgrade +=1
             $ finalscore +=20;
         "1":
             pass
@@ -985,14 +982,14 @@ label examday:
         "9":
             pass
         "8":
-            $ classgrade +=1;
+            $ classgrade +=1
             $ finalscore +=20;
     menu:
         "How many floors does lerner have?"
         "9":
             pass
         "8":
-            $ classgrade +=1;
+            $ classgrade +=1
             $ finalscore +=20;
         "7":
             pass
@@ -1001,7 +998,7 @@ label examday:
     menu:
         "When was Barnard founded?"
         "1889":
-            $ classgrade +=1;
+            $ classgrade +=1
             $ finalscore +=20;
         "1988":
             pass
@@ -1016,7 +1013,7 @@ label examday:
         "47:900":
             pass
         "48000":
-            $ classgrade +=1;
+            $ classgrade +=1
             $ finalscore +=20;
         "47900":
             pass
@@ -1053,7 +1050,7 @@ label examday:
             jump badendingpride
         a "I gotta skrt right now, but y'all should come watch me at graduation!"
         play sound "audio/OOT_Scarecrow_Shake1.mp3"
-        hide music_talk with fade
+        hide music_talk with dissolve
         jump goodendingpride
     else:
         jump badendingpride
@@ -1069,6 +1066,7 @@ label goodendingpride:
     if music_friendship >=9:
         $ success +=1
         "His last words were: %(pname)s, I'm glad I was your senpai. Here is a stack of GRE and TOEFL books, along with study guides made with my blood, sweat, and tears"
+    play sound "audio/phone_notif.mp3"
     "He sends me the occasional finely curated meme"
     call phone_start
     call message_img("MaRv", "LmfAO sksksk","pride_meme2.jpg")
@@ -1095,7 +1093,7 @@ label prideend:
     "And my final grade has been posted to OfCourseItWorks"
     menu:
         "check grade":
-            if classgrade >= 5:
+            if classgrade >= 6:
                 $ success +=1
                 if classgrade >= 9:
                     "I got an A! It's a miracle!"
