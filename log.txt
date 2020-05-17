@@ -295,6 +295,9 @@ Texture testing:
 - 2048px textures work.
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
+<<<<<<< HEAD
+Total time until interface ready: 13.1190001965s
+=======
 Total time until interface ready: 2.38800001144s
 Resetting cache.
 Bootstrap to the start of init.init took 224.59s
@@ -3229,6 +3232,7 @@ Extensions:
 Number of texture units: 8
 Using shader environment.
 Using FBO RTT.
+>>>>>>> c854644157e673c78d60f27723702fd359ffab7d
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
 Using gl renderer.
