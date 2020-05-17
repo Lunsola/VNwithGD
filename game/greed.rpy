@@ -1,4 +1,4 @@
-label career_fair_intro:
+label greed_begin:
     $copy_res = False
     $interview_offer = False
     $greed_check = 0
@@ -225,6 +225,7 @@ label breaken_route: #need to add an option for giving up
                 "I'm so thrilled. I wnat to given the professor a hug but I suppress my urges. I have a newly bought box of chocolates that I was saving for a rainy day. Should I give it to them?"
                 menu:
                     "Give gift":
+                        $sin+=1
                         show gift at center
                         m "Yes, actually. I was hoping you would accept these chocolates as a thank you from me"
                         hide gift with dissolve
@@ -346,6 +347,7 @@ label sab_marie:
             r "Oh, I'm sorry for venting at you. I'll leave you alone"
             "The guilt was slightly eating away at me. But this was for the best, wouldn't it be worse to lead her on while being the direct cause of her problems?"
             r "You're kind of hard to talk to..."
+            $sin-=1
             hide marie distressed moveoutright
     jump resume
 label resume:
@@ -438,6 +440,7 @@ label resume:
                     r "I definitely feel cheered up now!"
                     $marie_friendship+=1
                 "I didn't give you permission to spill your feelings to me":
+                    $marie_friendship-=1
                     m "Please kindly keep your thoughts to yourself."
                     m "Else, I'll be required to venmo you for emotional labor"
                     show marie aversem

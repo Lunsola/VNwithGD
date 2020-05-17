@@ -1,4 +1,4 @@
-label lust_start_dorm:
+label lust_begin:
 
     $prof_email = False
     $grade_change = False
@@ -6,7 +6,7 @@ label lust_start_dorm:
     $bizboss = False
     $dinoroar = False
     image bg but_entrance:
-        zoom 0.70
+        zoom 0.50
         "But_Entrance.jpg"
     scene black
     with Pause(1)
@@ -1189,4 +1189,4 @@ label lust_ending:
             m "I thought Professor Bonden was going to at least offer extra credit. What did I do wrong?"
     hide screen mailbox_overlay
     "Everything is going to be fine! There's always next semester after all. Time to get this bread!"
-jump career_fair_intro
+jump greed_begin

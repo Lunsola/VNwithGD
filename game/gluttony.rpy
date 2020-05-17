@@ -721,4 +721,4 @@ label finishgluttony:
                         hide josh mad with moveoutright
                         "Well, burned that bridge for sure. Just have to avoid him for the next three years until he graduates. On the bright side, at least he’ll leave me alone. Now...about that food. I’m starving."
                         $ fightwithjosh = True
-    jump lust_start_dorm
+    jump lust_begin
