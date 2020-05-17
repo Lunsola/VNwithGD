@@ -1,22 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/pride.rpy", line 894, in script
-    m "Sorry, I was feeling angsty so I came first"
-TypeError: %o format: a number is required, not TagQuotingDict
+  File "game/pride.rpy", line 1067, in script
+    $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 100")
+SyntaxError: invalid syntax (game/pride.rpy, line 1067)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/pride.rpy", line 894, in script
-    m "Sorry, I was feeling angsty so I came first"
-  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\ast.py", line 708, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\exports.py", line 1334, in say
-    what = what % tag_quoting_dict
-TypeError: %o format: a number is required, not TagQuotingDict
+  File "game/pride.rpy", line 1067, in script
+    $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 100")
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\python.py", line 2057, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\python.py", line 692, in py_compile
+    raise e
+SyntaxError: invalid syntax (game/pride.rpy, line 1067)
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 CU_HEdoubleL 1.0
-Sat May 16 15:40:13 2020
+Sat May 16 23:01:01 2020
