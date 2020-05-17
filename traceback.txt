@@ -1,20 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/envyslothwrath.rpy", line 497, in script
-    c "JOSH, JOSH, JOSH, JOSH!"
-Exception: Sayer c is not a function or string.
+  File "game/pride.rpy", line 839, in script
+    $ studyday +=1
+  File "game/pride.rpy", line 839, in <module>
+    $ studyday +=1
+NameError: name 'studyday' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/envyslothwrath.rpy", line 497, in script
-    c "JOSH, JOSH, JOSH, JOSH!"
-  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\ast.py", line 685, in execute
-    raise Exception("Sayer %s is not a function or string." % self.who.encode("utf-8"))
-Exception: Sayer c is not a function or string.
+  File "game/pride.rpy", line 839, in script
+    $ studyday +=1
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\ast.py", line 914, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\emmyi\Downloads\renpy-7.3.5-sdk\renpy\python.py", line 2028, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/pride.rpy", line 839, in <module>
+    $ studyday +=1
+NameError: name 'studyday' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 CU_HEdoubleL 1.0
-Sun May 17 11:40:52 2020
+Sun May 17 15:35:49 2020
