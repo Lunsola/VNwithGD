@@ -599,9 +599,9 @@ label closecurtains:
     r "You don’t remember because it didn’t happen."
     r "You came into existence on Columbia’s campus at the beginning of your first week here. You remember nothing before that because you never actually moved into Columbia University."
     hide marie neutral
-    show marie aversem
+    show marie averse
     r "You choked on a carrot the day before the first day of NSOP and died. And then...you came here. I hope you’ll forgive us for having a little fun. The fire and brimstone gets so boring after a while. Since you died right as your college life was beginning, we decided to set up a sort of test. Of how your time at Columbia would have gone, if you’d lived."
-    hide marie aversem
+    hide marie averse
     show marie neutral
     m "Marie--what--why are you saying these things? I don’t understand."
     r "I think you do. I think you’ve always known. Somewhere, deep in the back of your head. You must have felt us watching you. We’re hard to miss."

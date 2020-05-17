@@ -12,6 +12,9 @@ image bg john jay outside:
     "johnjayoutside.jpg"
 image bg ferris = "ferrisbooth.jpg"
 image bg ferris inside = "ferrisinside.jpg"
+image dinhallfood = "dinhallfood.png"
+image dinhallfood2 = "dinhallfood2.png"
+image pizza = "pizza.png"
 
 #TODO: make a place to enter major other than when Marie asks
 
@@ -248,14 +251,15 @@ label rmeetjosh:
     r "Hi, %(pname)s! This is my friend, Josh."
     j "Hey bro. Groovy to meet you."
     m "Nice to meet you too. I’ll get some food and join you guys."
-    #TODO: figure out this dining hall portion
     hide marie grateful
     with dissolve
     hide josh happy
     with dissolve
-    #show dininghallfood
+    scene bg john jay inside
+    show dinhallfood with dissolve
     "Wow, I really loaded up my plate. Gotta do a better job estimating portion sizes next time."
-    #fade transition
+    hide dinhallfood
+    scene bg john jay with fade
     show marie grateful at left
     with moveinleft
     show josh happy at right
@@ -331,7 +335,6 @@ label rmeetjosh:
     hide josh grateful
     show josh sad at right
     hide marie happy
-    #TODO: find a more sympathetic match
     show marie neutral at left
     j "I’ve been at this school a whole year and believe it or not bro, it’s been tough for a dude like me to make friends."
     hide josh sad
@@ -354,6 +357,7 @@ label rmeetjosh:
             show marie neutral at left
             j "Oh, ok."
     #TODO: make this transition make more sense if you don't give josh the number
+    with dissolve
     hide marie neutral
     show marie happy at left
     r "Wow, time flies when you’re having fun! I actually have to go now. Want to head out together?"
@@ -393,9 +397,10 @@ label gluttonybeginday2:
         #TODO: food transition again (add food images)
         scene bg ferris inside
         with dissolve
+        show dinhallfood2
         "Definitely got too much food. Am I really gonna finish all of this?"
-        scene bg ferris
-        with dissolve
+        hide dinhallfood2
+        scene bg ferris with fade
         show josh happy
         j "Woah, that pizza looks sick! Can I try some?"
         menu:
