@@ -256,7 +256,7 @@ Texture testing:
 - 2048px textures work.
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
-Total time until interface ready: 13.tures work.
+Total time until interface ready: 13.1190001965s
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
 Total time until interface ready: 28.3140001297s
