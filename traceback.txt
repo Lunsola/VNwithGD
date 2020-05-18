@@ -1,28 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/envyslothwrath.rpy", line 757, in script
-    hide marie neutral
-  File "game/envyslothwrath.rpy", line 763, in <module>
-    r "Ooooo, Professor Bonden did not like you."
-NameError: name 'maxmillion_friendship' is not defined
+  File "game/pride.rpy", line 184, in script
+    show text "{i}{size=30}EXAM START" with shake
+Exception: Parameter 'new_widget' is not known by ATL Transform.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/envyslothwrath.rpy", line 757, in script
-    hide marie neutral
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2059, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2052, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/envyslothwrath.rpy", line 763, in <module>
-    r "Ooooo, Professor Bonden did not like you."
-NameError: name 'maxmillion_friendship' is not defined
+  File "game/pride.rpy", line 184, in script
+    show text "{i}{size=30}EXAM START" with shake
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1389, in execute
+    renpy.exports.with_statement(trans, paired)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\exports.py", line 1601, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 2251, in do_with
+    clear=clear)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 2702, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 3047, in interact_core
+    new_widget=layers_root)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\atl.py", line 441, in __call__
+    raise Exception('Parameter %r is not known by ATL Transform.' % k)
+Exception: Parameter 'new_widget' is not known by ATL Transform.
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 Columbia Simulator 1.0
-Mon May 18 14:30:46 2020
+Mon May 18 14:50:48 2020
