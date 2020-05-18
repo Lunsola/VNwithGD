@@ -14,6 +14,7 @@ define k = Character("Karen")
 define a = Character("Marven")
 define s = Character("Professor")
 define w = Character("???") #for characters where name is thus far unknown
+define c = Character("Crowd")
 
 #character transforms
 transform sleft:
@@ -58,7 +59,8 @@ image marie nervous = "roomate_surprized.png"
 image marie nervous2 = "roomate_sweating.png"
 image marie distressed = "roomate_angry_sad.png"
 image marie concerned = "roomate_concerned.png"
-
+image marie urdumb = "roomate_speechless.png"
+image marie angry = "roomate_angry.png"
 
 #max images
 image max happy = "max happy.png"
@@ -89,6 +91,8 @@ image josh shockbat = "Baseball Shck.png"
 image josh stressbat = "Baseball Stress.png"
 image josh shockfg = "Finger Gun Shock.png"
 image josh winkfg = "Finger Gun WInk.png"
+image josh mad = "josh_anger.png"
+image josh neutral = "josh_neutral.png"
 
 #music boi images (added underscores bc music gets read as a fxn)
 image music_neutral = "music_neutral.png"
@@ -189,6 +193,30 @@ image bg CCE:
 image bg Interview:
     zoom 1.75
     "Interview.jpg"
+image bg low:
+    zoom .45
+    "lowsteps.jpg"
+image bg lowonfire:
+    zoom .45
+    "lowstepsburn.jpg"
+image bg singleroom:
+    zoom .95
+    "singleurs.jpg"
+image bg singleroomd:
+    zoom .95
+    "singleursd.jpg"
+image bg singlemarie:
+    zoom .95
+    "single.jpg"
+image bg singlemaried:
+    zoom .95
+    "singledark.jpg"
+image bg singleonfire:
+    zoom .95
+    "singleburn.jpg"
+image bg columbiagates:
+    zoom 1.5
+    "columbiagates.jpg"
 
 
 # The game starts here.

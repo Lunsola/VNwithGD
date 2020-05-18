@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 Sun May 17 20:52:15 2020
+=======
+Sun May 17 14:35:39 2020
+>>>>>>> 64d03cd453c06f0a8fafa5e9b20b676cd3d4f3b3
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
  
 
+<<<<<<< HEAD
 Bootstrap to the start of init.init took 0.06s
 Early init took 0.00s
 Loader init took 0.04s
@@ -297,3 +302,32 @@ Texture testing:
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
 Total time until interface ready: 3.91899991035s
+=======
+Bootstrap to the start of init.init took 0.30s
+Early init took 0.01s
+Loader init took 0.16s
+Loading error handling took 0.12s
+Loading script took 0.89s
+Loading save slot metadata. took 0.21s
+Loading persistent took 0.01s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.39s
+Loading analysis data took 0.12s
+Analyze and compile ATL took 0.03s
+Index archives took 0.00s
+Dump and make backups. took 0.32s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.09s
+DPI scale factor: 1.000000
+Creating interface object took 0.22s
+Cleaning stores took 0.00s
+Init translation took 0.16s
+Build styles took 0.03s
+Load screen analysis took 0.49s
+Analyze screens took 0.01s
+Save screen analysis took 0.00s
+Prepare screens took 0.39s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.49s
+>>>>>>> 64d03cd453c06f0a8fafa5e9b20b676cd3d4f3b3

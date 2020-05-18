@@ -8,43 +8,6 @@
 #$ marieevil = False
 #$ committedArson = False
 
-image marie urdumb = "roomate_speechless.png"
-image marie angry = "roomate_angry.png"
-image bg low:
-    zoom .45
-    "lowsteps.jpg"
-
-image bg lowonfire:
-    zoom .45
-    "lowstepsburn.jpg"
-
-image bg singleroom:
-    zoom .95
-    "singleurs.jpg"
-
-image bg singleroomd:
-    zoom .95
-    "singleursd.jpg"
-
-image bg singlemarie:
-    zoom .95
-    "single.jpg"
-
-image bg singlemaried:
-    zoom .95
-    "singledark.jpg"
-
-image bg singleonfire:
-    zoom .95
-    "singleburn.jpg"
-
-image josh mad = "josh_anger.png"
-image josh neutral = "josh_neutral.png"
-image bg columbiagates:
-    zoom 1.5
-    "columbiagates.jpg"
-define c = Character("Crowd")
-
 label beginenvy:
     $renpy.music.set_volume(1.0, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, channel="Chan2")
@@ -404,9 +367,9 @@ label endeswday1:
     $renpy.music.set_volume(volume=0.33, channel="Chan2")
     $renpy.music.set_volume(volume=0.33, channel="Chan3")
     $renpy.music.set_volume(volume=0.0, channel="Chan4")
-    show marie happy at center with moveinbottom
     scene bg low
     with dissolve
+    show marie happy at center with moveinbottom
     r "Oh my gosh, %(pname)s it’s you again! Wow, we just keep running into you, huh?"
     "'We'?"
     "Who's 'we'?"
@@ -443,13 +406,13 @@ label endeswday1:
                     show marie mad at sright
                 else:
                     hide marie ingenuine
-                    show marie shock at sright, hop
+                    show marie surprised at sright, hop
                 if fightwithjosh == False:
                     hide josh shock
                     show josh sad at center
                 m "Oh, you know. It’s just that people like you tend to find each other. Like, you know, ditzy types."
                 if marieevil == False:
-                    hide marie shock
+                    hide marie surprised
                     show marie cry at sright
                 r "%(pname)s, I think it would be best if you left."
                 m "I was just thinking of leaving myself, actually. I’m meeting up with a friend. Bye."
@@ -669,9 +632,9 @@ label closecurtains:
     m "You said this was a--test? Of what? Did I pass?"
     if sin > 0 and committedArson:
         hide marie neutral
-        show marie shock
+        show marie surprised
         r "I actually don’t know how you did it."
-        hide marie shock
+        hide marie surprised
         show marie concerned
         r "But you just scraped by. Don’t worry, though, %(pname)s. Up there, they can be awfully picky about what behaviors they accept."
         hide marie concerned
@@ -685,7 +648,7 @@ label closecurtains:
         r "Welcome to hell, %(pname)s."
     elif sin == 0:
         hide marie neutral
-        show marie shock
+        show marie astonished
         r "..."
         r "Wait."
         r "This test can't be inconclusive."
