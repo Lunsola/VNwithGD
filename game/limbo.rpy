@@ -17,7 +17,7 @@ init -1 python:
     renpy.music.register_channel("Chan4", mixer= "music", loop=True, stop_on_mute=False, tight=True)
 
 label limbobegin:
-    $renpy.music.set_volume(1.0, channel="Chan1")
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, channel="Chan2")
     $renpy.music.play("audio/LimboDraftMain.mp3", channel="Chan1", synchro_start=True)
     $renpy.music.play("audio/LimboDraftMarie.mp3", channel="Chan2", synchro_start=True)
@@ -32,10 +32,13 @@ label limbobegin:
     with dissolve
     k "Welcome to Columbia! I’m Karen, your orientation leader. What’s your name?"
     $ pname = renpy.input("My name is:")
+    if pname == "":
+        $pname = "Alex"
+        m "%(pname)s."
     show Karen at sleft
     with move
     $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
     show marie happy at sright
     with moveinright
     if persistent.ending == "new player!" or persistent.ending == "inconclusive":
@@ -49,7 +52,7 @@ label limbobegin:
     m "Marie! Of course."
     hide marie v happy
     show marie happy at sright
-    r "I have to go to join my own orientation group now, but we should definitely talk later!"
+    r "I have to go join my own orientation group now, but we should definitely talk again soon!"
     hide marie happy
     with moveoutright
     $renpy.music.set_volume(1.0, channel="Chan1")

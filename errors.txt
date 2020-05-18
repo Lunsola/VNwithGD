@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/limbo.rpy", line 24: expected statement.
-    persistent.endings = "original"
-                       ^
+File "game/gluttony.rpy", line 117: expected statement.
+    pmajor = "Chemistry"
+           ^
+
+File "game/gluttony.rpy", line 293: expected statement.
+    pmajor = "Chemistry"
+           ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Sun May 17 18:47:20 2020
+Mon May 18 00:10:28 2020

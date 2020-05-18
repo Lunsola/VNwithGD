@@ -1,36 +1,37 @@
-Sun May 17 19:21:12 2020
+Mon May 18 00:11:07 2020
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
  
 
-Bootstrap to the start of init.init took 0.31s
+Bootstrap to the start of init.init took 0.35s
 Early init took 0.02s
-Loader init took 0.17s
-Loading error handling took 0.13s
-Loading script took 0.94s
+Loader init took 0.18s
+Loading error handling took 0.12s
+Loading script took 2.45s
 Loading save slot metadata. took 0.25s
 Loading persistent took 0.01s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.52s
-Loading analysis data took 0.30s
-Analyze and compile ATL took 0.05s
+Running init code took 0.44s
+Loading analysis data took 0.25s
+Analyze and compile ATL took 0.04s
 Index archives took 0.00s
-Dump and make backups. took 0.40s
+Backing up script files to 'C:\\Users\\Kimberly\\AppData\\Roaming/RenPy/backups\\CU_HEdoubleL':
+Dump and make backups. took 0.47s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.09s
+Initial gc. took 0.10s
 DPI scale factor: 1.000000
 Creating interface object took 0.25s
 Cleaning stores took 0.00s
-Init translation took 0.10s
+Init translation took 0.11s
 Build styles took 0.02s
-Load screen analysis took 0.76s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.35s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.45s
-Running _start took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.08s
+Save screen analysis took 0.40s
+Prepare screens took 0.33s
+Save pyanalysis. took 0.84s
+Save bytecode. took 0.50s
+Running _start took 0.01s
 Interface start took 0.12s
 
 primary display bounds: (0, 0, 1366, 768)
@@ -256,4 +257,4 @@ Texture testing:
 - 2048px textures work.
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
-Total time until interface ready: 6.67800021172s
+Total time until interface ready: 8.97699999809s

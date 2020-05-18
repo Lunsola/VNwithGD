@@ -17,13 +17,14 @@ image bg ferris inside = "ferrisinside.jpg"
 image dinhallfood = "dinhallfood.png"
 image dinhallfood2 = "dinhallfood2.png"
 image pizza = "pizza.png"
+#$ threwpizzamad = False you threw pizza at josh???
 
 #TODO: make a place to enter major other than when Marie asks
 
 label roommateintro:
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.5, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     $renpy.music.play("audio/GluttonyMain.mp3", channel="Chan1", synchro_start=True)
     $renpy.music.play("audio/GluttonyMarie.mp3", channel="Chan2", synchro_start=True)
     $renpy.music.play("audio/GluttonyJosh.mp3", channel="Chan3", synchro_start=True)
@@ -70,8 +71,8 @@ label roommateintro:
                     m "Please don’t. I need my space."
                     $ marie_friendship -=1
                     hide marie sad with moveoutleft
-                    $renpy.music.set_volume(1.0, channel="Chan1")
-                    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+                    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+                    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
                     m "Finally!"
                     jump rlonelyday
         "Don't say anything":
@@ -103,26 +104,29 @@ label roommateintro:
                     $ marie_friendship -=1
                     hide marie cry
                     with moveoutleft
-                    $renpy.music.set_volume(1.0, channel="Chan1")
-                    $renpy.music.set_volume(volume=0.0, channel="Chan2")
+                    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+                    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
                     m "Finally!"
                     jump rlonelyday
 
 label rlonelyday:
     "Alone at last! This is good. My roommate is so annoying, can’t believe I’m stuck with her for a whole year. Yikes!"
     "Anyway, maybe I should head to the library today. Knock some work out now so I’ll be ahead by Monday."
-    $ pmajor = renpy.input("I mean it's really what I should do if I'm serious about majoring in")
+    $ pmajor = renpy.input("I mean it's really what I should do if I'm serious about majoring in:")
+    if pmajor == "":
+        $ pmajor = "Chemistry"
+        "%(pmajor)s."
     "Yeah. {p=1.0}Study. {p=1.0}That’s what I’ll do."
     scene bg themil
     "It’s so peaceful and quiet in here even with all these people. No stress yet so early in the semester! It was such a good idea to come here on a quiet day!"
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.5, channel="Chan2")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
     show marie happy at sright with moveinright
     "Oh no, that’s Marie!"
     "Why is she here?"
-    $renpy.music.set_volume(0.33, channel="Chan1")
-    $renpy.music.set_volume(volume=0.33, channel="Chan2")
-    $renpy.music.set_volume(volume=0.33, channel="Chan3")
+    $renpy.music.set_volume(0.33, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.33, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.33, delay=0.5, channel="Chan3")
     show marie happy at sleft with move
     $ persistent.ending="unlock 2"
     show josh happy at sright with moveinright
@@ -203,9 +207,9 @@ label libraryjmcont:
             j "Of course, bro! Anytime. Give me your number and I’ll text you sometime."
             $ josh_hasnumber = True
             r "Anyway, Josh was just showing me around. I’ll leave you alone to study now. I’m so glad we ran into you!"
-            $renpy.music.set_volume(1.0, channel="Chan1")
-            $renpy.music.set_volume(volume=0.0, channel="Chan2")
-            $renpy.music.set_volume(volume=0.0, channel="Chan3")
+            $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+            $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+            $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
             jump gluttonybeginday2
         "Don't bring it up.":
             "You know what?"
@@ -221,9 +225,9 @@ label libraryjmcont:
             m "Yeah, see you!"
             hide marie happy with moveoutleft
             hide josh happy with moveoutleft
-            $renpy.music.set_volume(1.0, channel="Chan1")
-            $renpy.music.set_volume(volume=0.0, channel="Chan2")
-            $renpy.music.set_volume(volume=0.0, channel="Chan3")
+            $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+            $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+            $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
             "Whew, dodged a bullet there! Honestly, that could have gone worse. At least I didn’t yell at her or anything, right?"
             "Now...about that Shake Shack."
             scene bg shakeshack with pushleft
@@ -236,9 +240,9 @@ label libraryjmcont:
 label rmeetjosh:
     scene bg john jay
     "Found the dining hall! First challenge of the day complete."
-    $renpy.music.set_volume(0.33, channel="Chan1")
-    $renpy.music.set_volume(volume=0.33, channel="Chan2")
-    $renpy.music.set_volume(volume=0.33, channel="Chan3")
+    $renpy.music.set_volume(0.33, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.33, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.33, delay=0.5, channel="Chan3")
     if persistent.ending == "unlock 1":
         $ persistent.ending="unlock 2"
     show josh wave at sright
@@ -246,11 +250,9 @@ label rmeetjosh:
         zoom .75
     "Oh, there they are. That guy sitting next to Marie is waving extremely vigorously at me. Those are windmill arms if I’ve ever seen them."
     hide josh wave
-    with dissolve
-    show josh happy at right with move
+    show josh happy at right
     hide marie happy
-    with dissolve
-    show marie happy at left with move
+    show marie happy at left
     m "Hey guys, what’s up?"
     hide marie happy
     show marie grateful at left
@@ -285,8 +287,11 @@ label rmeetjosh:
     hide marie grateful
     show marie happy at left
     r "What about you, %(pname)s?"
-    m "Oh, well I haven’t nailed it down for sure yet. But I think my major is going to end up being"
-    $ pmajor = renpy.input("")
+    m "Oh, well I haven’t nailed it down for sure yet."
+    $ pmajor = renpy.input("But I think my major is going to end up being:")
+    if pmajor == "":
+        $ pmajor = "Chemistry"
+        m "%(pmajor)s."
     hide marie happy
     show marie v happy at left
     r "What a coincidence! I’m gonna be a %(pmajor)s major, too! I knew we were meant to be besties."
@@ -319,7 +324,7 @@ label rmeetjosh:
             hide josh happy
             show josh shock at right
             hide marie grateful
-            show marie astonished
+            show marie astonished at left
             m "I literally just got here. You think I’m gonna be wasting time NOT eating dining hall food? No thanks."
             j "Chillax bro, just thought it might be a fun idea. Whatever floats your boat my dude."
             hide josh shock
@@ -375,9 +380,9 @@ label rmeetjosh:
     jump gluttonybeginday2
 
 label gluttonybeginday2:
-    $renpy.music.set_volume(1.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     scene bg EC with dissolve
     "Where did the weekend go? How is it Sunday already?"
     "Geez, I feel like I did nothing but eat. The freshman fifteen is real, folks."
@@ -391,8 +396,8 @@ label gluttonybeginday2:
         call phone_end from _call_phone_end_4
         $ josh_friendship +=1
         scene bg ferris
-        $renpy.music.set_volume(0.5, channel="Chan1")
-        $renpy.music.set_volume(volume=0.5, channel="Chan3")
+        $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+        $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan3")
         show josh wave
         "Geez, that man waves like his life depends on it. I see him already!"
         hide josh wave
@@ -426,6 +431,7 @@ label gluttonybeginday2:
             "Throw the pizza at him.":
                 #TODO: add flying pizza and whoosh sound effect
                 $ sin -=1
+                with hpunch
                 hide josh happy
                 show josh shock
                 j "Dude! That was the gnarliest thing I’ve ever seen anyone do! What just happened?"
@@ -438,6 +444,7 @@ label gluttonybeginday2:
                         j "I can see that brah! That was pretty funny dude. Now no one can eat the pizza though."
                         m "Whatever. Worth it!"
                     "Get mad.":
+                        $ threwpizzamad = True
                         $ sin -=1
                         #TODO: change these sprites
                         m "You want to eat off my plate now? Really? God, isn’t it enough I’m having lunch with you? This is my first real meal today so back off."
@@ -558,9 +565,9 @@ label joshhonesthours:
 
 label runintojosh:
     scene bg shakeshack with pushleft
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.5, channel="Chan3")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan3")
     "Shake Shack again! Man it’s so convenient this place is so close to campus."
     "Let’s see...I’ll get a Chick’n Shack with fries, and maybe throw in a flat-top dog just for funsies."
     show josh shockbat with moveinright
@@ -643,11 +650,16 @@ label notclosetojosh:
     return
 
 label finishgluttony:
+    scene black
+    with Pause(.5)
+    show text "{size=50}And a couple days later...{/size}"
+    with Pause(1)
+    hide text
     scene bg john jay outside with dissolve
     "Finally taking the big step of eating dinner by myself. I’m so hungry, even after that big lunch. I hope no one thinks I’m a loser because I’m sitting alone."
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.5, channel="Chan3")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan3")
     w "You again? No way brah."
     show josh grateful with moveinbottom
     j "It’s me, Josh!"
@@ -727,6 +739,7 @@ label finishgluttony:
                     else:
                         hide josh sad
                         show josh mad
+                        #is this ending possible even????
                         j "You know what? Ever since you first met me you’ve been nasty to me. Do you have a problem with me? Say it to my face. Because I don’t think you’re a very nice person."
                         $ josh_friendship -=4
                         hide josh mad with moveoutright

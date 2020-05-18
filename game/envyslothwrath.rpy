@@ -65,7 +65,7 @@ label goodtermswmarie:
     $renpy.music.set_volume(volume=0.33, channel="Chan3")
     j "Woah, Marie, so funny running into you! This is so crazy brah I was just thinking of you."
     hide marie happy
-    show marie nervous at right, hop
+    show marie nervous at right with move
     r "Oh my gosh, Josh! I totally didn’t know this is your favorite place to get lunch, haha. I guess we can..."
     show marie nervous at sright with move
     r "have lunch together?"
@@ -85,13 +85,13 @@ label ongoodtermswjosh:
     hide josh grateful
     show josh approve at left
     hide marie grateful
-    show marie neutral
+    show marie neutral at sright
     j "%(pname)s, you coming too? We could all go over to sit on Low Steps to eat."
     "I feel like Marie kind of wants a moment alone with Josh. Maybe I should let them do their thing and not intrude."
     menu:
         "Have lunch with them":
             hide marie neutral
-            show marie ingenuine at right
+            show marie ingenuine at sright
             hide josh approve
             show josh happy at left
             m "Yeah, I’ll come along. Sounds fun!"
@@ -159,7 +159,7 @@ label ongoodtermswjosh:
             "There’s the old Marven I know and love. Okay, to be honest, all this is stressing me out. Anyone else want to come up and tell me all about their accomplishments? At this point, I kind of want to just spend the rest of the day in my room where no one can find me and tell me how succesful they are. Yeah...that sounds like fun."
             hide josh happy with moveoutleft
             hide marie happy with moveoutleft
-            hide music_neutral with moveoutleft
+            hide music_smile with moveoutright
             jump endeswday1
         "Pass on lunch":
             m "Nah, you guys go ahead. I have some errands I gotta run anyway so I should eat fast."
@@ -495,7 +495,8 @@ label dawnofthelastday:
     hide josh happy with moveoutleft
     "I don't want to see or hear this at least to protect my already battered ego."
     r "Oh my gosh I’m hyperventilating. I need to sit down. I just won twenty million dollars."
-    j "Marie...you’re like, so rad dude. I know this feels crazy, but I feel like the universe is sending us a sign. That it wants us to be together and make a life together. Marie, when the madness of Columbia University in the City of New York has passed...will you marry me?"
+    j "Marie...you’re like, so rad dude. I know this feels crazy, but I feel like the universe is sending us a sign. That it wants us to be together and make a life together."
+    j "Marie, when the madness of Columbia University in the City of New York has passed...will you marry me?"
     "What the fuck."
     r "I do! I mean, I will! Jeepers I’m all mixed up."
     "I have to get out of here before I throw up."
@@ -551,9 +552,13 @@ label dawnofthelastday:
     with dissolve
     scene bg singlemarie with dissolve
     "I think that worked! I do feel refreshed now. I had the weirdest dream about Josh and Marie…"
-    "Speaking of Josh and Marie...their accomplishments are starting to really bum me out! I honestly thought they were still working their lives out just like me, but all of a sudden they have jobs and relationships. Where does that leave me? What does it say about me that I don’t have those things?"
-    "I probably should actually take time today to focus on all the shit I have to get done before classes start. But I kind of...don’t feel like it? All I can think about is Josh and Marie, Marie and Josh. It’s like, my brain is stuck on them or something. Why do they have all the things I want? Why do other people get to be happy and I don’t?"
-    "Wait a second. Something feels off about this room."
+    "Speaking of Josh and Marie...their accomplishments are starting to really bum me out!"
+    "I honestly thought they were still working their lives out just like me, but all of a sudden they have jobs and relationships. Where does that leave me? What does it say about me that I don’t have those things?"
+    "I probably should actually take time today to focus on all the shit I have to get done before classes start."
+    "But I kind of...don’t feel like it?"
+    "All I can think about is Josh and Marie, Marie and Josh. It’s like, my brain is stuck on them or something. Why do they have all the things I want? Why do other people get to be happy and I don’t?"
+    "Wait a second."
+    "Something feels off about this room."
     with hpunch
     $renpy.music.set_volume(1.0, channel="Chan1")
     $renpy.music.play("audio/Wrath.mp3", channel="Chan1", synchro_start=True)
@@ -595,11 +600,16 @@ label dawnofthelastday:
             show marie neutral
             r "No, you don’t."
             m "What?"
-            r "You don’t have a friend waiting for you. You just left my room, where you were tempted to commit arson. Before that, you saw Josh be cheered for winning the big game and saw me win the lottery. I know where you’ve been and what you’ve done, %(pname)s. We’re always watching."
+            r "You don’t have a friend waiting for you."
+            r "You just left my room, where you were tempted to commit arson. Before that, you saw Josh be cheered for winning the big game and saw me win the lottery."
+            r "I know where you’ve been and what you’ve done, %(pname)s. We’re always watching."
             m "Are you spying on me? That’s illegal! I could get you arrested for that."
             hide marie neutral
             show marie concerned
-            r "Go ahead and try. In fact, go ahead and try dialing any number that does not belong to someone you’ve met at this school. I promise you, it won’t go through. Your phone isn’t connected to any cell service that exists in the United States. In the world, actually."
+            r "Go ahead and try."
+            r "In fact, go ahead and try dialing any number that does not belong to someone you’ve met at this school. I promise you, it won’t go through."
+            r "Your phone isn’t connected to any cell service that exists in the United States."
+            r "In the world, actually."
             m "Marie, you’re freaking me out. Can you just leave me alone?"
             r "Unfortunately, that’s something I can’t do. You see, I don’t actually exist without you. Well, I do, but this body does not. We’re linked, for better or worse."
             m "Stop being so weird and vague. If you have something to say, say it now."
@@ -623,12 +633,129 @@ label closecurtains:
     r "You came into existence on Columbia’s campus at the beginning of your first week here. You remember nothing before that because you never actually moved into Columbia University."
     hide marie neutral
     show marie averse
-    r "You choked on a carrot the day before the first day of NSOP and died. And then...you came here. I hope you’ll forgive us for having a little fun. The fire and brimstone gets so boring after a while. Since you died right as your college life was beginning, we decided to set up a sort of test. Of how your time at Columbia would have gone, if you’d lived."
+    r "You choked on a carrot the day before the first day of NSOP and died."
     hide marie averse
     show marie neutral
+    r "And then...you came here. I hope you’ll forgive us for having a little fun. The fire and brimstone gets so boring after a while. Since you died right as your college life was beginning, we decided to set up a sort of test."
+    r "Of how your time at Columbia would have gone, if you’d lived."
     m "Marie--what--why are you saying these things? I don’t understand."
     r "I think you do. I think you’ve always known. Somewhere, deep in the back of your head. You must have felt us watching you. We’re hard to miss."
     m "You said this was a--test? Of what? Did I pass?"
+
+    ##Marie about to do some math on this bitch and read you
+
+    r "Well why don't we reflect on some of your choices."
+    if marie_friendship > 4: #marie max +7, min -2
+        $sin =+1
+        hide marie neutral
+        show marie happy at center, hop
+        r "You know, I have to admit at least I personally like you."
+        if marieevil:
+            if committedArson:
+                hide marie happy
+                show marie ingenuine
+                r "You're such a crazy, two-faced person!"
+                hide marie ingenuine
+                show marie v happy at center, hop
+                r "Burning down rooms and copying resumes. No crime too big or small I guess!"
+                hide marie v happy
+                show marie averse
+                r "I would love to see you fail and stay with us. You'd fit right in."
+                $sin =-2
+                hide marie averse
+                show marie neutral
+            else:
+                hide marie happy
+                show marie neutral
+                r "The resume thing was no good though."
+                hide marie neutral
+                show marie ingenuine
+                r "Well, I suppose we all make mistakes."
+                hide marie ingenuine
+                show marie neutral
+                r "But you still lost points for it."
+        else:
+            if committedArson:
+                hide marie happy
+                show marie averse
+                r "However, it is unfortunate you couldn't resist just a little longer and not burn down my room."
+                hide marie averse
+                show marie ingenuine
+                r "Don't worry though, that's definitely factoring into calculations."
+                hide marie ingenuine
+                show marie neutral
+            else:
+                r "If you do have to stay with us somehow, I'd be happy to be your friend still."
+                hide marie happy
+                show marie neutral
+    else:
+        r "You probably already know how I feel about you personally." #I got this even though I thought I was nice...
+        if committedArson:
+            hide marie neutral
+            show marie averse
+            "She points at the fire and says nothing else on that."
+        elif marieevil and marie_friendship > 0:
+            r "Would it have killed you to be a little nicer?"
+            hide marie neutral
+            show marie averse
+            r "Oh and less of a cheater. That resume stunt sure was dumb."
+        elif marieevil and marie_friendship <=0:
+            r "Talk about a grade A jerk."
+            r "Which is a better grade than you could hope for in anything else after you were dumb enough to pull that resume stunt."
+        elif marie_friendship < 0:
+            r "I don't think you could have been meaner to me if you tried!"
+            hide marie averse
+            show marie concerned
+            r "I really did try being nice..."
+        hide marie concerned
+        hide marie averse
+        show marie neutral
+    if josh_friendship > 2: #josh max +6, min -6
+        $sin =+1
+        hide marie neutral
+        show marie happy
+        r "Now, Josh is happy to vouch for you, but I'm sure you've noticed he's quite the nice character."
+        if threwpizzamad:
+            hide marie happy
+            show marie neutral
+            r "It really is kind of absurd considering that whole pizza incident."
+            r "What {i}did{/i} you gain from berating him on top of ruining that pizza?"
+        r "Still, a vote in your favor is a vote."
+        hide marie happy
+        show marie neutral
+        #should I make player able to ask why she discredits josh? "what did you actually think we were dating?"
+    elif josh_friendship < -3:
+        pass
+        ##hoooly heck u were rude also did you say sucks to suck loser???
+        ##okay so this only occurs if you said sucks to suck and he chews you out
+    if prof_friendship > 3: #bonden max +6, min -6
+        $sin =+1
+        hide marie neutral
+        show marie happy
+        r "Professor Bonden's rec letter is positive! That's nice!"
+        hide marie happy
+        show marie neutral
+    if seduce_prof:
+        r "Ooooo, Professor Bonden did not like you."
+        hide marie neutral
+        show marie averse
+        r "I'm sure you know why."
+        hide marie averse
+        show marie neutral
+    if maximillion_friendship > 5: #max +7, -9
+        $sin =+2
+        #wow how were you so nice to this man?? Did you like him for real??
+    elif maximillion_friendship > 2:
+        $sin =+1
+        #Aw thanks for playing nice with Max who is def a bitch
+    elif maxmillion_friendship < -5:
+        pass
+        #no surprise max hates you! whatever he's not easy to get along with
+    #if music_friendship
+    #marieevil and stolesg in order to get the snitch result
+
+    #currently there's a range of -24 to 10 possible sin points (before relationships factored in). Let's round that down to a nice -20 possible
+
     if sin > 0 and committedArson:
         hide marie neutral
         show marie surprised
@@ -672,6 +799,9 @@ label closecurtains:
         r "I think I can safely say you did."
         r "You know, it was a toss up, %(pname)s. Some of the things you did on Earth made us wonder if you’d be up to the challenge of the test. But you did it."
         r "You chose friendship over bitterness and generosity over vindictiveness."
+        if success > 6: #total possible 9
+            r "Plus, you did really well in school despite the obstacles we threw at you!"
+            r "Which is why I'm proud to say!"
         hide marie happy
         show marie v happy at center, hop
         r "Congratulations. You’re graduating from hell."
