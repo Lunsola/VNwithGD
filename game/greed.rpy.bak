@@ -741,22 +741,22 @@ label job_results:
     if greed_check == 3:
         "AHHHH the suspense for whether I got the job or not is killing me"
         if copy_res == True:
-            call phone_start from _call_phone_start
-            call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and I would be saying you got the job") from _call_message_start
+            call phone_start
+            call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and I would be saying you got the job")
             play sound "audio/phone_notif.mp3"
             "Omg. Omg. this is SO EXCITING"
-            call message("Dream Job and Co", "But, unfortunately that's not what this message is going to end up being. I would have given you the job but it turns out that there was something suspicious in your resume so things didn't manage to work out in the end") from _call_message
+            call message("Dream Job and Co", "But, unfortunately that's not what this message is going to end up being. I would have given you the job but it turns out that there was something suspicious in your resume so things didn't manage to work out in the end")
             play sound "audio/phone_notif.mp3"
             "Wait, what?"
-            call phone_end from _call_phone_end
+            call phone_end
             "How could this be? My resume was perfect, especially considering I copied mine from Marie."
             "...I should go ask her about it"
             jump copied_marie
         else:
-            call phone_start from _call_phone_start_1
-            call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and let you know that you got it!! I can't wait for your journey to continue with us here. Please feel free to reach out whenever") from _call_message_start_1
+            call phone_start
+            call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and let you know that you got it!! I can't wait for your journey to continue with us here. Please feel free to reach out whenever")
             play sound "audio/phone_notif.mp3"
-            call phone_end from _call_phone_end_1
+            call phone_end
             "OMG. THIS IS SO EXCITING"
             "YAYYYYY"
             "Man, this is wild. I should try and calm down a bit. Let's go on a walk. In fact, maybe I'll see someone and share the good news!"
@@ -769,19 +769,19 @@ label job_results:
     elif greed_check == 2 and interview_offer == True:
         "AHHHH the suspense for whether I got the job or not is killing me"
         if copy_res == True:
-            call phone_start from _call_phone_start_2
-            call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and let you know that ... you should probably send out more applications. You just weren't up to snuff for what we were looking for and I think there was also something wonky about your resume?") from _call_message_start_2
+            call phone_start
+            call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and let you know that ... you should probably send out more applications. You just weren't up to snuff for what we were looking for and I think there was also something wonky about your resume?")
             play sound "audio/phone_notif.mp3"
             "Wait, what?"
-            call phone_end from _call_phone_end_2
+            call phone_end
             "How could this be? My resume was perfect, especially considering I copied mine from Marie."
             "...I should go ask her about it"
             jump copied_marie
         else:
-            call phone_start from _call_phone_start_3
-            call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and let you know that ... you should probably send out more applications. You just weren't up to snuff for what we were looking for.") from _call_message_start_3
+            call phone_start
+            call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and let you know that ... you should probably send out more applications. You just weren't up to snuff for what we were looking for.")
             play sound "audio/phone_notif.mp3"
-            call phone_end from _call_phone_end_3
+            call phone_end
             "Aww, that's unfortunate that things didn't work out"
             "Guess, it's back to the grind then"
             "First, I wanna go on a walk though. I want to clear my head"

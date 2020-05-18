@@ -190,9 +190,9 @@ label pridebegin:
     "Big yikes the ASSES TAs are fast"
     menu:
         "Check your grade":
-            call phone_start from _call_phone_start_8
-            call message_start("OfCourseItWorks", "ASSES Examination 1: 33") from _call_message_start_7
-            call phone_end from _call_phone_end_8
+            call phone_start
+            call message_start("OfCourseItWorks", "ASSES Examination 1: 33")
+            call phone_end
             "...33 This can't be right?"
             $renpy.music.set_volume(0.5, channel="Chan1")
             $renpy.music.set_volume(volume=0.5, channel="Chan2")
@@ -215,9 +215,9 @@ label pridebegin:
             m "my WHAT"
             r "Your grade for the first midterm last week. It just got uploaded"
             "Ugh I guess I gotta check it now"
-            call phone_start from _call_phone_start_9
-            call message_start("OfCourseItWorks", "ASSES Examination 1: 33") from _call_message_start_8
-            call phone_end from _call_phone_end_9
+            call phone_start
+            call message_start("OfCourseItWorks", "ASSES Examination 1: 33")
+            call phone_end
             "...33? This can't be right?"
             "Well, I can't be the only one doing this badly"
     r "so what did you get?"
@@ -359,9 +359,9 @@ label hangover:
     "That was funnnnn. BUrP~"
     play sound "audio/phone_notif.mp3"
     pause 1
-    call phone_start from _call_phone_start_10
-    call message_start("MaRv", "Hey d00d, that was real lit yesterday. Make sure you consume lots of H2O today, ok?") from _call_message_start_9
-    call phone_end from _call_phone_end_10
+    call phone_start
+    call message_start("MaRv", "Hey d00d, that was real lit yesterday. Make sure you consume lots of H2O today, ok?")
+    call phone_end
     with pixellate
     "At least I showed Marven I'm a d00d who's book smart AND meme smart"
     $renpy.music.set_volume(0.5, channel="Chan1")
@@ -797,10 +797,10 @@ label conventionday1:
     with irisin
     play sound "audio/phone_notif.mp3"
     pause 1
-    call phone_start from _call_phone_start_11
-    call message_img("MaRv", "LmAo fufufu","pride_meme.jpg") from _call_message_img_5
-    call reply_message("lol") from _call_reply_message_1
-    call phone_end from _call_phone_end_11
+    call phone_start
+    call message_img("MaRv", "LmAo fufufu","pride_meme.jpg")
+    call reply_message("lol")
+    call phone_end
     show marie neutral with dissolve
     $renpy.music.set_volume(0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.5, channel="Chan2")
@@ -879,10 +879,10 @@ label conventionday2:
     hide marie nervous with dissolve
     "Man I don't know if I should go to the convention again tomorrow"
     "I've already seen pretty much everything and maybe I should study for finals"
-    call phone_start from _call_phone_start_12
-    call reply_message("Hey Marv, can we meet on campus tmr?") from _call_reply_message_2
-    call message("MaRv", "Ye ofc my d00d!") from _call_message_5
-    call phone_end from _call_phone_end_12
+    call phone_start
+    call reply_message("Hey Marv, can we meet on campus tmr?")
+    call message("MaRv", "Ye ofc my d00d!")
+    call phone_end
     scene bg black with blinds
     scene bg bedroom with blinds
     show marie neutral with dissolve
@@ -1212,10 +1212,10 @@ label goodendingpride:
         "His last words were: %(pname)s, I'm glad I was your senpai. Here is a stack of GRE and TOEFL books, along with study guides made with my blood, sweat, and tears"
     play sound "audio/phone_notif.mp3"
     "He sends me the occasional finely curated meme"
-    call phone_start from _call_phone_start_13
-    call message_img("MaRv", "LmfAO sksksk","pride_meme2.jpg") from _call_message_img_6
-    call reply_message("lol") from _call_reply_message_3
-    call phone_end from _call_phone_end_13
+    call phone_start
+    call message_img("MaRv", "LmfAO sksksk","pride_meme2.jpg")
+    call reply_message("lol")
+    call phone_end
     jump prideend
 label prideend:
     $renpy.music.set_volume(1.0, channel="Chan1")

@@ -12,14 +12,13 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("CU_HEdoubleL")
-
+#define config.name = _("CU_HEdoubleL")
+define config.name = _("Columbia Simulator")
 
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
 
 define gui.show_name = True
-
 
 ## The version of the game.
 
@@ -88,8 +87,8 @@ define config.after_load_transition = None
 
 ## Used when entering the main menu after the game has ended.
 
-define config.end_game_transition = None
-
+define config.end_game_transition = Dissolve(.2)
+#define config.end_game_transition = None
 
 ## A variable to set the transition used when the game starts does not exist.
 ## Instead, use a with statement after showing the initial scene.

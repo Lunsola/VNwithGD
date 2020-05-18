@@ -26,12 +26,12 @@ label lust_begin:
     "Ayyy. Bless. First round of testing season is over ... {p=3.0}and it's a Thursday night!! No immediate responsibilities that need to be taken care of and no need to stress about academics for a while...."
     "...{p=1.0}Maybe I should finally check my scores for Science of Everything class."
     "I've been avoiding checking grades to minimize stress but I'm free from everything! {p=2.0}Nothing can hurt me now."
-    call phone_start from _call_phone_start_6
-    call message_start("OfCourseItWorks", "Science of Everything Midterm: 50") from _call_message_start_6
+    call phone_start
+    call message_start("OfCourseItWorks", "Science of Everything Midterm: 50")
     play sound "audio/phone_notif.mp3"
-    call message("OfCourseItWorks", "Science of Everything Midterm(Class Avg): 80, STD: 10") from _call_message_4
+    call message("OfCourseItWorks", "Science of Everything Midterm(Class Avg): 80, STD: 10")
     play sound "audio/phone_notif.mp3"
-    call phone_end from _call_phone_end_6
+    call phone_end
     "Oh"
     "My"
     "Gosh"
@@ -125,13 +125,13 @@ label roomie_talk:
             jump thurs_end
 
 label social_media:
-    call phone_start from _call_phone_start_7
-    call message_img("Meme Central", "Here lies the spiciest of the spicy memes","meme1.jpg") from _call_message_img
-    call message_img("Meme Central", "This is premium","meme2.jpg") from _call_message_img_1
-    call message_img("Meme Central", "Quality","meme3.jpg") from _call_message_img_2
-    call message_img("Meme Central", "Content","meme4.png") from _call_message_img_3
-    call message_img("Meme Central", "Life when you have a smol bean of a roommate","meme5.jpg") from _call_message_img_4
-    call phone_end from _call_phone_end_7
+    call phone_start
+    call message_img("Meme Central", "Here lies the spiciest of the spicy memes","meme1.jpg")
+    call message_img("Meme Central", "This is premium","meme2.jpg")
+    call message_img("Meme Central", "Quality","meme3.jpg")
+    call message_img("Meme Central", "Content","meme4.png")
+    call message_img("Meme Central", "Life when you have a smol bean of a roommate","meme5.jpg")
+    call phone_end
     "Your eyes burn from absorbing the memes and decide that's enough avoiding your pain today"
     "I'll just go and look for Professor Bonden tomorrow. Everything will be fine"
     jump thurs_end

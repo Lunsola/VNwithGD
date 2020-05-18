@@ -2,9 +2,37 @@
 errors listed below, and try again.
 
 
-File "game/pride.rpy", line 1066: expected ':' not found.
-    label goodendingpride
-                         ^
+File "game/options.rpy", line 18: expected 'word' not found.
+    style.frame.background = None 
+         ^
+
+File "game/options.rpy", line 19: expected 'word' not found.
+    style.button.background = None 
+         ^
+
+File "game/options.rpy", line 20: expected 'word' not found.
+    style.mm_menu_frame.xpos = 0.5 
+         ^
+
+File "game/options.rpy", line 21: expected 'word' not found.
+    style.mm_menu_frame.ypos = 0.9 
+         ^
+
+File "game/options.rpy", line 22: expected 'word' not found.
+    style.mm_button_text.font = "fonts/bankgoth.ttf" 
+         ^
+
+File "game/options.rpy", line 23: expected 'word' not found.
+    style.mm_button_text.drop_shadow = [ (-1, -1), (1, -1), (-1, 1), (1, 1) ] 
+         ^
+
+File "game/options.rpy", line 24: expected 'word' not found.
+    style.mm_button_text.size = 24 
+         ^
+
+File "game/options.rpy", line 25: expected 'word' not found.
+    style.mm_button.size_group = None 
+         ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Sun May 17 00:26:21 2020
+Sun May 17 17:57:34 2020
