@@ -16,6 +16,16 @@ screen main_menu:
         use main_menu_1
     elif persistent.ending == "unlock 2":
         use main_menu_2
+    elif persistent.ending == "unlock 3":
+        use main_menu_3
+    elif persistent.ending == "unlock 4":
+        use main_menu_4
+    elif persistent.ending == "unlock 5":
+        use main_menu_5
+    elif persistent.ending == "end good":
+        use main_menu_good
+    elif persistent.ending == "end bad":
+        use main_menu_bad
     else:
         use main_menu_default
 
@@ -424,6 +434,61 @@ screen main_menu_2():
     ## contents of the main menu are in the navigation screen.
     use navigation
 
+screen main_menu_3():
+    tag menu
+
+    style_prefix "main_menu"
+
+    add gui.game_menu_background3
+
+    frame:
+        pass
+    use navigation
+
+screen main_menu_4():
+    tag menu
+
+    style_prefix "main_menu"
+
+    add gui.game_menu_background4
+
+    frame:
+        pass
+    use navigation
+
+screen main_menu_5():
+    tag menu
+
+    style_prefix "main_menu"
+
+    add gui.game_menu_background5
+
+    frame:
+        pass
+    use navigation
+
+screen main_menu_good():
+    tag menu
+
+    style_prefix "main_menu"
+
+    add gui.main_menu_backgroundgood
+
+    frame:
+        pass
+    use navigation
+
+screen main_menu_bad():
+    tag menu
+
+    style_prefix "main_menu"
+
+    add gui.game_menu_backgroundbad
+
+    frame:
+        pass
+    use navigation
+
 style main_menu_frame is empty
 style main_menu_vbox is vbox
 style main_menu_text is gui_text
@@ -472,6 +537,16 @@ screen game_menu(title, scroll=None, yinitial=0.0):
             add gui.main_menu_background1
         elif persistent.ending == "unlock 2":
             add gui.game_menu_background2
+        elif persistent.ending == "unlock 3":
+            add gui.game_menu_background3
+        elif persistent.ending == "unlock 4":
+            add gui.game_menu_background4
+        elif persistent.ending == "unlock 5":
+            add gui.game_menu_background5
+        elif persistent.ending == "end good":
+            add gui.game_menu_backgroundgood
+        elif persistent.ending == "end bad":
+            add gui.game_menu_backgroundbad
         else:
             add gui.main_menu_background
     else:

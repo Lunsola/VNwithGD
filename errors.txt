@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/pride.rpy", line 1066: expected ':' not found.
-    label goodendingpride
-                         ^
+File "game/limbo.rpy", line 24: expected statement.
+    persistent.endings = "original"
+                       ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Sun May 17 00:26:21 2020
+Sun May 17 18:47:20 2020

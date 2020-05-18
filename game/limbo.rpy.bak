@@ -8,7 +8,7 @@ image Karen flip = im.Flip("Karen.png", horizontal=True)
 
 init python:
     if persistent.endings is None:
-        persistent.endings = "new player!"
+        persistent.endings = set()
 
 init -1 python:
     renpy.music.register_channel("Chan1", mixer= "music", loop=True, stop_on_mute=False, tight=True)
@@ -38,8 +38,7 @@ label limbobegin:
     $renpy.music.set_volume(volume=0.5, channel="Chan2")
     show marie happy at sright
     with moveinright
-    if persistent.ending == "new player!" or persistent.ending == "inconclusive":
-        $ persistent.ending="unlock 1"
+    $ persistent.ending="unlock 1"
     r "Oh, hey! You must be my roommate! %(pname)s, right?"
     "Her face {i}is{/i} familiar. You think you must have flicked through her social media when roommates were assigned."
     m "That would be me! And you're..."
@@ -193,14 +192,14 @@ label limboend:
     "It looks pretty fun, so I decide to join them."
     "I get to know everyone as we’re tossing the disc, and they’re pretty friendly. So friendly that I relax into enjoying the day like everyone else, without a care."
     "After some time, I decide to take a break and check my phone. Three texts from Karen."
-    call phone_start from _call_phone_start_5
-    call message_start("Karen", "Dining hall closes in 30 minutes, wanna meet there now?") from _call_message_start_5
+    call phone_start
+    call message_start("Karen", "Dining hall closes in 30 minutes, wanna meet there now?")
     play sound "audio/phone_notif.mp3"
-    call message("Karen", "?") from _call_message_2
+    call message("Karen", "?")
     play sound "audio/phone_notif.mp3"
-    call message("Karen", "15 minutes left for fooood") from _call_message_3
+    call message("Karen", "15 minutes left for fooood")
     play sound "audio/phone_notif.mp3"
-    call phone_end from _call_phone_end_5
+    call phone_end
     m "Oh man, sorry guys, I have to go! I’m supposed to meet a friend for lunch."
     w "What? Oh come on, %(pname)s"
     w "Just stay out here. The teams will be uneven if you leave!"
