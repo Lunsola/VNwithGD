@@ -1247,7 +1247,7 @@ label morning_afterhome:
     scene bg bednight with fade
     "Ah!! I'm so nervous. This is it. Let's get to the interview!"
     scene bg classroom with fade
-    show Karen with dissolve
+    show triangler with dissolve
     play sound "audio/chimes.mp3"
     w "Hey %(pname)s! Thanks for coming in. The {b}{i}T r i a n g l e{/i}{/b} is always excited to welcome new applicants"
     m "Thanks for having me"
