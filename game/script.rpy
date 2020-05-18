@@ -44,6 +44,12 @@ transform shake:
         ease .01 xoffset -2
         ease .01 xoffset 0
 
+#misc person images:
+image Karen = "Karen.png"
+image recruiter = "recruiter.png"
+image triangle = "triangle.png"
+image breaken = "breaken.png"
+
 #marie images
 image marie neutral = "roomate_rabbit.png"
 image marie happy = "roomate_smile_default.png"
@@ -125,7 +131,6 @@ image up:
 image down:
     zoom 0.8
     "down_arrow.png"
-image Karen = "Karen.png"
 image PosterP = "partyposter.png"
 image gift = "gift.jpg"
 image meme1 = "meme1.jpg"
@@ -196,9 +201,7 @@ image bg Interview:
 image bg low:
     zoom .45
     "lowsteps.jpg"
-image bg lowonfire:
-    zoom .45
-    "lowstepsburn.jpg"
+image bg lowonfire = "fire2.png"
 image bg singleroom:
     zoom .95
     "singleurs.jpg"
