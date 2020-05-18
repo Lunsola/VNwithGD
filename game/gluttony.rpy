@@ -325,7 +325,7 @@ label rmeetjosh:
             show josh shock at right
             hide marie grateful
             show marie astonished at left
-            m "I literally just got here. You think I’m gonna be wasting time NOT eating dining hall food? No thanks."
+            m "Are you trying to trick me into buying you groceries or something? Nice try, but I’ll stick with dining hall food, thanks."
             j "Chillax bro, just thought it might be a fun idea. Whatever floats your boat my dude."
             hide josh shock
             show josh happy at right

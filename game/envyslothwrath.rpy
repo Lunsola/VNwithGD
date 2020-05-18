@@ -465,19 +465,30 @@ label endeswday1:
                 hide marie happy with moveoutright
                 "So Josh and Marie are dating now. Am I blind for not seeing that coming?"
                 scene bg singleroomd with dissolve
-                "I’ve never even been in a relationship. Am I a freak? Oh god, I’m never going to find someone am I? I’m just gonna while away the rest of my days, alone in my parents’ basement."
-                "But how can I sleep when I’m so full of existential dread?"
+                "I’ve never even been in a relationship."
+                "Am I a freak?"
+                "Oh god, I’m never going to find someone am I?"
+                "I’m just gonna while away the rest of my days, alone in my parents’ basement."
             "Make an excuse and go.":
                 m "I actually gotta go, have a friend waiting. See you guys later!"
                 hide josh happy with moveoutright
                 hide marie happy with moveoutright
                 "Those two are dating?? Why does it feel like everyone in my life is pairing off except me?"
-                "Oh god, I’m gonna die alone and I’m not even going to have a good career to show for it! I’ll just be lonely and sad. I hate this. Why are other people happy and I’m not??"
+                "Oh god, I’m gonna die alone and I’m not even going to have a good career to show for it! I’ll just be lonely and sad."
+                "I hate this."
+                "Why are other people happy and I’m not??"
                 scene bg singleroomd with dissolve
-        "I’m looking at my future and it’s so dark. Just like this room...oh shit it’s 3 a.m. Bedtime I guess?"
+        "I’m looking at my future and it’s so dark."
+        "Just like this room... {p=.5}oh shit it’s 3 a.m. Bedtime I guess?"
+        "But how am I supposed to sleep when I’m so full of existential dread?"
         jump dawnofthelastday
 
 label dawnofthelastday:
+    scene black
+    with Pause(1)
+    show text "{size=50}Yet life goes on...{/size}"
+    with Pause(2)
+    hide text
     scene bg ferris with dissolve
     $renpy.music.set_volume(0.33, channel="Chan1")
     $renpy.music.set_volume(volume=0.33, channel="Chan2")
@@ -493,7 +504,7 @@ label dawnofthelastday:
     j "HEY EVERYONE! Marie just won the lottery! This is the craziest day of my life!!"
     "Is this a joke."
     hide josh happy with moveoutleft
-    "I don't want to see or hear this at least to protect my already battered ego."
+    "I don’t need to see or hear this for the sake of my battered ego if nothing else."
     r "Oh my gosh I’m hyperventilating. I need to sit down. I just won twenty million dollars."
     j "Marie...you’re like, so rad dude. I know this feels crazy, but I feel like the universe is sending us a sign. That it wants us to be together and make a life together."
     j "Marie, when the madness of Columbia University in the City of New York has passed...will you marry me?"
@@ -556,7 +567,8 @@ label dawnofthelastday:
     "I honestly thought they were still working their lives out just like me, but all of a sudden they have jobs and relationships. Where does that leave me? What does it say about me that I don’t have those things?"
     "I probably should actually take time today to focus on all the shit I have to get done before classes start."
     "But I kind of...don’t feel like it?"
-    "All I can think about is Josh and Marie, Marie and Josh. It’s like, my brain is stuck on them or something. Why do they have all the things I want? Why do other people get to be happy and I don’t?"
+    "All I can think about is Josh and Marie, Marie and Josh. It’s like, my brain is stuck on them or something. Why do they have all the things I want?"
+    "Why do other people get to be happy and I don’t?"
     "Wait a second."
     "Something feels off about this room."
     with hpunch
@@ -573,17 +585,23 @@ label dawnofthelastday:
             $ sin = sin-5
             $ committedArson = True
             scene bg singleonfire
-            "The fire catches weirdly quickly. I kind of thought this would be hard to do actually but...nope. As it spreads, I run outside...no...wait."
+            "The fire catches weirdly quickly. I kind of thought this would be hard to do actually but...nope. As it spreads, I run outside..."
+            "no..."
+            "wait."
             scene bg lowonfire
             "Somehow I’m in front of Lowe Steps. Lowe is on fire too. In fact, the whole college...could that be because of me? I don’t understand…"
             show marie mad
             r "Hi, %(pname)s."
             m "Marie! Oh thank god. I thought I was the only person alive in this school for a second. Have you called 911?"
             r "You set fire to my room."
-            m "Oh...you know about that? Marie, I swear, I don’t even know what happened, I think I blacked out for like fifteen minutes or something. There’s no way this could have been me. There’s just no way…"
+            m "Oh...you know about that?"
+            m "Marie, I swear, I don’t even know what happened, I think I blacked out for like fifteen minutes or something. There’s no way this could have been me. There’s just no way…"
             r "Haven’t you figured it out yet?"
             m "Figured what out? Marie, have you called 911?"
-            r "There’s no need to call anyone. Everyone here already knows. We know everything you do. Every choice you’ve made in your time at Columbia, we’ve been watching you. We know who you are, %(pname)s. We know what you’re capable of."
+            r "There’s no need to call anyone. Everyone here already knows."
+            r "We know everything you do."
+            r "Every choice you’ve made in your time at Columbia, we’ve been watching you."
+            r "We know who you are, %(pname)s. We know what you’re capable of."
             m "I don’t know what’s going on. Marie, our school is literally burning to the ground right in front of us. Where is everyone?"
             hide marie mad
             show marie urdumb
@@ -636,7 +654,13 @@ label closecurtains:
     r "You choked on a carrot the day before the first day of NSOP and died."
     hide marie averse
     show marie neutral
-    r "And then...you came here. I hope you’ll forgive us for having a little fun. The fire and brimstone gets so boring after a while. Since you died right as your college life was beginning, we decided to set up a sort of test."
+    r "And then...you came here."
+    hide marie neutral
+    show marie ingenuine
+    r "I hope you’ll forgive us for having a little fun. The fire and brimstone gets so boring after a while."
+    hide marie ingenuine
+    show marie neutral
+    r "Since you died right as your college life was beginning, we decided to set up a sort of test."
     r "Of how your time at Columbia would have gone, if you’d lived."
     m "Marie--what--why are you saying these things? I don’t understand."
     r "I think you do. I think you’ve always known. Somewhere, deep in the back of your head. You must have felt us watching you. We’re hard to miss."
@@ -748,7 +772,7 @@ label closecurtains:
     elif maximillion_friendship > 2:
         $sin =+1
         #Aw thanks for playing nice with Max who is def a bitch
-    elif maxmillion_friendship < -5:
+    elif maximillion_friendship < -5:
         pass
         #no surprise max hates you! whatever he's not easy to get along with
     #if music_friendship

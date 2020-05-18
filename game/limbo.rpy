@@ -17,6 +17,7 @@ init -1 python:
     renpy.music.register_channel("Chan4", mixer= "music", loop=True, stop_on_mute=False, tight=True)
 
 label limbobegin:
+    jump pridebegin
     $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, channel="Chan2")
     $renpy.music.play("audio/LimboDraftMain.mp3", channel="Chan1", synchro_start=True)
