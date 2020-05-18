@@ -212,6 +212,8 @@ label short_meet:
     $renpy.music.set_volume(volume=0.0, channel="Chan4")
     scene bg hallway with fade
     show professor neutral with dissolve
+    if persistent.ending == "unlock 2":
+        $ persistent.ending="unlock 3"
     "Nice! Caught Professor Bonden before they leave for the day"
     if dinoroar == True:
         p "Oh wow, that's some interesting attire that you've chosen. Guess you could say you're looking dino-mite"
@@ -267,6 +269,8 @@ label short_meet:
 
 label prof_meet:
     scene bg office with fade
+    if persistent.ending == "unlock 2":
+        $ persistent.ending="unlock 3"
     show professor happy with dissolve
     "Oh boy, time to defend my GPA's honor"
     $renpy.music.set_volume(0.5, channel="Chan1")
@@ -437,6 +441,8 @@ label club_info:
     $renpy.music.set_volume(volume=0.0, channel="Chan4")
     show max charm with dissolve
     play sound "audio/chimes.mp3"
+    if persistent.ending == "unlock 3":
+        $ persistent.ending="unlock 4"
     w "Hi Guys! Thank you all for your interest in joining the {b}{i}T r i a n g l e{/i}{/b}! We’re a tight knit community from across the schools. We do X, Y and Z for the school, really great things. We have lots of funding for whatever projects that you come up with."
     "I promptly zone out at the standard club pitch"
     "I over hear someone whispering: {i}I've heard that getting into the Triangle sets you up for guaranteed work at any of the big companies. Their alumni low key rule the world.{/i}"

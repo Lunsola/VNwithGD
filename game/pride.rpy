@@ -49,6 +49,8 @@ label pridebegin:
     $renpy.music.set_volume(0.33, channel="Chan1")
     $renpy.music.set_volume(volume=0.33, channel="Chan2")
     $renpy.music.set_volume(volume=0.33, channel="Chan3")
+    if persistent.ending == "unlock 4":
+        $ persistent.ending="unlock 5"
     w "Y'all mean ASSES?"
     hide marie astonished
     show marie astonished at center:

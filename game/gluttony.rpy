@@ -6,7 +6,9 @@
 
 image marie cry = "roomate_sad_2.png"
 image bg shakeshack = "shakeshack.jpeg"
-image bg john jay inside = "johnjayinside.jpg"
+image bg john jay inside:
+    zoom 2
+    "johnjayinside.jpg"
 image bg john jay outside:
     zoom 1.1
     "johnjayoutside.jpg"
@@ -122,6 +124,7 @@ label rlonelyday:
     $renpy.music.set_volume(volume=0.33, channel="Chan2")
     $renpy.music.set_volume(volume=0.33, channel="Chan3")
     show marie happy at sleft with move
+    $ persistent.ending="unlock 2"
     show josh happy at sright with moveinright
     "Is her OL friend giving her ANOTHER tour? Jesus, what now?"
     menu:
@@ -236,6 +239,8 @@ label rmeetjosh:
     $renpy.music.set_volume(0.33, channel="Chan1")
     $renpy.music.set_volume(volume=0.33, channel="Chan2")
     $renpy.music.set_volume(volume=0.33, channel="Chan3")
+    if persistent.ending == "unlock 1":
+        $ persistent.ending="unlock 2"
     show josh wave at sright
     show marie happy at sleft:
         zoom .75

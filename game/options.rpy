@@ -36,7 +36,7 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "CU_HEdoubleL"
+define build.name = "ColumbiaSimulator"
 
 
 ## Sounds and music ############################################################

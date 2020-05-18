@@ -8,7 +8,7 @@ image Karen flip = im.Flip("Karen.png", horizontal=True)
 
 init python:
     if persistent.endings is None:
-        persistent.endings = set()
+        persistent.endings = "new player!"
 
 init -1 python:
     renpy.music.register_channel("Chan1", mixer= "music", loop=True, stop_on_mute=False, tight=True)
@@ -38,7 +38,8 @@ label limbobegin:
     $renpy.music.set_volume(volume=0.5, channel="Chan2")
     show marie happy at sright
     with moveinright
-    $ persistent.ending="unlock 1"
+    if persistent.ending == "new player!" or persistent.ending == "inconclusive":
+        $ persistent.ending="unlock 1"
     r "Oh, hey! You must be my roommate! %(pname)s, right?"
     "Her face {i}is{/i} familiar. You think you must have flicked through her social media when roommates were assigned."
     m "That would be me! And you're..."

@@ -4,9 +4,8 @@
 #e "dialogue goes here" (where e is the variable associated with the character)
 #"this is a narrative with no actual speaker"
 
-#$ fightwithjosh = False
-#$ marieevil = False
-#$ committedArson = False
+image goodend = "goodend.png"
+image badend = "badend.png"
 
 label beginenvy:
     $renpy.music.set_volume(1.0, channel="Chan1")
@@ -640,12 +639,24 @@ label closecurtains:
         hide marie concerned
         show marie happy
         r "I’ll give you a hint: arson isn’t one of them. But...for now. You did it. Congratulations. You’re graduating from hell."
+        $ persistent.ending="end good"
+        scene bg black
+        with dissolve
+        window hide
+        show goodend
+        pause
     elif sin < 0:
         hide marie neutral
         show marie mad
         r "I think you know the answer to that question, %(pname)s."
         r "The irony is, I’m sort of you, in a way. I’m the way your life could have gone, if you’d done all the right things and played your cards right. But you chose the path you chose. You chose selfishness, cruelty, and destructiveness."
         r "Welcome to hell, %(pname)s."
+        $ persistent.ending="end bad"
+        scene bg black
+        with dissolve
+        window hide
+        show badend
+        pause
     elif sin == 0:
         hide marie neutral
         show marie astonished
@@ -653,6 +664,7 @@ label closecurtains:
         r "Wait."
         r "This test can't be inconclusive."
         r "We have to run the numbers again. I-"
+        $persistent.ending = "Inconclusive"
         with pixellate
     else:
         hide marie neutral
@@ -663,6 +675,12 @@ label closecurtains:
         hide marie happy
         show marie v happy at center, hop
         r "Congratulations. You’re graduating from hell."
+        $ persistent.ending="end good"
+        scene bg black
+        with dissolve
+        window hide
+        show goodend
+        pause
     jump credits
 
 ####
@@ -688,7 +706,7 @@ label credits:
     return
 
 init python:
-    credits = ('Artists', 'Justin'), ('Artists', 'Ren Huang'), ('Artists', 'Emmy Wang'), ('Artists', 'Kimberly Li'), ('Music', 'Ramy El Baghir'), ('Writers/Programmers', 'Sophia Gates'), ('Writers/Programmers', 'Tiffeny Chen'),('Writers/Programmers', 'Emmy Wang'), ('Writers/Programmers', 'Kimberly Li'), ('Writers/Programmers', 'Katrina'), ('Writers/Programmers', 'Sarah'),('Setting', 'Columbia University'), ('Phone code', 'Nadia Nova'),('In-Game Messaging System code', 'saguaro'), ('Phone Sound Effects','by Notificationsounds.com is licensed under CC By 4.0'),('Credits code', 'DaFool'), ('Special thanks to:', 'CU Game Dev!')
+    credits = ('Artists', 'Justin Chan'), ('Artists', 'Ren Huang'), ('Artists', 'Emmy Wang'), ('Artists', 'Kimberly Li'), ('Music', 'Ramy El Baghir'), ('Writers/Programmers', 'Sophia Gates'), ('Writers/Programmers', 'Tiffeny Chen'),('Writers/Programmers', 'Emmy Wang'), ('Writers/Programmers', 'Kimberly Li'), ('Writers/Programmers', 'Katrina'), ('Writers/Programmers', 'Sarah'),('Setting', 'Columbia University'), ('Phone code', 'Nadia Nova'),('In-Game Messaging System code', 'saguaro'), ('Phone Sound Effects','by Notificationsounds.com is licensed under CC By 4.0'),('Credits code', 'DaFool'), ('Special thanks to:', 'CU Game Dev!')
     credits_s = "{size=80}Credits\n\n"
     c1 = ''
     for c in credits:
