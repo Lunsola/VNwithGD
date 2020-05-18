@@ -23,9 +23,9 @@ label lust_begin:
     hide text
     scene bg bednight with fade
 
-    "Ayyy. Bless. First round of testing season is over ... {p=3.0}and it's a Thursday night!! No immediate responsibilities that need to be taken care of and no need to stress about academics for a while...."
+    "Ayyy. Bless. First round of testing season is over ... {p=1.5}and it's a Thursday night!! No immediate responsibilities that need to be taken care of and no need to stress about academics for a while...."
     "...{p=1.0}Maybe I should finally check my scores for Science of Everything class."
-    "I've been avoiding checking grades to minimize stress but I'm free from everything! {p=2.0}Nothing can hurt me now."
+    "I've been avoiding checking grades to minimize stress but I'm free from everything! {p=1.0}Nothing can hurt me now."
     call phone_start
     call message_start("OfCourseItWorks", "Science of Everything Midterm: 50")
     play sound "audio/phone_notif.mp3"
@@ -38,7 +38,7 @@ label lust_begin:
     "This can't be for real. I just missed the deadline for grade request inquiries too."
     menu:
         "SCREAM":
-            "Your screaming prompts a confused inquiry from your roommate."
+            r "Hmmmm?"
             jump roomie_talk
         "Social Media Time":
             "Time to check my feed for hot new memes, spicy takes and call out posts"
@@ -69,23 +69,25 @@ label roomie_talk:
                     show marie happy
                     m "Butler gang for life after all! "
                     r "hehe you know that's right"
+                    r "Ahh, look at the time! I need to grab a package from Weiner"
                     $marie_friendship +=1;
-                    hide marie happy
+                    hide marie happy with moveoutright
                     jump thurs_end
                 "I'll pass":
                     m "With your grades, I'd be the tutor"
                     hide marie concerned
                     show marie averse
                     r ".... Okay, I'll just be on my way then"
-                    hide marie averse
+                    hide marie averse with moveoutright
                     "Finally some peace and quiet. How annoying"
                     $marie_friendship -=1;
                     $sin -=1;
                     jump thurs_end
                 "Say Nothing":
                     "I appreciate the sentiment but no reply comes to mind"
-                    r "Alright, good night then! I'm here if you want to talk."
-                    hide marie concerned
+                    r "Alright then! I'll leave you to your thoughts for now. I actually need to head out and grab a package from Weiner"
+                    r "I'm here if you ever want to talk!"
+                    hide marie concerned with moveoutright
                     jump thurs_end
         "Start tearing up":
             hide marie confused
@@ -101,8 +103,9 @@ label roomie_talk:
                     r "Any time %(pname)s. I totally relate. Please let me now if there's anything I can do to help make life a little more manageable"
                     "I hug Marie again. I'm glad to have someone to have someone so supportive in my life"
                     m "Know that I'm here for you too, okay?"
-                    r "Hehe Thank you"
-                    hide marie concerned
+                    r "Hehe thank you!"
+                    r "Ahh! Look at the time, I need to grab a package from Weiner. I'll be back"
+                    hide marie grateful with moveoutright
                     jump thurs_end
                 "Screw off":
                     $marie_friendship -=1;
@@ -111,17 +114,17 @@ label roomie_talk:
                     show marie distressed
                     m "I don't need your pity"
                     r "I'm not pitying you. I can tell you're upset so I'm going to give you some space. Let me know if you want to talk about it"
-                    hide marie distressed
+                    hide marie distressed with moveoutright
                     "In my rage, I feel a sliver of regret. I shouldn't have lashed out at Marie so harshly. It was definitely warranted though. Who does she thing she is anyways?"
                     jump thurs_end
                 "I'd rather not":
                     r "Alright, I understand. I'm going to give you some space. Please let me know if you need anything!"
-                    hide marie concerned
+                    hide marie concerned with moveoutright
                     jump thurs_end
         "I'm fine. Don't worry about it":
             "I'm already feeling down. I don't really want to deal with people right now on top of that"
             r "I'm here for you if ever need anything!"
-            hide marie concerned
+            hide marie concerned with moveoutright
             jump thurs_end
 
 label social_media:
@@ -137,7 +140,6 @@ label social_media:
     jump thurs_end
 
 label prof_email:
-
     $ prof = Contact("Professor Bonden", "bonden_draft")
     show screen mailbox_overlay
     "Let's draft this message! Check your message box at the upper right"
@@ -168,7 +170,7 @@ label thurs_end:
     $renpy.music.set_volume(volume=0.0, channel="Chan3")
     $renpy.music.set_volume(volume=0.5, channel="Chan4")
     show marie neutral with moveinright
-    r "Hey %(pname)s, It's getting kind of late. I'm going to head to sleep now. Nighty night!"
+    r "I'm back! Hey %(pname)s! It's getting kind of late. I'm going to head to sleep now. Nighty night!"
     hide marie neutral with dissolve
     "Ahh how is it already 1 am?! What an emotional rollercoaster of a day. Time to conk out for today"
 
@@ -214,21 +216,21 @@ label short_meet:
     show professor neutral with dissolve
     "Nice! Caught Professor Bonden before they leave for the day"
     if dinoroar == True:
-        p "Oh wow, that's some interesting attire that you've chosen. Guess you could say you're looking dino-mite"
+        p "Oh wow, that's some interesting attire that you've chosen. Guess you could say you're looking {p=1.0} dino-mite"
         m "Haha, thanks Professor, I do think I'm looking pretty explosive"
     if twin == True:
-        p "Oh wow, would you look at. We're practically twinning!"
+        p "Oh wow, would you look at that! We're practically twinning!"
         menu:
             "Omg one of us needs to go change":
                 $prof_friendship+=1
                 p "Haha it should be you. I was on this planet first!"
                 pass
             "If we were like chromosomes...you'd be my homologous pair":
-                p "Ha{p=1.5}haha{p=1.5}ha. Good one"
+                p "Ha{p=1.5}haha{p=1.5}ha{p=1.5} Good one"
                 pass
             "Say Nothing":
                 pass
-    p "Hey %(pname)s, I'm actully on my way out. I'm going to buy planetarium viewing tickets before they run out. I'm really excited for their exhibit tomorrow."
+    p "Hey %(pname)s, I'm actually on my way out. I'm going to buy planetarium viewing tickets before they run out. I'm really excited for their exhibit tomorrow."
     p "Is there something that I can do for you?"
     menu:
         "Your research is so interesting!":
@@ -237,7 +239,7 @@ label short_meet:
             m "I read your most recent publication. It was really interesting. You're so knowledgeable. I was hoping that we could talk more about it?"
             p "Thank you %(pname)s! I'm so sorry to be doing this but I really do need to get going. Maybe we can chat more about this at a later time. I'm going to head out"
             "Damn. Maybe I should have given him a heads up earlier. I'll just need to find him again later to ask him about it"
-            hide professor neutral
+            hide professor neutral with dissolve
             "Guess, I'll head over to the Triangle's info session early"
             jump club_info
         "Complain about grade":
@@ -250,16 +252,16 @@ label short_meet:
             m "But my grade is much much worse than even the median. Something must have gone wrong"
             p "I'm sorry %(pname)s but it's pass the deadline for regrades. I don't mean to be harsh but it's important to me and my TAs that we uphold the deadline."
             p "...So sorry to cut our conversation but I do need to get going now. Let's discuss this more later. Maybe we can work something else out? "
-            hide professor mad
+            hide professor mad with dissolve
             "Sigh. I guess I'll find the professor again later and maybe we can work something out."
             "Oh! Look at the time, I need to get the Triangle's info-session"
             jump club_info
         "Inquire about Exam":
             m "I was hoping to look over what I did incorrectly on my exam."
-            p "Ah yes, I can give you your exam back! Remember that any question regrades should have been requested already"
+            p "Ah yes, I can give you your exam back! Remember that the regrade request deadline has passed already"
             m "Thanks Professor Bonden!"
             p "Sorry I can't stay and chat. But there you have your test back. If you need me for anything else, feel free to find me later!"
-            hide professor neutral
+            hide professor neutral with dissolve
             "Man, he's disappeared already. I'll need to find the Professor again later but it seems like he's pretty strict on grade request deadlines. Maybe we can work out something else though"
             "Oh! Look at the time, I need to get the Triangle's info-session"
             jump club_info
@@ -274,10 +276,10 @@ label prof_meet:
     $renpy.music.set_volume(volume=0.0, channel="Chan3")
     $renpy.music.set_volume(volume=0.0, channel="Chan4")
     if dinoroar == True:
-        p "Oh wow, that's some interesting attire that you've chosen. Guess you could say you're looking dino-mite"
+        p "Oh wow, that's some interesting attire that you've chosen. Guess you could say you're looking {p=1.0}dino-mite"
         m "Haha, thanks Professor, I do think I'm looking pretty explosive"
     if twin == True:
-        p "Oh wow, would you look at. We're practically twinning!"
+        p "Oh wow, would you look at that! We're practically twinning!"
         menu:
             "Omg one of us needs to go change":
                 $prof_friendship+=1
@@ -288,9 +290,9 @@ label prof_meet:
                 pass
             "Say Nothing":
                 pass
-    p "Hey %(pname)s, thanks for sending the headsup email! I managed to snag tickets to the Planetarium this morning. I was worried that they might have already sold out."
+    p "Hey %(pname)s, thanks for sending the email! I managed to snag tickets to the Planetarium this morning. I was worried that they might have already sold out."
     "I highly doubt the tickets to a planetarium would have sold out so soon but as long as the professor's happy I guess!"
-    p "What can I do to help you today?"
+    p "What can I help you with today?"
     menu:
         "Your research is so interesting!":
             $ prof_friendship +=1
@@ -345,9 +347,9 @@ label complain_grade:
     jump end_prof
 label exam_inquiry:
     m "As mentioned in my email, I was hoping to look over what I did incorrectly on my exam"
-    p "Ah yes, of course! Let me go grab yours. It's fine for you to look over the exam but remember any regrades should have been requested already"
+    p "Ah yes, of course! Let me go grab yours. It's fine for you to look over the exam but temember that the regrade request deadline has passed already"
     m "Thanks Professor Bonden!"
-    "Hmm grades might have passed but perhaps if I find enough grading errors the Professor will naturally feel like my exam was graded incorrectly"
+    "Hmm the regrade deadline might have passed but maybe I can convince him to take another look if I find enough grading errors"
     p "Alright here you go! What do you have questions about?"
     "Let's look through my answers that were marked as incorrect and ask about them"
     #To make it harder, user must identify all the grading mistakes consecutively for Professor to consider a regrade
@@ -356,27 +358,30 @@ label exam_inquiry:
             hide professor neutral
             show professor surprised
             p "Oh my. Hmm, your rationale makes sense, guess the TA didn't include that as one of the possible answers. What else did you want to ask about?"
+            hide professor surprised
+            show professor neutral
             menu:
                 "If you're not part of the solution, you're part of the precipitate":
                     hide professor surprised
                     show professor neutral
                     jump wrong_answer
                 "Oxidation is Loss. Reduction is Gain ":
-                    p "Hmm. I wonder why the TA didn't give you some credit for that response. Was there anything else?"
+                    show professor surprised
+                    p "Well you see, the reason why your answer is incorrect is {p=0.5}.{p=0.5}.{p=0.5} Hmm. Actually this is arguably another answer that could work. Was there anything else?"
                     menu:
                         "I don't give a flux":
                             hide professor surprised
                             show professor neutral
                             jump wrong_answer
                         "F = ma":
-                            p "Well your answer is factually correct but ... I guess the TA went in a different direction?Was there anything else?"
+                            p "Well your answer is factually correct but ... I guess the TA went in a different direction? Was there anything else?"
                             menu:
                                 "Roses are Red, Violets are Blue. Unexpected \'{{\' on line 32":
                                     hide professor surprised
                                     show professor neutral
                                     jump wrong_answer
                                 "!False is True":
-                                    #show prof shocked
+                                    show professor surprised at center, hop
                                     p "Hmm. I would have given that credit as well"
                                     hide professor surprised
                                     show professor neutral
@@ -384,13 +389,14 @@ label exam_inquiry:
                                     p "Actually for all of these questions that you pointed out, I think you could have earned some more points, why didn't you bring it up earlier?"
                                     m "I've been so stressed about my other classes that I didn't want to add the emotional backlash of a bad grade on top of this week. So I only checked my score last night"
                                     m "Haha... I guess that wasn't the best move"
-                                    p "That's totally understandable, %(pname)s. We all do our best to handle all of our responsibilities but sometimes it just gets too much and you need to avoid certain stressors."
-                                    p "It is past the time that we usually allow for regrades but let me look over your exam again and discuss with my TAs about anything we missed in our accepted answers"
+                                    p "That's alright,%(pname)s. When we look at things in hindsight, it's easy to find oversights and mistakes in our decisons."
+                                    p "Unfortunately, it is past the regrade request deadline but let me look over your exam again and discuss with my TAs about anything we missed in our list of accepted answers. I will let you know what we decide"
                                     m "Thank you so much Professor Bonden! I really appreciate it."
                                     p "No problem that's what I'm here for after all"
-                                    p "Oh my!! Look at the time, I'm late for the next class that I'm scheduled to teach. Gotta run!"
+                                    p "Oh my!! Look at the time, I'm late for the next class. Gotta run!"
                                     hide professor with moveoutright
-                                    m "Well, I did all that I can do. Oh my! Look at the time, I need to hurry in order to get the Triangle's info session on time"
+                                    m "Well, I did all that I can do as of now. I can try to persuade Process Bonden to spare me some mercy at some other point"
+                                    "Ahh! Look at the time, I need to hurry in order to get the Triangle's info session on time"
                                     jump club_info
 
                                 "I rate this 10 out of 1010":
@@ -428,9 +434,9 @@ label end_prof:
 
 label club_info:
     scene bg classroom with fade
-    "Walking in the club room, the first thing I notice is that it’s packed. All the classroom seats were filled with people spilling out sitting on the floor and standing at the back. I spot a sign in sheet and awkwardly maneuver myself through the crowd."
-    "Muttering “I’m sorrys” for disrupting the people on the floor, I signed myself in and shuffled to an empty spot along the wall."
-    "The room feel to a hush as some stranger started their presentation"
+    "I get to the classroom and it's PACKED"
+    "Muttering “I’m sorrys” for disrupting the people on the floor, I sign myself in and shuffle to an empty spot along the wall."
+    "The room feel to a hush as some stranger starts their presentation"
     $renpy.music.set_volume(0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, channel="Chan2")
     $renpy.music.set_volume(volume=0.5, channel="Chan3")
@@ -440,7 +446,7 @@ label club_info:
     w "Hi Guys! Thank you all for your interest in joining the {b}{i}T r i a n g l e{/i}{/b}! We’re a tight knit community from across the schools. We do X, Y and Z for the school, really great things. We have lots of funding for whatever projects that you come up with."
     "I promptly zone out at the standard club pitch"
     "I over hear someone whispering: {i}I've heard that getting into the Triangle sets you up for guaranteed work at any of the big companies. Their alumni low key rule the world.{/i}"
-    "Woah, I definitely want to get in if that's the case. It'll help me for whatever I want to do in the future"
+    "Woah, I definitely want to get in if that's the case.{p=1} Actually, forget want. I NEED to get in"
     play sound "audio/chimes.mp3"
     w "And that's the {b}{i}T r i a n g l e{/i}{/b}! Thank you all for coming. Please feel free to come up to any of the board members to fill out an application form and get to know us!"
     hide max charm
@@ -476,9 +482,9 @@ label club_info:
             $ maximillion_friendship +=1
             jump club_app
         "How can a pile of trash such as yourself help me?":
-            $sin -=1;
-            "This absolute ass"
             show max mad
+            $sin -=2;
+            "This absolute ass"
             b "You must have no friends so you don't understand the premise of helping others"
             m "Not really. Sounds like you've had a lot of personal experience with having no friends though"
             b "...What can I do for you trash?"
@@ -536,7 +542,7 @@ label max_convo:
                 "That went prety well! Maximillion seems alright"
     elif maximillion_friendship ==0:
         show max neutral
-        b "Thanks for coming to attend! Please feel free to contact me if you ever have any more questions about the Triangle"
+        b "Thanks for coming! Please feel free to contact me if you ever have any more questions about the Triangle"
         m "Thanks for that offer! I'll take you up on that. Nice to meet you! I'm going to head out. Gonna get some caffeine in me before heading to the library tonight"
         b "I'm heading to the library tonight as well! Maybe I'll see you there!"
         menu:
@@ -633,7 +639,7 @@ label caffeine:
             else:
                 m "I understand that I missed the regrade request deadline and that's my fault. But I'm really worried about my performance in this class"
                 p "Thank you for reaching out to me about this. I think we can work out some extra credit assignment to help boost your grade."
-                m "...Really? {p=2.0} THANK YOU SO MUCH PROFESSOR YOU WON'T REGRET THIS"
+                m "...Really? {p=1.5} THANK YOU SO MUCH PROFESSOR YOU WON'T REGRET THIS"
                 p "Hahahaha I'm glad to be of service."
                 p "I actually need to run now, but let's hash out the specifics later!"
                 "Professor Bonden is so nice. I wonder what the extra credit assignment is going to be exactly?"
@@ -713,7 +719,7 @@ label max_library:
                         $sin -=1;
                         play sound "audio/chimes.mp3"
                         b "Just to give you an insider tip, there's a supplement you can attach for your {b}{i}T r i a n g l e{/i}{/b} application too."
-                        b "Involving us {p=2.0}....attaching ourselves together"
+                        b "Involving us {p=1.5}....attaching ourselves together"
                         hide max wink
                         show max charm
                         m "Well, I guess we'll have to see about that huh?"
@@ -734,7 +740,7 @@ label max_library:
         b "I'm surprised they let such trash as yourself in here"
         m "Wow, you stole the words right from my mouth. Did you think that up all by yourself?"
         b "Thought more than your parents ever did about their life decisions. Ugh, anyway I'm going to get out of here. Else, your stupidity will spread"
-        "What.{p=2.0} the. {p=2.0} "
+        "What.{p=1.0} the. {p=1.0} "
         "This guy is the Asshole Supreme Overlord or something"
         m "Before I hurt you and make the world a slightly better place. Can I ask you something?"
         "Might as well get some intel from this unpleasant conversation"
@@ -772,7 +778,7 @@ label max_library:
                                 b "We actually do something similar at the {b}{i}T r i a n g l e{/i}{/b} too"
                                 m "What."
                                 b "You didn't hear it from me. But maybe you want to consider doing something supplemental with your interview on Sunday morning and everything."
-                                b "Let me know what you decide at Mel's tomorrow night"
+                                b "Let me know what you decide at hel's tomorrow night"
                                 m "WHAT"
                                 $ maximillion_friendship -=1
                                 hide max wink with dissolve
@@ -859,7 +865,7 @@ label max_library:
                 menu:
                     "Confused":
                         m "Huh? Is that where his students go to present their side report? Why not just do it in his office or the classroom?"
-                        b "Hahahahahahahahahahahaha that's funny. {p=3.0}  Wait are you forreal? How oblivious can you be"
+                        b "Hahahahahahahahahahahaha that's funny. {p=1.5}  Wait are you forreal? How oblivious can you be"
                         hide max wink
                         show max neutral
                         b "Simpleton much?"
@@ -890,7 +896,7 @@ label max_library:
                         $sin -=1;
                         play sound "audio/chimes.mp3"
                         b "Just to give you an insider tip, there's a supplement you can attach for your {b}{i}T r i a n g l e{/i}{/b} application too."
-                        b "Involving us {p=2.0}....attaching ourselves together"
+                        b "Involving us {p=1.5}....attaching ourselves together"
                         hide max wink
                         show max charm
                         m "Well, I guess we'll have to see about that huh?"
@@ -914,7 +920,7 @@ label sat_room:
     $ add_message("Congratulations", "{b}{i}T r i a n g l e{/i}{/b}", "Hi, We would like to cordially offer you the opportunity to join our ranks. Please come to Hamilton 705 at 11 am tomorrow for your interview with one of our executive board members")
     play sound "audio/email_notif.mp3"
     "Oh speaking about the Triangle, new email notification."
-    "Yes!! I landed the interview tomorrow"
+    "Ahh, it's just like Max said. I landed the interview tomorrow. So I guess he's really telling the truth about the 'supplement' then"
     "Trying to refocus on my work, nothing really gets done for the entire day as I deliberate the best course of action"
     hide screen mailbox_overlay
     "Come on, %(pname)s! What to do, what to do"
@@ -939,7 +945,7 @@ label mel_night:
     show professor happy with moveinright
     p "Hey %(pname)s! It's not weird at all to be seeing you at such an establishment"
     "O .o can't say I relate to that"
-    m "Hey ....Professor! It's nice seeing your here"
+    m "Hey ....Professor! It's nice seeing you here"
     p "Yeah! I must tell you, the Planetarium was mind boggling. So many interesting things you can learn over there"
     p "Sorry for cutting our conversation short yesterday. About the extra credit?"
     menu:
@@ -949,26 +955,26 @@ label mel_night:
             "I hold my breath. This is where Profesesor might shoot me down"
             hide professor happy
             show professor neutral
-            p "{p=3.0}....."
+            p "{p=1.5}....."
             m "Professor?"
             p "That's not what I was thinking at all"
             m "Would you rather me do something else?"
-            p "{p=5.0}....."
+            p "{p=1.5}....."
             hide professor neutral
             show professor pleased
             p "BECAUSE THAT'S FANTASTIC. At the planetarium yesterday, I learned about so mnay topics that I would love to learn about. I have so many recommendations. Have you considered..."
             "I'm stunned. Professor Bonden looks so excited about the prospect of my proposed science report, but what had he been considering?"
-            m "Ah Professor, that sounds great! I would love this to discuss this more with you, maybe at your office hours on Monday or something? But I'm curious, what were you originally thinking for my extra credit assignment"
+            m "Ah Professor, that sounds great! I would love this to discuss this more with you, maybe at your office hours on Monday? But I'm curious, what were you originally thinking for my extra credit assignment?"
             p "Brilliant, brilliant. I wouldn't want to talk shop about grades and extra work on a Saturday night after all! Let's talk more on Monday."
-            p "Oh, I like your idea much better. I was just thinking of asking you to help me set up some science demos for my classes to illustrate your understanrding of the course or to help out in the science library with their filing work"
+            p "Oh, I like your idea better! I was thinking you could help me set up some demos for my classes to illustrate your understanding of the course"
             p "That's still an option of course, if you'd rather do that instead?"
             m "Oh no, that's fine. I'm excited about working with you on this report after all"
             p "Splendid! Alright, I must run now. Have a good one, %(pname)s"
             $ prof_friendship +=1
             $sin +=1;
             hide professor pleased with moveoutright
-            "Oh wow, that went amazingly!"
-        "Seduction time":
+            "Oh wow, that went better than I could have hoped for"
+        "Seduction Time":
             $seduce_prof = True
             $grade_change = False
             m "Don't worry Professor I know exactly what kind of activities will get me in your good graces"
@@ -984,7 +990,7 @@ label mel_night:
             m "How about you let me take you to the Planetarium? We can learn about astronomy then afterward maybe I can expore Uranus"
             hide professor neutral
             show professor surprised
-            p "Excuse me, %(pname)s! As much as I appreciate you illustrating your....{p=2.0} understanding of the sciences?"
+            p "Excuse me, %(pname)s! As much as I appreciate you illustrating your....{p=1.5} understanding of the sciences?"
             p "{p=1.0}What. {p=1.0}Are. {p=1.0}You. {p=1.0}Doing.?"
             p "I'm sorry if I confused you regarding our relationship but I would like to keep things strictly professional"
             #here: can offer a menu option where you maybe feign romantic interest in professor (better ending in terms of your relationship with the professor)
@@ -1054,7 +1060,7 @@ label mel_night:
                 m "UGh, as much as it pains me, let's get this over with"
                 hide max charm
                 show max skeptic
-                b "I'm nauseated by you, hopefully you can exceed my low low expectations"
+                b "I'm nauseated by you, hopefully you can exceed my low expectations"
                 m "Says the most desperate man of all the land"
                 b "Eh, I like to think about it as community service"
             jump morning_aftermax
@@ -1079,7 +1085,7 @@ label mel_night:
                 m "I'm afraid I've got some work I need to get done so I must decline."
                 b  "Oooh, scared of having the best night of your life eh?"
                 "Man, this guy's completely bonkers"
-                m "Uh...{p=3.0}sure. Maybe some other time I guess?"
+                m "Uh...{p=1.0}sure. Maybe some other time I guess?"
                 b "Eh...guess we'll see if you're lucky"
                 m "...Okay, see you around I guess"
                 b "Yes, you're dismissed. I bid thee adieu"
@@ -1116,7 +1122,7 @@ label morning_aftermax:
     "Double Crap."
     "Triple Crap"
     "What time is it?"
-    "{p=2.0} I'M LATE FOR MY INTERVIEW"
+    "{p=1.5} I'M LATE FOR MY INTERVIEW"
     "There's only like 5 minutes left, damn it"
     "Ahhhhh, what was the point of last night then, ugh"
     $renpy.music.set_volume(0.5, channel="Chan1")
@@ -1211,8 +1217,8 @@ label morning_afterhome:
     w "Now, let's get started. Why do you want to join the {b}{i}T r i a n g l e{/i}{/b}?"
     m "Well as a Freshman, I've always"
     w "Wait pardon, freshman? Did you not see on the application form we're only recruiting sophomores and up"
-    "W.h.a.t."
-    w "...Well{p=3.0}...This is awkward. We appreciate the interest but maybe come back next year?"
+    "W{p=0.5}h{p=0.5}a{p=0.5}t{p=0.5}"
+    w "...Well{p=1.5}...This is awkward. We appreciate the interest but maybe come back next year?"
     w "Huh, I heard from Max that you guys have met. I thought he would have mentioned something"
     m "Oh dear, looks like I'm mistaken then, my bad!"
     "Ahhhh, why didn't I pay attention during the info session properly"
@@ -1239,7 +1245,7 @@ label lust_ending:
         $ success +=1
         $ add_message("Regarding Exam and Extra Credit", "Professor Bonden", "Hey, I've spoken with the TAs and they agreed that even though it's past the regrade period. There were definitely some oversights in our grading rubric so we'll be extending the option to all students to submit a new request. Regarding the extra credit we've spoken about, it's still an option open to you if you're interested. Just let me know!")
         play sound "audio/email_notif.mp3"
-        "Oh dear speaking about the Science of Evereything class, new email notification!"
+        "Oh dear speaking about the Science of Everything class, new email notification!"
         m "YESSSSSSSSSSSSSSSSSSS. I've boosted my grade and I can do extra credit"
     else:
         if prof_friendship >=0:
@@ -1256,4 +1262,5 @@ label lust_ending:
             m "I thought Professor Bonden was going to at least offer extra credit. What did I do wrong?"
     hide screen mailbox_overlay
     "Everything is going to be fine! There's always next semester after all. Time to get this bread!"
+    $ prof.delete()
 jump greed_begin
