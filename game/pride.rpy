@@ -1225,6 +1225,7 @@ label goodendingpride:
     "After graduation, Marven decided to do some traveling to search for a purpose in life"
     if music_friendship >=9:
         $ success +=1
+        $Marvensenpai = True
         "His last words were: %(pname)s, I'm glad I was your senpai. Here is a stack of GRE and TOEFL books, along with study guides made with my blood, sweat, and tears"
     play sound "audio/phone_notif.mp3"
     "He sends me the occasional finely curated meme"
@@ -1259,31 +1260,29 @@ label prideend:
             if classgrade >= 9:
                 $ success +=1
                 "I got an A! It's a miracle!"
+                if Marvensenpai and classgrade == 10:
+                    $Marvenperfectrun = True
+                    success +=1
             elif classgrade == 8:
                 $ success +=1
                 "I got a B. Not bad, not bad at all!"
             elif classgrade == 7:
                 $ success +=1
                 "I got a C. Meh."
+            elif studyday == 1 and classgrade >= 6:
+                $ success +=1
+                "I got a C. Meh."
+            elif studyday == 2 and classgrade >=5:
+                $ success +=1
+                "I got a C. Meh."
             else:
-                if studyday == 1:
-                    if classgrade >= 6:
-                        $ success +=1
-                        "I got a C. Meh."
-                elif studyday == 2:
-                    if classgrade >= 5:
-                        $ success += 1
-                        "I got a C. Meh."
-                else:
-                    "I failed! :o"
+                "I failed! :o"
         "Dont check":
-            if studyday == 1:
-                if classgrade >= 6:
-                    $ success += 1
-            elif  == 2:
-                if classgrade >= 5:
-                    $ success += 1
-            "If I cared about ASSES, I would've tried harer in first place"
+            if studyday == 1 and classgrade >= 6:
+                $ success +=1
+            elif studyday == 2 and classgrade >=5:
+                $ success +=1
+            "If I cared about ASSES, I would've tried harder in first place"
     "What an underwhelming conclusion to this rollercoaster of semester. How much more of this hell to endure until graduation?"
     hide screen mailbox_overlay
 jump beginenvy

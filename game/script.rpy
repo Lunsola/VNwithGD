@@ -44,12 +44,6 @@ transform shake:
         ease .01 xoffset -2
         ease .01 xoffset 0
 
-#misc person images:
-image Karen = "Karen.png"
-image recruiter = "recruiter.png"
-image triangle = "triangle.png"
-image breaken = "breaken.png"
-
 #marie images
 image marie neutral = "roomate_rabbit.png"
 image marie happy = "roomate_smile_default.png"
@@ -126,6 +120,7 @@ image professor pleased = "Professor_pleased.png"
 image recruiter = "recruiter.png"
 image triangler = "triangle.png"
 image breaken = "breaken.png"
+image Karen = "Karen.png"
 
 #item images
 image sandwich = "itsandwich.png"
