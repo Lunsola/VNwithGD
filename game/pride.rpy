@@ -116,7 +116,7 @@ label pridebegin:
     r "Hoowah! Nothing like eating a big meal after that tough introduction to ASSES!"
     hide marie v happy
     show marie happy
-    r "Marvin seemed like a nice guy. I wanna be study buddies!"
+    r "Marven seemed like a nice guy. I wanna be study buddies!"
     m "I dunno. He smelled like a memey poser."
     r "Now, you can't make those kinds of assumptions right off the bat! You two have a lot in common!"
     r "He seemed really cool! Like he is double majoring but still takes time to enjoy college life!"
@@ -302,7 +302,7 @@ label hw2fail:
     menu:
         "Say hi":
             $ music_friendship +=1
-            m "What's poppin' Marvin"
+            m "What's poppin' Marven"
             a "Hoho you remembered my name!"
         "Raise eyebrow":
             pause 2
@@ -424,44 +424,44 @@ label hangover:
     "RIP ASSES hw3"
     scene bg black
     with pixellate
-    $renpy.music.set_volume(0.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(0.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     $ add_message("ASSES HW2", "ASSES TA", "Your grade for this assignment is 0")
     play sound "audio/email_notif.mp3"
     pause 2
 label m2begin:
     scene bg bedroom with fade
-    $renpy.music.set_volume(1.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     "Another day, another pickle. I pour my energy and time into wrangling with these esoteric ASSES questions, but will this knowledge be useful in the real world?"
-    "{i}How many tourist groups come to low every year?"
+    "{i}How many tourist groups come to Low every year?"
     play sound "audio/big-crash.mp3"
-    "What's that awful crashing sound coming from low?"
+    "What's that awful crashing sound coming from Low?"
     "AGH CaN'T conCentraTe"
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.5, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     show marie happy
     r "hehe %(pname)s is studying hard for ASSES examination 2!"
     m "for WHAT... oh"
-    m "I gotta work my ass of to save my ASSES grade"
-    m "btw, do you know what's causing that awful din outside"
+    m "I gotta work my ass off to save my ASSES grade."
+    m "btw, do you know what's causing that awful din outside?"
     hide marie happy
     show marie v happy
     r "That's the Lion Dance Cult!"
     m "Someone file a public noise complaint!"
     r "They're known for eating all the food at the events they're invited to. {w}AND making a bigger racket than the marching band ON A WEEKLY BASIS."
     m "uh, {p=1}great"
-    r "Wanna go study in the library? By the way, this upcoming midterm is weighted more than the first one"
+    r "Wanna go study in the library? By the way, this upcoming midterm is weighted more than the first one."
     menu:
         "Screw this I'm going to Milsting":
             r "Okie see ya later then!"
             hide marie v happy
-            $renpy.music.set_volume(1.0, channel="Chan1")
-            $renpy.music.set_volume(volume=0.0, channel="Chan2")
-            $renpy.music.set_volume(volume=0.0, channel="Chan3")
+            $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+            $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+            $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
             "Finally, no more nosy lolis"
             jump milstein
         "I'll go study with you":
@@ -493,18 +493,18 @@ label m2begin:
                                 jump m2goodgrade
 label milstein:
     scene bg mil with irisin
-    $renpy.music.set_volume(1.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
-    "This is the super silent fourth floor of Milsting, where so much as heavy breathing attracts angry glares"
-    "Only the hard Core kids come here"
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+    "This is the super silent fourth floor of Milsting, where even something like heavy breathing attracts angry glares"
+    "Only the Hard Core kids come here"
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
     show music_smile
     with dissolve
     "wtf"
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.5, channel="Chan3")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan3")
     a "{size=-10}heyyyy %(pname)s! A smol birb told me you were here."
     m "{size=-10}Marven this is a no talking floor!"
     hide music_smile
@@ -559,32 +559,32 @@ label milstein:
             jump eathewitt
 label m2goodgrade:
     $ classgrade +=2
-    $renpy.music.set_volume(1.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     "Marie might poke her nose into my business a lot, but I know it's because she cares. As a bonus, she's a truebred tryhard."
     scene bg buthall
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.5, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     show marie happy
     with dissolve
-    "%(pname)s! I'm so glad you came to join me"
+    "%(pname)s! I'm so glad you came to join me."
     hide marie happy
     show marie v happy at center,  hop
     "Let's try our best this time too!"
     hide marie v happy
     with dissolve
-    $renpy.music.set_volume(1.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     "I study with Marie for 6 hours straight"
     "I feel so big brain now that even if I don't ace this next exam, I can drop out and become a CEO"
     jump passexam
 label nap:
-    $renpy.music.set_volume(1.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     "Bright day, plenty of assignments due, finals right around the corner"
     "Great day for a niceeee long nap"
     scene bg black
@@ -597,9 +597,9 @@ label nap:
     "Of course as soon as I rampage they disappear"
     jump walk
 label walk:
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.5, channel="Chan3")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan3")
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
     w "Ayyyy lmao"
     show music_smile
@@ -658,9 +658,9 @@ label cheat:
     scene bg lecture hall with irisin
     "Urk I really don't feel too confident about today's exam"
     show marie neutral at center with moveinright
-    $renpy.music.set_volume(0.33, channel="Chan1")
-    $renpy.music.set_volume(volume=0.33, channel="Chan2")
-    $renpy.music.set_volume(volume=0.33, channel="Chan3")
+    $renpy.music.set_volume(0.33, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.33, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.33, delay=0.5, channel="Chan3")
     r "Hey ready for the ASSES examination?"
     m "The WHAT.. oh yeah. Sure"
     hide marie neutral with moveoutleft
@@ -672,7 +672,12 @@ label cheat:
     a "Ayyy I'm right in front of you!"
     hide music_neutral with moveoutleft
     "Ok I can do this {size=-10}maybe"
-    "{i} ASSES EXAMINATION 2 START"
+    scene black
+    with Pause(.5)
+    show text "{i} ASSES EXAMINATION 2 START"
+    with Pause(1)
+    hide text
+    scene bg lecture hall
     pause 1
     "This is really hard"
     "I wonder how Marven is doing"
@@ -709,7 +714,11 @@ label passexam:
     r "Hey ready for the ASSES examination?"
     m "The WHAT.. oh yeah. Sure"
     hide marie neutral with dissolve
-    "{i} ASSES EXAMINATION 2 START"
+    scene black
+    with Pause(.5)
+    show text "{i} ASSES EXAMINATION 2 START"
+    with Pause(1)
+    hide text
     pause 1
     "Hm these questions all make sense, unlike the first exam"
     "Hoo studying sure pays off"
@@ -720,9 +729,9 @@ label goinghome:
     scene bg milfloor with fade
     "Sophomore second semester is when we choose our major... but what's with this confuzzling major declaration process"
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.5, channel="Chan3")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan3")
     w "Ayyyyyyyy d00d"
     "Uh oh"
     show music_neutral with dissolve
@@ -792,7 +801,7 @@ label conventionday1:
     show music_bent
     a "Hell yeah! Gotta swipe the best deal right?"
     a "I mean, it's not like you're doing anything this week"
-    m "These aren't refundable aren't they"
+    m "These aren't refundable are they?"
     hide music_bent
     show music_cross
     a "Nopity dope"
@@ -809,9 +818,9 @@ label conventionday1:
     call reply_message("lol") from _call_reply_message_1
     call phone_end from _call_phone_end_11
     show marie neutral with dissolve
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.5, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     r "Hey %(pname)s how was the convention today?"
     m "It was super fun"
     m "I bought some spicy meme posters to hang in our dorm"
@@ -824,7 +833,7 @@ label conventionday1:
     m "Er ok"
     hide marie distressed
     show marie concerned
-    r "By the way, the last ASSES exam grade got posted"
+    r "By the way, the last ASSES exam grade got posted."
     "Check OfCourseItWorks?"
     menu:
         "yes":
@@ -850,9 +859,9 @@ label conventionday2:
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
     show music_default
     with dissolve
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.5, channel="Chan3")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan3")
     a "Top 'o the mornin' my d00d {p=1}Ready for another day of big bumpin'?"
     m "Ya yeet!"
     scene bg convention
@@ -882,7 +891,7 @@ label conventionday2:
     r "yawnnn"
     hide marie grateful
     show marie nervous
-    r "I'm gonna go sleep now so I can wake up early to study again tomorrow"
+    r "I'm gonna go sleep now so I can wake up early to study again tomorrow."
     hide marie nervous with dissolve
     "Man I don't know if I should go to the convention again tomorrow"
     "I've already seen pretty much everything and maybe I should study for finals"
@@ -935,9 +944,9 @@ label conventionday2:
             a "Come on vamanos!"
             jump conventionday3
 label twostudyday:
-    $renpy.music.set_volume(1.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     scene bg mil with irisin
     $ studyday +=1
     $ music_friendship =-5
@@ -945,9 +954,9 @@ label twostudyday:
     "Time to grind on ASSES"
     pause 1
     play sound "audio/OOT_Scarecrow_Shake1.mp3"
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.5, channel="Chan3")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan3")
     show music_mad
     with dissolve
     a "Hey I read your shitpost email"
@@ -982,59 +991,59 @@ label twostudyday:
     hide marie grateful
     show marie nervous
     r "You're finally back %(pname)s!"
-    r "I'm gonna go sleep now so I can wake up early to study again tomorrow"
+    r "I'm gonna go sleep now so I can wake up early to study again tomorrow."
     hide marie nervous with dissolve
     "I guess I can't go to the convention again"
-    "Sigh.. that's two days worth of money into the void...{p=2} but wait Marv didn't ask me to pay yet"
+    "Sigh.. that's two days worth of money into the void...{p=2}but wait Marv didn't ask me to pay yet"
     "Either way, I'm too tired to process this drama...tomorrow will be another study day"
     jump onestudyday
 label onestudyday:
     scene bg mil with irisin
-    $renpy.music.set_volume(1.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     $ studyday +=1
     "Alright, self"
     "Time to glue my thinking cap to my head"
     if marie_friendship >= 1 and marieevil == False:
-        $renpy.music.set_volume(0.5, channel="Chan1")
-        $renpy.music.set_volume(volume=0.5, channel="Chan2")
-        $renpy.music.set_volume(volume=0.0, channel="Chan3")
+        $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+        $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
+        $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
         show marie v happy with dissolve
         r "{size=-10}Working hard, %(pname)s?"
-        show marie v happy with dissolve
+        hide marie v happy with dissolve
     if fightwithjosh == False and josh_friendship >= 1:
-        $renpy.music.set_volume(0.5, channel="Chan1")
-        $renpy.music.set_volume(volume=0.0, channel="Chan2")
-        $renpy.music.set_volume(volume=0.0, channel="Chan3")
-        $renpy.music.set_volume(volume=0.5, channel="Chan4")
+        $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+        $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+        $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+        $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan4")
         show josh approve with dissolve
         j "{size=-10}You can do this, brah."
-        show josh approve with dissolve
+        hide josh approve with dissolve
     if maximillion_friendship >= 1:
-        $renpy.music.set_volume(0.5, channel="Chan1")
-        $renpy.music.set_volume(volume=0.0, channel="Chan2")
-        $renpy.music.set_volume(volume=0.0, channel="Chan3")
-        $renpy.music.set_volume(volume=0.5, channel="Chan4")
+        $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+        $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+        $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+        $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan4")
         show max wink with dissolve
         b "{size=-10}How refreshing it is to see the serf toiling earnestly"
-        show max wink with dissolve
+        hide max wink with dissolve
     if prof_friendship >= 1:
-        $renpy.music.set_volume(0.5, channel="Chan1")
-        $renpy.music.set_volume(volume=0.0, channel="Chan2")
-        $renpy.music.set_volume(volume=0.0, channel="Chan3")
-        $renpy.music.set_volume(volume=0.5, channel="Chan4")
+        $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+        $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+        $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+        $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan4")
         show professor happy with dissolve
         b "{size=-10}Very admirable, keep up the good work, %(pname)s."
-        show professor happy with dissolve
+        hide professor happy with dissolve
     scene bg black with fade
     pause 2
     jump examday
 label conventionday3:
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.5, channel="Chan3")
-    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     scene bg convention
     $ music_friendship +=8
     "I steep myself in another indulging day at the meme convention"
@@ -1046,7 +1055,7 @@ label conventionday3:
     a "Oh yea? Then no need to pay for your tickets. But answer this question."
     a "If our school had a meme page, which of these would be featured the most?"
     menu:
-        "Lerner ramps":
+        "Burner ramps":
             pass
         "Deantiny's Expert's Mind":
             pass
@@ -1080,10 +1089,10 @@ label conventionday3:
     scene bg black with blinds
     jump examday
 label examday:
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.5, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
-    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     scene bg lecture hall with irisin
     w "{size=+10}UWAH!!! {p=1.0}%(pname)s!!!!!"
     pause .5
@@ -1097,9 +1106,9 @@ label examday:
     "It's true, it feels like this is the culmination of my entire semester. My performance today is gonna make it or break it"
     "Well, here goes nothing."
     hide marie nervous2 with dissolve
-    $renpy.music.set_volume(1.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     "{i}FINAL ASSES EXAMINATION START"
     menu:
         "Consider the width of Butler Library, as measured from its westernmost side to its easternmost side. Estimate the width to the nearest power of ten."
@@ -1124,7 +1133,7 @@ label examday:
             $ classgrade +=1
             $ finalscore +=20;
     menu:
-        "How many floors does lerner have?"
+        "How many floors does Burner have?"
         "9":
             pass
         "8":
@@ -1159,15 +1168,15 @@ label examday:
     "Whew that's the end. Nothing screams high stakes like a five-question final."
     "I want to say I want to know my score now, but in truth, I never want to figure out. I just want to know if I passed or not."
     if music_friendship >= 6:
-        $renpy.music.set_volume(0.5, channel="Chan1")
-        $renpy.music.set_volume(volume=0.5, channel="Chan2")
-        $renpy.music.set_volume(volume=0.0, channel="Chan3")
+        $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+        $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
+        $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
         scene bg lernerramps with irisin
         show marie nervous2
         r "Hoowah so glad to have gotten that over with! It was easier than I thought!"
-        $renpy.music.set_volume(0.33, channel="Chan1")
-        $renpy.music.set_volume(volume=0.33, channel="Chan2")
-        $renpy.music.set_volume(volume=0.33, channel="Chan3")
+        $renpy.music.set_volume(0.33, delay=0.5, channel="Chan1")
+        $renpy.music.set_volume(volume=0.33, delay=0.5, channel="Chan2")
+        $renpy.music.set_volume(volume=0.33, delay=0.5, channel="Chan3")
         w "Ayyyy"
         hide marie nervous2
         show marie neutral at center:
@@ -1186,7 +1195,7 @@ label examday:
             hide marie nervous2
             show marie happy at left
             r "The one you left on your desk! It was all written in memes, which made me confused at first, but it turned out to be a very helpful memory device!"
-            a "{p=1}...I had one like that before the meme convention"
+            a "...{p=1}I had one like that before the meme convention"
             hide marie happy
             show marie v happy at left, hop
             r "Well, that could be a coincidence! %(pname)s tends to have things that looks other people's belongings, isn't that right, %(pname)s?"
@@ -1200,18 +1209,18 @@ label examday:
     else:
         jump badendingpride
 label badendingpride:
-    $renpy.music.set_volume(1.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     scene bg milfloor with irisin
     "After graduation, I never heard of Marven again"
     "Life is like a visual novel. A single choice could change your relationship with a person forever."
     "Me and Marven could've been really good friends through shared interests"
     jump prideend
 label goodendingpride:
-    $renpy.music.set_volume(1.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     scene bg columbialawn with irisin
     "After graduation, Marven decided to do some traveling to search for a purpose in life"
     if music_friendship >=9:
@@ -1225,9 +1234,9 @@ label goodendingpride:
     call phone_end from _call_phone_end_13
     jump prideend
 label prideend:
-    $renpy.music.set_volume(1.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     play sound "audio/email_notif.mp3"
     if finalscore == 0:
         $ add_message("ASSES FINAL", "ASSES TA", "Your grade for the final is 0")

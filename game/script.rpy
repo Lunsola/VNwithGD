@@ -269,6 +269,8 @@ label start:
     $ committedArson = False #did you set fire to Marie's room???
     $seduce_prof = False
     $seduce_max = False
+    $Marvensenpai = False
+    $Marvenperfectrun = False
 
 
 

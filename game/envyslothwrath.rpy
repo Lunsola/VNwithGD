@@ -150,13 +150,15 @@ label ongoodtermswjosh:
             hide music_neutral
             show music_talk at right
             a "You know, Amazim like really really hard to get an internship at, nevermind a job."
-            a "And like, just saying, but they called me a prodigy. And yeah, before you ask, it’s true that my uncle is a top executive there but let me just say that that had NOTHING to do with the hiring process."
+            a "And like, just sayin', but they called me a prodigy. And ye, before you ask, it’s true that my uncle is a top eggzecutive there but lemme just say that that had NOTHING to do with the hiring process."
+            "What? Wasn't he planning to travel??"
             hide music_talk
             show music_heh at right
             a "I just ball that hard."
             hide music_heh
             show music_smile at right
-            "There’s the old Marven I know and love. Okay, to be honest, all this is stressing me out. Anyone else want to come up and tell me all about their accomplishments? At this point, I kind of want to just spend the rest of the day in my room where no one can find me and tell me how succesful they are. Yeah...that sounds like fun."
+            "Well, at least his seemingly unshakeable confidence is the same."
+            "Okay, to be honest, all this is stressing me out. Anyone else want to come up and tell me all about their accomplishments? At this point, I kind of want to just spend the rest of the day in my room where no one can find me and tell me how succesful they are. Yeah...that sounds like fun."
             hide josh happy with moveoutleft
             hide marie happy with moveoutleft
             hide music_smile with moveoutright
@@ -860,7 +862,7 @@ label credits:
     return
 
 init python:
-    credits = ('Artists', 'Justin Chan'), ('Artists', 'Ren Huang'), ('Artists', 'Emmy Wang'), ('Artists', 'Kimberly Li'), ('Music', 'Ramy El Baghir'), ('Writers/Programmers', 'Sophia Gates'), ('Writers/Programmers', 'Tiffeny Chen'),('Writers/Programmers', 'Emmy Wang'), ('Writers/Programmers', 'Kimberly Li'), ('Writers/Programmers', 'Katrina'), ('Writers/Programmers', 'Sarah'),('Setting', 'Columbia University'), ('Phone code', 'Nadia Nova'),('In-Game Messaging System code', 'saguaro'), ('Phone Sound Effects','by Notificationsounds.com is licensed under CC By 4.0'),('Credits code', 'DaFool'), ('Special thanks to:', 'CU Game Dev!')
+    credits = ('Artists', 'Justin Chan'), ('Artists', 'Ren Huang'), ('Artists', 'Emmy Wang'), ('Artists', 'Kimberly Li'), ('Music', 'Ramy El Baghir'), ('Writers/Programmers', 'Sophia Gates'), ('Writers/Programmers', 'Tiffeny Chen'),('Writers/Programmers', 'Emmy Wang'), ('Writers/Programmers', 'Kimberly Li'), ('Writers/Programmers', 'Katrina'), ('Writers/Programmers', 'Sarah'),('Setting images', 'Columbia University'), ('Phone code', 'Nadia Nova'),('In-Game Messaging System code', 'saguaro'), ('Phone Sound Effects','by Notificationsounds.com is licensed under CC By 4.0'),('Credits code', 'DaFool'), ('Special thanks to:', 'CU Game Dev!')
     credits_s = "{size=80}Credits\n\n"
     c1 = ''
     for c in credits:
