@@ -122,6 +122,10 @@ image professor mad = "Professor_annoyed.png"
 image professor neutral = "Professor_neutral.png"
 image professor pleased = "Professor_pleased.png"
 
+#other character images
+image recruiter = "recruiter.png"
+image triangler = "triangle.png"
+image breaken = "breaken.png"
 
 #item images
 image sandwich = "itsandwich.png"
