@@ -930,7 +930,7 @@ label sad_marie:
     r "I-{p=1}I always knew I was useless. I knew that it was pointless to even try applying"
     m "Nonono"
     m "Don't think like that Marie. You're one of the smartest people I know. I admire you so much and I hope that you recognize your talents too"
-    r "{p=1}... Thanks %(pname)s. I don't agree with you, but I really appreciate your support"
+    r "...{p=1}Thanks %(pname)s. I don't agree with you, but I really appreciate your support"
     m "Aww, do you want to go for a pick me up snack? We can spice up our life and get the spiciest level at the dry hot pot place?"
     hide marie cry
     show marie neutral

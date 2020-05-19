@@ -274,7 +274,7 @@ label lunchaloneesw:
         "Tell the truth":
             m "You know, I’m kind of between things right now. Still getting back into school mode haha. But if you hear anything about internship opportunities hit me up! I’m actually looking for one right now."
             b "Oh...that’s awkward. Well--sorry? I have to say, you are so brave. I don’t even know what I’d do if I was a junior with zero internship prospects."
-            if seduce_max:
+            if seduce_max or max > 2:
                 hide max neutral
                 show max charm
             else:
@@ -387,10 +387,22 @@ label endeswday1:
                 if fightwithjosh:
                     hide josh happy
                     show josh neutral at center
-                hide marie happy
-                show marie ingenuine at sright
-                r "That’s right, it is great to make friends! Speaking of...where are your friends exactly?"
+                if marieevil:
+                    hide marie happy
+                    show marie ingenuine at sright
+                    r "That’s right, it is great to make friends! Speaking of...where are your friends exactly?"
+                else:
+                    hide marie happy
+                    show marie neutral at sright
+                    r "What do you mean, %(pname)s? I thought we were friends?"
+                    m "I have other friends!"
+                    r "Oh, can we meet them? Where are they?"
+                    hide marie neutral
+                    show marie surprised at sright
                 m "In the bathroom, okay!? They’re coming right out. And they’re real. They exist they just had to leave for a second."
+                if marieevil == False:
+                    hide marie surprised
+                    show marie neutral at sright
                 if fightwithjosh == False:
                     hide josh happy
                     show josh neutral at center
@@ -407,7 +419,7 @@ label endeswday1:
                     hide marie ingenuine
                     show marie mad at sright
                 else:
-                    hide marie ingenuine
+                    hide marie neutral
                     show marie surprised at sright, hop
                 if fightwithjosh == False:
                     hide josh shock
@@ -417,7 +429,7 @@ label endeswday1:
                     hide marie surprised
                     show marie cry at sright
                 r "%(pname)s, I think it would be best if you left."
-                m "I was just thinking of leaving myself, actually. I’m meeting up with a friend. Bye."
+                m "I was just thinking of leaving myself, actually. I’m meeting up with {i}another friend{/i} now. Bye."
                 if marieevil:
                     hide marie mad with moveoutright
                 else:
@@ -625,6 +637,14 @@ label dawnofthelastday:
             show marie neutral
             r "No, you don’t."
             m "What?"
+            if marieevil == False and marie_friendship > 2:
+                hide marie neutral
+                show marie concerned
+                r "I'm sorry to burst your bubble like this, but..."
+                hide marie concerned
+                show marie neutral
+            scene black with dissolve
+            show marie neutral
             r "You don’t have a friend waiting for you."
             r "You just left my room, where you were tempted to commit arson. Before that, you saw Josh be cheered for winning the big game and saw me win the lottery."
             r "I know where you’ve been and what you’ve done, %(pname)s. We’re always watching."
@@ -759,9 +779,9 @@ label howdidIdo:
         hide marie happy
         show marie neutral
     elif josh_friendship < -3:
+        r "I do wonder why were you so rude to Josh..."
         hide marie neutral
         show marie mad
-        r "Why were you so rude to Josh?"
         r "Not wanting to share a swipe is fine, but did you really have to say 'sucks to suck loser'?"
         hide marie mad
         show marie neutral
@@ -805,7 +825,7 @@ label howdidIdo:
         $ sin +=1
         hide marie neutral
         show marie happy
-        r "It was sweet of you to play along with Max a bit."
+        r "It {i}was{/i} sweet of you to play along with Max a bit."
         r "His whole lord thing really is something."
         if seduce_max:
             r "I guess maybe you were a little into it though."
@@ -1044,7 +1064,7 @@ label credits:
     return
 
 init python:
-    credits = ('Artists', 'Justin Chan'), ('Artists', 'Ren Huang'), ('Artists', 'Emmy Wang'), ('Artists', 'Kimberly Li'), ('Music', 'Ramy El Baghir'), ('Writers/Programmers', 'Sophia Gates'), ('Writers/Programmers', 'Tiffeny Chen'),('Writers/Programmers', 'Emmy Wang'), ('Writers/Programmers', 'Kimberly Li'), ('Writers/Programmers', 'Katrina'), ('Writers/Programmers', 'Sarah'),('Setting images', 'Columbia University'), ('Phone code', 'Nadia Nova'),('In-Game Messaging System code', 'saguaro'), ('Phone Sound Effects','by Notificationsounds.com is licensed under CC By 4.0'),('Credits code', 'DaFool'), ('Special thanks to:', 'CU Game Dev!')
+    credits = ('Artists', 'Justin Chan'), ('Artists', 'Ren Huang'), ('Artists', 'Emmy Wang'), ('Artists', 'Kimberly Li'), ('Music', 'Ramy El Baghir'), ('Writers/Programmers', 'Sophia Gates'), ('Writers/Programmers', 'Tiffeny Chen'),('Writers/Programmers', 'Emmy Wang'), ('Writers/Programmers', 'Kimberly Li'), ('Writers/Programmers', 'Katrina Zhao'), ('Writers/Programmers', 'Sarah Huang'),('Setting images', 'Columbia University'), ('Phone code', 'Nadia Nova'),('In-Game Messaging System code', 'saguaro'), ('Phone Sound Effects','by Notificationsounds.com is licensed under CC By 4.0'),('Credits code', 'DaFool'), ('Special thanks to:', 'CU Game Dev!')
     credits_s = "{size=80}Credits\n\n"
     c1 = ''
     for c in credits:
