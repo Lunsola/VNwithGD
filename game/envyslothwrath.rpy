@@ -674,9 +674,11 @@ label closecurtains:
 
     ##Marie about to do some math on this bitch and read you
 label howdidIdo:
-    r "Well why don't we reflect on some of your choices."
-    if marie_friendship > 3: #marie max +7, min -2 HOWEVER, only 3 of those
+    $friend_counter = 0
+    r "Well, why don't we see if there's anything interesting in your file first."
+    if marie_friendship > 3: #marie max +7, min -2 HOWEVER, only 3 of those are from gluttony
         $sin =+1
+        $friend_counter +=1
         hide marie neutral
         show marie happy at center, hop
         r "You know, I have to admit at least I personally like you."
@@ -718,18 +720,18 @@ label howdidIdo:
                 r "If you do have to stay with us somehow, I'd be happy to be your friend still."
                 hide marie happy
                 show marie neutral
-    else:
-        r "You probably already know how I feel about you personally." #I got this even though I thought I was nice...
+    elif marie_friendship <= 1:
+        r "You probably already know how I feel about you personally."
         if committedArson:
             hide marie neutral
             show marie averse
             "She points at the fire and says nothing else on that."
-        elif marieevil and marie_friendship > 0:
+        elif marieevil and marie_friendship >= 0:
             r "Would it have killed you to be a little nicer?"
             hide marie neutral
             show marie averse
             r "Oh and less of a cheater. That resume stunt sure was dumb."
-        elif marieevil and marie_friendship <=0:
+        elif marieevil and marie_friendship < 0:
             r "Talk about a grade A jerk."
             r "Which is a better grade than you could hope for in anything else after you were dumb enough to pull that resume stunt."
         elif marie_friendship < 0:
@@ -741,6 +743,7 @@ label howdidIdo:
         hide marie averse
         show marie neutral
     if josh_friendship > 2: #josh max +6, min -6
+        $friend_counter +=1
         $sin =+1
         hide marie neutral
         show marie happy
@@ -748,40 +751,90 @@ label howdidIdo:
         if threwpizzamad:
             hide marie happy
             show marie neutral
-            r "It really is kind of absurd considering that whole pizza incident."
+            r "It really is kind of absurd considering that whole pizza incident, too."
             r "What {i}did{/i} you gain from berating him on top of ruining that pizza?"
         r "Still, a vote in your favor is a vote."
         hide marie happy
         show marie neutral
-        #should I make player able to ask why she discredits josh? "what did you actually think we were dating?"
     elif josh_friendship < -3:
-        pass
-        ##hoooly heck u were rude also did you say sucks to suck loser???
-        ##okay so this only occurs if you said sucks to suck and he chews you out
+        hide marie neutral
+        show marie mad
+        r "Why were you so rude to Josh?"
+        r "Not wanting to share a swipe is fine, but did you really have to say 'sucks to suck loser'?"
+        hide marie mad
+        show marie neutral
     if prof_friendship > 3: #bonden max +6, min -6
+        $friend_counter +=1
         $sin +=1
         hide marie neutral
         show marie happy
-        r "Professor Bonden's rec letter is positive! That's nice!"
+        r "Professor Bonden's genuinely happy to recommend you! That's nice!"
         hide marie happy
         show marie neutral
-    if seduce_prof:
-        r "Ooooo, Professor Bonden did not like you."
+    elif seduce_prof and bad_let:
+        r "Mmm, hard to believe you really asked for a rec letter from professor Bonden."
         hide marie neutral
         show marie averse
         r "I'm sure you know why."
         hide marie averse
         show marie neutral
-    if maximillion_friendship > 5: #max +7, -9
+    elif bad_let:
+        r "Sorry about your rec letter with Bonden by the way."
+        r "I'm sure you realized it wasn't great."
+    if maximillion_friendship >= 5: #max +7, -9
+        $friend_counter +=1
         $sin +=2
-        #wow how were you so nice to this man?? Did you like him for real??
+        hide marie neutral
+        show marie surprised
+        r "Do you enjoy being degraded or something?"
+        if seduce_max:
+            r "Or maybe he was just part of your master plan to get into that club?"
+            hide marie surprised
+            show marie ingenuine
+            r "The club called triangle. A very real club name."
+            hide marie ingenuine
+        else:
+            r "How did you get along so well with Max?"
+        hide marie surprised
+        show marie neutral
+        r "I guess it's sweet that he likes you though."
+        r "In a twisted way."
     elif maximillion_friendship > 2:
         $sin +=1
-        #Aw thanks for playing nice with Max who is def a bitch
+        hide marie neutral
+        show marie happy
+        r "It was sweet of you to play along with Max a bit."
+        r "His whole lord thing really is something."
+        if seduce_max:
+            r "I guess maybe you were a little into it though."
+            "Did she just wink at me?"
     elif maximillion_friendship < -5:
-        pass
-        #no surprise max hates you! whatever he's not easy to get along with
+        r "I guess being called commoner and plebian isn't your thing."
+        r "I don't blame you for not getting along with Max."
+        if sin <= -13:
+            hide marie neural
+            show marie averse
+            r "But he's not the worst person here."
+            hide marie averse
+            show marie neutral
+        else:
+            r "Maybe in another life."
+        if seduce_max:
+            r "Though this result does shine a light on a certain choice..."
+            r "A certain 'club position securing' choice."
+    elif betray_max:
+        hide marie neutral
+        show marie concerned
+        r "I'm sure it was pretty hard for Max to open up to you like that."
+        r "And for you to laugh in his face?"
+        r "That's really cruel even with his projected superiority complex."
+        if seduce_max:
+            r "Plus, I thought you two were 'closer' than that."
+            "Gross."
+        hide marie concerned
+        show marie neutral
     if Marvenperfectrun:
+        $friend_counter +=1
         hide marie neutral
         show marie v happy at center, hop
         $sin +=2
@@ -796,48 +849,131 @@ label howdidIdo:
         hide marie v happy
         show marie neutral
     elif Marvensenpai:
+        $friend_counter +=1
         hide marie neutral
         show marie happy
         $sin +=1
-        r "It was pretty great that Marven opened up to you."
+        r "It was pretty great that Marven opened up to you!"
         if failedPride:
             hide marie happy
             show marie neutral
-            r "Unfortunately, it was at the cost of your grade. But we can't all be perfect."
+            r "Unfortunately, it was at the cost of your grade."
             if ignoranceisbliss:
                 hide marie neutral
                 show marie averse
                 r "Not that you'd have known considering you didn't check."
                 hide marie averse
                 show marie neutral
-            r "I suppose that semester was pretty difficult though."
-
-
-    #marieevil and stolesg in order to get the snitch result
+            if stolesg and marieevil == False:
+                hide marie neutral
+                show marie averse
+                r "And I wonder how he'd feel if he knew about the study guide theft on top of the failure..."
+                hide marie averse
+                show marie neutral
+            r "But we can't all be perfect."
+            r "And to your credit, I suppose that semester was pretty difficult."
+        else:
+            r "And you passed the class! That actually {i}is{/i} a feat in itself. Marven really did try to slow you down."
+            if stolesg and marieevil == False:
+                hide marie neutral
+                show marie averse
+                r "I wonder how he'd feel if he knew about the study guide theft though..."
+                hide marie averse
+                show marie concerned
+                r "Was it worth it to betray his trust?"
+                hide marie concerned
+                show marie neutral
+    elif music_friendship < -1:
+        r "Hmm... I get that Marven did kind of work against you passing the class in semester 4."
+        r "But couldn't you have humored him just a bit?"
+        if failedPride:
+            if stolesg:
+                hide marie neutral
+                show marie mad
+                r "You even stole his study guide and still failed! What was the point?"
+                hide marie mad
+            else:
+                hide marie neutral
+                show marie concerned
+                r "And you failed anyway! What a tragic result of being unthoughtful."
+                hide marie concerned
+            show marie neutral
+    if friend_counter == 5:
+        hide marie neutral
+        show marie v happy at center, hop
+        r "I think honestly everybody is rooting for you."
+        hide marie v happy
+        show marie neutral
+        r "Even if we will be sad to see you go."
+    if success <= 0:
+        r "By the way, I should tell you. It's probably a good thing this test isn't actually based on how well you did at this school."
+        r "Because you didn't do great."
+        r "So maybe it's good you didn't go to Columbia then?"
+        r "I don't know. This situation was admittedly pretty special."
+    elif success > 5:
+        if friend_counter == 0:
+            r "But at least, overall, you did decent work here."
+        else:
+            r "Aaaaaand, overall, you did pretty well in this faux college!"
+            if marieevil == False:
+                hide marie neutral
+                show marie concerned
+                r "I'm a little sorry you couldn't have done it on Earth instead."
+                hide marie concerned
+                show marie neutral
+    r "There's not much else here worth commenting on."
+    r "So without further ado, the results!"
     jump finaljudgment
+    #currently there's a range of -23 to 11 possible sin points (before relationships factored in). Let's round that down to a nice -20 possible
+    #-24 to 18 possible sin points after relationships factored
+    #success max points 10 or -1
 
-    #currently there's a range of -24 to 10 possible sin points (before relationships factored in). Let's round that down to a nice -20 possible
 label finaljudgment:
-    if sin > 0 and committedArson:
+    if sin > 11 and committedArson:
         hide marie neutral
         show marie surprised
-        r "I actually don’t know how you did it."
+        r "Talk about falling at the last barrier!"
         hide marie surprised
-        show marie concerned
-        r "But you just scraped by. Don’t worry, though, %(pname)s. Up there, they can be awfully picky about what behaviors they accept."
-        hide marie concerned
         show marie happy
-        r "I’ll give you a hint: arson isn’t one of them. But...for now. You did it. Congratulations. You’re graduating from hell."
+        r "You would have passed with flying colors if not for the burning down the room part."
+        hide marie happy
+        show marie v happy at center, hop
+        r "Maybe you just like fire? I know I do."
+        r "Protip though! Don't do that anymore after you leave here."
+        r "Which is to say, congrats on graduating from hell!"
         $ persistent.ending="end good"
+        $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+        $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+        $renpy.music.play("audio/LimboDraftMain.mp3", channel="Chan1", synchro_start=True)
         scene bg black
         with dissolve
         window hide
         show goodend
         pause
-    elif sin < 0:
+    elif sin > 7 and committedArson:
+        hide marie neutral
+        show marie surprised
+        r "I actually don’t know how you did it."
+        hide marie surprised
+        show marie concerned
+        r "But you scraped by even with the little fire fiasco. Don’t worry, though, %(pname)s. Up there, they can be awfully picky about what behaviors they accept."
+        hide marie concerned
+        show marie happy
+        r "I’ll give you a hint: arson isn’t one of them. But...for now."
+        r "You did it. Congratulations. You’re graduating from hell."
+        $ persistent.ending="end good"
+        $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+        $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+        $renpy.music.play("audio/LimboDraftMain.mp3", channel="Chan1", synchro_start=True)
+        scene bg black
+        with dissolve
+        window hide
+        show goodend
+        pause
+    elif sin < 7:
         hide marie neutral
         show marie mad
-        r "I think you know the answer to that question, %(pname)s."
+        r "I think you know the results already, %(pname)s."
         r "The irony is, I’m sort of you, in a way. I’m the way your life could have gone, if you’d done all the right things and played your cards right. But you chose the path you chose. You chose selfishness, cruelty, and destructiveness."
         r "Welcome to hell, %(pname)s."
         $ persistent.ending="end bad"
@@ -846,7 +982,7 @@ label finaljudgment:
         window hide
         show badend
         pause
-    elif sin == 0:
+    elif sin == 7:
         hide marie neutral
         show marie astonished
         r "..."
@@ -858,16 +994,16 @@ label finaljudgment:
     else:
         hide marie neutral
         show marie happy
-        r "I think I can safely say you did."
+        r "I think I can safely say your results are positive!"
         r "You know, it was a toss up, %(pname)s. Some of the things you did on Earth made us wonder if you’d be up to the challenge of the test. But you did it."
         r "You chose friendship over bitterness and generosity over vindictiveness."
-        if success > 6: #total possible 9
-            r "Plus, you did really well in school despite the obstacles we threw at you!"
-            r "Which is why I'm proud to say!"
         hide marie happy
         show marie v happy at center, hop
         r "Congratulations. You’re graduating from hell."
         $ persistent.ending="end good"
+        $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+        $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+        $renpy.music.play("audio/LimboDraftMain.mp3", channel="Chan1", synchro_start=True)
         scene bg black
         with dissolve
         window hide
