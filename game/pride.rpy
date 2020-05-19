@@ -80,6 +80,7 @@ label pridebegin:
         yalign 1.0 xalign .75
     a "I'm a music + philosophy double major. {p=2}Puh-lease don't ask me what kind of job I can get with that."
     r "Wowww that's so cool!"
+    show breaken at left with moveinleft
     s "{b}Please sit down, class is about to start!"
     a "Oop, gotta go fast!"
     menu:
