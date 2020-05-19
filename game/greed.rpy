@@ -1,5 +1,5 @@
 label greed_begin:
-    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(0.0, delay=0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
@@ -18,6 +18,10 @@ label greed_begin:
     show text "{size=50}Semester 3: What's this? More School{/size}"
     with Pause(2)
     hide text
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     scene bg careerfair1 with fade
 
     "It's finally the day of the career fair! I will make something out of
@@ -30,7 +34,7 @@ label greed_begin:
     "Ah! MicroHard! That's a really competitive company... Ugh... I should
     probably apply shouldn't I..."
 
-    show Karen
+    show recruiter
 
     define recruit = Character("Recruiter")
 
@@ -40,7 +44,7 @@ label greed_begin:
     do you have for undergraduates?"
 
     recruit "Yes, well we have several hands-on opportunities for all years!
-    If you are interesting in applying..."
+    If you are interested in applying..."
 
     scene bg lernerramps with fade
 
@@ -82,7 +86,7 @@ label career_dorm:
             m "Ughh, can that number be my internship acceptance letter"
             r "It will be soon!"
         "Overall, I think it was an alright experience":
-            "I'm stil dwelling over my worry about finding an internship but no need to tell Marie that"
+            "I'm still dwelling over my worry about finding an internship but no need to tell Marie that"
             m "It was fine. Just what you would expect from a typical career fair. Subtle to heavy flexing all around"
             r "That's good! I feel like career fairs can be draining, constantly needing to talk yourself up to a stranger but it's a great opportunity"
             m "Yep. yep."
@@ -110,7 +114,7 @@ label career_Burner:
     menu:
         "If I can get any offer, I'd be happy":
             m "I don't have much experience as you, but I'd be willing to do anything this summer as long as I'm occupied"
-            b "Of course! No one can deign to dream of reaching the heightst that I'm acheiving"
+            b "Of course! No one can deign to dream of reaching the heights that I'm achieving"
             b "Though I must say, you're quite modest"
             show max skeptic
             b "Weaklings are always the most cunning"
@@ -140,7 +144,7 @@ label career_email:
     play sound "audio/email_notif.mp3"
     "Ahhhh, is that an internship update? So soon? No way"
     "Let's check my messages"
-    "Hmm. Guess I can't really get the internship offer if I haven't applied to the intership yet."
+    "Hmm. Guess I can't really get the internship offer if I haven't applied to the internship yet."
     "Oof I don't have any of the things that they're asking for"
     hide screen mailbox_overlay
     "First things first, let's figure out who to ask for that recommendation letter"
@@ -203,40 +207,40 @@ label breaken_route: #need to add an option for giving up
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
-    show Karen
+    show breaken
     menu:
         "Hey Professor Breaken, I was hoping to ask":
             op "Sorry can't talk right now"
-            hide Karen with dissolve
+            hide breaken with dissolve
             "Guess I'll have to try again some other time"
         "Never mind":
             "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
             jump prof_reject
     scene bg columbialawn with slideright
-    show Karen with moveinright
-    "Oh I see Professor Breaken!"
+    show breaken with moveinright
+    "Oh! I see Professor Breaken!"
     menu:
         "Hi":
             op "Nope. Bye"
-            hide Karen with moveoutright
-            "Oh...that was kind of rude. Maybe Professor Breaken's avoiding me?"
+            hide breaken with moveoutright
+            "Oh...that was kind of rude. Maybe Professor Breaken is avoiding me?"
             "Well I guess, there's always next time"
         "Never mind":
             "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
             jump prof_reject
     scene bg milfloor with slideawayleft
-    show Karen with moveinleft
+    show breaken with moveinleft
     "It's like seeing a unicorn"
     menu:
         "I was hoping to ask":
             op "Sorry, can't chat. I've got something more important"
-            hide Karen with moveoutright
+            hide breaken with moveoutright
             "Oof I didn't realize the sting of rejection would hurt this much"
         "Never mind":
             "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
             jump prof_reject
     scene bg collegewalk with irisin
-    show Karen with moveinbottom
+    show breaken with moveinbottom
     "Maybe fourth time's the charm?"
     menu:
         "Hi Professor Breaken! It's great to see you. I was hoping to ask if you would mind writing a letter of recommendation for you":
@@ -256,14 +260,14 @@ label breaken_route: #need to add an option for giving up
                 m "Thank you thank you Professor Breaken! I really appreciate it"
                 "Wow, bless whatever higher being for rewarding me with Professor Breaken's kindness"
                 op "No problem. Is there anything else"
-                "I'm so thrilled. I wnat to given the professor a hug but I suppress my urges. I have a newly bought box of chocolates that I was saving for a rainy day. Should I give it to them?"
+                "I'm so thrilled. I want to give the professor a hug, but I suppress my urges. Thoough, I do have a newly bought box of chocolates that I was saving for a rainy day. Should I give it to them?"
                 menu:
                     "Give gift":
                         $sin+=1
                         show gift at center
                         m "Yes, actually. I was hoping you would accept these chocolates as a thank you from me"
                         hide gift with dissolve
-                        #show professor happy
+                        show broken at center, hop
                         "I can see my professor's eyes widen in shock and they look almost happy? It's the first I've ever seen them like this"
                         op "{p=1.5} Thanks %(pname)s, heh, I always did enjoy reading your work for my class"
                         "This is wrinkling my mind"
@@ -302,10 +306,10 @@ label prof_reject:
     show marie v happy with moveinright
     r "Guess what, guess what"
     m "I guess you've got some good news to share?"
-    r "Ding! Ding!Ding! You're absolutely right"
+    r "Ding! Ding! Ding! You're absolutely right"
     show marie v happy at sright, hop
     r "Professor Breaken wrote a recommendation letter for me"
-    "What. Professor Breaken to busy to spare any time for me, Professor Breakn?"
+    "What. Professor Breaken too busy to spare any time for me, Professor Breakn?"
     m "Woah, you got notoriously mean Professor Breaken, ain't got time for anybody Professor Breaken, to write you a recommendation letter for you??"
     r "Yeah!! I'm super excited. I'm going to facetime my parents and tell them the good news. With this, I'll be able to get an internship in no time. See you!"
     m "Wait, wait. Before you do that, I wanted to ask you something"
@@ -341,7 +345,7 @@ label prof_reject:
             $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
             $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
             "The thought of asking to see Marie's letter in order to forge it briefly crossed my mind"
-            "It'd be so easy to do and it wouldn't even hurt anyone, but I decided against it after seeing how Marie deserved her recommendation letter after all of her hard work"
+            "It'd be so easy to do, and it wouldn't even hurt anyone, but I decided against it after seeing how Marie deserved her recommendation letter after all of her hard work"
             "After all, it was me that was rejected by Professor Breaken"
             "I guess, I'll just have to accept the L and write my own recommendation letter or ask someone other than my Professors"
             $success-=1
@@ -362,7 +366,7 @@ label prof_reject:
             hide screen mailbox_overlay
             jump sab_marie
         "Forget it and leave it alone":
-            "Oh my goodness, what am i thinking. I can't do that to Marie. She's been such a great roommate"
+            "Oh my goodness, what am I thinking. I can't do that to Marie. She's been such a great roommate"
             "I'm really going to turn down the salt levels. I'll be just fine without having to ruin someone else's chances"
     jump resume
 
@@ -370,7 +374,7 @@ label breaken_draft(contact, message_title="Report Academic Violation"):
     menu:
         "Hi Professor, I wanted to report Marie for violating our school's academic integrity policies. Her final paper for the course was purchased through a third party":
             $ contact.draft_label = None # must include this line for each option
-            $ add_message("Report Academic Violation:Re", "Professor Breaken", "Thank you for reporting this offense. This shall be dealt with immediately")
+            $ add_message("Re: Report Academic Violation", "Professor Breaken", "Thank you for reporting this offense. This shall be dealt with immediately")
             play sound "audio/email_notif.mp3"
     return
 
@@ -416,7 +420,7 @@ label resume:
     "Hmm, what's next on the list that Dream Job and Co. to include in my application again?"
     "Right! A resume. Let's head over to Buttler to properly focus"
     scene bg buthall with fade
-    "Oh wow look at that, Marie is also here!"
+    "Oh, wow look at that, Marie is also here!"
     $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
@@ -434,7 +438,7 @@ label resume:
             $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
             $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
             "I think I've got things covered. How hard can writing a resume be anyways"
-            "The hours pass by at Butler with many meme breaks and stretching but eventually my resume is complete"
+            "The hours pass by at Buttler with many meme breaks and stretching but eventually my resume is complete"
             $sin+=1
             if success >=3:
                 $greed_check +=1
@@ -450,7 +454,7 @@ label resume:
                 $success -=1
                 #potentially show image of resume
         "Ask Marie for help":
-            m "Hey Marie! Sorry to bother would you mind letting me take a look at your resume? I promise I won't copy or anything. My brain is just a bowl of jelly and I'm not quite sure where to start."
+            m "Hey Marie! Sorry to bother would you mind letting me look at your resume? I promise I won't copy or anything. My brain is just a bowl of jelly and I'm not quite sure where to start."
             show marie ingenuine
             r "Yeah! Of course. I'd be happy to help. Here you go"
             m "Thanks a lot!!"
@@ -467,7 +471,7 @@ label resume:
                     show marie happy
                     r "Any time! Happy to help"
                     hide marie happy with dissolve
-                    "I quickly copy over Marie's resuem and tweak it just a bit so that it's plausibly my own"
+                    "I quickly copy over Marie's resume and tweak it just a bit so that it's plausibly my own"
                     "Perfect"
                     $success +=1
                     $sin -= 1
@@ -475,7 +479,7 @@ label resume:
                 "Don't Copy and Write Resume by yourself":
                     hide marie ingenuine with dissolve
                     "While the thought of copying Marie's resume crosses my mind, I resist the temptation."
-                    "So, I get to work. The hours pass by at Butler with many meme breaks but eventually my resume is complete"
+                    "So, I get to work. The hours pass by at Buttler with many meme breaks but eventually my resume is complete"
                     $sin += 1
                     if success >=2:
                         $greed_check +=1
@@ -494,7 +498,7 @@ label resume:
             r "Hey %(pname)s. Do you mind if I just vent to you for a moment?"
             r "Recently, I've been feeling so lost in life. It feels like everyone here knows exactly what they plan on doing and they're working to make that happen."
             r "For me, I just feel like a poser that doesn't deserve to be here. Heck, I'm not even sure if I like what we're studying anymore"
-            r "I couldn't even will myself to go the career fair because it felt so hopeless. There's no way those companies would hire someone like me anyways"
+            r "I couldn't even make myself to go the career fair because it felt so hopeless. There's no way those companies would hire someone like me anyways"
             menu:
                 "They'd be lucky to have you!":
                     m "Please don't think that!"
@@ -502,7 +506,7 @@ label resume:
                     show marie grateful
                     r "You're just saying that because you're my friend. But I appreciate you"
                     m "Nonono. Honestly, I feel jealous of you sometimes. But I totally relate to how you're feeling. It's hard not to with everyone here being so accomplished"
-                    m "But we need to remember that everyone is different and we are all going to be just fine"
+                    m "But we need to remember that everyone is different, and we are all going to be just fine"
                     m "Things will get better! u_u"
                     r "Hehehe, Thanks %(pname)s. You're the best! I'm so glad that the random roommate assignment paired me with someone as great as you"
                     hide marie grateful
@@ -512,7 +516,7 @@ label resume:
                 "I didn't give you permission to spill your feelings to me":
                     $marie_friendship-=1
                     m "Please kindly keep your thoughts to yourself."
-                    m "Else, I'll be required to venmo you for emotional labor"
+                    m "Else, I'll be required to Venmo you for emotional labor"
                     show marie averse
                     hide marie averse
                     r "Oh...I thought we could support each other. I shouldn't have assumed."
@@ -532,16 +536,16 @@ label intern_interview:
     if greed_check >=2:
         $interview_offer = True
         #The Interviews
-        $ add_message("Offer to Your Dream Job:Re","HR @ Dream Job and Co","Hi, We are pleased to inform you that you are invited to the next stage of our interview process. Please come to SomeOffice at Number Lane at 5 pm on Friday. We're excited to learn more about you. With Dream Job and Co, all of our dreams will come true")
+        $ add_message("Re: Offer to Your Dream Job","HR @ Dream Job and Co","Hi, We are pleased to inform you that you are invited to the next stage of our interview process. Please come to SomeOffice at Number Lane at 5 pm on Friday. We're excited to learn more about you. With Dream Job and Co, all of our dreams will come true")
         play sound "audio/email_notif.mp3"
         "An email notification!"
-        "Omg yes!! All of the all-nighters and crying has paid off! "
+        "Omg yes!! All the all-nighters and crying has paid off! "
         "I'm going to become top dog around here!"
         "I got to the interview!!!!"
         "Omg, what day is it. Wednesday? I should head over to CCE for a mock interview so I'm ready for Friday"
         "I'm so excited!!! AHHHHH"
     else:
-        $ add_message("Offer to Your Dream Job:Re","HR @ Dream Job and Co","Hi, We regret to inform you that we will not be continuing with your application. Please note that this year's applicant pool was very competitive. While your skills and experience were very impressive, we sound someone better for the position. We look forward to your continued interest with Dream Job and Co. With Dream Job and Co, all of your dreams aren't coming true")
+        $ add_message("Re: Offer to Your Dream Job","HR @ Dream Job and Co","Hi, We regret to inform you that we will not be continuing with your application. Please note that this year's applicant pool was very competitive. While your skills and experience were very impressive, we sound someone better for the position. We look forward to your continued interest with Dream Job and Co. With Dream Job and Co, all of your dreams aren't coming true")
         play sound "audio/email_notif.mp3"
         "An email notification!"
         "Oh no"
@@ -550,7 +554,7 @@ label intern_interview:
         "Maybe my recommendation letter was bad. Or maybe it was my resume? Maybe it was both"
         "Well, at least I have those on hand for the next possible opportunity!"
         "And I may not have been invited to the interview, but I can still go to CCE and do a mock interview in preparation for a real one"
-        "Hmm, I should do that! Let's go in for a walk in interview now!"
+        "Hmm, I should do that! Let's go in for a walk-in interview now!"
     hide screen mailbox_overlay
     scene bg CCE with fade
     "Hmm, that mock interview was mildly helpful. The best advice that they gave was be charming and confident. Easier said than done"
@@ -576,7 +580,7 @@ label intern_interview:
     show max neutral at right
     b "And regarding your early question, child. I'm here to brush up the mock interviewer's schools by coming for a prep session"
     b "My most recent interviews have gone less than stellar. So, I'm thinking of new strategies to charm the swine"
-    b "Not that I'm like you! I am really qualified and everyone is job hunting me. I don't need any one's help"
+    b "Not that I'm like you! I am really qualified, and everyone is job hunting me. I don't need any one's help"
     menu:
         "I feel you. Recruiters surely are simpletons for not recognizing our great talents":
             $maximillion_friendship+=1
@@ -606,14 +610,14 @@ label intern_interview:
         "...Haha you need help? Pathetic":
             $maximillion_friendship-=1
             show max mad at right
-            b "{p=1.0}Excuse me? It might just be my imagination but I think an insect just spoke"
+            b "{p=1.0}Excuse me? It might just be my imagination, but I think an insect just spoke"
             m "Hahah keep it up with your false pretenses, you're so sad"
             b "Speaking so harshly to your future boss may just cause you to end up losing it all you know"
             m "You're so funny. Without a job offer and doing mock interviews, yet spitting such fire"
             b "It's like a speck of dust speaking to an emperor, so {p=1.0}unfathomable"
             b "Oh %(pname)s sad as always"
             if seduce_max == True:
-                b "I so deeply regreat that night after Mel's"
+                b "I so deeply regret that night after Mel's"
             hide max mad with dissolve
     $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
@@ -648,7 +652,7 @@ label real_interview:
     scene bg bedroom with fade
     "Ah!! I'm so nervous about the interview today. This is it. Time to see if all that prep paid off"
     scene bg Interview with fade
-    recruit "Hi %(pname)s, Thank you for taking the time to come in and of courrse your interst in Dream Jobs and Co. Our goal is always to have our employees be at their dream job."
+    recruit "Hi %(pname)s, Thank you for taking the time to come in and of course your interest in Dream Jobs and Co. Our goal is always to have our employees be at their dream job."
     recruit "You must know that we service half of the nation's population with our unique services"
     recruit "I shall now ask you a series of questions we ask all of our candidates with some of my own unique ones. If you don't respond, I'll assume that you would like to stop."
     $ time = 5
@@ -724,7 +728,7 @@ label real_interview:
             $int_score+=1
             hide screen countdown
             recruit "Thank you, that was very honest"
-            recruit "To be honest, we're pretty pro-meme culture here. So you'd fit in quite nicely"
+            recruit "To be honest, we're pretty pro-meme culture here. So, you'd fit in quite nicely"
         "I've never climbed onto any rooftops like a scrub":
             hide screen countdown
             recruit "Don't worry, I don't think I ever have either!"
@@ -753,7 +757,7 @@ label job_results:
             call message_start("Dream Job and Co", "Hey! This is your recruiter. I wanted to give you an insider tip and I would be saying you got the job") from _call_message_start
             play sound "audio/phone_notif.mp3"
             "Omg. Omg. this is SO EXCITING"
-            call message("Dream Job and Co", "But, unfortunately that's not what this message is going to end up being. I would have given you the job but it turns out that there was something suspicious in your resume so things didn't manage to work out in the end") from _call_message
+            call message("Dream Job and Co", "But, unfortunately that's not what this message is going to end up being. I would have given you the job. But it turns out that there was something suspicious in your resume, so things didn't work out in the end") from _call_message
             play sound "audio/phone_notif.mp3"
             "Wait, what?"
             call phone_end from _call_phone_end
@@ -799,7 +803,7 @@ label job_results:
             call phone_end from _call_phone_end_3
             "Aww, that's unfortunate that things didn't work out"
             "Guess, it's back to the grind then"
-            "First, I wanna go on a walk though. I want to clear my head"
+            "First, I want to go on a walk though. I want to clear my head"
             if maximillion_friendship > marie_friendship:
                 jump sad_max
             elif marie_friendship > maximillion_friendship :
@@ -813,11 +817,11 @@ label job_results:
                         jump sad_marie
         #interviewed and didn't get job
     else:
-        "Man, I should really go and send an application to some other companies. Just because it didn't work out with Dream Job and Co. doesn't mean that it wouldn't work ouut somewhere else"
+        "Man, I should really go and send an application to some other companies. Just because it didn't work out with Dream Job and Co. doesn't mean that it wouldn't work out somewhere else"
         "Man, job hunting is so stressful. I need to go on a walk and clear my head first before I do anything"
         #didn't get job
         "Guess, it's back to the grind then"
-        "First, I wanna go on a walk though. I want to clear my head"
+        "First, I want to go on a walk though. I want to clear my head"
         if copy_res == True:
             jump copied_marie
         else:
@@ -841,7 +845,7 @@ label copied_marie:
     $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan4")
     show marie happy at right with dissolve
     m "Oh hey Marie! How are you doing?"
-    r "I'm doing really great! It's so nice and sunny outside. Everything is absolutely as perfect as it can be. "
+    r "I'm doing really great! It's so nice and sunny outside. Everything is as perfect as it can be. "
     r "What's up with you?"
     m "I'm kind of bummed. I didn't manage to get an internship at Dream Jobs and Co after all"
     hide marie happy
@@ -867,7 +871,7 @@ label copied_marie:
 
 label sad_marie:
     scene bg columbialawn with fade
-    "Oh hey look it's Marie! "
+    "Oh look! It's Marie! "
     $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
@@ -879,7 +883,7 @@ label sad_marie:
         hide marie distressed with dissolve
         show marie distressed at right, sright
         "Wait, oh no. Is Marie crying?"
-        r "H...hey %(pname)s, how's it going?"
+        r "H...hey %(pname)s. How's it going?"
         m "Are you alright? You seem sad. I've got some news that should brighten your spirits!"
         r "I'm doing...okay. What's the good news?"
         m "I got the internship at Dream Job and Co!!!"
@@ -911,11 +915,11 @@ label sad_marie:
     r "I-{p=1}I always knew I was useless. I knew that it was pointless to even try applying"
     m "Nonono"
     m "Don't think like that Marie. You're one of the smartest people I know. I admire you so much and I hope that you recognize your talents too"
-    r "{p=1}... Thanks %(pname)s. I don't agree with you but I really appreciate your support"
+    r "{p=1}... Thanks %(pname)s. I don't agree with you, but I really appreciate your support"
     m "Aww, do you want to go for a pick me up snack? We can spice up our life and get the spiciest level at the dry hot pot place?"
     hide marie cry
     show marie neutral
-    r "Hehe, thanks for the offer. But, I think I want some time alone right now"
+    r "Hehe, thanks for the offer. But I think I want some time alone right now"
     m "Totally fine! I'm always here if you change your mind."
     hide marie neutral with moveoutleft
     jump end_greed
@@ -962,7 +966,7 @@ label sad_max:
             jump angry_max
     b "{p=1}Ha{p=1}ha{p=1}ha That's what I originally thought"
     "Oh no, Maximillion being emotionally vulnerable? The end of the world must be coming or something"
-    b "You peasants wouldn't understand. I've rejected them before. So Dream Job and Co. was like my safety internship if nothing else panned out"
+    b "You peasants wouldn't understand. I've rejected them before. So, Dream Job and Co. was like my safety internship if nothing else panned out"
     b "{p=1}{size=-8}and nothing has really panned out yet{/size}{p=1}{size=-12}and then I didn't hear back from Dream Job and Co either{/size}"
     m "Things will work out! Don't be discouraged"
     b "Pipe down. You peasants wouldn't get it anyways"
@@ -1016,13 +1020,13 @@ label angry_max:
         b ".{p=1.0}.{p=1.0}.{p=1.0}"
         b"Goes to show that everyone here is really a low-life plebian {p=1.5} {size=-8}I thought you were different {/size}"
         m "You thought wrong"
-        "Wow. That was so unexpeced of Maximillion. What did he think we were?  {p=1.0}Friends? {p=1.0}What a joke"
+        "Wow. That was so unexpected of Maximillion. What did he think we were?  {p=1.0}Friends? {p=1.0}What a joke"
         hide max breaking
         show max skeptic at sright
         b ""
         b "Well, congratulations. You have made yourself one very well-connected enemy"
         hide max skeptic with dissolve
-        $maximillion_friendship-=3
+        $maximillion_friendship-=5
         $betray_max = True
     else:
         hide max breaking
@@ -1033,7 +1037,7 @@ label angry_max:
         show max charm
         b "You know what, never mind."
         b "You're beneath me. Go ahead and live your sad little primitive life. I've got better things to do"
-        b "You better watch your baack though"
+        b "You better watch your back though"
         $maximillion_friendship-=2
         hide max charm with dissolve
         "Maximillion with his holier than thou attitude as always"
