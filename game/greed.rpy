@@ -239,7 +239,7 @@ label breaken_route: #need to add an option for giving up
         "Never mind":
             "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
             jump prof_reject
-    scene bg collegewalk with irisin
+    scene bg collegewalk with slideup
     show breaken with moveinbottom
     "Maybe fourth time's the charm?"
     menu:
@@ -259,23 +259,30 @@ label breaken_route: #need to add an option for giving up
                 $success+=1
                 m "Thank you thank you Professor Breaken! I really appreciate it"
                 "Wow, bless whatever higher being for rewarding me with Professor Breaken's kindness"
-                op "No problem. Is there anything else"
-                "I'm so thrilled. I want to give the professor a hug, but I suppress my urges. Thoough, I do have a newly bought box of chocolates that I was saving for a rainy day. Should I give it to them?"
+                op "No problem. Is there anything else?"
+                "AHhHHHH I'M SO HAPPYYYYY. I'm tempted to give the professor a hug, but I suppress my urges."
+                "Thoough, I do have a newly bought box of chocolates that I was saving for a rainy day."
                 menu:
+                    "Should I give it to them?"
                     "Give gift":
                         $sin+=1
-                        show gift at center
+                        show gift at truecenter with dissolve
                         m "Yes, actually. I was hoping you would accept these chocolates as a thank you from me"
                         hide gift with dissolve
-                        show broken at center, hop
+                        show breaken at center, hop
                         "I can see my professor's eyes widen in shock and they look almost happy? It's the first I've ever seen them like this"
-                        op "{p=1.5} Thanks %(pname)s, heh, I always did enjoy reading your work for my class"
+                        op "Thanks %(pname)s{p=1.5}heh, I always did enjoy reading your work for my class"
                         "This is wrinkling my mind"
                         m "...Thanks Professor. That means a lot"
+                        op "Sure, sure. I need to get going so bye for now!"
+                        hide breaken with moveoutright
                     "Keep chocolates":
                         "I'm not obligated to share. The Professor can get their own chocolates"
                         m "Nope, that's all! Thank you so much Professor"
                         op "Any time, any time"
+                        op "I need to get going so bye for now!"
+                        hide breaken with moveoutright
+                scene bg collegewalk with Pause(0.5)
                 jump resume
             else:
                 op "I'm pretty busy since I have an upcoming presentation coming up.{p=1.5} So I don't think I can write you one unfortunately"
@@ -419,6 +426,7 @@ label resume:
     "Anyways yay, I've figured out my recommendation letter!"
     "Hmm, what's next on the list that Dream Job and Co. to include in my application again?"
     "Right! A resume. Let's head over to Buttler to properly focus"
+    scene bg but_entrance with Pause(1.5)
     scene bg buthall with fade
     "Oh, wow look at that, Marie is also here!"
     $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
