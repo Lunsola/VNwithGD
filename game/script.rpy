@@ -132,7 +132,9 @@ image down:
     zoom 0.8
     "down_arrow.png"
 image PosterP = "partyposter.png"
-image gift = "gift.jpg"
+image gift:
+    zoom 0.3
+    "gift.png"
 image meme1 = "meme1.jpg"
 image meme2 = "meme2.jpg"
 image goodend = "goodend.png"
