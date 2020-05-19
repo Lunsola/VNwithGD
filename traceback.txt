@@ -1,27 +1,79 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/messagesystem.rpy", line 1, in script
-    init python:
-  File "game/messagesystem.rpy", line 3, in <module>
-    style.mailboxcolor = "#FF0000"
-Exception: Value is not a style.
+  File "game/screens.rpy", line 845, in execute
+    screen preferences():
+  File "game/screens.rpy", line 845, in execute
+    screen preferences():
+  File "game/screens.rpy", line 849, in execute
+    use game_menu(_("Preferences"), scroll="viewport"):
+  File "game/screens.rpy", line 530, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0):
+  File "game/screens.rpy", line 530, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0):
+  File "game/screens.rpy", line 534, in execute
+    if main_menu:
+  File "game/screens.rpy", line 536, in execute
+    if persistent.ending == "unlock 1":
+  File "game/screens.rpy", line 545, in execute
+    add gui.game_menu_background5
+AttributeError: 'StoreModule' object has no attribute 'game_menu_background5'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/messagesystem.rpy", line 1, in script
-    init python:
+  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in script
+    python hide:
   File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 914, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2028, in py_exec_bytecode
     exec bytecode in globals, locals
-  File "game/messagesystem.rpy", line 3, in <module>
-    style.mailboxcolor = "#FF0000"
-  File "style.pyx", line 202, in renpy.style.StyleManager.__setattr__
-Exception: Value is not a style.
+  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in <module>
+    python hide:
+  File "renpy/common/_layout/screen_main_menu.rpym", line 35, in _execute_python_hide
+    ui.interact()
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ui.py", line 297, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 2702, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 3094, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 541, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\screen.py", line 430, in visit_all
+    callback(self)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 3094, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\screen.py", line 440, in per_interact
+    self.update()
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\screen.py", line 625, in update
+    self.screen.function(**self.scope)
+  File "game/screens.rpy", line 845, in execute
+    screen preferences():
+  File "game/screens.rpy", line 845, in execute
+    screen preferences():
+  File "game/screens.rpy", line 849, in execute
+    use game_menu(_("Preferences"), scroll="viewport"):
+  File "game/screens.rpy", line 530, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0):
+  File "game/screens.rpy", line 530, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0):
+  File "game/screens.rpy", line 534, in execute
+    if main_menu:
+  File "game/screens.rpy", line 536, in execute
+    if persistent.ending == "unlock 1":
+  File "game/screens.rpy", line 545, in execute
+    add gui.game_menu_background5
+  File "<screen language>", line 545, in <module>
+AttributeError: 'StoreModule' object has no attribute 'game_menu_background5'
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
- 
-Mon May 18 18:36:20 2020
+Columbia Simulator 1.0
+Mon May 18 18:48:43 2020

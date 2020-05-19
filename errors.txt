@@ -2,9 +2,14 @@
 errors listed below, and try again.
 
 
-File "game/messagesystem.rpy", line 103: expected 'word' not found.
-    style.mailboxcolor = "#FF0000"
-         ^
+File "game/messagesystem.rpy", line 112: u'mailbutton' is not a keyword argument or valid child for the hbox statement.
+    mailbutton "Mailbox (%d New)" % (new_message_count()) action Show("mailbox")
+              ^
+
+File "game/messagesystem.rpy", line 4: invalid syntax
+    style mailbutton:
+                    ^
+    
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Mon May 18 18:35:35 2020
+Mon May 18 18:48:09 2020
