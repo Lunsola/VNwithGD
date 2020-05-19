@@ -178,7 +178,7 @@ label bonden_route:
         else:
             show professor pleased
             p "Sure %(pname)s. I think I have a great perception about your talents and your character. I would love to write a letter for you"
-            "That's kind of surprising. Especially given how our last Mel's fiasco went"
+            "That's kind of surprising. Especially given how our last Hel's fiasco went"
             $bond_accept = True
             $success-=1
             m "Thank you so much Professor I really appreciate it"
@@ -275,7 +275,7 @@ label breaken_route: #need to add an option for giving up
                         show breaken at center, hop
                         "I can see my professor's eyes widen in shock and they look almost happy? It's the first I've ever seen them like this"
                         op "Thanks %(pname)s{p=1.5}heh, I always did enjoy reading your work for my class"
-                        "This is wrinkling my mind"
+                        "This is wrinkling my brain"
                         m "...Thanks Professor. That means a lot"
                         op "Sure, sure. I need to get going so bye for now!"
                         hide breaken with moveoutright
@@ -436,7 +436,7 @@ label resume:
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan4")
-    show marie happy
+    show marie happy with dissolve
     r "Hey %(pname)s! What are you doing here?"
     m "Ah, I'm writing my resume"
     r "Nice, nice! I wrote one after I had a panicked about how I'm so behind compared to everyone else here. haha. Let me know if you need any help, I have a bunch of pointers"
@@ -629,7 +629,7 @@ label intern_interview:
             b "It's like a speck of dust speaking to an emperor, so {p=1.0}unfathomable"
             b "Oh %(pname)s sad as always"
             if seduce_max == True:
-                b "I so deeply regret that night after Mel's"
+                b "I so deeply regret that night after Hel's"
             hide max mad with dissolve
     $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
@@ -982,7 +982,8 @@ label sad_max:
     b "{p=1}{size=-8}and nothing has really panned out yet{/size}{p=1}{size=-12}and then I didn't hear back from Dream Job and Co either{/size}"
     m "Things will work out! Don't be discouraged"
     b "Pipe down. You peasants wouldn't get it anyways"
-    b "I can't even satisfy my parent's minimum expectations. Nonetheless make them proud of me. I keep failing my parents"
+    b "I can't even meet my parents' minimal expectations. How can I ever begin to make them proud of me?"
+    b "I just keep failing my parents"
     b "Not even the Zook name can save me now"
     b "And then there's Mark who's leaps ahead of me in every league"
     m "Don't be like that. Isn't your brother older?"

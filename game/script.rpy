@@ -288,6 +288,7 @@ label start:
     $Marvenperfectrun = False #Perfect grade and Marven is your senpai!
     $failedPride = False
     $ignoranceisbliss = False
+    $threwpizzamad = False
 
 
     # These display lines of dialogue.

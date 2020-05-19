@@ -702,7 +702,7 @@ label finishgluttony:
             show josh v grateful
             j "Bro, thank you so much. You’re a good friend. I was about to have a total panic attack."
             m "You’re welcome. Enjoy your food."
-            "Well, I’m walking away hungry but surprisingly otherwise ok. I did a good deed today, and that’s a pretty good feeling. Josh needs that swipe more than I do."
+            "Well, I’m walking away hungry but, surprisingly, otherwise ok. I did a good deed today, and that’s a pretty good feeling. Josh needs that swipe more than I do."
         "Don't offer":
             menu:
                 "Just go in without him.":

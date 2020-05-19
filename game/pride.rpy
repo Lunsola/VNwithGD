@@ -33,7 +33,7 @@ label pridebegin:
     $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
-    w "{size=+10}UWAH!!! {p=1.0}%(pname)s!!!!!"
+    w "{size+=10}UWAH!!! {p=1.0}%(pname)s!!!!!"
     pause .5
     show marie averse
     with hpunch
@@ -70,7 +70,7 @@ label pridebegin:
     hide marie astonished
     show marie confused at left:
         yalign 1.0 xalign .25
-    r "{size=+10}A S S E S"
+    r "{size+=10}A S S E S"
     m "That's campus culture right there."
     "Honestly the title of this class is so long I won't bother to remember it."
     a "Anyhoo, name's Marven. I'm taking this class to fulfill a requirement."
@@ -87,7 +87,7 @@ label pridebegin:
         "Let's grab those front row seats!":
             "With the professor standing right in front of you, you guys quickly settle down without another word."
         "Ugh let's go sit in the back":
-            $ music_friendship =+1
+            $ music_friendship +=1
             scene bg lecture hall:
                 xalign 1.0 yalign 0.3
                 zoom 4
@@ -104,10 +104,10 @@ label pridebegin:
                 "Distracted boyfriend":
                     a "Eh that one's ok. {p=1} Kinda overused ya know?"
                 "ERMAHGERD":
-                    $ music_friendship =+1
+                    $ music_friendship +=1
                     a "Ahh takes me back to when I yelled that in the playground every day at lunch"
                 "tide pods":
-                    $ music_friendship =+1
+                    $ music_friendship +=1
                     pause 1
                     a  "So what did it taste like?"
             s "{b}Can you guys in the back be quiet please"
@@ -247,7 +247,7 @@ label pridebegin:
             hide marie neutral
         "Tell her":
             $sin +=1
-            m "I got a 24."
+            m "I got a 33."
             hide marie grateful
             show marie astonished
             r "How could that be?"
@@ -322,7 +322,7 @@ label music_encounter:
     a "ASSES is a class that weeds out the Virgin Yous among the Chads"
     a "Change my mind, but tis' the truth"
     a "...afterall, I barely made off with a 110"
-    "{size=+10}wtf 110?!"
+    "{size+=10}wtf 110?!"
     a "Anyhoo, you seem like you Know Your Meme"
     hide music_talk
     show music_wink
@@ -426,7 +426,7 @@ label hangover:
     with hpunch
     "sorry Marie"
     with pixellate
-    "RIP ASSES hw3"
+    "RIP ASSES hw2"
     scene bg black
     with pixellate
     $renpy.music.set_volume(0.0, delay=0.5, channel="Chan1")
@@ -557,7 +557,7 @@ label milstein:
             "I study for a solid 3 hours, and I feel like maybe I'll just barely pass"
             jump cheat
         "Actually, I was just leaving":
-            $ music_friendship =+2
+            $ music_friendship +=2
             a "heheh as expected of an ASSES expert"
             hide music_dark
             hide music_moody
@@ -786,7 +786,7 @@ label conventionday1:
     a "What's your fave meme here?"
     menu:
         "Meme man":
-            $ music_friendship =+1
+            $ music_friendship +=1
             a "Ahh yes the very dankest. I mean, tis' in the name"
         "Is this a pigeon":
             a "Love them anime refs"
@@ -1039,7 +1039,7 @@ label onestudyday:
         $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
         $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan4")
         show professor happy with dissolve
-        b "{size=-10}Very admirable, keep up the good work, %(pname)s."
+        p "{size=-10}Very admirable, keep up the good work, %(pname)s."
         hide professor happy with dissolve
     scene bg black with fade
     pause 2
@@ -1099,7 +1099,7 @@ label examday:
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     scene bg lecture hall with irisin
-    w "{size=+10}UWAH!!! {p=1.0}%(pname)s!!!!!"
+    w "{size+=10}UWAH!!! {p=1.0}%(pname)s!!!!!"
     pause .5
     show marie averse
     with hpunch

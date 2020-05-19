@@ -512,7 +512,9 @@ label dawnofthelastday:
     j "Marie...you’re like, so rad dude. I know this feels crazy, but I feel like the universe is sending us a sign. That it wants us to be together and make a life together."
     j "Marie, when the madness of Columbia University in the City of New York has passed...will you marry me?"
     "What the fuck."
-    r "I do! I mean, I will! Jeepers I’m all mixed up."
+    r "I do!"
+    r "I mean, I will!"
+    r "Jeepers I’m all mixed up."
     "I have to get out of here before I throw up."
     $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
@@ -677,7 +679,7 @@ label howdidIdo:
     $friend_counter = 0
     r "Well, why don't we see if there's anything interesting in your file first."
     if marie_friendship > 3: #marie max +7, min -2 HOWEVER, only 3 of those are from gluttony
-        $sin =+1
+        $sin +=1
         $friend_counter +=1
         hide marie neutral
         show marie happy at center, hop
@@ -744,7 +746,7 @@ label howdidIdo:
         show marie neutral
     if josh_friendship > 2: #josh max +6, min -6
         $friend_counter +=1
-        $sin =+1
+        $sin +=1
         hide marie neutral
         show marie happy
         r "Now, Josh is happy to vouch for you, but I'm sure you've noticed he's quite the nice character."
@@ -765,7 +767,7 @@ label howdidIdo:
         show marie neutral
     if prof_friendship > 3: #bonden max +6, min -6
         $friend_counter +=1
-        $sin +=1
+        $ sin +=1
         hide marie neutral
         show marie happy
         r "Professor Bonden's genuinely happy to recommend you! That's nice!"
@@ -774,16 +776,16 @@ label howdidIdo:
     elif seduce_prof and bad_let:
         r "Mmm, hard to believe you really asked for a rec letter from professor Bonden."
         hide marie neutral
-        show marie averse
+        show marie ingenuine
         r "I'm sure you know why."
-        hide marie averse
+        hide marie ingenuine
         show marie neutral
     elif bad_let:
         r "Sorry about your rec letter with Bonden by the way."
         r "I'm sure you realized it wasn't great."
     if maximillion_friendship >= 5: #max +7, -9
         $friend_counter +=1
-        $sin +=2
+        $ sin +=2
         hide marie neutral
         show marie surprised
         r "Do you enjoy being degraded or something?"
@@ -800,7 +802,7 @@ label howdidIdo:
         r "I guess it's sweet that he likes you though."
         r "In a twisted way."
     elif maximillion_friendship > 2:
-        $sin +=1
+        $ sin +=1
         hide marie neutral
         show marie happy
         r "It was sweet of you to play along with Max a bit."
@@ -821,7 +823,11 @@ label howdidIdo:
             r "Maybe in another life."
         if seduce_max:
             r "Though this result does shine a light on a certain choice..."
+            hide marie neutral
+            show marie ingenuine
             r "A certain 'club position securing' choice."
+            hide marine ingenuine
+            show marie neutral
     elif betray_max:
         hide marie neutral
         show marie concerned
@@ -837,7 +843,7 @@ label howdidIdo:
         $friend_counter +=1
         hide marie neutral
         show marie v happy at center, hop
-        $sin +=2
+        $ sin +=2
         r "The work you did in semester 4! Now that was impressive!"
         r "Marven was doing his best to get you off track, but you preserved and got a perfect grade!"
         r "On top of that, his review of you is glowing. You're the 'dankest memer' he's ever met."
@@ -852,7 +858,7 @@ label howdidIdo:
         $friend_counter +=1
         hide marie neutral
         show marie happy
-        $sin +=1
+        $ sin +=1
         r "It was pretty great that Marven opened up to you!"
         if failedPride:
             hide marie happy
@@ -929,7 +935,7 @@ label howdidIdo:
     #success max points 10 or -1
 
 label finaljudgment:
-    if sin > 11 and committedArson:
+    if sin >= 10 and committedArson:
         hide marie neutral
         show marie surprised
         r "Talk about falling at the last barrier!"
@@ -950,7 +956,7 @@ label finaljudgment:
         window hide
         show goodend
         pause
-    elif sin > 7 and committedArson:
+    elif sin > 5 and committedArson:
         hide marie neutral
         show marie surprised
         r "I actually don’t know how you did it."
@@ -970,10 +976,10 @@ label finaljudgment:
         window hide
         show goodend
         pause
-    elif sin < 7:
+    elif sin < 5:
         hide marie neutral
         show marie mad
-        r "I think you know the results already, %(pname)s."
+        r "I think you actually already know the results, %(pname)s."
         r "The irony is, I’m sort of you, in a way. I’m the way your life could have gone, if you’d done all the right things and played your cards right. But you chose the path you chose. You chose selfishness, cruelty, and destructiveness."
         r "Welcome to hell, %(pname)s."
         $ persistent.ending="end bad"
@@ -982,7 +988,7 @@ label finaljudgment:
         window hide
         show badend
         pause
-    elif sin == 7:
+    elif sin == 5:
         hide marie neutral
         show marie astonished
         r "..."

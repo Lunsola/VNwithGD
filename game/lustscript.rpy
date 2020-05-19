@@ -75,7 +75,7 @@ label roomie_talk:
                     m "Buttler gang for life after all! "
                     r "hehe you know that's right"
                     r "Ahh, look at the time! I need to grab a package from Weiner"
-                    $marie_friendship +=1;
+                    $marie_friendship +=1
                     hide marie happy with moveoutright
                     jump thurs_end
                 "I'll pass":
@@ -85,8 +85,8 @@ label roomie_talk:
                     r ".... Okay, I'll just be on my way then"
                     hide marie averse with moveoutright
                     "Finally, some peace and quiet. How annoying"
-                    $marie_friendship -=1;
-                    $sin -=1;
+                    $marie_friendship -=1
+                    $sin -=1
                     jump thurs_end
                 "Say Nothing":
                     "I appreciate the sentiment, but no reply comes to mind"
@@ -100,7 +100,7 @@ label roomie_talk:
             r "Oh no! Can I give you a hug?"
             menu:
                 "Accepts Hug":
-                    $marie_friendship +=1;
+                    $marie_friendship +=1
                     "We hug for a couple of seconds. It's nice and reassuring"
                     m "Thanks Marie, I needed that. Sometimes things can feel really overwhelming. You know?"
                     hide marie concerned
@@ -113,8 +113,8 @@ label roomie_talk:
                     hide marie grateful with moveoutright
                     jump thurs_end
                 "Screw off":
-                    $marie_friendship -=1;
-                    $sin -=1;
+                    $marie_friendship -=1
+                    $sin -=1
                     hide marie concerned
                     show marie distressed
                     m "I don't need your pity"
@@ -150,6 +150,7 @@ label prof_email:
     "Let's draft this message! Check your message box at the bottom left"
     "{p=2.0} Great message. Much professionalism"
     hide screen mailbox_overlay
+    $ prof.delete()
     jump thurs_end
 
 label bonden_draft(contact, message_title="Meeting Inquiry"):
@@ -159,7 +160,7 @@ label bonden_draft(contact, message_title="Meeting Inquiry"):
             $ add_message("Re: Meeting Inquiry", "Professor Bonden", "Yes! Of course. Come by my office tomorrow")
             play sound "audio/email_notif.mp3"
             $ prof_friendship +=1
-        "Hi Professor. Any way I can help boost my grade? ;). Down for anything ;))))))":
+        "Hi Professor. Any way I can help boost my grade? ). Down for anything ))))))":
             $ contact.draft_label = None
             $ prof_friendship -=1
             $ add_message("Re: Meeting Inquiry", "Professor Bonden", "Excuse me? Let's discuss in my office tomorrow")
@@ -250,7 +251,7 @@ label short_meet:
             "Guess, I'll head over to the Triangle's info session early"
             jump club_info
         "Complain about grade":
-            $sin -=1;
+            $sin -=1
             $ prof_friendship -=1
             m "I was really surprised about my grade. There must have been a grading error"
             hide professor neutral
@@ -321,7 +322,7 @@ label prof_meet:
                     menu:
                         "Your class is my favorite":
                             $ prof_friendship -=2
-                            $sin -=1;
+                            $sin -=1
                             hide professor happy
                             show professor neutral
                             m "I really liked your lecture last class!"
@@ -346,7 +347,7 @@ label prof_meet:
             jump exam_inquiry
 
 label complain_grade:
-    $sin -=1;
+    $sin -=1
     $ prof_friendship -=1
     m "I was really surprised about my grade. There must have been a grading error"
     hide professor neutral
@@ -495,7 +496,7 @@ label club_info:
             jump club_app
         "How can a pile of trash such as yourself help me?":
             show max mad
-            $sin -=2;
+            $sin -=2
             "This absolute ass"
             b "You must have no friends, so you don't understand the premise of helping others"
             m "Not really. Sounds like you've had a lot of personal experience with having no friends though"
@@ -503,7 +504,7 @@ label club_info:
             $ maximillion_friendship -=1
             jump club_app
         "Great job up there!":
-            $sin +=1;
+            $sin +=1
             show max neutral
             "Let's just ignore the commoner comment. This dude clearly has a superiority complex better play into it. It might help my chances of getting in"
             m "Hi, I'm %(pname)s! Nice to meet you. Hopefully, I'll be able to be up there with you guys next year promoting the great {b}{i}T r i a n g l e{/i}{/b}"
@@ -737,7 +738,7 @@ label max_library:
                         b "Wow, how refreshing to hear that's how you feel. Actually, speaking about all of this."
                         show max wink
                         $ maximillion_friendship +=1
-                        $sin -=1;
+                        $sin -=1
                         play sound "audio/chimes.mp3"
                         b "Just to give you an insider tip, there's a supplement you can attach for your {b}{i}T r i a n g l e{/i}{/b} application too."
                         b "Involving us {p=1.5}....attaching ourselves together"
@@ -760,7 +761,7 @@ label max_library:
         show max mad
         b "I'm surprised they let such trash as yourself in here"
         m "Wow, you stole the words right from my mouth. Did you think that up all by yourself?"
-        b "Thought more than your parents ever did about their life decisions. Ugh, anyway I'm going to get out of here. Else, your stupidity will spread"
+        b "Thought more than your parents ever did about their life decisions. Ugh, anyway I'm going to get out of here before your stupidity spreads."
         "What.{p=1.0} the. {p=1.0} "
         "This guy is the Asshole Supreme Overlord or something"
         m "Before I hurt you and make the world a slightly better place. Can I ask you something?"
@@ -807,7 +808,7 @@ label max_library:
                                 m "Huh, I'm surprised to hear that Professor Bonden would be the type. But I guess with every system, there's bound to be some form of corruption"
                                 b "Even a desperate idiot like you gets it. How refreshing"
                                 show max vicious
-                                $sin -=1;
+                                $sin -=1
                                 play sound "audio/chimes.mp3"
                                 b "I'll let you in on some even more information. That's a supplement that can benefit your {b}{i}T r i a n g l e{/i}{/b} application too."
                                 m "Ugh. The thing that you're implying sickens me greatly"
@@ -846,7 +847,7 @@ label max_library:
                                 m "Huh, I'm surprised to hear that Professor Bonden would be the type. But I guess with every system there's some form of corruption"
                                 b "Even an idiot like you gets it. How refreshing"
                                 show max vicious
-                                $sin -=1;
+                                $sin -=1
                                 play sound "audio/chimes.mp3"
                                 b "I'll let you in on some even more information. That's a supplement that can benefit your {b}{i}T r i a n g l e{/i}{/b} application too."
                                 m "Ugh. The thing that you're implying sickens me greatly"
@@ -914,7 +915,7 @@ label max_library:
                         b "Wow, how refreshing to hear that's how you feel. Actually, speaking about all of this."
                         show max wink
                         $maximillion_friendship +=1
-                        $sin -=1;
+                        $sin -=1
                         play sound "audio/chimes.mp3"
                         b "Just to give you an insider tip, there's a supplement you can attach for your {b}{i}T r i a n g l e{/i}{/b} application too."
                         b "Involving us {p=1.5}....attaching ourselves together"
@@ -926,7 +927,6 @@ label max_library:
                         m "Guess we'll have to see how lucky you get then huh?"
                         b "Ha, I guess so"
                         hide max charm with dissolve
-
     "As our conversation comes to a stop, I try to focus on my work with no avail...Was Maximillion right about Professor Bonden?"
     "If he is, was I willing to go through with it just to get the grade boost?"
     "And what the heck. The way to get into the Triangle is the same way?"
@@ -996,7 +996,7 @@ label mel_night:
             m "Oh no, that's fine. I'm excited to write this report!"
             p "Splendid! Alright, I must run now. Have a good one, %(pname)s"
             $ prof_friendship +=1
-            $sin +=1;
+            $sin +=1
             hide professor pleased with moveoutright
             "Oh wow, that went better than I could have hoped for"
         "Seduction Time":
@@ -1035,7 +1035,7 @@ label mel_night:
             p "I see now that we are not on the same page. So, I'll get back to you about looking at your exam for a regrade. I must get going. Good night,%(pname)s. I guess I'll see you on Monday."
             hide professor mad with moveoutright
             $ prof_friendship -=3
-            $sin -=2;
+            $sin -=2
             "Oh my gosh. That went HORRIBLY"
             "WTF. Maximillion completely screwed me over"
     $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
@@ -1107,7 +1107,7 @@ label mel_night:
                 b "Eh, I like to think about it as community service"
             jump morning_aftermax
         "Go to Room":
-            $sin +=1;
+            $sin +=1
             if maximillion_friendship >= 2:
                 m "As pleasant as your company always is, I need to get going"
                 m "I think I've got things covered with my {b}{i}T r i a n g l e{/i}{/b} application."
@@ -1189,7 +1189,7 @@ label morning_aftermax:
                 show max charm
                 b "Uh... okay, you're dismissed. See you later!"
                 m "Yeah, maybe"
-                $ maximillion_friendship -=1;
+                $ maximillion_friendship -=1
                 "AHH How frustrating. I thought Maximillion was a nice guy but sometimes he can be pretty inconsiderate"
                 jump lust_ending
             elif maximillion_friendship >= 0:
@@ -1202,7 +1202,7 @@ label morning_aftermax:
                 b "Alright! Maybe I'll see you later."
                 m "Yeah ... {size=-8}hopefully not{/size}"
                 "AHH I'm so annoyed. Last night was pointless in the end and Maximillion is a pretty aggravating guy"
-                $ maximillion_friendship -=1;
+                $ maximillion_friendship -=1
             else:
                 show max skeptic
                 b "Do tell %(pname)s, how in the world was that my responsibility?"
@@ -1216,10 +1216,10 @@ label morning_aftermax:
                 b "Hopefully see you never"
                 m "Yeah, hopefully that's the case"
                 "AHHH That pompous arse. At least without being in the Triangles this should mean that I get to see his ugly mug less."
-                $ maximillion_friendship -=2;
+                $ maximillion_friendship -=2
         "Hey! Good Morning":
             "I missed my interview but might as well still be amiable. It's not Maximillion's fault after all "
-            $maximillion_friendship += 1;
+            $maximillion_friendship += 1
             if maximillion_friendship >= 2:
                 b "Aren't you quite the sleepyhead? It's practically noon already. You missed your interview I believe?"
                 m "Oh well, at least I've been able to bask longer in your presence"
@@ -1306,5 +1306,4 @@ label lust_ending:
             "I thought Professor Bonden was going to at least offer extra credit. What did I do wrong?"
     hide screen mailbox_overlay
     "Everything is going to be fine! There's always next semester after all. Time to get this bread!"
-    $ prof.delete()
 jump greed_begin
