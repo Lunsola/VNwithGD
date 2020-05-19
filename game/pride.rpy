@@ -1281,11 +1281,15 @@ label prideend:
                 "I got a C. Meh."
             else:
                 "I failed! :o"
-        "Dont check":
+                $failedPride = True
+        "Don't check":
             if studyday == 1 and classgrade >= 6:
                 $ success +=1
             elif studyday == 2 and classgrade >=5:
                 $ success +=1
+            else:
+                $failedPride = True
+            $ignoranceisbliss = True
             "If I cared about ASSES, I would've tried harder in first place"
     "What an underwhelming conclusion to this rollercoaster of semester. How much more of this hell to endure until graduation?"
     hide screen mailbox_overlay

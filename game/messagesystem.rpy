@@ -1,6 +1,5 @@
 init python:
     import renpy.store as store
-    #style.mailboxcolor = "#FF0000"
 
     reply_screen = False
     draft_screen = False
@@ -105,9 +104,15 @@ screen mailbox_overlay:
     hbox:
         xalign 0.0 yalign 1.0
         if new_message_count() > 0:
-            textbutton "Mailbox (%d New)" % (new_message_count()) action Show("mailbox")# text_style "mailboxcolor"
+            textbutton "Mailbox (%d New)" % (new_message_count()):
+                action Show("mailbox")
+                text_color "#9bddff"
+                background "#000"
         else:
-            textbutton "Mailbox" action Show("mailbox")# text_style "mailboxcolor"
+            textbutton "Mailbox":
+                action Show("mailbox")
+                text_color "#9bddff"
+                background "#000"
 
 screen mailbox:
     tag menu

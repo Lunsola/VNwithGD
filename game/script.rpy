@@ -284,7 +284,8 @@ label start:
     $seduce_max = False
     $Marvensenpai = False #Marven is your senpai
     $Marvenperfectrun = False #Perfect grade and Marven is your senpai!
-
+    $failedPride = False
+    $ignoranceisbliss = False
 
 
     # These display lines of dialogue.

@@ -588,6 +588,8 @@ label dawnofthelastday:
             $ sin = sin-5
             $ committedArson = True
             scene bg singleonfire
+            $renpy.music.set_volume(0.2, delay=0.5, channel="Chan2")
+            $renpy.music.play("audio/firesound.mp3", channel="Chan2", synchro_start=True)
             "The fire catches weirdly quickly. I kind of thought this would be hard to do actually but...nope. As it spreads, I run outside..."
             "no..."
             "wait."
@@ -668,11 +670,12 @@ label closecurtains:
     m "Marie--what--why are you saying these things? I don’t understand."
     r "I think you do. I think you’ve always known. Somewhere, deep in the back of your head. You must have felt us watching you. We’re hard to miss."
     m "You said this was a--test? Of what? Did I pass?"
+    jump howdidIdo
 
     ##Marie about to do some math on this bitch and read you
-
+label howdidIdo:
     r "Well why don't we reflect on some of your choices."
-    if marie_friendship > 4: #marie max +7, min -2
+    if marie_friendship > 3: #marie max +7, min -2 HOWEVER, only 3 of those
         $sin =+1
         hide marie neutral
         show marie happy at center, hop
@@ -756,7 +759,7 @@ label closecurtains:
         ##hoooly heck u were rude also did you say sucks to suck loser???
         ##okay so this only occurs if you said sucks to suck and he chews you out
     if prof_friendship > 3: #bonden max +6, min -6
-        $sin =+1
+        $sin +=1
         hide marie neutral
         show marie happy
         r "Professor Bonden's rec letter is positive! That's nice!"
@@ -770,19 +773,51 @@ label closecurtains:
         hide marie averse
         show marie neutral
     if maximillion_friendship > 5: #max +7, -9
-        $sin =+2
+        $sin +=2
         #wow how were you so nice to this man?? Did you like him for real??
     elif maximillion_friendship > 2:
-        $sin =+1
+        $sin +=1
         #Aw thanks for playing nice with Max who is def a bitch
     elif maximillion_friendship < -5:
         pass
         #no surprise max hates you! whatever he's not easy to get along with
-    #if music_friendship
+    if Marvenperfectrun:
+        hide marie neutral
+        show marie v happy at center, hop
+        $sin +=2
+        r "The work you did in semester 4! Now that was impressive!"
+        r "Marven was doing his best to get you off track, but you preserved and got a perfect grade!"
+        r "On top of that, his review of you is glowing. You're the 'dankest memer' he's ever met."
+        if stolesg and marieevil == False:
+            hide marie v happy
+            show marie averse
+            r "I do wonder if he'd feel the same knowing about the study guide you 'found'..."
+            hide marie averse
+        hide marie v happy
+        show marie neutral
+    elif Marvensenpai:
+        hide marie neutral
+        show marie happy
+        $sin +=1
+        r "It was pretty great that Marven opened up to you."
+        if failedPride:
+            hide marie happy
+            show marie neutral
+            r "Unfortunately, it was at the cost of your grade. But we can't all be perfect."
+            if ignoranceisbliss:
+                hide marie neutral
+                show marie averse
+                r "Not that you'd have known considering you didn't check."
+                hide marie averse
+                show marie neutral
+            r "I suppose that semester was pretty difficult though."
+
+
     #marieevil and stolesg in order to get the snitch result
+    jump finaljudgment
 
     #currently there's a range of -24 to 10 possible sin points (before relationships factored in). Let's round that down to a nice -20 possible
-
+label finaljudgment:
     if sin > 0 and committedArson:
         hide marie neutral
         show marie surprised

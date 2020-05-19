@@ -2,14 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/messagesystem.rpy", line 112: u'mailbutton' is not a keyword argument or valid child for the hbox statement.
-    mailbutton "Mailbox (%d New)" % (new_message_count()) action Show("mailbox")
-              ^
-
-File "game/messagesystem.rpy", line 4: invalid syntax
-    style mailbutton:
-                    ^
-    
+File "game/messagesystem.rpy", line 110: u'hover_color' is not a keyword argument or valid child for the textbutton statement.
+    hover_color "#2153a7"
+               ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Mon May 18 18:48:09 2020
+Mon May 18 19:26:37 2020
