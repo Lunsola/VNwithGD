@@ -1,5 +1,5 @@
 label lust_begin:
-    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(0.0, delay=0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
@@ -13,6 +13,10 @@ label lust_begin:
     $twin = False
     $bizboss = False
     $dinoroar = False
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     image bg but_entrance:
         zoom 0.50
         "But_Entrance.jpg"

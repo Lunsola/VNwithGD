@@ -4,26 +4,13 @@
 #e "dialogue goes here" (where e is the variable associated with the character)
 #"this is a narrative with no actual speaker"
 
-image marie cry = "roomate_sad_2.png"
-image bg shakeshack = "shakeshack.jpeg"
-image bg john jay inside:
-    zoom 2
-    "johnjayinside.jpg"
-image bg john jay outside:
-    zoom 1.1
-    "johnjayoutside.jpg"
-image bg ferris = "ferrisbooth.jpg"
-image bg ferris inside = "ferrisinside.jpg"
-image dinhallfood = "dinhallfood.png"
-image dinhallfood2 = "dinhallfood2.png"
-image pizza = "pizza.png"
 #$ threwpizzamad = False you threw pizza at josh???
 
 #TODO: make a place to enter major other than when Marie asks
 
 label roommateintro:
-    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(0.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     $renpy.music.play("audio/GluttonyMain.mp3", channel="Chan1", synchro_start=True)
     $renpy.music.play("audio/GluttonyMarie.mp3", channel="Chan2", synchro_start=True)
@@ -33,6 +20,9 @@ label roommateintro:
     show text "{size=50}Semester 1: Actual School{/size}"
     with Pause(2)
     hide text
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     scene bg EC
     "Okay, first weekend day with nothing on the agenda. Take a deep breath. I can do this."
     show marie happy
