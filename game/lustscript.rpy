@@ -147,8 +147,8 @@ label social_media:
 label prof_email:
     $ prof = Contact("Professor Bonden", "bonden_draft")
     show screen mailbox_overlay
-    "Let's draft this message! Check your message box at the upper right"
-    "{p=3.0} Great message. Much professionalism"
+    "Let's draft this message! Check your message box at the bottom left"
+    "{p=2.0} Great message. Much professionalism"
     hide screen mailbox_overlay
     jump thurs_end
 
@@ -472,6 +472,7 @@ label club_info:
         w "Ooh, hey stranger. I like your attire. Very appropriate"
         "Hmm, maybe he's not so bad.{p=1.0} maybe"
     if dinoroar == True:
+        $ maximillion_friendship -=1
         w "Uh, did you get the memo. What in the world are you wearing weirdo?"
         "Case in point"
     b "Hi, I'm Maximillion. My friends call me Max though. How can I assist a commoner like you today?"
