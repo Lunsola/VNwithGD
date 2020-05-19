@@ -1,8 +1,8 @@
 label lust_begin:
-    $renpy.music.set_volume(1.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
-    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.set_volume(0.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     $renpy.music.play("audio/LustMain.mp3", channel="Chan1", synchro_start=True)
     $renpy.music.play("audio/LustBonden.mp3", channel="Chan2", synchro_start=True)
     $renpy.music.play("audio/LustMaximillion.mp3", channel="Chan3", synchro_start=True)
@@ -13,6 +13,10 @@ label lust_begin:
     $twin = False
     $bizboss = False
     $dinoroar = False
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     image bg but_entrance:
         zoom 0.50
         "But_Entrance.jpg"
@@ -49,10 +53,10 @@ label lust_begin:
             jump prof_email
 
 label roomie_talk:
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
-    $renpy.music.set_volume(volume=0.5, channel="Chan4")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan4")
     show marie confused with moveinleft
     r "Hey is everything okay?"
     menu:
@@ -166,10 +170,10 @@ label bonden_draft(contact, message_title="Meeting Inquiry"):
 
 
 label thurs_end:
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
-    $renpy.music.set_volume(volume=0.5, channel="Chan4")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan4")
     show marie neutral with moveinright
     r "I'm back! Hey %(pname)s! It's getting kind of late. I'm going to head to sleep now. Nighty night!"
     hide marie neutral with dissolve
@@ -209,10 +213,10 @@ label fri_morn:
         jump short_meet
 
 label short_meet:
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.5, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
-    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     scene bg hallway with fade
     show professor neutral with dissolve
     if persistent.ending == "unlock 2":
@@ -276,10 +280,10 @@ label prof_meet:
         $ persistent.ending="unlock 3"
     show professor happy with dissolve
     "Oh boy, time to defend my GPA's honor"
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.5, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
-    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     if dinoroar == True:
         p "Oh wow, that's some interesting attire that you've chosen. Guess you could say you're looking {p=1.0}dino-mite"
         m "Haha, thanks Professor, I do think I'm looking pretty explosive"
@@ -442,10 +446,10 @@ label club_info:
     "I get to the classroom and it's PACKED"
     "After carefully maneuvering myself around the people on the floor, I sign myself in and shuffle to an empty spot along the wall."
     "The room feel to a hush as some stranger starts their presentation"
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.5, channel="Chan3")
-    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     show max charm with dissolve
     play sound "audio/chimes.mp3"
     if persistent.ending == "unlock 3":
@@ -609,10 +613,10 @@ label caffeine:
     scene bg coffeeshop with fade
     "Nothing beats a cup of coffee"
     "Oh look! It's Professor Bonden"
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.5, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
-    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     show professor happy with dissolve
     m "Hey Professor"
     p "Hey %(pname)s, nice to see you again. How are you doing?"
@@ -667,10 +671,10 @@ label max_library:
     "Good Ol' Buttler"
     scene bg themil with slideup
     show max neutral with dissolve
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.5, channel="Chan3")
-    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     if maximillion_friendship >= 2:
         hide max neutral
         show max charm
@@ -944,20 +948,20 @@ label sat_room:
 
 label mel_night:
     scene bg hels with fade
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.5, channel="Chan3")
-    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     show max charm with moveinleft
     b "Oh, hey %(pname)s! Nice of you to finally join us. Did you think about what I said?"
     "Wait, it can't be. Is that... Professor Bonden?"
     m "Wait, sorry. Let me get back to you. "
     b "Aurevoir"
     hide max charm with moveoutleft
-    $renpy.music.set_volume(0.33, channel="Chan1")
-    $renpy.music.set_volume(volume=0.33, channel="Chan2")
-    $renpy.music.set_volume(volume=0.33, channel="Chan3")
-    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.set_volume(0.33, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.33, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.33, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     show professor happy with dissolve
     p "Hey %(pname)s! It's not weird at all to be seeing you at such an establishment"
     "O .o can't say I relate to that"
@@ -1033,10 +1037,10 @@ label mel_night:
             $sin -=2;
             "Oh my gosh. That went HORRIBLY"
             "WTF. Maximillion completely screwed me over"
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.5, channel="Chan3")
-    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     show max charm with moveinleft
     b "Hey, so how'd the big confrontation go?"
     menu:
@@ -1144,16 +1148,16 @@ label mel_night:
                 show max vicious
                 b "I'd say good luck for tomorrow. But let's be real, you're going to crash and burn"
                 hide max vicious
-            $renpy.music.set_volume(1.0, channel="Chan1")
-            $renpy.music.set_volume(volume=0.0, channel="Chan2")
-            $renpy.music.set_volume(volume=0.0, channel="Chan3")
-            $renpy.music.set_volume(volume=0.0, channel="Chan4")
+            $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+            $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+            $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+            $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
             jump morning_afterhome
 label morning_aftermax:
-    $renpy.music.set_volume(0.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
-    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.set_volume(0.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     scene bg maxs with fade
     "Crap."
     "Double Crap."
@@ -1162,10 +1166,10 @@ label morning_aftermax:
     "{p=1.5} I'M LATE FOR MY INTERVIEW"
     "There's only like 5 minutes left, damn it"
     "Ahhhhh, what was the point of last night then, ugh"
-    $renpy.music.set_volume(0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.5, channel="Chan3")
-    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     show max charm with moveinright
     b "Oh hey %(pname)s, you're up."
     menu:
@@ -1240,10 +1244,10 @@ label morning_aftermax:
     jump lust_ending
 
 label morning_afterhome:
-    $renpy.music.set_volume(1.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
-    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     scene bg bednight with fade
     "Ah!! I'm so nervous. This is it. Let's get to the interview!"
     scene bg classroom with fade
@@ -1263,10 +1267,10 @@ label morning_afterhome:
 if professor_friendship <=-3:
     $grade_change = False
 label lust_ending:
-    $renpy.music.set_volume(1.0, channel="Chan1")
-    $renpy.music.set_volume(volume=0.0, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, channel="Chan3")
-    $renpy.music.set_volume(volume=0.0, channel="Chan4")
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     scene bg collegewalk with fade
     "Aww man. I can't believe after all those steps I couldn't get into the {b}{i}T r i a n g l e{/i}{/b} in the end"
     "No need to be too upset over it though. There are other clubs! Also there's always next year!"

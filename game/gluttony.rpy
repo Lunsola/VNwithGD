@@ -4,26 +4,13 @@
 #e "dialogue goes here" (where e is the variable associated with the character)
 #"this is a narrative with no actual speaker"
 
-image marie cry = "roomate_sad_2.png"
-image bg shakeshack = "shakeshack.jpeg"
-image bg john jay inside:
-    zoom 2
-    "johnjayinside.jpg"
-image bg john jay outside:
-    zoom 1.1
-    "johnjayoutside.jpg"
-image bg ferris = "ferrisbooth.jpg"
-image bg ferris inside = "ferrisinside.jpg"
-image dinhallfood = "dinhallfood.png"
-image dinhallfood2 = "dinhallfood2.png"
-image pizza = "pizza.png"
 #$ threwpizzamad = False you threw pizza at josh???
 
 #TODO: make a place to enter major other than when Marie asks
 
 label roommateintro:
-    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
-    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(0.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     $renpy.music.play("audio/GluttonyMain.mp3", channel="Chan1", synchro_start=True)
     $renpy.music.play("audio/GluttonyMarie.mp3", channel="Chan2", synchro_start=True)
@@ -33,6 +20,9 @@ label roommateintro:
     show text "{size=50}Semester 1: Actual School{/size}"
     with Pause(2)
     hide text
+    $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     scene bg EC
     "Okay, first weekend day with nothing on the agenda. Take a deep breath. I can do this."
     show marie happy
@@ -488,11 +478,20 @@ label joshday2goodconvo:
         menu:
             "That sounds really hard. I’m sorry you’ve been so stressed.":
                 $ josh_friendship +=1
+            "Awkward laugh.":
+                "Ahaha"
+        hide josh stress
+        show josh grateful
+        j "Anyway, feels good to talk about it. I’m actually having kind of a hard time at the minute."
+        hide josh grateful
+        show josh sad
+        j "I feel like there’s all this pressure on me all the time."
+        menu:
+            "Thank you for sharing that. I appreciate your honesty.":
+                $friendship_josh +=1
             "Awkward silence.":
                 "..."
-        hide josh stress
-        show josh sad
-        j "Well anyway, we can move on."
+        j "But anyway, we can move on."
         hide josh sad
         show josh happy
         j "Thanks for listening. I actually should head out now, my job starts soon."
@@ -686,6 +685,7 @@ label finishgluttony:
     menu:
         "Give Josh your last swipe":
             $ josh_friendship +=3
+            $ marie_friendship +=1
             $ sin = sin + 2
             hide josh sad
             show josh shock at center, hop

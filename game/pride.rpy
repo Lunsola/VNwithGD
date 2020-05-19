@@ -1,5 +1,5 @@
 label pridebegin:
-    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(0.0, delay=0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
@@ -23,6 +23,10 @@ label pridebegin:
     show text "{size=50}Semester 4: Are You Sick of School?{/size}"
     pause
     hide text
+    $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     scene bg lecture hall
     "New semester, new me"
     "Soooo glad all those core classes done"

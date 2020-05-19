@@ -61,6 +61,7 @@ image marie distressed = "roomate_angry_sad.png"
 image marie concerned = "roomate_concerned.png"
 image marie urdumb = "roomate_speechless.png"
 image marie angry = "roomate_angry.png"
+image marie cry = "roomate_sad_2.png"
 
 #max images
 image max happy = "max happy.png"
@@ -134,6 +135,11 @@ image PosterP = "partyposter.png"
 image gift = "gift.jpg"
 image meme1 = "meme1.jpg"
 image meme2 = "meme2.jpg"
+image goodend = "goodend.png"
+image badend = "badend.png"
+image dinhallfood = "dinhallfood.png"
+image dinhallfood2 = "dinhallfood2.png"
+image pizza = "pizza.png"
 
 #backgrounds
 image bg classroom:
@@ -219,7 +225,15 @@ image bg singleonfire:
 image bg columbiagates:
     zoom 1.5
     "columbiagates.jpg"
-
+image bg shakeshack = "shakeshack.jpeg"
+image bg john jay inside:
+    zoom 2
+    "johnjayinside.jpg"
+image bg john jay outside:
+    zoom 1.1
+    "johnjayoutside.jpg"
+image bg ferris = "ferrisbooth.jpg"
+image bg ferris inside = "ferrisinside.jpg"
 
 # The game starts here.
 
@@ -268,10 +282,8 @@ label start:
     $ committedArson = False #did you set fire to Marie's room???
     $seduce_prof = False
     $seduce_max = False
-    $Marvensenpai = False
-    $Marvenperfectrun = False
-
-
+    $Marvensenpai = False #Marven is your senpai
+    $Marvenperfectrun = False #Perfect grade and Marven is your senpai!
 
 
 
