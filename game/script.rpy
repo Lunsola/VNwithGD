@@ -268,10 +268,8 @@ label start:
     $ committedArson = False #did you set fire to Marie's room???
     $seduce_prof = False
     $seduce_max = False
-    $Marvensenpai = False
-    $Marvenperfectrun = False
-
-
+    $Marvensenpai = False #Marven is your senpai
+    $Marvenperfectrun = False #Perfect grade and Marven is your senpai!
 
 
 

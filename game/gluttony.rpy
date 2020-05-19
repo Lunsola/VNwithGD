@@ -488,11 +488,20 @@ label joshday2goodconvo:
         menu:
             "That sounds really hard. I’m sorry you’ve been so stressed.":
                 $ josh_friendship +=1
+            "Awkward laugh.":
+                "Ahaha"
+        hide josh stress
+        show josh grateful
+        j "Anyway, feels good to talk about it. I’m actually having kind of a hard time at the minute."
+        hide josh grateful
+        show josh sad
+        j "I feel like there’s all this pressure on me all the time."
+        menu:
+            "Thank you for sharing that. I appreciate your honesty.":
+                $friendship_josh +=1
             "Awkward silence.":
                 "..."
-        hide josh stress
-        show josh sad
-        j "Well anyway, we can move on."
+        j "But anyway, we can move on."
         hide josh sad
         show josh happy
         j "Thanks for listening. I actually should head out now, my job starts soon."
@@ -686,6 +695,7 @@ label finishgluttony:
     menu:
         "Give Josh your last swipe":
             $ josh_friendship +=3
+            $ marie_friendship +=1
             $ sin = sin + 2
             hide josh sad
             show josh shock at center, hop
