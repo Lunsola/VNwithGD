@@ -784,7 +784,7 @@ label job_results:
             "OMG. THIS IS SO EXCITING"
             "YAYYYYY"
             "Man, this is wild. I should try and calm down a bit. Let's go on a walk. In fact, maybe I'll see someone and share the good news!"
-            $success+=2
+            $success+=3
             if maximillion_friendship > marie_friendship:
                 jump sad_max
             elif marie_friendship > maximillion_friendship :
@@ -1001,7 +1001,7 @@ label sad_max:
     jump end_greed
 label angry_marie:
     #"Stop. I don't care"
-    if marie_friendship >= 4:
+    if marie_friendship >= 3:
         hide marie breaking
         show marie mad
         r "Why are you acting like this?"
@@ -1052,7 +1052,7 @@ label angry_max:
         b "You better watch your back though"
         $maximillion_friendship-=2
         hide max charm with dissolve
-        "Maximillion with his holier than thou attitude as always"
+        "Maximillion with his better than thou attitude as always"
     jump end_greed2
 
 label end_greed:
