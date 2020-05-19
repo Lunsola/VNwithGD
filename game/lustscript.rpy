@@ -147,8 +147,8 @@ label social_media:
 label prof_email:
     $ prof = Contact("Professor Bonden", "bonden_draft")
     show screen mailbox_overlay
-    "Let's draft this message! Check your message box at the upper right"
-    "{p=3.0} Great message. Much professionalism"
+    "Let's draft this message! Check your message box at the bottom left"
+    "{p=2.0} Great message. Much professionalism"
     hide screen mailbox_overlay
     jump thurs_end
 
@@ -472,6 +472,7 @@ label club_info:
         w "Ooh, hey stranger. I like your attire. Very appropriate"
         "Hmm, maybe he's not so bad.{p=1.0} maybe"
     if dinoroar == True:
+        $ maximillion_friendship -=1
         w "Uh, did you get the memo. What in the world are you wearing weirdo?"
         "Case in point"
     b "Hi, I'm Maximillion. My friends call me Max though. How can I assist a commoner like you today?"
@@ -1012,7 +1013,7 @@ label mel_night:
             m "If I were a protein, I'd be a DNA helicase so I could unzip your genes"
             m "You've got my rapt attention on me orbiting around that ass"
             m "Care to explain what thrust is back at your place?"
-            m "How about you let me take you to the Planetarium? We can learn about astronomy then afterward maybe I can explore Uranus"
+            m "How about you let me take you to the Planetarium? We can learn about astronomy then afterwards maybe I can explore Uranus"
             hide professor neutral
             show professor surprised
             p "Excuse me, %(pname)s! As much as I appreciate you illustrating your....{p=1.5} understanding of the sciences?"
