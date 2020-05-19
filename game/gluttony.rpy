@@ -67,7 +67,6 @@ label roommateintro:
                     jump rlonelyday
         "Don't say anything":
             "Ugh, this is awkward. I can literally hear crickets chirping. Is that in my head or do we actually have a cricket infestation?"
-            #TODO: add sound: play sound "crickets.mp3"
             hide marie happy
             show marie neutral
             "..."
@@ -124,7 +123,7 @@ label rlonelyday:
     menu:
         "Try to hide":
             "Quick, under the desk!"
-            #TODO: add crash sound
+            play sound "audio/deskrattle.mp3"
             with hpunch
             "Oh crap, that was noiser than I thought it would be."
             hide marie happy
@@ -397,7 +396,6 @@ label gluttonybeginday2:
         j "Dude! Righteous to see you brah."
         m "You too, man. I’m hungry, let’s get food!"
         hide josh happy
-        #TODO: food transition again (add food images)
         scene bg ferris inside
         with dissolve
         show dinhallfood2
@@ -419,7 +417,7 @@ label gluttonybeginday2:
                 show josh happy
                 jump joshday2goodconvo
             "Throw the pizza at him.":
-                #TODO: add flying pizza and whoosh sound effect
+                play sound "audio/whoosh.mp3"
                 $ sin -=1
                 with hpunch
                 hide josh happy
@@ -488,7 +486,7 @@ label joshday2goodconvo:
         j "I feel like there’s all this pressure on me all the time."
         menu:
             "Thank you for sharing that. I appreciate your honesty.":
-                $friendship_josh +=1
+                $ josh_friendship +=1
             "Awkward silence.":
                 "..."
         j "But anyway, we can move on."

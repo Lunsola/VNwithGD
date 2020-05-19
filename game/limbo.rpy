@@ -17,7 +17,6 @@ init -1 python:
     renpy.music.register_channel("Chan4", mixer= "music", loop=True, stop_on_mute=False, tight=True)
 
 label limbobegin:
-    jump pridebegin
     $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, channel="Chan2")
     $renpy.music.play("audio/LimboDraftMain.mp3", channel="Chan1", synchro_start=True)
@@ -211,7 +210,6 @@ label limboend:
     "I am really enjoying my time out here, and I don’t really want to leave. At the same time, I also made a promise to Karen. What should I do?"
     menu:
         "Stay on the lawn":
-            #make the scene fuzzier and fuzzier
             "It’s only 10 minutes left until lunch closes anyway. I’m sure Karen will be alright if I miss out this time. I can just apologize later. Plus, I really would rather keep hanging out here."
             m "Alright, fine. But we get possession!"
             w "Awesome! Yeah, you guys get possession."

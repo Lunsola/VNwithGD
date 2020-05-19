@@ -2,13 +2,14 @@
 errors listed below, and try again.
 
 
-File "game/gluttony.rpy", line 117: expected statement.
-    pmajor = "Chemistry"
-           ^
+File "game/pride.rpy", line 1269: expected statement.
+    success +=1
+            ^
 
-File "game/gluttony.rpy", line 293: expected statement.
-    pmajor = "Chemistry"
-           ^
+File "game/pride.rpy", line 367: invalid syntax
+    renpy.music.set_volume(volume=0.0, delay=0.5,5 channel="Chan3")
+                                                          ^
+    
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Mon May 18 00:10:28 2020
+Mon May 18 18:17:38 2020

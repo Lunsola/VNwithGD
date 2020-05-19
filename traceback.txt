@@ -1,30 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/pride.rpy", line 184, in script
-    show text "{i}{size=30}EXAM START" with shake
-Exception: Parameter 'new_widget' is not known by ATL Transform.
+  File "game/lustscript.rpy", line 1308, in script
+    $ prof.delete()
+  File "game/lustscript.rpy", line 1308, in <module>
+    $ prof.delete()
+NameError: name 'prof' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/pride.rpy", line 184, in script
-    show text "{i}{size=30}EXAM START" with shake
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 1389, in execute
-    renpy.exports.with_statement(trans, paired)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\exports.py", line 1601, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 2251, in do_with
-    clear=clear)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 2702, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\display\core.py", line 3047, in interact_core
-    new_widget=layers_root)
-  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\atl.py", line 441, in __call__
-    raise Exception('Parameter %r is not known by ATL Transform.' % k)
-Exception: Parameter 'new_widget' is not known by ATL Transform.
+  File "game/lustscript.rpy", line 1308, in script
+    $ prof.delete()
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 914, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2028, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/lustscript.rpy", line 1308, in <module>
+    $ prof.delete()
+NameError: name 'prof' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 Columbia Simulator 1.0
-Mon May 18 14:50:48 2020
+Mon May 18 18:26:48 2020

@@ -364,7 +364,7 @@ label music_encounter:
 label hangover:
     $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
-    $renpy.music.set_volume(volume=0.0, delay=0.5,5 channel="Chan3")
+    $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     scene bg black with fade
     scene bg bedroom with irisin
     "That was funnnnn. BUrP~"
@@ -1265,8 +1265,8 @@ label prideend:
                 $ success +=1
                 "I got an A! It's a miracle!"
                 if Marvensenpai and classgrade == 10:
-                    $Marvenperfectrun = True
-                    success +=1
+                    $ Marvenperfectrun = True
+                    $ success +=1
             elif classgrade == 8:
                 $ success +=1
                 "I got a B. Not bad, not bad at all!"
