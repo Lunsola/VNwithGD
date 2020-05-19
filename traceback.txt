@@ -1,26 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/lustscript.rpy", line 1308, in script
-    $ prof.delete()
-  File "game/lustscript.rpy", line 1308, in <module>
-    $ prof.delete()
-NameError: name 'prof' is not defined
+  File "game/messagesystem.rpy", line 1, in script
+    init python:
+  File "game/messagesystem.rpy", line 3, in <module>
+    style.mailboxcolor = "#FF0000"
+Exception: Value is not a style.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/lustscript.rpy", line 1308, in script
-    $ prof.delete()
+  File "game/messagesystem.rpy", line 1, in script
+    init python:
   File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\ast.py", line 914, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "C:\Users\Kimberly\Pictures\Renpy\renpy-7.3.5-sdk\renpy\python.py", line 2028, in py_exec_bytecode
     exec bytecode in globals, locals
-  File "game/lustscript.rpy", line 1308, in <module>
-    $ prof.delete()
-NameError: name 'prof' is not defined
+  File "game/messagesystem.rpy", line 3, in <module>
+    style.mailboxcolor = "#FF0000"
+  File "style.pyx", line 202, in renpy.style.StyleManager.__setattr__
+Exception: Value is not a style.
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
-Columbia Simulator 1.0
-Mon May 18 18:26:48 2020
+ 
+Mon May 18 18:36:20 2020

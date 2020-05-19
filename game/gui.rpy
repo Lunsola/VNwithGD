@@ -87,10 +87,10 @@ define gui.title_text_size = 50
 ## The images used for the main and game menus.
 define gui.main_menu_background1 = "gui/mari.png"
 define gui.main_menu_background = "gui/no characters.png"
-define gui.game_menu_background2 = "gui/mari-josh.png"
+define gui.main_menu_background2 = "gui/mari-josh.png"
 define gui.main_menu_background3 = "gui/mjb.png"
 define gui.main_menu_background4 = "gui/mjbm.png"
-define gui.game_menu_background5 = "gui/all characters.png"
+define gui.main_menu_background5 = "gui/all characters.png"
 define gui.main_menu_backgroundgood = "gui/goodend.png"
 define gui.main_menu_backgroundbad = "gui/badend.png"
 

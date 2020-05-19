@@ -1,5 +1,6 @@
 init python:
     import renpy.store as store
+    #style.mailboxcolor = "#FF0000"
 
     reply_screen = False
     draft_screen = False
@@ -102,11 +103,11 @@ init python:
 
 screen mailbox_overlay:
     hbox:
-        xalign 1.0 yalign 0.0
+        xalign 0.0 yalign 1.0
         if new_message_count() > 0:
-            textbutton "Mailbox (%d New)" % (new_message_count()) action Show("mailbox")
+            textbutton "Mailbox (%d New)" % (new_message_count()) action Show("mailbox")# text_style "mailboxcolor"
         else:
-            textbutton "Mailbox" action Show("mailbox")
+            textbutton "Mailbox" action Show("mailbox")# text_style "mailboxcolor"
 
 screen mailbox:
     tag menu
@@ -250,7 +251,7 @@ python:
                         else:
                             text caption style "menu_caption"
 
-                            
+
     BELOW IS INCLUDED CODE DEMO
     # Declare characters used by this game.
 define e = Character('Eileen', color="#c8ffc8")

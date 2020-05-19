@@ -424,7 +424,7 @@ screen main_menu_2():
 
     style_prefix "main_menu"
 
-    add gui.game_menu_background2
+    add gui.main_menu_background2
 
     ## This empty frame darkens the main menu.
     frame:
@@ -439,7 +439,7 @@ screen main_menu_3():
 
     style_prefix "main_menu"
 
-    add gui.game_menu_background3
+    add gui.main_menu_background3
 
     frame:
         pass
@@ -450,7 +450,7 @@ screen main_menu_4():
 
     style_prefix "main_menu"
 
-    add gui.game_menu_background4
+    add gui.main_menu_background4
 
     frame:
         pass
@@ -461,7 +461,7 @@ screen main_menu_5():
 
     style_prefix "main_menu"
 
-    add gui.game_menu_background5
+    add gui.main_menu_background5
 
     frame:
         pass
@@ -483,7 +483,7 @@ screen main_menu_bad():
 
     style_prefix "main_menu"
 
-    add gui.game_menu_backgroundbad
+    add gui.main_menu_backgroundbad
 
     frame:
         pass
