@@ -9,6 +9,7 @@ label greed_begin:
     $renpy.music.play("audio/GreedMarie.mp3", channel="Chan4", synchro_start=True)
 
     $copy_res = False
+    $bad_let = False
     $interview_offer = False
     $betray_max = False
     $greed_check = 0
@@ -182,6 +183,7 @@ label bonden_route:
             $success-=1
             m "Thank you so much Professor I really appreciate it"
             p "Any time"
+            $bad_let = True
     else:
         if prof_friendship > 0:
             show professor pleased
@@ -196,6 +198,7 @@ label bonden_route:
             p "Sure %(pname)s. I think I have a pretty good grasp on who you are. I think that I can provide valuable insight to your prospective employer. It would be my pleasure"
             m "Thank you so much Professor I really appreciate it"
             "I had never thought we had the greatest relationship but Professor Bonden as always is a really nice guy"
+            $bad_let = True
             $success-=1
             $bond_accept = True
             p "Any time"
