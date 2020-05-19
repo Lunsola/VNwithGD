@@ -536,17 +536,17 @@ screen game_menu(title, scroll=None, yinitial=0.0):
         if persistent.ending == "unlock 1":
             add gui.main_menu_background1
         elif persistent.ending == "unlock 2":
-            add gui.game_menu_background2
+            add gui.main_menu_background2
         elif persistent.ending == "unlock 3":
-            add gui.game_menu_background3
+            add gui.main_menu_background3
         elif persistent.ending == "unlock 4":
-            add gui.game_menu_background4
+            add gui.main_menu_background4
         elif persistent.ending == "unlock 5":
-            add gui.game_menu_background5
+            add gui.main_menu_background5
         elif persistent.ending == "end good":
-            add gui.game_menu_backgroundgood
+            add gui.main_menu_backgroundgood
         elif persistent.ending == "end bad":
-            add gui.game_menu_backgroundbad
+            add gui.main_menu_backgroundbad
         else:
             add gui.main_menu_background
     else:
