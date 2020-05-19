@@ -997,10 +997,28 @@ label finaljudgment:
         show goodend
         pause
     elif sin < 5:
-        hide marie neutral
-        show marie mad
-        r "I think you actually already know the results, %(pname)s."
-        r "The irony is, I’m sort of you, in a way. I’m the way your life could have gone, if you’d done all the right things and played your cards right. But you chose the path you chose. You chose selfishness, cruelty, and destructiveness."
+        if sin < -10:
+            hide marie neutral
+            show marie mad
+            r "I think you actually already know the results, %(pname)s."
+            r "Honesly, how much more awful can you get?"
+            r "The irony is, I’m sort of you, in a way. I’m the way your life could have gone, if you’d done all the right things and played your cards right. But you chose the path you chose."
+            r "On practically every step you chose selfishness, cruelty, and destructiveness."
+        elif sin < 0:
+            hide marie neutral
+            show marie mad
+            r "I think you actually already know the results, %(pname)s."
+            r "The irony is, I’m sort of you, in a way. I’m the way your life could have gone, if you’d done all the right things and played your cards right. But you chose the path you chose."
+            r "Too often you chose selfishness, cruelty, and destructiveness."
+        else:
+            if marieevil == False and marie_friendship > 3:
+                hide marie neutral
+                show marie distressed
+                r "Oh no..."
+                hide marie distressed
+                show marie neutral
+            r "I guess you slipped up one too many times."
+            r "Maybe if you'd been a little less selfish sometimes I wouldn't have to be telling you this."
         r "Welcome to hell, %(pname)s."
         $ persistent.ending="end bad"
         scene bg black
