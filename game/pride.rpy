@@ -33,7 +33,7 @@ label pridebegin:
     $renpy.music.set_volume(0.5, delay=0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.5, delay=0.5, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
-    w "{size+=10}UWAH!!! {p=1.0}%(pname)s!!!!!"
+    w "{size=10}UWAH!!! {p=1.0}%(pname)s!!!!!"
     pause .5
     show marie averse
     with hpunch
@@ -70,7 +70,7 @@ label pridebegin:
     hide marie astonished
     show marie confused at left:
         yalign 1.0 xalign .25
-    r "{size+=10}A S S E S"
+    r "{size=10}A S S E S"
     m "That's campus culture right there."
     "Honestly the title of this class is so long I won't bother to remember it."
     a "Anyhoo, name's Marven. I'm taking this class to fulfill a requirement."
@@ -322,7 +322,7 @@ label music_encounter:
     a "ASSES is a class that weeds out the Virgin Yous among the Chads"
     a "Change my mind, but tis' the truth"
     a "...afterall, I barely made off with a 110"
-    "{size+=10}wtf 110?!"
+    "{size=10}wtf 110?!"
     a "Anyhoo, you seem like you Know Your Meme"
     hide music_talk
     show music_wink
@@ -1099,7 +1099,7 @@ label examday:
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
     scene bg lecture hall with irisin
-    w "{size+=10}UWAH!!! {p=1.0}%(pname)s!!!!!"
+    w "{size=10}UWAH!!! {p=1.0}%(pname)s!!!!!"
     pause .5
     show marie averse
     with hpunch

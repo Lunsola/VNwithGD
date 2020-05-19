@@ -160,7 +160,7 @@ label bonden_draft(contact, message_title="Meeting Inquiry"):
             $ add_message("Re: Meeting Inquiry", "Professor Bonden", "Yes! Of course. Come by my office tomorrow")
             play sound "audio/email_notif.mp3"
             $ prof_friendship +=1
-        "Hi Professor. Any way I can help boost my grade? ). Down for anything ))))))":
+        "Hi Professor. Any way I can help boost my grade? ;). Down for anything ;))))))":
             $ contact.draft_label = None
             $ prof_friendship -=1
             $ add_message("Re: Meeting Inquiry", "Professor Bonden", "Excuse me? Let's discuss in my office tomorrow")
@@ -186,15 +186,16 @@ label fri_morn:
     scene bg bedroom with fade
     "Ah!!! It's already 11 am. Time to get up"
     show screen mailbox_overlay
-    "First things first, let's check message updates"
     if prof_email == True:
         $ add_message("Reminder!", "", "Meeting with Professor Today")
         play sound "audio/email_notif.mp3"
         $ add_message("Triangle Info Session", "{b}{i}T r i a n g l e{/i}{/b}", "Thank you for expressing interest into joining the Triangles! We will be hosting a meeting in Hamilton 702. Hope to see you there. Please wear business casual!")
         play sound "audio/email_notif.mp3"
+        "First things first, let's check message updates"
     else:
         $ add_message("Triangle Info Session", "{b}{i}T r i a n g l e{/i}{/b}", "Thank you for expressing interest into joining the Triangles! We will be hosting a meeting in Hamilton 702. Hope to see you there. Please wear business casual!")
         play sound "audio/email_notif.mp3"
+        "First things first, let's check message updates on the bottom left"
     menu: #TODO Figure out problem with loading images as menu options
         "Ah!! So much to get done. But let's see... time to figure out what to wear"
         "I 8 π T-shirt and Jeans": #"{image = ../images/itsandwich.png}":
@@ -476,6 +477,7 @@ label club_info:
         $ maximillion_friendship -=1
         w "Uh, did you get the memo. What in the world are you wearing weirdo?"
         "Case in point"
+        m "Excuse me, who are YOU to say that?"
     b "Hi, I'm Maximillion. My friends call me Max though. How can I assist a commoner like you today?"
     menu:
         "Commoner?"
@@ -543,6 +545,7 @@ label max_convo:
                 show max neutral
                 $ maximillion_friendship -=1
                 b "Or maybe not then."
+                hide max neutral with dissolve
                 "Why did I say that? We were getting along so well. Whatever, Maximillion was starting to act way too friendly anyways"
             "Totally":
                 m "Yeah, see you there later tonight!"
@@ -564,6 +567,7 @@ label max_convo:
                 show max mad
                 b "Alright. Jerk. Hopefully not indeed"
                 $ maximillion_friendship -=1
+                hide max mad with dissolve
                 "Why did I say that? We were getting along so well. Whatever, Maximillion was starting to act way too friendly anyways"
             "Totally":
                 hide max neutral
@@ -575,6 +579,7 @@ label max_convo:
             "Maybe. Maybe not":
                 m "Yeah, I guess we'll see!"
                 b "Alright see ya!"
+                hide max neutral with dissolve
                 "That went pretty well! Maximillion seems alright"
     else: #case where friendship is negative number
         show max mad
@@ -595,8 +600,8 @@ label max_convo:
                 "Ugh. Hopefully, I don't see him at the library tonight"
             "Totally":
                 hide max mad
-                m "Yeah, see you there later tonight!"
                 show max skeptic
+                m "Yeah, see you there later tonight!"
                 $ maximillion_friendship +=1
                 b "Uh ...{p=1.0}sure"
                 hide max skeptic with moveoutright
@@ -941,7 +946,7 @@ label sat_room:
     $ add_message("Congratulations", "{b}{i}T r i a n g l e{/i}{/b}", "Hi, We would like to cordially offer you the opportunity to join our ranks. Please come to Hamilton 705 at 11 am tomorrow for your interview with one of our executive board members")
     play sound "audio/email_notif.mp3"
     "Oh, speaking about the Triangle, there's a new email notification!"
-    "Ahh, it's just like Max said. I landed the interview tomorrow. Then I guess if I really want to get in the Triangle...{p=.10}I need to sleep with Max"
+    "Ahh, it's just like Max said. I landed the interview tomorrow. Then I guess if I really want to get in the Triangle...{p=1.0}I need to sleep with Max"
     "Trying to refocus on my work, nothing really gets done for the entire day as I deliberate the best course of action"
     hide screen mailbox_overlay
     "Come on, %(pname)s! What to do, what to do"
@@ -1140,15 +1145,16 @@ label mel_night:
                 b "Oh please do, save me from hearing the blathering of an idiot"
                 m "I think only you can save yourself from the nonsense spewing from your mouth"
                 b "How you've made it this far in the application process astounds me"
-                m "Of course. You wouldn't understand what talent and intelligent looks like"
+                m "Of course you're astounded. You wouldn't understand what talent and intelligence looks like"
                 b "I know that it's not you"
-                m "Guess we'll see, once I kick your ass out of the {b}{i}T r i a n g l e{/i}{/b}"
-                b "Eh, we'll be all talking about what a nitwit you are tomorrow "
+                m "Guess we'll see,after I get into the {b}{i}T r i a n g l e{/i}{/b} tomorrow"
+                b "Eh, we'll all be talking about what a nitwit you are after tomorrow "
                 m "Ugh, I'm getting out of here. Save my brain cells from talking to you"
                 hide max mad
                 show max vicious
                 b "I'd say good luck for tomorrow. But let's be real, you're going to crash and burn"
-                hide max vicious
+                hide max vicious with dissolve
+                "What an ass"
             $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
             $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
             $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
@@ -1258,7 +1264,7 @@ label morning_afterhome:
     m "Thanks for having me"
     w "Now, let's get started. Why do you want to join the {b}{i}T r i a n g l e{/i}{/b}?"
     m "Well as a Freshman, I've always"
-    w "Wait pardon, freshman? Did you not see on the application form we're only recruiting sophomores and up"
+    w "Wait pardon, freshman? Didn't you hear at te info session? We're only recruiting sophomores and up"
     "W{p=0.5}h{p=0.5}a{p=0.5}t{p=0.5}"
     w "...Well{p=1.5}...This is awkward. We appreciate the interest but maybe come back next year?"
     w "Huh, I heard from Max that you guys have met. I thought he would have mentioned something"

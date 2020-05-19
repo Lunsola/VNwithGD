@@ -143,17 +143,17 @@ label career_email:
     show screen mailbox_overlay
     $ add_message("Offer to Your Dream Job","Recruiter","Hi, The first step in getting an internship at Dream Job and Co. is to apply. For your application you'll need a resume and letter of recommendation. Thank you for expressing your interest in us. We hope to hear from you soon. With Dream Job and Co, all of our dreams will come true" )
     play sound "audio/email_notif.mp3"
-    "Ahhhh, is that an internship update? So soon? No way"
-    "Let's check my messages"
-    "Hmm. Guess I can't really get the internship offer if I haven't applied to the internship yet."
+    "Ahhhh, is that an internship update? So soon? No way!{p=0.5}MAYBE IT'S AN INTERNSHIP OFFER"
+    "Aww it's just application details."
+    "...{p=1.0}Guess I can't really get an internship offer if I haven't applied for internships yet."
     "Oof I don't have any of the things that they're asking for"
     hide screen mailbox_overlay
     "First things first, let's figure out who to ask for that recommendation letter"
-    "Hmm, the first people that I can think of immediately are Professor Bonden and Professor Breaken"
+    "Hmm, the first people that I can think of immediately are Professor Bonden or Professor Breaken"
     if seduce_prof == True:
         "I really bonded with Professor Bonden. We even had that fun misunderstanding that surely has strengthened our bond greatly"
     else:
-        "I really bonded with Professor Bonden when I was trying to get my grade changed, I mean, trying to form a genuine bond. Regardless, Professor Bonden has always been really sweet"
+        "I really bonded with Professor Bonden when I was trying to get my grade changed{p=1.0}I mean, trying to form a genuine bond. Regardless, Professor Bonden has always been really sweet"
     "Professor Breaken on the other hand is a whole other story"
     "Gulpa says that they're the best but I swear it feels like they hate me. Maybe I'm just over thinking things though"
     menu:
@@ -210,61 +210,64 @@ label breaken_route: #need to add an option for giving up
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan3")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan4")
-    show breaken
+    show breaken with dissolve
     menu:
         "Hey Professor Breaken, I was hoping to ask":
             op "Sorry can't talk right now"
-            hide breaken with dissolve
+            hide breaken with moveoutright
             "Guess I'll have to try again some other time"
         "Never mind":
-            "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
+            "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken."
             jump prof_reject
     scene bg columbialawn with slideright
     show breaken with moveinright
     "Oh! I see Professor Breaken!"
     menu:
         "Hi":
-            op "Nope. Bye"
-            hide breaken with moveoutright
-            "Oh...that was kind of rude. Maybe Professor Breaken is avoiding me?"
+            op ""
+            hide breaken with moveoutleft
+            "...{p=1.0}Did Professor Breaken just ignore me?"
+            "That was quite rude. Maybe Professor Breaken is avoiding me?"
             "Well I guess, there's always next time"
         "Never mind":
-            "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
+            "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken."
             jump prof_reject
     scene bg milfloor with slideawayleft
     show breaken with moveinleft
-    "It's like seeing a unicorn"
+    "OH! It's Professor Breaken again! This is the perfect chance to ask them for a recommendation letter"
     menu:
         "I was hoping to ask":
-            op "Sorry, can't chat. I've got something more important"
+            op "Sorry, can't chat. I've got somewhere to be"
             hide breaken with moveoutright
             "Oof I didn't realize the sting of rejection would hurt this much"
         "Never mind":
-            "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
+            "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken.They're clearly too busy to write a recommendation letter"
             jump prof_reject
     scene bg collegewalk with slideup
     show breaken with moveinbottom
     "Maybe fourth time's the charm?"
     menu:
         "Hi Professor Breaken! It's great to see you. I was hoping to ask if you would mind writing a letter of recommendation for you":
-            "I'm quite shocked when I managed to say my entire request. Seems like fourth time was the one after all"
-            op "Sorry, who are you again?"
+            "WOAH I managed to say my entire request. Seems like fourth time might be the one after all?"
+            op "So so sorry{p=1.5}But{p=1.5}Who {i}are{/i} you again?"
             "I blink"
             "The professor blinks"
             "We both blink"
-            m "Oh!! Sorry for not introducing myself. I'm %(pname)s I am taking the seminar, Everything you Need to Know About Everything this year?"
+            m "Oh!! Sorry for not introducing myself. I'm %(pname)s I am taking your seminar Everything you Need to Know About Everything?"
+            "Maybe this was a bad idea after all..."
             op "Right, right"
-            "At the newest development, I contemplate {i}hello darkness my old friend{/i}"
+            "...{p=1.0}{i}hello darkness my old friend{/i}"
             m "Right so about that letter of recommendation?"
             if sin >=3:
                 $greed_check +=1
-                op "I'm pretty busy since I have an upcoming presentation coming up.{p=1.5} But I think I can squeeze you in"
+                op "I'm pretty busy since I have an upcoming presentation coming up.{p=1.5}But{p=1.5}I think I can squeeze you in"
+                "OHMAGARD"
                 $success+=1
                 m "Thank you thank you Professor Breaken! I really appreciate it"
-                "Wow, bless whatever higher being for rewarding me with Professor Breaken's kindness"
+                #"Wow, bless whatever higher being for rewarding me with Professor Breaken's kindness"
                 op "No problem. Is there anything else?"
                 "AHhHHHH I'M SO HAPPYYYYY. I'm tempted to give the professor a hug, but I suppress my urges."
-                "Thoough, I do have a newly bought box of chocolates that I was saving for a rainy day."
+                "Though, I do have a newly bought box of chocolates that I was saving for a rainy day."
                 menu:
                     "Should I give it to them?"
                     "Give gift":
@@ -274,8 +277,8 @@ label breaken_route: #need to add an option for giving up
                         hide gift with dissolve
                         show breaken at center, hop
                         "I can see my professor's eyes widen in shock and they look almost happy? It's the first I've ever seen them like this"
-                        op "Thanks %(pname)s{p=1.5}heh, I always did enjoy reading your work for my class"
-                        "This is wrinkling my brain"
+                        op "Thanks %(pname)s{p=1.5}heh{p=1.5}I always did enjoy reading your work for my class"
+                        "WHAT.{p=1.5}Professor Breaken? Me? Like? {p=1.5}Are those butterflies?{p=1.5}This is wrinkling my brain.{size=-10}I thought they didn't recognize me?{/size}{size=-14}tsun-senpai has noticed me?{/size}"
                         m "...Thanks Professor. That means a lot"
                         op "Sure, sure. I need to get going so bye for now!"
                         hide breaken with moveoutright
@@ -288,13 +291,13 @@ label breaken_route: #need to add an option for giving up
                 scene bg collegewalk with Pause(0.5)
                 jump resume
             else:
-                op "I'm pretty busy since I have an upcoming presentation coming up.{p=1.5} So I don't think I can write you one unfortunately"
+                op "I'm pretty busy since I have an upcoming presentation coming up.{p=1.5}So{p=1.5}I don't think I can write you one unfortunately"
                 m "Are you sure there's no way? Surely you can fit the time to write one letter"
                 op "Yes I'm sure, unless you want to have a poorly written letter which can also be arranged"
                 m "Never mind, thanks for your time"
                 jump prof_reject
         "Never mind":
-            "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. I'm pretty sure that they hate me"
+            "After giving this more thought, I really don't think it's a good idea to ask Professor Breaken. They're clearly too busy to write a recommendation letter"
             jump prof_reject
 label prof_reject:
     $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
@@ -427,7 +430,7 @@ label sab_marie:
     jump resume
 label resume:
     "Anyways yay, I've figured out my recommendation letter!"
-    "Hmm, what's next on the list that Dream Job and Co. to include in my application again?"
+    "Hmm, what else do I need to include my application again?"
     "Right! A resume. Let's head over to Buttler to properly focus"
     scene bg but_entrance with Pause(1.5)
     scene bg buthall with fade
@@ -544,21 +547,22 @@ label intern_interview:
     scene bg bedroom with fade
     "Man, it's been days since I've submitted my application to Dream Job and Co. I'm getting nervous. The lack of news is probably bad news"
     show screen mailbox_overlay
-    "Omg, it's like the world is psychic or something"
     if greed_check >=2:
         $interview_offer = True
         #The Interviews
         $ add_message("Re: Offer to Your Dream Job","HR @ Dream Job and Co","Hi, We are pleased to inform you that you are invited to the next stage of our interview process. Please come to SomeOffice at Number Lane at 5 pm on Friday. We're excited to learn more about you. With Dream Job and Co, all of our dreams will come true")
         play sound "audio/email_notif.mp3"
+        "Omg, it's like the world is psychic or something"
         "An email notification!"
         "Omg yes!! All the all-nighters and crying has paid off! "
         "I'm going to become top dog around here!"
-        "I got to the interview!!!!"
+        "I got the interview!!!!"
         "Omg, what day is it. Wednesday? I should head over to CCE for a mock interview so I'm ready for Friday"
         "I'm so excited!!! AHHHHH"
     else:
         $ add_message("Re: Offer to Your Dream Job","HR @ Dream Job and Co","Hi, We regret to inform you that we will not be continuing with your application. Please note that this year's applicant pool was very competitive. While your skills and experience were very impressive, we sound someone better for the position. We look forward to your continued interest with Dream Job and Co. With Dream Job and Co, all of your dreams aren't coming true")
         play sound "audio/email_notif.mp3"
+        "Omg, it's like the world is psychic or something"
         "An email notification!"
         "Oh no"
         "It's exactly as I feared, it looks like my application wasn't good enough after all *sigh*"
@@ -622,12 +626,11 @@ label intern_interview:
         "...Haha you need help? Pathetic":
             $maximillion_friendship-=1
             show max mad at right
-            b "{p=1.0}Excuse me? It might just be my imagination, but I think an insect just spoke"
+            b "Excuse me?{p=1.0}It might just be my imagination, but I think an insect just spoke"
             m "Hahah keep it up with your false pretenses, you're so sad"
-            b "Speaking so harshly to your future boss may just cause you to end up losing it all you know"
+            b "Speaking so harshly to your future boss, how audacious of you"
             m "You're so funny. Without a job offer and doing mock interviews, yet spitting such fire"
-            b "It's like a speck of dust speaking to an emperor, so {p=1.0}unfathomable"
-            b "Oh %(pname)s sad as always"
+            b "It's like a speck of dust speaking to an emperor, so {p=2.0}unfathomable"
             if seduce_max == True:
                 b "I so deeply regret that night after Hel's"
             hide max mad with dissolve
@@ -645,16 +648,16 @@ label intern_interview:
 $ timer_range = 0
 $ timer_jump = 0
 transform alpha_dissolve:
-    alpha 0.0
-    linear 0.5 alpha 1.0
+    alpha 0
+    linear 0.5 alpha 1.0 #linear 0.5 alpha 1.0
     on hide:
-        linear 0.5 alpha 0
+        linear 0.5 alpha 0 #linear 0.5 alpha 0
     # This is to fade the bar in and out, and is only required once in your script
 
 screen countdown: #relates to question 1
     timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01), false=[Hide('countdown'), Jump(timer_jump)])
-    bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve # This is the timer bar.
-
+    bar value time range timer_range xalign 0.5 yalign 0.735 xmaximum 300 at alpha_dissolve # This is the timer bar.
+    # xalign 0.5 yalign 0.9
 label real_interview:
     $renpy.music.set_volume(1.0, delay=0.5, channel="Chan1")
     $renpy.music.set_volume(volume=0.0, delay=0.5, channel="Chan2")

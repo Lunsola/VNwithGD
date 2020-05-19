@@ -984,7 +984,11 @@ label finaljudgment:
         r "Welcome to hell, %(pname)s."
         $ persistent.ending="end bad"
         scene bg black
-        with dissolve
+        with Pause(1)
+        show text "{size=50}CU in Hell{/size}"
+        with Pause(2)
+        hide text
+        #with dissolve
         window hide
         show badend
         pause

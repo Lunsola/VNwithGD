@@ -235,7 +235,9 @@ image bg john jay outside:
     zoom 1.1
     "johnjayoutside.jpg"
 image bg ferris = "ferrisbooth.jpg"
-image bg ferris inside = "ferrisinside.jpg"
+image bg ferris inside:
+    zoom 1.2
+    "ferrisinside.jpg"
 
 # The game starts here.
 
