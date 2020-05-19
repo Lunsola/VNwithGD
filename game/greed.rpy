@@ -428,7 +428,7 @@ label resume:
     show marie happy
     r "Hey %(pname)s! What are you doing here?"
     m "Ah, I'm writing my resume"
-    r "Nice, nice! I did that recently too. I'm just here finishing up an essay! Let me know if you need any help, I have a bunch of pointers"
+    r "Nice, nice! I wrote one after I had a panicked about how I'm so behind compared to everyone else here. haha. Let me know if you need any help, I have a bunch of pointers"
     m "Thank youuuu"
     menu:
         "Write your resume by yourself":
@@ -457,6 +457,7 @@ label resume:
             m "Hey Marie! Sorry to bother would you mind letting me look at your resume? I promise I won't copy or anything. My brain is just a bowl of jelly and I'm not quite sure where to start."
             show marie ingenuine
             r "Yeah! Of course. I'd be happy to help. Here you go"
+            r "I'm not sure if it's anything worth copying though. "
             m "Thanks a lot!!"
             #potentially show marie resume
             "Woah, this is brilliant. Super extensive"
